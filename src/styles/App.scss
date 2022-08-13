@@ -1,0 +1,66 @@
+@import "variables";
+
+.dot-typing {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $primary_color;
+    color: $primary_color;
+    box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
+    animation: dotTyping 1.5s infinite linear;
+}
+
+@keyframes dotTyping {
+    0% {
+        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
+    }
+
+    16.667% {
+        box-shadow: 9984px -10px 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
+    }
+
+    33.333% {
+        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
+    }
+
+    50% {
+        box-shadow: 9984px 0 0 0 $primary_color, 9999px -10px 0 0 $primary_color, 10014px 0 0 0 $primary_color;
+    }
+
+    66.667% {
+        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
+    }
+
+    83.333% {
+        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px -10px 0 0 $primary_color;
+    }
+
+    100% {
+        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
+    }
+}
+
+.hide__loading__page {
+    display: none !important;
+}
+
+.loading__page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__image--container {
+    width: 200px;
+    height: 100px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
