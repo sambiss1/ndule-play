@@ -1,8 +1,20 @@
-import React from 'react'
+import { React, useEffect } from 'react';
 
-const LoginLeftSection = () => {
+import Logo from "../images/Ndule-play-logo-final.png"
+
+
+
+import "../styles/loginPage.css"
+
+export const LoginLeftSection = () => {
     return (
-        <div>LoginLeftSection</div>
+        <>
+            <div
+                className="login__left--section"
+            >
+                <img src={Logo} alt="logo officiel" />
+            </div>
+        </>
     )
 }
 
