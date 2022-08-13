@@ -13,7 +13,8 @@ function App({ hideLoader }) {
 
   const { user } = useContext(UserContext);
   useEffect(hideLoader, [])
-  return <UnAuthUser />
+
+  return user.auth ? <AuthUser /> : <UnAuthUser />;
 }
 
 export default App;

@@ -4,40 +4,14 @@ export const UserContext = createContext({ token: "", auth: false })
 
 
 export const UserProvider = ({ children }) => {
-    const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-    const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
-    const AUTH_ENDPOINT = process.env.REACT_APP_AUTH_ENDPOINT;
-    const RESPONSE_TYPE = process.env.REACT_APP_RESPONSE_TYPE;
+    const CLIENT_ID = "5aa0312dd868402aa4f2f05f91de64e1"
+    const REDIRECT_URI = "http://localhost:3000/home"
+    const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
+    const RESPONSE_TYPE = "token"
 
-
-    const [token, setToken] = useState("")
+    // const [token, setToken] = useState("")
 
     const [user, setUser] = useState({ token: "", auth: false })
-
-
-
-    useEffect(() => {
-        const hash = window.location.hash
-        let token = window.localStorage.getItem("token")
-
-        if (!token && hash) {
-            token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
-            window.location.hash = ""
-            window.localStorage.setItem("token", token)
-        }
-
-        setToken(token)
-        setUser({
-            token: token,
-            auth: true
-        })
-
-
-        console.log(token)
-
-    }, [])
-
     const login = () => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
@@ -49,7 +23,7 @@ export const UserProvider = ({ children }) => {
             window.localStorage.setItem("token", token)
         }
 
-        setToken(token)
+        // setToken(token)
         setUser({
             token: token,
             auth: true
@@ -59,15 +33,31 @@ export const UserProvider = ({ children }) => {
         console.log(token)
 
     }
+    const handleLogin = (user) => {
+
+        window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+    }
+    useEffect(() => {
+        login()
+
+    }, [])
+
+
+
+
+
 
     const logout = () => {
-        setToken("")
         window.localStorage.removeItem("token")
+        setUser({
+            token: "",
+            auth: false
+        })
     }
 
     return (
 
-        <UserContext.Provider value={{ login, token, user }} >
+        <UserContext.Provider value={{ login, user, logout, handleLogin }} >
             {children}
         </UserContext.Provider>
     )

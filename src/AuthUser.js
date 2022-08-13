@@ -5,14 +5,15 @@ import HomePage from './pages/HomePage';
 
 import { UserContext } from './UserContext';
 
-const AuthUser = () => {
-    const { user } = useContext(UserContext);
+const AuthUser = ({ newUser, setNewUser }) => {
+
+    const { user, login, logout } = useContext(UserContext);
     return (
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route index element={<HomePage user={user} />} />
-                    <Route path="/login" element={<LoginPage user={user} />} />
+                    <Route path="/" index element={<HomePage user={user} newUser={newUser} setNewUser={setNewUser} />} />
+                    <Route path="/login" element={<LoginPage user={user} newUser={newUser} setNewUser={setNewUser} />} />
                 </Routes>
             </BrowserRouter>
             <Outlet />
