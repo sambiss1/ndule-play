@@ -2,6 +2,12 @@
 @import "variables";
 
 
+html,
+body {
+    width: 100wh;
+    height: 100vh;
+}
+
 
 .dot-typing {
     position: relative;

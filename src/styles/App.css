@@ -1,5 +1,11 @@
 /* Light mode color */
 /* Dark mode color */
+html,
+body {
+  width: 100wh;
+  height: 100vh;
+}
+
 .dot-typing {
   position: relative;
   left: -9999px;
