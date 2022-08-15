@@ -12,7 +12,7 @@ export const Header = () => {
             className="header--container"
         >
             <SearchBar />
-            {/* <ThemeToggler /> */}
+            <ThemeToggler />
             <UserLogged />
 
         </div>
