@@ -14,12 +14,12 @@ export const HomePage = () => {
             className="homepage--container"
         >
 
-            <div>
+            {/* <div>
                 <button
 
                     onClick={logout}
                 >Logout</button>
-            </div>
+            </div> */}
             <Sidebar />
             <HomePageContent />
         </div>
