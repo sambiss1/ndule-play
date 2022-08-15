@@ -4,7 +4,8 @@
   form {
     font-size: 1.6em;
     margin-right: 15%;
-    width: auto;
+    width: 20%;
+    height: 40px;
   }
 
   .search__input--container {
