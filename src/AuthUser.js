@@ -12,8 +12,8 @@ const AuthUser = ({ newUser, setNewUser }) => {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" index element={<HomePage user={user} newUser={newUser} setNewUser={setNewUser} />} />
-                    <Route path="/login" element={<LoginPage user={user} newUser={newUser} setNewUser={setNewUser} />} />
+                    <Route path="/" index element={<HomePage />} />
+                    <Route path="/login" element={<LoginPage />} />
                 </Routes>
             </BrowserRouter>
             <Outlet />

@@ -5,7 +5,7 @@ export const UserContext = createContext({ token: "", auth: false })
 
 export const UserProvider = ({ children }) => {
     const CLIENT_ID = "5aa0312dd868402aa4f2f05f91de64e1"
-    const REDIRECT_URI = "http://localhost:3000/home"
+    const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
 
@@ -32,6 +32,8 @@ export const UserProvider = ({ children }) => {
 
         console.log(token)
 
+        console.log(user.auth)
+
     }
     const handleLogin = (user) => {
 
@@ -53,6 +55,9 @@ export const UserProvider = ({ children }) => {
             token: "",
             auth: false
         })
+
+        console.log(user.auth)
+        console.log(user.token)
     }
 
     return (
