@@ -1,0 +1,12 @@
+@use "sass:map";
+@import "variables";
+@import "_breakpoints";
+
+
+@media(max-width: map.get($breakpoints, "sl")) {
+
+    .homepage--container {
+        display: grid;
+        grid-template-columns: 25% 75%;
+    }
+}

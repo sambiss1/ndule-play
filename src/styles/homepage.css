@@ -1,0 +1,10 @@
+/* Light mode color */
+/* Dark mode color */
+@media (max-width: 1400px) {
+  .homepage--container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
+}
+
+/*# sourceMappingURL=homepage.css.map */

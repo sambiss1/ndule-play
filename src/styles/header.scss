@@ -1,0 +1,18 @@
+@use "sass:map";
+@import "variables.scss";
+@import "__breakpoints";
+
+@media screen and (max-width: map.get($breakpoints, "sl")) {
+    .header--container {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+
+        padding: 2% 3%;
+    }
+
+    .themetoggler {
+        width: 30%;
+        border: .1em solid red;
+    }
+}
