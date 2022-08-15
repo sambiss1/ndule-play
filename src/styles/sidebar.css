@@ -1,0 +1,10 @@
+/* Light mode color */
+/* Dark mode color */
+@media (max-width: 1400px) {
+  .sidebar--container {
+    background-color: #323232;
+    height: 100vh;
+  }
+}
+
+/*# sourceMappingURL=sidebar.css.map */

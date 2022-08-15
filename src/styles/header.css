@@ -1,0 +1,17 @@
+/* Light mode color */
+/* Dark mode color */
+@media screen and (max-width: 1400px) {
+  .header--container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    padding: 2% 3%;
+  }
+
+  .themetoggler {
+    width: 30%;
+    border: 0.1em solid red;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

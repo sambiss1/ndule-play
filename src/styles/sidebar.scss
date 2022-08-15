@@ -1,0 +1,14 @@
+@use "sass:map";
+
+@import "variables";
+@import "__breakpoints";
+
+
+@media (max-width: map.get($breakpoints, "sl")) {
+
+    .sidebar--container {
+        background-color: $sidebar_dark_mode_background_color;
+        height: 100vh;
+
+    }
+}

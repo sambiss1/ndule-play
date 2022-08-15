@@ -1,0 +1,38 @@
+/* Light mode color */
+/* Dark mode color */
+@media (max-width: 1400px) {
+  form {
+    font-size: 1.6em;
+    margin-right: 15%;
+    width: auto;
+  }
+
+  .search__input--container {
+    display: flex;
+    position: relative;
+  }
+  .search__input--container .search__bar--icon {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    font-size: 0.8em;
+  }
+  .search__input--container input[type=search] {
+    background-color: #323232;
+    color: #F8E5DB;
+    border-radius: 25px 0 0 25px;
+    padding: 1% 25%;
+    border-right: none;
+    outline: none;
+  }
+
+  input[type=submit] {
+    background-color: #DE5000;
+    color: #FFFFFF;
+    border: none;
+    padding: 5% 15%;
+    border-radius: 0 25px 25px 0;
+  }
+}
+
+/*# sourceMappingURL=searchbar.css.map */
