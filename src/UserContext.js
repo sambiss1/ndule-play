@@ -21,13 +21,14 @@ export const UserProvider = ({ children }) => {
 
             window.location.hash = ""
             window.localStorage.setItem("token", token)
+            setUser({
+                token: token,
+                auth: true
+            })
         }
 
         // setToken(token)
-        setUser({
-            token: token,
-            auth: true
-        })
+        
 
 
         console.log(token)
