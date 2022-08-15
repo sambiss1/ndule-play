@@ -24,3 +24,10 @@ $button_light_mode_background: $button_light_mode_background;
 $button_light_mode_text_color: $button_light_mode_text;
 
 
+
+@mixin margin {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+}

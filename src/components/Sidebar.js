@@ -1,8 +1,20 @@
-import React from 'react'
+import React from 'react';
+import "../styles/sidebar.css";
+import LogoContainer from './LogoContainer';
+import NavigationMenu from './NavigationMenu'
+
 
 export const Sidebar = () => {
     return (
-        <div>Sidebar</div>
+        <>
+            <div
+                className="sidebar--container"
+            >
+                <LogoContainer />
+                <NavigationMenu />
+            </div>
+
+        </>
     )
 }
 

@@ -15,13 +15,7 @@ export const LoginRightSection = ({ newUser, setNewUser }) => {
             <div>
                 LoginRightSection
                 <div>
-                    {/* <button>
-                        {!token ?
-                            <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-                                to Spotify</a>
-                            : <button onClick={logout}>Logout</button>}
 
-                    </button> */}
                     <div>
                         <button
                             onClick={handleLogin}

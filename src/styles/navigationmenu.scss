@@ -1,0 +1,51 @@
+@use "sass:map";
+@import "variables";
+@import "__breakpoints";
+
+
+
+@media (max-width: map.get($breakpoints, "sl")) {
+
+    .navigation__menu--container {
+        width: 100%;
+    }
+
+    ul {
+        list-style-type: none;
+        width: 100%;
+
+        li {
+            color: $secondary_color;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            align-self: flex-start;
+
+
+
+            span {
+                margin: 0 5%;
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .active {
+        color: $primary_color;
+    }
+
+    .library__menu--container {
+        h2 {
+            margin-left: 10%;
+        }
+
+        hr {
+            width: 20%;
+            margin-left: 10%;
+            // height: 1em;
+            height: 2px;
+            color: $primary_color;
+            background-color: $primary_color;
+        }
+    }
+}
