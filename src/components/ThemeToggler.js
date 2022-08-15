@@ -1,8 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { BsMoon } from "react-icons/bs"
+import "../styles/themetoggle.css";
 
 export const ThemeToggler = () => {
     return (
-        <div>ThemeToggler</div>
+        <div
+            className="themetoogler--container"
+        >
+
+            <label className="switch">
+                <input type="checkbox" />
+                <span className="slider round">
+                    {/* <BsMoon /> */}
+                </span>
+            </label>
+        </div>
     )
 }
 
