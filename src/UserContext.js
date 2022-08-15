@@ -2,7 +2,7 @@ import { React, useEffect, useState, useContext, createContext } from "react";
 
 import axios from "axios";
 
-export const UserContext = createContext({ token: "", auth: false });
+export const UserContext = createContext({ token: "", auth: false }, { username: "" });
 
 
 export const UserProvider = ({ children }) => {
@@ -14,6 +14,7 @@ export const UserProvider = ({ children }) => {
 
 
     const [user, setUser] = useState({ token: "", auth: false })
+    const [username, setUsername] = useState("")
 
 
 
@@ -27,6 +28,7 @@ export const UserProvider = ({ children }) => {
             window.location.hash = ""
             window.localStorage.setItem("token", token)
             setUser({
+
                 token: token,
                 auth: true
             })
@@ -51,7 +53,7 @@ export const UserProvider = ({ children }) => {
 
         console.log(access_token)
 
-        const user = await axios.get("https://api.spotify.com/v1/me", {
+        const logged_user = await axios.get("https://api.spotify.com/v1/me", {
             headers: {
                 "Authorization": "Bearer " + access_token
             }
@@ -67,10 +69,22 @@ export const UserProvider = ({ children }) => {
                 return (err);
             });
 
-        console.log(user.data)
+        console.log(logged_user.data)
+        console.log(logged_user.data.display_name)
 
-        return user;
+        setUsername(logged_user.data.display_name)
+
+        // setUser(...{
+        //     username: user.data.display_name
+        // })
+
+
+        // console.log(logged_user.username)
+
+        return logged_user;
     }
+
+
 
 
     const getAlbums = async (access_token) => {
@@ -107,7 +121,7 @@ export const UserProvider = ({ children }) => {
 
     return (
 
-        <UserContext.Provider value={{ login, user, logout, handleLogin, user_account }} >
+        <UserContext.Provider value={{ login, user, logout, handleLogin, user_account, username }} >
             {children}
         </UserContext.Provider>
     )

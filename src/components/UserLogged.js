@@ -2,12 +2,17 @@ import { React, useContext } from 'react';
 
 import UserTest from "../images/user-test.png";
 
-import { FiChevronDown } from "react-icons/fi"
+import { FiChevronDown } from "react-icons/fi";
+
+
+import { UserContext } from '../UserContext';
 
 
 import "../styles/userlogged.css"
 
 export const UserLogged = () => {
+
+    const { user, username } = useContext(UserContext)
     return (
         <div
             className="userlooged--container"
@@ -23,10 +28,10 @@ export const UserLogged = () => {
             </div>
 
             <div>
-                <h2>Sam Bisselele</h2>
+                <h2>{username}</h2>
             </div>
             <div>
-                <FiChevronDown 
+                <FiChevronDown
                     className="chevron__dropdown"
 
                 />

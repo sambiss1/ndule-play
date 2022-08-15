@@ -7,7 +7,10 @@ import HomePageContent from "../components/HomePageContent";
 import "../styles/homepage.css"
 export const HomePage = () => {
 
-    const { user, login, handleLogin, logout } = useContext(UserContext);
+    const { user, username, login, handleLogin, logout } = useContext(UserContext);
+
+
+    console.log(username)
 
     return (
         <div
