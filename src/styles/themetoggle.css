@@ -24,14 +24,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #323232;
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
 
   .slider:before {
     position: absolute;
-    content: "";
+    content: "9790";
     height: 26px;
     width: 26px;
     left: 4px;
