@@ -1,15 +1,18 @@
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react';
 import { BiHomeAlt } from "react-icons/bi";
 import { MdOutlineMusicVideo, MdHistory } from "react-icons/md";
 import { TbPlaylist, TbMusic } from "react-icons/tb";
-import { FiHeart } from "react-icons/fi"
+import { FiHeart } from "react-icons/fi";
 
-import TrackList from "../images/playlist-icon.svg"
-import "../styles/navigationmenu.css"
+import TrackList from "../images/playlist-icon.svg";
+import "../styles/navigationmenu.css";
+
+import { UserContext } from "../UserContext"
 
 export const NavigationMenu = ({ className }) => {
     const [isActive, setIsActive] = useState("active")
 
+    const { logout } = useContext(UserContext)
 
     return (
         <>
@@ -37,8 +40,14 @@ export const NavigationMenu = ({ className }) => {
                     <li><MdHistory /><span>Joués récemments</span></li>
                     <li><FiHeart /><span>Favoris</span></li>
                 </ul>
+
             </nav>
 
+            <button
+                onClick={logout}
+            >
+                Logout
+            </button>
 
         </>
     )

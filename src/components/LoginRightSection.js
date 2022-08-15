@@ -9,7 +9,7 @@ import { UserContext } from '../UserContext';
 export const LoginRightSection = ({ newUser, setNewUser }) => {
 
 
-    const { user, login, handleLogin } = useContext(UserContext);
+    const { user, login, handleLogin, logout } = useContext(UserContext);
     return (
         <>
             <div>
@@ -21,6 +21,11 @@ export const LoginRightSection = ({ newUser, setNewUser }) => {
                             onClick={handleLogin}
                         >
                             Login
+                        </button>
+                        <button
+                            onClick={logout}
+                        >
+                            Logout
                         </button>
                     </div>
 
