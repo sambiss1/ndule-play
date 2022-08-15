@@ -30,7 +30,8 @@
             border-radius: 25px 0 0 25px;
             padding: 1% 25%;
             border-right: none;
-            outline: none;
+            outline-color: $primary_color;
+            border: .1em solid #fff;
 
         }
     }
