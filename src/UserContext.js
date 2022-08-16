@@ -1,6 +1,7 @@
-import { React, useEffect, useState, useContext, createContext } from "react";
-
+import { React, useEffect, useState, createContext } from "react";
 import axios from "axios";
+// import Spotify from 'spotify-web-api-js';
+
 
 export const UserContext = createContext({ token: "", auth: false }, { username: "" });
 
@@ -17,6 +18,7 @@ export const UserProvider = ({ children }) => {
     const [username, setUsername] = useState("")
 
 
+    let access_token = window.localStorage.getItem("token")
 
     const login = () => {
         const hash = window.location.hash
@@ -33,10 +35,12 @@ export const UserProvider = ({ children }) => {
                 auth: true
             })
 
+
+
             user_account()
+            getAlbums()
 
         }
-
 
 
     }
@@ -47,11 +51,7 @@ export const UserProvider = ({ children }) => {
     }
     const user_account = async (access_token) => {
 
-        console.log(window.localStorage.getItem("token"))
-
-        access_token = window.localStorage.getItem("token")
-
-        console.log(access_token)
+        access_token = window.localStorage.getItem("token");
 
         const logged_user = await axios.get("https://api.spotify.com/v1/me", {
             headers: {
@@ -60,9 +60,7 @@ export const UserProvider = ({ children }) => {
         })
             .then(response => {
 
-                // Return the full details of the user.
                 return response;
-
             })
 
             .catch(err => {
@@ -74,12 +72,6 @@ export const UserProvider = ({ children }) => {
 
         setUsername(logged_user.data.display_name)
 
-        // setUser(...{
-        //     username: user.data.display_name
-        // })
-
-
-        // console.log(logged_user.username)
 
         return logged_user;
     }
@@ -88,7 +80,21 @@ export const UserProvider = ({ children }) => {
 
 
     const getAlbums = async (access_token) => {
+        access_token = window.localStorage.getItem("token")
 
+        const album = await axios.get("https://api.spotify.com/v1/browse/new-releases?market=CD&limit=20&offset=5", {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + access_token
+            }
+        })
+
+            .then(response => response)
+            .catch(error => error)
+        // .finally(data => r)
+
+        console.log(album)
     }
 
 

@@ -11,12 +11,6 @@ function App({ hideLoader }) {
   const { user } = useContext(UserContext);
   useEffect(hideLoader, [])
 
-  console.log(user.auth)
-
-  // console.log(user.token)
-
-
-
   const actual__token = window.localStorage.getItem("token")
 
 
