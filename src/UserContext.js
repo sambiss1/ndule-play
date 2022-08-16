@@ -33,7 +33,8 @@ export const UserProvider = ({ children }) => {
             })
             getDataFromSpotify();
             getMyAccount();
-            getMyTopAlbum();
+            // getMyTopAlbum();
+            getNewRelease();
         }
     }
 
@@ -70,10 +71,7 @@ export const UserProvider = ({ children }) => {
             const getMyTopArtists = async () => {
                 spotifyApi.setAccessToken(localStorage.getItem('token'));
                 const myTopArtist = await spotifyApi.getMyTopArtists();
-                // console.log(myTopArtist.items);
-
                 localStorage.setItem("my_top_artist", JSON.stringify(myTopArtist.items))
-                // console.log(JSON.parse(localStorage.getItem("my_top_artist")))
             }
 
             getMyTopArtists();
@@ -88,8 +86,6 @@ export const UserProvider = ({ children }) => {
     const getMyTopAlbum = async () => {
         try {
             const myTopAlbum = await spotifyApi.getAlbums([])
-
-
         }
         catch (error) {
             console.log(error)
@@ -98,6 +94,13 @@ export const UserProvider = ({ children }) => {
 
     }
 
+
+    const getNewRelease = async () => {
+        const getNewAlbumRelease = await spotifyApi.getNewReleases()
+
+        console.log(getNewAlbumRelease.albums.items)
+        localStorage.setItem("new-release-album", JSON.stringify(getNewAlbumRelease.albums.items))
+    }
     // Logout function
     const logout = () => {
         window.localStorage.removeItem("token");

@@ -22,12 +22,30 @@
     .album__item--container {
 
         border-radius: 25px;
-        height: 200px;
+        height: 300px;
+        margin: 5% 0;
 
-        img {
+
+        .album__image--container {
             width: 100%;
-            height: 100%;
-            border-radius: 25px;
+            height: 200px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 25px;
+            }
         }
+
+        .artist__name {
+            color: $primary_color;
+            margin: 0;
+        }
+
+        .album__name {
+
+            margin: 0;
+        }
+
     }
 }

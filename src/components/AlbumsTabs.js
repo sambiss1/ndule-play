@@ -6,7 +6,7 @@ import { UserContext } from '../UserContext';
 
 import "../styles/albumitem.css"
 
-export const AlbumsTabs = ({ artist }) => {
+export const AlbumsTabs = ({ artist, newalbum }) => {
     let myTopArtists = JSON.parse(localStorage.getItem("my_top_artist"));
 
 
@@ -19,6 +19,11 @@ export const AlbumsTabs = ({ artist }) => {
     const [artists, setArtists] = useState(myTopArtists);
     console.log(artists.map(artist => artist.name && artist.images.find(image => image.url)))
 
+    console.log(JSON.parse(localStorage.getItem("new-release-album")))
+
+    let newReleaseAlbum = JSON.parse(localStorage.getItem("new-release-album"))
+
+    console.log(newReleaseAlbum.map((newalbum) => newalbum.name + " " + newalbum.artists[0].name + newalbum.images[0].url))
 
     return (
 
@@ -33,15 +38,12 @@ export const AlbumsTabs = ({ artist }) => {
                 className="album__tabs--panel"
 
             >
-
-                {artistImage.map((artist) => artist &&
-                    <AlbumItem artist={artist} />
-
-                )}
-
-                {artists.map(artist => artist &&
-                    <AlbumItem artist={artist} />
-                )}
+                {
+                    newReleaseAlbum.map((newalbum) => newalbum.name + newalbum.artists[0].name + newalbum.images[0].url
+                        &&
+                        <AlbumItem newalbum={newalbum} />
+                    )
+                }
 
             </div>
 

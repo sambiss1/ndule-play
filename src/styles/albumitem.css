@@ -17,12 +17,24 @@
 
   .album__item--container {
     border-radius: 25px;
+    height: 300px;
+    margin: 5% 0;
+  }
+  .album__item--container .album__image--container {
+    width: 100%;
     height: 200px;
   }
-  .album__item--container img {
+  .album__item--container .album__image--container img {
     width: 100%;
     height: 100%;
     border-radius: 25px;
+  }
+  .album__item--container .artist__name {
+    color: #DE5000;
+    margin: 0;
+  }
+  .album__item--container .album__name {
+    margin: 0;
   }
 }
 

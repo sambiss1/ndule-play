@@ -12,7 +12,7 @@ export const HomePageContent = () => {
                 left: "25%",
                 position: "absolute",
                 width: "75%",
-                paddingBottom: "300px"
+                paddingBottom: "100px"
             }}
 
         >
