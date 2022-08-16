@@ -1,7 +1,8 @@
 import { React, useContext, useEffect, useState } from 'react';
 
-import { FcGoogle } from "react-icons/fc"
+import { FcGoogle } from "react-icons/fc";
 
+import { FaSpotify } from "react-icons/fa"
 import { UserContext } from '../UserContext';
 
 
@@ -13,14 +14,14 @@ export const LoginRightSection = ({ newUser, setNewUser }) => {
     return (
         <>
             <div>
-                LoginRightSection
+
                 <div>
 
                     <div>
                         <button
                             onClick={handleLogin}
                         >
-                            Login
+                            <FaSpotify />Continuez avec Spotify
                         </button>
                         <button
                             onClick={logout}

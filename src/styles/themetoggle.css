@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Light mode color */
 /* Dark mode color */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1440px) {
   /* The switch - the box around the slider */
   .switch {
     position: relative;

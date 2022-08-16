@@ -1,6 +1,6 @@
 /* Light mode color */
 /* Dark mode color */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1440px) {
   .header--container {
     display: flex;
     width: 90%;

@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
-    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read playlist-read-private"
+    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private"
 
 
     const [user, setUser] = useState({ token: "", auth: false })

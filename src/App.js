@@ -13,7 +13,14 @@ function App({ hideLoader }) {
 
   console.log(user.auth)
 
-  return user.auth ? <AuthUser /> : <UnAuthUser />;
+  // console.log(user.token)
+
+
+
+  const actual__token = window.localStorage.getItem("token")
+
+
+  return actual__token ? <AuthUser /> : <UnAuthUser />;
 }
 
 export default App;
