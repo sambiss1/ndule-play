@@ -10,7 +10,6 @@ export const HomePageSlider = () => {
                 width: "95%",
                 height: "400px",
                 margin: "auto"
-
             }}
         >
             <img

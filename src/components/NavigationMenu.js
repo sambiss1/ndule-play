@@ -1,10 +1,10 @@
 import { React, useState, useContext } from 'react';
-import { BiHomeAlt } from "react-icons/bi";
+import { BiHomeAlt, BiLogOut } from "react-icons/bi";
 import { MdOutlineMusicVideo, MdHistory } from "react-icons/md";
 import { TbPlaylist, TbMusic } from "react-icons/tb";
 import { FiHeart } from "react-icons/fi";
 
-import TrackList from "../images/playlist-icon.svg";
+
 import "../styles/navigationmenu.css";
 
 import { UserContext } from "../UserContext"
@@ -30,11 +30,6 @@ export const NavigationMenu = ({ className }) => {
 
                 </ul>
 
-            </nav>
-            <nav
-                className="library__menu--container"
-            >
-                <h2>Libraire</h2>
                 <hr />
                 <ul>
                     <li><MdHistory /><span>Joués récemments</span></li>
@@ -43,11 +38,6 @@ export const NavigationMenu = ({ className }) => {
 
             </nav>
 
-            <button
-                onClick={logout}
-            >
-                Logout
-            </button>
 
         </>
     )

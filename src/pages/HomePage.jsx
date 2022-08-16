@@ -7,7 +7,9 @@ import HomePageContent from "../components/HomePageContent";
 import "../styles/homepage.css"
 export const HomePage = () => {
 
-    const { user, username, login, handleLogin, logout } = useContext(UserContext);
+    const { user, username, login, handleLogin, logout, allAlbums } = useContext(UserContext);
+
+    console.log(`New releases albums : ${allAlbums}`);
 
     return (
         <div

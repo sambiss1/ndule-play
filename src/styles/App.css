@@ -68,10 +68,10 @@ body {
 }
 
 .application__logo--container {
-  width: 90%;
-  height: 80px;
+  width: 80%;
+  height: 60px;
   display: flex;
-  margin: auto;
+  margin: 0 auto;
 }
 .application__logo--container img {
   width: 100%;

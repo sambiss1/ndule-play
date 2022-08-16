@@ -1,7 +1,8 @@
 import React from 'react';
 import "../styles/sidebar.css";
 import LogoContainer from './LogoContainer';
-import NavigationMenu from './NavigationMenu'
+import NavigationMenu from './NavigationMenu';
+import LogoutButton from './LogoutButton';
 
 
 export const Sidebar = () => {
@@ -12,6 +13,7 @@ export const Sidebar = () => {
             >
                 <LogoContainer />
                 <NavigationMenu />
+                <LogoutButton />
             </div>
 
         </>

@@ -30,12 +30,7 @@ export const UserLogged = () => {
             <div>
                 <h2>{localStorage.getItem("logged__user")}</h2>
             </div>
-            <div>
-                <FiChevronDown
-                    className="chevron__dropdown"
 
-                />
-            </div>
         </div>
     )
 }

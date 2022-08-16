@@ -1,9 +1,9 @@
 import { React, useEffect, useState, createContext } from "react";
 import axios from "axios";
-// import Spotify from 'spotify-web-api-js';
+import Spotify from 'spotify-web-api-js';
 
 
-export const UserContext = createContext({ token: "", auth: false }, { username: "" });
+export const UserContext = createContext({ token: "", auth: false }, { username: "" }, { allAlbums: {} });
 
 
 export const UserProvider = ({ children }) => {
@@ -16,6 +16,7 @@ export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState({ token: "", auth: false })
     const [username, setUsername] = useState("")
+    const [allAlbums, setAllAlbums] = useState({})
 
 
     let access_token = window.localStorage.getItem("token")
@@ -30,7 +31,6 @@ export const UserProvider = ({ children }) => {
             window.location.hash = ""
             window.localStorage.setItem("token", token)
             setUser({
-
                 token: token,
                 auth: true
             })
@@ -82,7 +82,7 @@ export const UserProvider = ({ children }) => {
     const getAlbums = async (access_token) => {
         access_token = window.localStorage.getItem("token")
 
-        const album = await axios.get("https://api.spotify.com/v1/browse/new-releases?market=CD&limit=20&offset=5", {
+        const albums = await axios.get("https://api.spotify.com/v1/albums?ids=0JBjfd9NAcpgHBbllm0fQg", {
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -93,7 +93,9 @@ export const UserProvider = ({ children }) => {
             .then(response => response)
             .catch(error => error)
 
-        console.log(album)
+        // console.log(albums.map((item) => item.artist))
+        console.log({ albums })
+        // setAllAlbums({ albums })
     }
 
 
@@ -125,7 +127,7 @@ export const UserProvider = ({ children }) => {
 
     return (
 
-        <UserContext.Provider value={{ login, user, logout, handleLogin, user_account, username }} >
+        <UserContext.Provider value={{ login, user, logout, handleLogin, user_account, username, allAlbums }} >
             {children}
         </UserContext.Provider>
     )
