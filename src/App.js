@@ -8,7 +8,7 @@ import { UserContext } from './UserContext';
 
 function App({ hideLoader }) {
 
-  const { user } = useContext(UserContext);
+  const { user, username } = useContext(UserContext);
   useEffect(hideLoader, [])
 
   const actual__token = window.localStorage.getItem("token")

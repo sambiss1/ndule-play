@@ -28,7 +28,7 @@ export const UserLogged = () => {
             </div>
 
             <div>
-                <h2>{username}</h2>
+                <h2>{localStorage.getItem("logged__user")}</h2>
             </div>
             <div>
                 <FiChevronDown

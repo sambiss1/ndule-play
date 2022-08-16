@@ -1,9 +1,14 @@
 /* Light mode color */
 /* Dark mode color */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .sidebar--container {
     background-color: #323232;
     height: 100vh;
+    position: fixed;
+    left: 0;
+    width: 25%;
+    top: 0;
+    overflow-x: hidden;
   }
 }
 

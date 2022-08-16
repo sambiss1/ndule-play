@@ -35,8 +35,6 @@ export const UserProvider = ({ children }) => {
                 auth: true
             })
 
-
-
             user_account()
             getAlbums()
 
@@ -70,7 +68,9 @@ export const UserProvider = ({ children }) => {
         console.log(logged_user.data)
         console.log(logged_user.data.display_name)
 
-        setUsername(logged_user.data.display_name)
+        let actual_user = window.localStorage.setItem("logged__user", logged_user.data.display_name)
+
+        setUsername(window.localStorage.getItem("logged__user"))
 
 
         return logged_user;
@@ -92,7 +92,6 @@ export const UserProvider = ({ children }) => {
 
             .then(response => response)
             .catch(error => error)
-        // .finally(data => r)
 
         console.log(album)
     }
@@ -108,10 +107,9 @@ export const UserProvider = ({ children }) => {
 
 
 
-
-
     const logout = () => {
         window.localStorage.removeItem("token")
+        window.localStorage.removeItem("logged__user")
         setUser({
             token: "",
             auth: false

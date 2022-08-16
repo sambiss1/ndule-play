@@ -9,20 +9,10 @@ export const HomePage = () => {
 
     const { user, username, login, handleLogin, logout } = useContext(UserContext);
 
-
-    console.log(username)
-
     return (
         <div
             className="homepage--container"
         >
-
-            {/* <div>
-                <button
-
-                    onClick={logout}
-                >Logout</button>
-            </div> */}
             <Sidebar />
             <HomePageContent />
         </div>
