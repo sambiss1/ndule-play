@@ -25,7 +25,7 @@ export const NavigationMenu = ({ className }) => {
                         className={`${isActive}`}
                     ><BiHomeAlt /> <span>Accueil</span></li>
                     <li><MdOutlineMusicVideo /><span>Albums</span></li>
-                    <li><TbPlaylist /><span>Pistes</span></li>
+                    <li><TbPlaylist /><span>Playlists</span></li>
                     <li><TbMusic /><span>Genres</span></li>
 
                 </ul>

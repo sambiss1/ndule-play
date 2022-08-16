@@ -1,10 +1,15 @@
-import React from 'react'
+import { React } from 'react';
 
-export const AlbumItem = () => {
+export const AlbumItem = ({ artist }) => {
+
     return (
         <div
             className="album__item--container"
-        >AlbumItem</div>
+            key={artist.id}
+        >
+            <img src={artist.url} alt="artits" />
+            <p>{artist.name}</p>
+        </div>
     )
 }
 

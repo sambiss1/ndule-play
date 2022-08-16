@@ -1,9 +1,10 @@
 import { React, useEffect, useState, createContext } from "react";
 import axios from "axios";
 import Spotify from 'spotify-web-api-js';
+import SpotifyWebApi from "spotify-web-api-js";
 
 
-export const UserContext = createContext({ token: "", auth: false }, { username: "" }, { allAlbums: {} });
+export const UserContext = createContext({ token: "", auth: false, username: "" });
 
 
 export const UserProvider = ({ children }) => {
@@ -11,123 +12,107 @@ export const UserProvider = ({ children }) => {
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
-    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private"
+    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private";
 
 
-    const [user, setUser] = useState({ token: "", auth: false })
-    const [username, setUsername] = useState("")
-    const [allAlbums, setAllAlbums] = useState({})
+    const [user, setUser] = useState({ token: "", auth: false });
+    const [username, setUsername] = useState("");
 
-
-    let access_token = window.localStorage.getItem("token")
-
-    const login = () => {
-        const hash = window.location.hash
-        let token = window.localStorage.getItem("token")
-
+    const createToken = () => {
+        // Get and create user logged token from spotify 
+        const hash = window.location.hash;
+        let token = window.localStorage.getItem("token");
         if (!token && hash) {
-            token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
+            token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1];
 
-            window.location.hash = ""
-            window.localStorage.setItem("token", token)
+            window.location.hash = "";
+            window.localStorage.setItem("token", token);
             setUser({
                 token: token,
                 auth: true
             })
+            getDataFromSpotify();
+            getMyAccount();
+            getMyTopAlbum();
+        }
+    }
 
-            user_account()
-            getAlbums()
+    // Login function
+    const handleLogin = (user) => {
+        window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+    }
 
+    useEffect(() => {
+        createToken();
+    }, [])
+
+
+    let spotifyApi = new SpotifyWebApi();
+    spotifyApi.setAccessToken(localStorage.getItem('token'));
+
+    const getMyAccount = async () => {
+        try {
+            const getMyUserName = await spotifyApi.getMe();
+            console.log(getMyUserName.display_name);
+            window.localStorage.setItem("logged__user", getMyUserName.display_name);
+            setUsername(getMyUserName.display_name)
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    // Get data from spotify 
+    const getDataFromSpotify = () => {
+        try {
+            const getMyTopArtists = async () => {
+                spotifyApi.setAccessToken(localStorage.getItem('token'));
+                const myTopArtist = await spotifyApi.getMyTopArtists();
+                // console.log(myTopArtist.items);
+
+                localStorage.setItem("my_top_artist", JSON.stringify(myTopArtist.items))
+                // console.log(JSON.parse(localStorage.getItem("my_top_artist")))
+            }
+
+            getMyTopArtists();
+        }
+        catch (error) {
+            console.log(error);
         }
 
 
     }
-    const handleLogin = (user) => {
 
-        window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+    const getMyTopAlbum = async () => {
+        try {
+            const myTopAlbum = await spotifyApi.getAlbums([])
+
+
+        }
+        catch (error) {
+            console.log(error)
+        }
+
 
     }
-    const user_account = async (access_token) => {
 
-        access_token = window.localStorage.getItem("token");
-
-        const logged_user = await axios.get("https://api.spotify.com/v1/me", {
-            headers: {
-                "Authorization": "Bearer " + access_token
-            }
-        })
-            .then(response => {
-
-                return response;
-            })
-
-            .catch(err => {
-                return (err);
-            });
-
-        console.log(logged_user.data)
-        console.log(logged_user.data.display_name)
-
-        let actual_user = window.localStorage.setItem("logged__user", logged_user.data.display_name)
-
-        setUsername(window.localStorage.getItem("logged__user"))
-
-
-        return logged_user;
-    }
-
-
-
-
-    const getAlbums = async (access_token) => {
-        access_token = window.localStorage.getItem("token")
-
-        const albums = await axios.get("https://api.spotify.com/v1/albums?ids=0JBjfd9NAcpgHBbllm0fQg", {
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + access_token
-            }
-        })
-
-            .then(response => response)
-            .catch(error => error)
-
-        // console.log(albums.map((item) => item.artist))
-        console.log({ albums })
-        // setAllAlbums({ albums })
-    }
-
-
-
-
-    useEffect(() => {
-        login()
-
-    }, [])
-
-
-
-
+    // Logout function
     const logout = () => {
-        window.localStorage.removeItem("token")
-        window.localStorage.removeItem("logged__user")
+        window.localStorage.removeItem("token");
+        window.localStorage.removeItem("logged__user");
         setUser({
             token: "",
             auth: false
         })
 
-        console.log(user.auth)
-        console.log(user.token)
     }
-
-
-
 
 
     return (
 
-        <UserContext.Provider value={{ login, user, logout, handleLogin, user_account, username, allAlbums }} >
+        <UserContext.Provider value={{ createToken, user, username, logout, handleLogin }} >
             {children}
         </UserContext.Provider>
     )
