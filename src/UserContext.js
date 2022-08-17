@@ -39,6 +39,8 @@ export const UserProvider = ({ children }) => {
 
             getUserPlaylist();
             getAllCategory();
+            // getRecentlyPlayed();
+            getUserLikedSongs();
         }
     }
 
@@ -129,8 +131,6 @@ export const UserProvider = ({ children }) => {
         try {
             const getCategories = await spotifyApi.getCategories()
 
-            console.log(getCategories.categories.items)
-
             localStorage.setItem('categories', JSON.stringify(getCategories.categories.items))
         }
         catch (error) {
@@ -138,6 +138,34 @@ export const UserProvider = ({ children }) => {
         }
     }
 
+
+    // Get recently played
+
+    const getRecentlyPlayed = async () => {
+        try {
+            const recentPlayed = await spotifyApi.getMyRecentlyPlayedTracks()
+            console.log(recentPlayed)
+        }
+        catch (error) {
+            alert(error)
+        }
+        // finally {}
+    }
+
+
+    // Get liked songs
+
+    const getUserLikedSongs = async () => {
+        try {
+            const likedSongs = await spotifyApi.getMySavedTracks()
+
+
+            localStorage.setItem("user__liked__songs", JSON.stringify(likedSongs.items))
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
 
     // Logout function
