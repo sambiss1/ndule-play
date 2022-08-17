@@ -1,4 +1,4 @@
-import { React, useContext } from 'react';
+import { React, useContext, useEffect } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Player from '../components/Player';
@@ -19,15 +19,37 @@ export const Genres = ({ genre }) => {
 
     const navigate = useNavigate();
 
-    getAllCategory()
+    useEffect(() => {
+        getAllCategory()
+    }, [])
 
 
-    let genres = JSON.parse(localStorage.getItem("categories"))
+
+
+    let genres = JSON.parse(localStorage.getItem("categories"));
+
+    let user__token = window.localStorage.getItem("token")
     return (
         <div
             className="homepage--container"
         >
-            <Sidebar logout={() => navigate("/login")} />
+            <Sidebar logout={() => {
+
+
+                navigate("/login", { replace: true })
+                window.localStorage.removeItem("token")
+
+                // if (user__token) {
+                //     navigate("/login", { replace: true })
+
+                //     console.log(user__token)
+
+                // } else {
+
+                //     navigate("/", { replace: true })
+                // }
+
+            }} />
             <div
                 className="main__container"
             >

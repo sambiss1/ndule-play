@@ -23,6 +23,7 @@ export const UnAuthUser = ({ newUser, setNewUser }) => {
                 <Routes>
                     <Route path="/home" element={<HomePage />} />
                     <Route path="/" index element={<LoginPage />} />
+                    <Route path="/login" index element={<LoginPage />} />
                     <Route
                         path="/albums" element={<Albums />}
                     >
