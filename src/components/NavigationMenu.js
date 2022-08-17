@@ -83,8 +83,31 @@ export const NavigationMenu = ({ className }) => {
 
                 <hr />
                 <ul>
-                    <li><MdHistory /><span>Joués récemments</span></li>
-                    <li><FiHeart /><span>Favoris</span></li>
+                    <li>
+                        <NavLink
+                            to="/recently-played"
+                            className={({ isActive }) =>
+                                isActive ? activeLink : noActiveLink
+                            }
+                        >
+                            <MdHistory
+                                className="sidebar__menu--icon"
+                            /><span>Joués récemments</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/liked"
+                            className={({ isActive }) =>
+                                isActive ? activeLink : noActiveLink
+                            }
+                        >
+
+                            <FiHeart className="sidebar__menu--icon" /><span>Favoris</span>
+                        </NavLink>
+
+
+                    </li>
                 </ul>
 
             </nav>

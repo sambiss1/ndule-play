@@ -6,6 +6,8 @@ import NotFound from "./pages/NotFound";
 import Albums from "./pages/Albums";
 import Genres from "./pages/Genres";
 import PlayList from './pages/PlayList';
+import RecentlyPlayed from './pages/RecentlyPlayed';
+import Liked from './pages/Liked';
 
 import { UserContext } from './UserContext';
 
@@ -24,7 +26,15 @@ const AuthUser = () => {
                     </Route>
                     <Route path="/genres" element={<Genres logout={logout} />} />
                     <Route path="/playlist" element={<PlayList />} />
+                    <Route
+                        path="/recently-played" element={<RecentlyPlayed />}
+                    >
+                    </Route>
+                    <Route
+                        path="/liked" element={<Liked />}
+                    >
 
+                    </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

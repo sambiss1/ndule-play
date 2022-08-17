@@ -16,8 +16,6 @@ import "../styles/albumitem.css";
 export const Genres = ({ genre }) => {
     const { logout } = useContext(UserContext);
 
-    console.log(JSON.parse(localStorage.getItem("categories")))
-
     let genres = JSON.parse(localStorage.getItem("categories"))
     return (
         <div
