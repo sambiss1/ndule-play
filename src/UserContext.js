@@ -103,10 +103,14 @@ export const UserProvider = ({ children }) => {
 
 
     const getNewRelease = async () => {
-        const getNewAlbumRelease = await spotifyApi.getNewReleases()
+        try {
+            const getNewAlbumRelease = await spotifyApi.getNewReleases()
+            localStorage.setItem("new-release-album", JSON.stringify(getNewAlbumRelease.albums.items))
+        }
+        catch (error) {
+            console.log(error)
+        }
 
-        console.log(getNewAlbumRelease.albums.items)
-        localStorage.setItem("new-release-album", JSON.stringify(getNewAlbumRelease.albums.items))
     }
 
     // Get my playlist 
@@ -114,7 +118,6 @@ export const UserProvider = ({ children }) => {
 
         try {
             const getMyPlaylist = await spotifyApi.getUserPlaylists({ userID })
-            console.log(getMyPlaylist.items)
             localStorage.setItem("user__playlist", JSON.stringify(getMyPlaylist.items))
         }
         catch (error) {
@@ -126,7 +129,9 @@ export const UserProvider = ({ children }) => {
         try {
             const getCategories = await spotifyApi.getCategories()
 
-            console.log(getCategories)
+            console.log(getCategories.categories.items)
+
+            localStorage.setItem('categories', JSON.stringify(getCategories.categories.items))
         }
         catch (error) {
             console.log(error)

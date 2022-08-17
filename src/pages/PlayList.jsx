@@ -3,13 +3,13 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Player from "../components/Player";
-import PlayListCard from "../components/PlayListCard";
+import PlayListCard from "../components/Card";
 
 import "../styles/App.css"
 
-export const PlayList = ({ playlist }) => {
+export const PlayList = () => {
 
-    console.log(JSON.parse(localStorage.getItem("user__playlist")))
+
 
     let userPlaylists = JSON.parse(localStorage.getItem("user__playlist"))
     return (
@@ -32,7 +32,9 @@ export const PlayList = ({ playlist }) => {
                     >
                         {
                             userPlaylists.map(playlist => playlist.name + playlist.image &&
-                                <PlayListCard playlist={playlist} />
+                                <PlayListCard
+                                    key={playlist.id}
+                                    props={playlist} />
                             )
                         }
                     </div>
