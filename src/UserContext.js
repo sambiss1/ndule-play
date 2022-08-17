@@ -4,7 +4,8 @@ import Spotify from 'spotify-web-api-js';
 import SpotifyWebApi from "spotify-web-api-js";
 
 
-export const UserContext = createContext({ token: "", auth: false, username: "" });
+
+export const UserContext = createContext({ token: "", auth: false, username: "", userID: "" });
 
 
 export const UserProvider = ({ children }) => {
@@ -14,9 +15,9 @@ export const UserProvider = ({ children }) => {
     const RESPONSE_TYPE = "token";
     const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private";
 
-
     const [user, setUser] = useState({ token: "", auth: false });
     const [username, setUsername] = useState("");
+    const [userID, setUserID] = useState("")
 
     const createToken = () => {
         // Get and create user logged token from spotify 
@@ -35,6 +36,9 @@ export const UserProvider = ({ children }) => {
             getMyAccount();
             // getMyTopAlbum();
             getNewRelease();
+
+            getUserPlaylist();
+            getAllCategory();
         }
     }
 
@@ -54,9 +58,12 @@ export const UserProvider = ({ children }) => {
     const getMyAccount = async () => {
         try {
             const getMyUserName = await spotifyApi.getMe();
-            console.log(getMyUserName.display_name);
+            // console.log(getMyUserName.id)
+            // console.log(getMyUserName.display_name);
             window.localStorage.setItem("logged__user", getMyUserName.display_name);
-            setUsername(getMyUserName.display_name)
+            window.localStorage.setItem("logged__user__id", getMyUserName.id)
+            setUsername(getMyUserName.display_name);
+            setUserID(getMyUserName.id)
 
         }
         catch (error) {
@@ -101,8 +108,36 @@ export const UserProvider = ({ children }) => {
         console.log(getNewAlbumRelease.albums.items)
         localStorage.setItem("new-release-album", JSON.stringify(getNewAlbumRelease.albums.items))
     }
+
+    // Get my playlist 
+    const getUserPlaylist = async () => {
+
+        try {
+            const getMyPlaylist = await spotifyApi.getUserPlaylists({ userID })
+            console.log(getMyPlaylist.items)
+            localStorage.setItem("user__playlist", JSON.stringify(getMyPlaylist.items))
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getAllCategory = async () => {
+        try {
+            const getCategories = await spotifyApi.getCategories()
+
+            console.log(getCategories)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
     // Logout function
     const logout = () => {
+
         window.localStorage.removeItem("token");
         window.localStorage.removeItem("logged__user");
         setUser({
@@ -110,12 +145,17 @@ export const UserProvider = ({ children }) => {
             auth: false
         })
 
+        console.log(window.localStorage.getItem("token"))
+
+
+        console.log(user.auth)
     }
+
 
 
     return (
 
-        <UserContext.Provider value={{ createToken, user, username, logout, handleLogin }} >
+        <UserContext.Provider value={{ createToken, user, username, logout, handleLogin, userID }} >
             {children}
         </UserContext.Provider>
     )

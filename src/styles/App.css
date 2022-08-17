@@ -78,4 +78,20 @@ body {
   height: 100%;
 }
 
+.main__container {
+  position: absolute;
+  left: 25%;
+  width: 75%;
+  padding-bottom: 100px;
+}
+
+.page__title {
+  color: #DE5000;
+}
+
+.page__content {
+  width: 95%;
+  margin: auto;
+}
+
 /*# sourceMappingURL=App.css.map */

@@ -4,15 +4,17 @@ import { MdOutlineMusicVideo, MdHistory } from "react-icons/md";
 import { TbPlaylist, TbMusic } from "react-icons/tb";
 import { FiHeart } from "react-icons/fi";
 
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 
 import "../styles/navigationmenu.css";
 
-import { UserContext } from "../UserContext"
+import { UserContext } from "../UserContext";
 
 export const NavigationMenu = ({ className }) => {
-    const [isActive, setIsActive] = useState("active")
+    const [activeLink, setIsActive] = useState("active")
+
+    const [noActiveLink, setNotActiveLink] = useState("no__active")
 
     const { logout } = useContext(UserContext)
 
@@ -24,11 +26,58 @@ export const NavigationMenu = ({ className }) => {
 
                 <ul>
                     <li
-                        className={`${isActive}`}
-                    ><BiHomeAlt /> <span>Accueil</span></li>
-                    <li><MdOutlineMusicVideo /><span>Albums</span></li>
-                    <li><TbPlaylist /><span>Playlists</span></li>
-                    <li><TbMusic /><span>Genres</span></li>
+                    // className={isActive}
+                    >
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive ? activeLink : noActiveLink
+                            }
+                        >
+                            <BiHomeAlt
+                                className="sidebar__menu--icon"
+                            /> <span>Accueil</span>
+                        </NavLink>
+
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/albums"
+                            className={({ isActive }) =>
+                                isActive ? activeLink : noActiveLink
+                            }
+                        >
+                            <MdOutlineMusicVideo
+                                className="sidebar__menu--icon"
+                            /><span>Albums</span>
+                        </NavLink>
+
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/playlist"
+                            className={({ isActive }) =>
+                                isActive ? activeLink : noActiveLink
+                            }
+                        >
+                            <TbPlaylist
+                                className="sidebar__menu--icon"
+                            /><span>Playlists</span>
+                        </NavLink>
+                    </li>
+                    <li>
+
+                        <NavLink
+                            to="/genres"
+                            className={({ isActive }) =>
+                                isActive ? activeLink : noActiveLink
+                            }
+                        >
+                            <TbMusic
+                                className="sidebar__menu--icon"
+                            /><span>Genres</span>
+                        </NavLink>
+                    </li>
 
                 </ul>
 

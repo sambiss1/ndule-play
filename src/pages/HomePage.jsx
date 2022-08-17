@@ -2,7 +2,10 @@ import { React, useContext } from 'react'
 import { UserContext } from '../UserContext';
 import Sidebar from '../components/Sidebar';
 import HomePageContent from "../components/HomePageContent";
-
+import Header from '../components/Header';
+import Player from '../components/Player';
+import AlbumsTabs from '../components/AlbumsTabs';
+import HomePageSlider from '../components/HomePageSlider';
 
 import "../styles/homepage.css"
 export const HomePage = () => {
@@ -17,6 +20,10 @@ export const HomePage = () => {
         >
             <Sidebar />
             <HomePageContent />
+            {/* <Header />
+            <HomePageSlider />
+            <AlbumsTabs />
+            <Player /> */}
         </div>
     )
 }

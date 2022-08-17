@@ -14,6 +14,7 @@ function App({ hideLoader }) {
   const actual__token = window.localStorage.getItem("token")
 
 
+  console.log(user.auth)
   return actual__token ? <AuthUser /> : <UnAuthUser />;
 }
 

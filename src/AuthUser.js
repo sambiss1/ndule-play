@@ -4,11 +4,12 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import NotFound from "./pages/NotFound";
 import Albums from "./pages/Albums";
+import Genres from "./pages/Genres";
+import PlayList from './pages/PlayList';
 
 import { UserContext } from './UserContext';
 
-const AuthUser = ({ newUser, setNewUser }) => {
-
+const AuthUser = () => {
     const { user, login, logout } = useContext(UserContext);
     return (
         <>
@@ -21,6 +22,8 @@ const AuthUser = ({ newUser, setNewUser }) => {
                     >
 
                     </Route>
+                    <Route path="/genres" element={<Genres logout={logout} />} />
+                    <Route path="/playlist" element={<PlayList />} />
 
                     <Route path="*" element={<NotFound />} />
                 </Routes>

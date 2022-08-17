@@ -44,6 +44,21 @@
         color: $primary_color;
     }
 
+    .no__active {
+        color: $secondary_color;
+    }
+
+    a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        align-self: flex-start;
+    }
+
+    .sidebar__menu--icon {
+        font-size: 2em;
+    }
+
 
 
 

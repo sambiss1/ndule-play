@@ -8,32 +8,32 @@
     margin: auto;
   }
 
-  .album__tabs--panel {
+  .card__tabs--panel {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     width: 100%;
   }
 
-  .album__item--container {
+  .card__item--container {
     border-radius: 25px;
     height: 300px;
     margin: 5% 0;
   }
-  .album__item--container .album__image--container {
+  .card__item--container .card__image--container {
     width: 100%;
     height: 200px;
   }
-  .album__item--container .album__image--container img {
+  .card__item--container .card__image--container img {
     width: 100%;
     height: 100%;
     border-radius: 25px;
   }
-  .album__item--container .artist__name {
+  .card__item--container .card__name {
     color: #DE5000;
     margin: 0;
   }
-  .album__item--container .album__name {
+  .card__item--container .album__name {
     margin: 0;
   }
 }

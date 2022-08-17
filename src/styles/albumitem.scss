@@ -11,7 +11,7 @@
         margin: auto;
     }
 
-    .album__tabs--panel {
+    .card__tabs--panel {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 10px;
@@ -19,14 +19,14 @@
 
     }
 
-    .album__item--container {
+    .card__item--container {
 
         border-radius: 25px;
         height: 300px;
         margin: 5% 0;
 
 
-        .album__image--container {
+        .card__image--container {
             width: 100%;
             height: 200px;
 
@@ -37,7 +37,7 @@
             }
         }
 
-        .artist__name {
+        .card__name {
             color: $primary_color;
             margin: 0;
         }
