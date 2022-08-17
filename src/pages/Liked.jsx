@@ -9,8 +9,6 @@ import "../styles/App.css";
 import "../styles/albumitem.css"
 
 export const Liked = () => {
-    console.log(JSON.parse(localStorage.getItem("user__liked__songs")))
-
     let myLikedSong = JSON.parse(localStorage.getItem("user__liked__songs"))
     return (
         <div
