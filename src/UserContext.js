@@ -43,8 +43,6 @@ export const UserProvider = ({ children }) => {
             getUserPlaylist();
             getAllCategory();
 
-            // getUserLikedSongs();
-            getRecentlyPlayed();
         }
     }
 
@@ -147,15 +145,12 @@ export const UserProvider = ({ children }) => {
     const getRecentlyPlayed = async () => {
         try {
             const recentPlayed = await spotifyApi.getMyRecentlyPlayedTracks()
-            console.log(recentPlayed.items)
             localStorage.setItem("user__recently__played", JSON.stringify(recentPlayed.items))
-
-            console.log(JSON.parse(localStorage.getItem('user__recently__played')))
         }
         catch (error) {
             console.log(error)
         }
-        // finally {}
+      
     }
 
     // Get liked songs
@@ -200,7 +195,8 @@ export const UserProvider = ({ children }) => {
             userID,
             getUserLikedSongs,
             getRecentlyPlayed,
-            getAllCategory
+            getAllCategory,
+            getNewRelease
         }} >
             {children}
         </UserContext.Provider>

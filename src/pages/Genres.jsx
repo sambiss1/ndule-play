@@ -34,20 +34,8 @@ export const Genres = ({ genre }) => {
             className="homepage--container"
         >
             <Sidebar logout={() => {
-
-
                 navigate("/login", { replace: true })
                 window.localStorage.removeItem("token")
-
-                // if (user__token) {
-                //     navigate("/login", { replace: true })
-
-                //     console.log(user__token)
-
-                // } else {
-
-                //     navigate("/", { replace: true })
-                // }
 
             }} />
             <div

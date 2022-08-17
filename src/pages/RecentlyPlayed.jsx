@@ -5,7 +5,9 @@ import Player from "../components/Player";
 import { UserContext } from '../UserContext';
 import RecentlyPlayedCard from '../components/RecentlyPlayedCard';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
+
 
 
 import "../styles/App.css";
@@ -22,6 +24,8 @@ export const RecentlyPlayed = () => {
     }, [])
 
     let userRecentPlayed = JSON.parse(localStorage.getItem('user__recently__played'))
+
+    console.log(userRecentPlayed.map((song) => song.track))
     return (
         <div
             className="homepage--container"

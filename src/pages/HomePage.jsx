@@ -1,4 +1,4 @@
-import { React, useContext } from 'react'
+import { React, useContext, useEffect } from 'react'
 import { UserContext } from '../UserContext';
 import Sidebar from '../components/Sidebar';
 import HomePageContent from "../components/HomePageContent";
@@ -11,16 +11,20 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/homepage.css"
 export const HomePage = () => {
 
-    const { user, username } = useContext(UserContext);
+    const { user, username, getNewRelease } = useContext(UserContext);
 
-    console.log(username);
-
+    useEffect(() => {
+        getNewRelease()
+    }, [])
     const navigate = useNavigate();
     return (
         <div
             className="homepage--container"
         >
-            <Sidebar logout={() => navigate("/login")} />
+            <Sidebar logout={() => {
+                navigate("/", { replace: true })
+                window.localStorage.removeItem("token")
+            }} />
             <HomePageContent />
 
         </div>

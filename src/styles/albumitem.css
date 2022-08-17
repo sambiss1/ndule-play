@@ -36,6 +36,9 @@
   .card__item--container .album__name {
     margin: 0;
   }
+  .card__item--container .track__link {
+    color: #F8E5DB;
+  }
 }
 
 /*# sourceMappingURL=albumitem.css.map */

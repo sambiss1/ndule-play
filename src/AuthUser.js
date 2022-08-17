@@ -9,6 +9,11 @@ import PlayList from './pages/PlayList';
 import RecentlyPlayed from './pages/RecentlyPlayed';
 import Liked from './pages/Liked';
 import Sidebar from './components/Sidebar';
+import SingleAlbum from './pages/SingleAlbum';
+import Artist from './pages/Artist';
+
+
+import SingleSong from './pages/SingleSong';
 
 import { UserContext } from './UserContext';
 import { UserProvider } from "./UserContext"
@@ -27,9 +32,11 @@ const AuthUser = () => {
                     <Route path="/" index element={<HomePage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route
-                        path="/albums" element={<Albums />}
-                    >
+                        path="/albums" element={<Albums />}>
+                        <Route path="/albums/:id" element={<SingleAlbum />} />
                     </Route>
+                    <Route path="/track/:id" element={<SingleSong />} />
+                    <Route path="/artist/:id" element={<Artist />} />
                     <Route path="/genres" element={<Genres />} />
                     <Route path="/playlist" element={<PlayList />} />
                     <Route
