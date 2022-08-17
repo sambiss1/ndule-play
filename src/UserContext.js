@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
-    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private";
+    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played";
 
     const [user, setUser] = useState({ token: "", auth: false });
     const [username, setUsername] = useState("");
@@ -39,8 +39,9 @@ export const UserProvider = ({ children }) => {
 
             getUserPlaylist();
             getAllCategory();
-            // getRecentlyPlayed();
-            getUserLikedSongs();
+
+            // getUserLikedSongs();
+            getRecentlyPlayed();
         }
     }
 
@@ -138,23 +139,23 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-
     // Get recently played
 
     const getRecentlyPlayed = async () => {
         try {
             const recentPlayed = await spotifyApi.getMyRecentlyPlayedTracks()
-            console.log(recentPlayed)
+            console.log(recentPlayed.items)
+            localStorage.setItem("user__recently__played", JSON.stringify(recentPlayed.items))
+
+            console.log(JSON.parse(localStorage.getItem('user__recently__played')))
         }
         catch (error) {
-            alert(error)
+            console.log(error)
         }
         // finally {}
     }
 
-
     // Get liked songs
-
     const getUserLikedSongs = async () => {
         try {
             const likedSongs = await spotifyApi.getMySavedTracks()
@@ -179,8 +180,6 @@ export const UserProvider = ({ children }) => {
         })
 
         console.log(window.localStorage.getItem("token"))
-
-
         console.log(user.auth)
     }
 
@@ -188,7 +187,17 @@ export const UserProvider = ({ children }) => {
 
     return (
 
-        <UserContext.Provider value={{ createToken, user, username, logout, handleLogin, userID }} >
+        <UserContext.Provider value={{
+            createToken,
+            user,
+            username,
+            logout,
+            handleLogin,
+            userID,
+            getUserLikedSongs,
+            getRecentlyPlayed,
+            getAllCategory
+        }} >
             {children}
         </UserContext.Provider>
     )

@@ -27,13 +27,10 @@ const AuthUser = () => {
                     <Route path="/genres" element={<Genres logout={logout} />} />
                     <Route path="/playlist" element={<PlayList />} />
                     <Route
-                        path="/recently-played" element={<RecentlyPlayed />}
-                    >
+                        path="/recently-played" element={<RecentlyPlayed />}>
                     </Route>
                     <Route
-                        path="/liked" element={<Liked />}
-                    >
-
+                        path="/liked" element={<Liked />} >
                     </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>

@@ -1,15 +1,23 @@
-import React from 'react';
+import { React, useContext, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Player from "../components/Player";
 import LikedSongCard from '../components/LikedSongCard';
+import { UserContext } from "../UserContext"
 
 
 import "../styles/App.css";
 import "../styles/albumitem.css"
 
 export const Liked = () => {
-    let myLikedSong = JSON.parse(localStorage.getItem("user__liked__songs"))
+    const { getUserLikedSongs } = useContext(UserContext)
+    let myLikedSong = []
+    useEffect(() => {
+        getUserLikedSongs()
+
+    }, [])
+
+    myLikedSong = JSON.parse(localStorage.getItem("user__liked__songs"))
     return (
         <div
             className="homepage--container"
@@ -32,7 +40,7 @@ export const Liked = () => {
                         {myLikedSong.map(song => song.track.name + song.track.artist + song.track.album.images[0].url
                             &&
                             <LikedSongCard
-                                key={song.id}
+                                key={song.track.id}
                                 props={song}
 
                             />
