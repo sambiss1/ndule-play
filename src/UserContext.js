@@ -3,6 +3,8 @@ import axios from "axios";
 import Spotify from 'spotify-web-api-js';
 import SpotifyWebApi from "spotify-web-api-js";
 
+import { useNavigate } from "react-router-dom";
+
 
 
 export const UserContext = createContext({ token: "", auth: false, username: "", userID: "" });
@@ -15,6 +17,7 @@ export const UserProvider = ({ children }) => {
     const RESPONSE_TYPE = "token";
     const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played";
 
+    // const navigate = useNavigate();
     const [user, setUser] = useState({ token: "", auth: false });
     const [username, setUsername] = useState("");
     const [userID, setUserID] = useState("")
@@ -179,6 +182,7 @@ export const UserProvider = ({ children }) => {
             auth: false
         })
 
+        // navigate("/login")
         console.log(window.localStorage.getItem("token"))
         console.log(user.auth)
     }

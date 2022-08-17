@@ -8,6 +8,7 @@ import Container from "../components/MainContainer";
 import GenresCard from "../components/GenreCard"
 
 import { UserContext } from '../UserContext';
+import { useNavigate } from 'react-router-dom';
 
 import "../styles/homepage.css";
 import "../styles/App.css";
@@ -15,6 +16,9 @@ import "../styles/albumitem.css";
 
 export const Genres = ({ genre }) => {
     const { logout, getAllCategory } = useContext(UserContext);
+
+    const navigate = useNavigate();
+
     getAllCategory()
 
 
@@ -23,8 +27,7 @@ export const Genres = ({ genre }) => {
         <div
             className="homepage--container"
         >
-
-            <Sidebar />
+            <Sidebar logout={() => navigate("/login")} />
             <div
                 className="main__container"
             >

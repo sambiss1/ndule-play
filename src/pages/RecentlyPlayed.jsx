@@ -5,13 +5,17 @@ import Player from "../components/Player";
 import { UserContext } from '../UserContext';
 import RecentlyPlayedCard from '../components/RecentlyPlayedCard';
 
+import { useNavigate } from 'react-router-dom';
+
 
 import "../styles/App.css";
-import "../styles/albumitem.css"
+import "../styles/albumitem.css";
 
 
 export const RecentlyPlayed = () => {
-    const { getRecentlyPlayed } = useContext(UserContext)
+    const { getRecentlyPlayed } = useContext(UserContext);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         getRecentlyPlayed()
@@ -22,7 +26,7 @@ export const RecentlyPlayed = () => {
         <div
             className="homepage--container"
         >
-            <Sidebar />
+            <Sidebar logout={() => navigate("/login")} />
             <div
                 className="main__container"
             >

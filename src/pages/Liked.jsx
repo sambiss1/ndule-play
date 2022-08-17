@@ -3,7 +3,8 @@ import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Player from "../components/Player";
 import LikedSongCard from '../components/LikedSongCard';
-import { UserContext } from "../UserContext"
+import { UserContext } from "../UserContext";
+import { useNavigate } from 'react-router-dom';
 
 
 import "../styles/App.css";
@@ -17,12 +18,14 @@ export const Liked = () => {
 
     }, [])
 
-    myLikedSong = JSON.parse(localStorage.getItem("user__liked__songs"))
+    myLikedSong = JSON.parse(localStorage.getItem("user__liked__songs"));
+
+    const navigate = useNavigate();
     return (
         <div
             className="homepage--container"
         >
-            <Sidebar />
+            <Sidebar logout={() => navigate("/login")} />
             <div
                 className="main__container"
             >

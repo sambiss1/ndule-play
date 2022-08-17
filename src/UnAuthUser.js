@@ -10,6 +10,7 @@ import RecentlyPlayed from './pages/RecentlyPlayed';
 import Liked from "./pages/Liked";
 
 import { UserContext } from './UserContext';
+import { UserProvider } from "./UserContext"
 
 
 export const UnAuthUser = ({ newUser, setNewUser }) => {
@@ -17,7 +18,7 @@ export const UnAuthUser = ({ newUser, setNewUser }) => {
     const { user, login, logout } = useContext(UserContext);
 
     return (
-        <>
+        <UserProvider>
             <BrowserRouter>
                 <Routes>
                     <Route path="/home" element={<HomePage />} />
@@ -44,7 +45,7 @@ export const UnAuthUser = ({ newUser, setNewUser }) => {
                 </Routes>
             </BrowserRouter>
             <Outlet />
-        </>
+        </UserProvider>
     )
 }
 

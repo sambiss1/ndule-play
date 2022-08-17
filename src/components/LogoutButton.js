@@ -4,8 +4,10 @@ import { UserContext } from '../UserContext';
 
 import "../styles/navigationmenu.css";
 
-export const LogoutButton = () => {
-    const { logout } = useContext(UserContext)
+export const LogoutButton = ({ logout }) => {
+    // const { logout } = useContext(UserContext)
+
+
     return (
         <div
             className="logout__button"

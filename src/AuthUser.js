@@ -1,5 +1,5 @@
 import { React, useContext } from 'react'
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import NotFound from "./pages/NotFound";
@@ -8,23 +8,29 @@ import Genres from "./pages/Genres";
 import PlayList from './pages/PlayList';
 import RecentlyPlayed from './pages/RecentlyPlayed';
 import Liked from './pages/Liked';
+import Sidebar from './components/Sidebar';
 
 import { UserContext } from './UserContext';
+import { UserProvider } from "./UserContext"
 
 const AuthUser = () => {
     const { user, login, logout } = useContext(UserContext);
+
+    // const navigate = useNavigate()
     return (
-        <>
+        <UserProvider>
+
+
             <BrowserRouter>
+
                 <Routes>
                     <Route path="/" index element={<HomePage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route
                         path="/albums" element={<Albums />}
                     >
-
                     </Route>
-                    <Route path="/genres" element={<Genres logout={logout} />} />
+                    <Route path="/genres" element={<Genres />} />
                     <Route path="/playlist" element={<PlayList />} />
                     <Route
                         path="/recently-played" element={<RecentlyPlayed />}>
@@ -36,7 +42,7 @@ const AuthUser = () => {
                 </Routes>
             </BrowserRouter>
             <Outlet />
-        </>
+        </UserProvider>
     )
 }
 

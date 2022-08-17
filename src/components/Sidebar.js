@@ -5,7 +5,7 @@ import NavigationMenu from './NavigationMenu';
 import LogoutButton from './LogoutButton';
 
 
-export const Sidebar = () => {
+export const Sidebar = ({ logout }) => {
     return (
         <>
             <div
@@ -13,7 +13,7 @@ export const Sidebar = () => {
             >
                 <LogoContainer />
                 <NavigationMenu />
-                <LogoutButton />
+                <LogoutButton logout={logout} />
             </div>
 
         </>

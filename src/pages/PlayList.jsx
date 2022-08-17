@@ -4,17 +4,16 @@ import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Player from "../components/Player";
 import PlayListCard from "../components/Card";
-
-import "../styles/App.css"
+import { useNavigate } from 'react-router-dom';
+import "../styles/App.css";
 
 export const PlayList = () => {
-
-
+    const navigate = useNavigate();
 
     let userPlaylists = JSON.parse(localStorage.getItem("user__playlist"))
     return (
         <>
-            <Sidebar />
+            <Sidebar logout={() => navigate("/login")} />
             <div
                 className="main__container"
             >
