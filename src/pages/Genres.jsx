@@ -40,9 +40,7 @@ export const Genres = ({ genre }) => {
         setTimeout(() => {
             getAllCategory()
         }, 500)
-    }, [])
-
-
+    }, [getAllCategory])
 
     return (
         <div
