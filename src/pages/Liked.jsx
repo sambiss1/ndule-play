@@ -33,7 +33,7 @@ export const Liked = () => {
     useEffect(() => {
         setTimeout(() => {
             getUserLikedSongs()
-        }, 2000)
+        }, 500)
     }, [])
 
 

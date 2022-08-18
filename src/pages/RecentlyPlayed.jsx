@@ -40,7 +40,7 @@ export const RecentlyPlayed = () => {
     useEffect(() => {
         setTimeout(() => {
             getRecentlyPlayed()
-        }, 2000)
+        }, 500)
 
     }, [])
 
