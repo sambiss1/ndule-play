@@ -5,14 +5,14 @@ import Header from '../components/Header';
 import Player from '../components/Player';
 
 import SpotifyWebApi from "spotify-web-api-js";
-
+import ArtistTopTracksCard from '../components/ArtistTopTracksCard';
 import LoadingData from '../components/LoadingData';
 
 
 import "../styles/App.css";
 import "../styles/homepage.css";
-import "../styles/artistpage.css"
-const Artist = ({ artirst }) => {
+import "../styles/artistpage.css";
+const Artist = ({ props }) => {
     const { id } = useParams();
 
     console.log(id)
@@ -31,10 +31,8 @@ const Artist = ({ artirst }) => {
         try {
             const getSelectedArtist = await spotifyArtist.getArtist(id);
             localStorage.setItem("artist", JSON.stringify(getSelectedArtist));
-            console.log(getSelectedArtist);
-            setArtist(getSelectedArtist);
 
-            console.log(artist);
+            setArtist(getSelectedArtist);
 
         }
         catch (error) {
@@ -44,17 +42,33 @@ const Artist = ({ artirst }) => {
     }
 
     useEffect(() => {
-        getArtistInfo()
+        setTimeout(() => {
+            getArtistInfo()
+        }, 2000)
+
     }, [])
 
     const getTopTrack = async () => {
         const getArtistTopTrack = await spotifyArtist.getArtistTopTracks(id, "CD")
-        console.log(getArtistTopTrack.tracks);
+        // console.log(getArtistTopTrack.tracks);
+        setArtistTopTrack(getArtistTopTrack.tracks)
     }
 
+
     useEffect(() => {
-        getTopTrack()
+        setTimeout(() => {
+            getTopTrack()
+        }, 2000)
+
     }, [])
+
+    const millisToMinutesAndSeconds = (millis) => {
+        var minutes = Math.floor(millis / 60000);
+        var seconds = ((millis % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
+
+
 
 
     return (
@@ -86,7 +100,7 @@ const Artist = ({ artirst }) => {
                                 </div>
                                 <div>
                                     <h3>{artist.name}</h3>
-                                    <h4>{artist.followers.total} auditeurs mensuels</h4>
+                                    <h4>{artist.followers.total} followers</h4>
                                 </div>
                             </div>
                             <h3
@@ -97,6 +111,18 @@ const Artist = ({ artirst }) => {
                             <div
                                 className="populars__tracks--container"
                             >
+                                {artistTopTrack.length <= 0 ? (<LoadingData />) : artistTopTrack.map(topTrack => topTrack.name + topTrack.album.images[0].url + topTrack.popuality + millisToMinutesAndSeconds(topTrack.duration_ms)
+                                    &&
+                                    <ArtistTopTracksCard
+                                        key={topTrack.id}
+                                        props={topTrack}
+
+
+                                    />
+                                )
+
+                                }
+
 
                             </div>
 
