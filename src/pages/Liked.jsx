@@ -1,4 +1,4 @@
-import { React, useContext, useEffect } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Player from "../components/Player";
@@ -6,6 +6,7 @@ import LikedSongCard from '../components/LikedSongCard';
 import { UserContext } from "../UserContext";
 import { useNavigate } from 'react-router-dom';
 import LoadingData from '../components/LoadingData';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 
 
@@ -13,14 +14,29 @@ import "../styles/App.css";
 import "../styles/albumitem.css"
 
 export const Liked = () => {
-    const { getUserLikedSongs } = useContext(UserContext)
-    let myLikedSong = []
-    useEffect(() => {
-        getUserLikedSongs()
+    const [userLikedSongs, setUserLikedSongs] = useState([]);
 
+    let spotifyApi = new SpotifyWebApi();
+    spotifyApi.setAccessToken(window.localStorage.getItem("token"))
+
+    const getUserLikedSongs = async () => {
+        try {
+            const likedSongs = await spotifyApi.getMySavedTracks()
+            setUserLikedSongs(likedSongs.items)
+            localStorage.setItem("user__liked__songs", JSON.stringify(likedSongs.items))
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            getUserLikedSongs()
+        }, 2000)
     }, [])
 
-    myLikedSong = JSON.parse(localStorage.getItem("user__liked__songs"));
+
 
     const navigate = useNavigate();
     return (
@@ -40,12 +56,12 @@ export const Liked = () => {
                         className="page__title"
                     >Titres</h3>
 
-                    {myLikedSong === null ? (<LoadingData />) :
+                    {userLikedSongs.length <= 0 ? (<LoadingData />) :
 
                         (<div
                             className="card__tabs--panel"
                         >
-                            {myLikedSong.map(song => song.track.name + song.track.artist + song.track.album.images[0].url
+                            {userLikedSongs.map(song => song.track.name + song.track.artist + song.track.album.images[0].url
                                 &&
                                 <LikedSongCard
                                     key={song.track.id}
