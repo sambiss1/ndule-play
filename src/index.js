@@ -29,4 +29,4 @@ setTimeout(() =>
 
 
     </React.StrictMode>
-  ), 3000);
+  ), 1500);

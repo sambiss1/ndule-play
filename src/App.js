@@ -8,12 +8,14 @@ import { UserContext } from './UserContext';
 
 function App({ hideLoader }) {
 
-  const { user } = useContext(UserContext);
+  const { user, username } = useContext(UserContext);
   useEffect(hideLoader, [])
 
-  console.log(user.auth)
+  const actual__token = window.localStorage.getItem("token")
 
-  return user.auth ? <AuthUser /> : <UnAuthUser />;
+
+  console.log(user.auth)
+  return actual__token ? <AuthUser /> : <UnAuthUser />;
 }
 
 export default App;

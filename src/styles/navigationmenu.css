@@ -1,6 +1,12 @@
 /* Light mode color */
 /* Dark mode color */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
+  .link__hover--effect, .logout__button:hover, ul li:hover {
+    transform: scale(1.1);
+    color: #DE5000;
+    cursor: pointer;
+  }
+
   .navigation__menu--container {
     width: 100%;
   }
@@ -15,25 +21,60 @@
     display: flex;
     align-items: center;
     align-self: flex-start;
+    transition: 0.3s ease;
   }
   ul li span {
     margin: 0 5%;
     font-size: 1.2em;
   }
-
   .active {
     color: #DE5000;
   }
 
-  .library__menu--container h2 {
+  .no__active {
+    color: #F8E5DB;
+  }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+  }
+
+  .sidebar__menu--icon {
+    font-size: 2em;
+  }
+
+  h2 {
     margin-left: 10%;
   }
-  .library__menu--container hr {
+
+  hr {
     width: 20%;
     margin-left: 10%;
     height: 2px;
     color: #DE5000;
     background-color: #DE5000;
+  }
+
+  .logout__button {
+    background: none;
+    border: none;
+    color: #F8E5DB;
+    display: flex;
+    font-size: 1.2em;
+    align-items: center;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    width: 100%;
+    justify-self: flex-end;
+    transition: 0.3s ease;
+  }
+  .logout__button .logout__button--icon {
+    font-size: 1.4em;
+    margin-right: 5%;
   }
 }
 

@@ -1,9 +1,9 @@
 /* Light mode color */
 /* Dark mode color */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .homepage--container {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 25% 100%;
   }
 }
 

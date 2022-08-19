@@ -1,10 +1,11 @@
 /* Light mode color */
 /* Dark mode color */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   form {
     font-size: 1.6em;
     margin-right: 15%;
-    width: auto;
+    width: 20%;
+    height: 40px;
   }
 
   .search__input--container {
@@ -23,7 +24,8 @@
     border-radius: 25px 0 0 25px;
     padding: 1% 25%;
     border-right: none;
-    outline: none;
+    outline-color: #DE5000;
+    border: 0.1em solid #fff;
   }
 
   input[type=submit] {

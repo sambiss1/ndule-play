@@ -5,10 +5,10 @@
 @media screen and (max-width: map.get($breakpoints, "sl")) {
     .header--container {
         display: flex;
-        width: 90%;
+        width: 95%;
         justify-content: space-between;
+        padding: 2% 2%;
 
-        padding: 2% 3%;
     }
 
     .themetoggler {

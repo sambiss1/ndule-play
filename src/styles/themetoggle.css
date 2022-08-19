@@ -1,11 +1,12 @@
+@charset "UTF-8";
 /* Light mode color */
 /* Dark mode color */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1440px) {
   /* The switch - the box around the slider */
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 100px;
     height: 34px;
   }
 
@@ -31,7 +32,7 @@
 
   .slider:before {
     position: absolute;
-    content: "9790";
+    content: "☽";
     height: 26px;
     width: 26px;
     left: 4px;

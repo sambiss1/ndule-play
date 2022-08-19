@@ -1,6 +1,6 @@
 /* Light mode color */
 /* Dark mode color */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .login__page--container {
     display: grid;
     grid-template-columns: repeat(2, 50%);

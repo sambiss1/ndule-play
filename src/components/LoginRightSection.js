@@ -1,7 +1,8 @@
 import { React, useContext, useEffect, useState } from 'react';
 
-import { FcGoogle } from "react-icons/fc"
+import { FcGoogle } from "react-icons/fc";
 
+import { FaSpotify } from "react-icons/fa"
 import { UserContext } from '../UserContext';
 
 
@@ -9,18 +10,23 @@ import { UserContext } from '../UserContext';
 export const LoginRightSection = ({ newUser, setNewUser }) => {
 
 
-    const { user, login, handleLogin } = useContext(UserContext);
+    const { user, login, handleLogin, logout } = useContext(UserContext);
     return (
         <>
             <div>
-                LoginRightSection
+
                 <div>
 
                     <div>
                         <button
                             onClick={handleLogin}
                         >
-                            Login
+                            <FaSpotify />Continuez avec Spotify
+                        </button>
+                        <button
+                            onClick={logout}
+                        >
+                            Logout
                         </button>
                     </div>
 

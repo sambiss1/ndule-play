@@ -1,27 +1,32 @@
-import { React, useContext } from 'react'
+import { React, useContext, useEffect } from 'react'
 import { UserContext } from '../UserContext';
 import Sidebar from '../components/Sidebar';
 import HomePageContent from "../components/HomePageContent";
-
+import Header from '../components/Header';
+import Player from '../components/Player';
+import AlbumsTabs from '../components/AlbumsTabs';
+import HomePageSlider from '../components/HomePageSlider';
+import { useNavigate } from 'react-router-dom';
 
 import "../styles/homepage.css"
 export const HomePage = () => {
 
-    const { user, login, handleLogin, logout } = useContext(UserContext);
+    const { user, username, getNewRelease } = useContext(UserContext);
 
+    useEffect(() => {
+        getNewRelease()
+    }, [])
+    const navigate = useNavigate();
     return (
         <div
             className="homepage--container"
         >
-
-            {/* <div>
-                <button
-
-                    onClick={logout}
-                >Logout</button>
-            </div> */}
-            <Sidebar />
+            <Sidebar logout={() => {
+                navigate("/", { replace: true })
+                window.localStorage.removeItem("token")
+            }} />
             <HomePageContent />
+
         </div>
     )
 }

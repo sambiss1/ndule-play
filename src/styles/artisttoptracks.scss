@@ -1,0 +1,59 @@
+@use "sass:map";
+@import "variables";
+@import "__breakpoints";
+
+@media screen and(max-width: map.get($breakpoints, "sl")) {
+
+
+    .top__track--container {
+        background-color: $sidebar_dark_mode_background_color;
+        height: 100px;
+        display: flex;
+        margin: 2% 0;
+        align-items: center;
+
+
+    }
+
+    .top__track_title_image--container {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-gap: 20px;
+        height: 100px;
+        width: 50%;
+        align-items: center;
+    }
+
+    .top__track--title {
+        display: flex;
+        color: $primary_color;
+        justify-self: flex-start;
+    }
+
+    .track__cover--container {
+        width: 100px;
+        height: 100px;
+
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .top__track--details {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+    .top__track--actions {
+        color: $primary_color;
+        width: 10%;
+        justify-content: space-between;
+        display: flex;
+    }
+
+
+}

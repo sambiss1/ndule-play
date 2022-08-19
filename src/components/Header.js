@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import ThemeToggler from './ThemeToggler';
-import User from './User';
+import UserLogged from './UserLogged';
 
 import "../styles/header.css"
 
@@ -12,8 +12,8 @@ export const Header = () => {
             className="header--container"
         >
             <SearchBar />
-            <ThemeToggler />
-            <User />
+            {/* <ThemeToggler /> */}
+            <UserLogged />
 
         </div>
     )
