@@ -11,6 +11,9 @@ import Liked from "./pages/Liked";
 
 import { UserContext } from './UserContext';
 import { UserProvider } from "./UserContext"
+import SingleAlbum from './pages/SingleAlbum';
+import SingleSong from './pages/SingleSong';
+import Artist from './pages/Artist';
 
 
 export const UnAuthUser = ({ newUser, setNewUser }) => {
@@ -18,35 +21,11 @@ export const UnAuthUser = ({ newUser, setNewUser }) => {
     const { user, login, logout } = useContext(UserContext);
 
     return (
-        <UserProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/home" element={<HomePage />} />
-                    <Route path="/" index element={<LoginPage />} />
-                    <Route path="/login" index element={<LoginPage />} />
-                    <Route
-                        path="/albums" element={<Albums />}
-                    >
+        <Routes>
+            <Route path="/" index element={<LoginPage />} />
+            <Route path="/*" element={<NotFound />} />
+        </Routes>
 
-                    </Route>
-                    <Route path="/genres" element={<Genres logout={logout} />} />
-                    <Route path="/playlist" element={<PlayList />} />
-
-                    <Route
-                        path="/recently-played" element={<RecentlyPlayed />}
-                    >
-                    </Route>
-                    <Route
-                        path="/liked" element={<Liked />}
-                    >
-
-                    </Route>
-
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </BrowserRouter>
-            <Outlet />
-        </UserProvider>
     )
 }
 

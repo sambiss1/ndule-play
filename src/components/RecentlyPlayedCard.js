@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import "../styles/albumitem.css"
 
 export const RecentlyPlayedCard = ({ props }) => {
+
+
     return (
         <div
             className="card__item--container"
@@ -12,7 +14,9 @@ export const RecentlyPlayedCard = ({ props }) => {
             <div
                 className="card__image--container"
             >
-                <img src={props.track.album.images[0].url} alt="artits" />
+                <Link to={`/album/${props.track.album.id}`} className="track__link">
+                    <img src={props.track.album.images[0].url} alt="artits" />
+                </Link>
             </div>
             <Link to={`/artist/${props.track.artists[0].id}`}>
                 <h4

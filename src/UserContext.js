@@ -20,7 +20,10 @@ export const UserProvider = ({ children }) => {
     // const navigate = useNavigate();
     const [user, setUser] = useState({ token: "", auth: false });
     const [username, setUsername] = useState("");
-    const [userID, setUserID] = useState("")
+    const [userID, setUserID] = useState("");
+    const [artistSearched, setArtistSearched] = useState([])
+    const [term, setTerm] = useState("")
+    const [search, setSearch] = useState(false)
 
     const createToken = () => {
         // Get and create user logged token from spotify 
@@ -94,17 +97,6 @@ export const UserProvider = ({ children }) => {
 
     }
 
-    const getMyTopAlbum = async () => {
-        try {
-            const myTopAlbum = await spotifyApi.getAlbums([])
-        }
-        catch (error) {
-            console.log(error)
-        }
-
-
-    }
-
 
     const getNewRelease = async () => {
         try {
@@ -141,7 +133,6 @@ export const UserProvider = ({ children }) => {
     }
 
     // Get recently played
-
     const getRecentlyPlayed = async () => {
         try {
             const recentPlayed = await spotifyApi.getMyRecentlyPlayedTracks()
@@ -188,6 +179,20 @@ export const UserProvider = ({ children }) => {
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
+
+
+    // search item
+
+    const searchArtist = async (event) => {
+        event.preventDefault()
+
+        const searchForArtist = await spotifyApi.search(term, ["album", "artist", "playlist", "track"])
+        console.log(searchForArtist)
+        setArtistSearched(searchForArtist.artists)
+        console.log(searchForArtist.artists.items[0])
+        setSearch(true)
+
     }
 
     return (

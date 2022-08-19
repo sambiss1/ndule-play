@@ -20,36 +20,21 @@ import { UserProvider } from "./UserContext"
 
 const AuthUser = () => {
     const { user, login, logout } = useContext(UserContext);
-
-    // const navigate = useNavigate()
     return (
         <UserProvider>
-
-
-            <BrowserRouter>
-
-                <Routes>
-                    <Route path="/" index element={<HomePage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route
-                        path="/albums" element={<Albums />}>
-
-                    </Route>
-                    <Route path="/album/:id" element={<SingleAlbum />} />
-                    <Route path="/track/:id" element={<SingleSong />} />
-                    <Route path="/artist/:id" element={<Artist />} />
-                    <Route path="/genres" element={<Genres />} />
-                    <Route path="/playlist" element={<PlayList />} />
-                    <Route
-                        path="/recently-played" element={<RecentlyPlayed />}>
-                    </Route>
-                    <Route
-                        path="/liked" element={<Liked />} >
-                    </Route>
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </BrowserRouter>
-            <Outlet />
+            <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/albums" element={<Albums />}></Route>
+                <Route path="/album/:id" element={<SingleAlbum />} />
+                <Route path="/track/:id" element={<SingleSong />} />
+                <Route path="/artist/:id" element={<Artist />} />
+                <Route path="genres" element={<Genres />} />
+                <Route path="/playlist" element={<PlayList />} />
+                <Route path="/recently-played" element={<RecentlyPlayed />}> </Route>
+                <Route path="/liked" element={<Liked />} ></Route>
+                <Route path="*" element={<NotFound />} />
+                <Route path="/" element={<HomePage />} />
+            </Routes>
         </UserProvider>
     )
 }

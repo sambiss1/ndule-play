@@ -40,17 +40,13 @@ export const Genres = ({ genre }) => {
         setTimeout(() => {
             getAllCategory()
         }, 500)
-    }, [getAllCategory])
+    }, [])
 
     return (
         <div
             className="homepage--container"
         >
-            <Sidebar logout={() => {
-                navigate("/login", { replace: true })
-                window.localStorage.removeItem("token")
-
-            }} />
+            <Sidebar />
             <div
                 className="main__container"
             >
