@@ -33,8 +33,9 @@ const AuthUser = () => {
                     <Route path="/login" element={<LoginPage />} />
                     <Route
                         path="/albums" element={<Albums />}>
-                        <Route path="/albums/:id" element={<SingleAlbum />} />
+
                     </Route>
+                    <Route path="/album/:id" element={<SingleAlbum />} />
                     <Route path="/track/:id" element={<SingleSong />} />
                     <Route path="/artist/:id" element={<Artist />} />
                     <Route path="/genres" element={<Genres />} />

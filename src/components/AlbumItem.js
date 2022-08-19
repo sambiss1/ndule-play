@@ -11,7 +11,9 @@ export const AlbumItem = ({ newalbum }) => {
             <div
                 className="card__image--container"
             >
-                <img src={newalbum.images[0].url} alt="artits" />
+                <Link to={`/album/${newalbum.id}`} className="track__link">
+                    <img src={newalbum.images[0].url} alt="artits" />
+                </Link>
             </div>
             <Link to={`/artist/${newalbum.artists[0].id}`}>
 

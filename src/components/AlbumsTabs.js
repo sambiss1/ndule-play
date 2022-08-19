@@ -8,15 +8,11 @@ import "../styles/albumitem.css"
 
 export const AlbumsTabs = ({ artist, newalbum }) => {
     let myTopArtists = JSON.parse(localStorage.getItem("my_top_artist"));
-
-
-
     let newReleaseAlbum = JSON.parse(localStorage.getItem("new-release-album"))
 
 
+    // console.log(newReleaseAlbum.map((newalbum) => newalbum.id))
     return (
-
-
         <div
             className="album__tabs--container"
         >
