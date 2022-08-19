@@ -150,7 +150,7 @@ export const UserProvider = ({ children }) => {
         catch (error) {
             console.log(error)
         }
-      
+
     }
 
     // Get liked songs
@@ -183,6 +183,12 @@ export const UserProvider = ({ children }) => {
     }
 
 
+    // Convert seconds to minutes 
+    const millisToMinutesAndSeconds = (millis) => {
+        var minutes = Math.floor(millis / 60000);
+        var seconds = ((millis % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
 
     return (
 
@@ -196,7 +202,8 @@ export const UserProvider = ({ children }) => {
             getUserLikedSongs,
             getRecentlyPlayed,
             getAllCategory,
-            getNewRelease
+            getNewRelease,
+            millisToMinutesAndSeconds
         }} >
             {children}
         </UserContext.Provider>
