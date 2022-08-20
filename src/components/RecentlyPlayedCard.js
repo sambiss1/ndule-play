@@ -11,13 +11,15 @@ export const RecentlyPlayedCard = ({ props }) => {
             className="card__item--container"
             key={props.track.id}
         >
-            <div
-                className="card__image--container"
-            >
-                <Link to={`/album/${props.track.album.id}`} className="track__link">
+            <Link to={`/album/${props.track.album.id}`} className="track__link">
+                <div
+                    className="card__image--container"
+                >
+
                     <img src={props.track.album.images[0].url} alt="artits" />
-                </Link>
-            </div>
+
+                </div>
+            </Link>
             <Link to={`/artist/${props.track.artists[0].id}`}>
                 <h4
                     className="card__name"
@@ -36,7 +38,7 @@ export const RecentlyPlayedCard = ({ props }) => {
 
 
 
-        </div>
+        </div >
     )
 }
 

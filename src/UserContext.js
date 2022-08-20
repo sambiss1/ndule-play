@@ -208,7 +208,8 @@ export const UserProvider = ({ children }) => {
             getRecentlyPlayed,
             getAllCategory,
             getNewRelease,
-            millisToMinutesAndSeconds
+            millisToMinutesAndSeconds,
+            searchArtist
         }} >
             {children}
         </UserContext.Provider>

@@ -17,11 +17,14 @@ export const LikedSongCard = ({ props }) => {
             className="card__item--container"
             key={props.id}
         >
-            <div
-                className="card__image--container"
-            >
-                <img src={props.track.album.images[0].url} alt="artits" />
-            </div>
+            <Link to={`/album/${props.track.album.id}`} className="track__link">
+                <div
+                    className="card__image--container"
+                >
+                    <img src={props.track.album.images[0].url} alt="artits" />
+                </div>
+            </Link>
+
             <Link to={`/artist/${props.track.artists[0].id}`}>
 
                 <h4

@@ -8,13 +8,15 @@ export const AlbumItem = ({ newalbum }) => {
             className="card__item--container"
             key={newalbum.id}
         >
-            <div
-                className="card__image--container"
-            >
-                <Link to={`/album/${newalbum.id}`} className="track__link">
+            <Link to={`/album/${newalbum.id}`} className="track__link">
+                <div
+                    className="card__image--container"
+                >
+
                     <img src={newalbum.images[0].url} alt="artits" />
-                </Link>
-            </div>
+
+                </div>
+            </Link>
             <Link to={`/artist/${newalbum.artists[0].id}`}>
 
                 <h4
