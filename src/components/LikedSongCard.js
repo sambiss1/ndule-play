@@ -1,7 +1,8 @@
-import React from 'react';
+import { React, useContext } from 'react';
 import "../styles/albumitem.css";
 import { Link } from "react-router-dom";
 import { FiPlay } from 'react-icons/fi';
+import { UserContext } from '../UserContext';
 
 export const LikedSongCard = ({ props }) => {
 
@@ -12,6 +13,10 @@ export const LikedSongCard = ({ props }) => {
     } else {
         allArtistsInSong = props.track.artists.map(name => name.name + "")
     }
+
+    const { trackUri, setTrackUri } = useContext(UserContext)
+
+
 
     return (
         <div
@@ -27,7 +32,10 @@ export const LikedSongCard = ({ props }) => {
             </Link>
             <div
                 className='play__icon--container'
-                onClick={() => console.log("play")}
+                onClick={() => {
+                    console.log("play", props.track.uri)
+                    setTrackUri(props.track.uri)
+                }}
             >
 
                 <FiPlay className='play__icon' />

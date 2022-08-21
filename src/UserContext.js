@@ -24,8 +24,9 @@ export const UserProvider = ({ children }) => {
     const [artistSearched, setArtistSearched] = useState([]);
     const [term, setTerm] = useState("");
     const [search, setSearch] = useState(false);
-    const [trackUri, setTrackUri] = useState("")
-    const [albumUri, setAlbumUri] = useState("")
+    const [trackUri, setTrackUri] = useState("");
+    const [albumUri, setAlbumUri] = useState("");
+    const [anUri, setAnUri] = useState("")
 
     const createToken = () => {
         // Get and create user logged token from spotify 
