@@ -1,9 +1,10 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect, useContext } from 'react';
 import { IoSearchOutline } from "react-icons/io5";
 
 import "../styles/searchbar.css";
 import SpotifyWebApi from 'spotify-web-api-js';
 import LoadingData from './LoadingData';
+import { UserContext } from '../UserContext';
 
 
 export const BestResult = () => {
@@ -18,20 +19,8 @@ export const SearchBar = () => {
 
     let spotify = new SpotifyWebApi();
     spotify.setAccessToken(window.localStorage.getItem("token"))
-    const [artistSearched, setArtistSearched] = useState([])
-    const [term, setTerm] = useState("")
-    const [search, setSearch] = useState(false)
 
-    const searchArtist = async (event) => {
-        event.preventDefault()
-
-        const searchForArtist = await spotify.search(term, ["album", "artist", "playlist", "track"])
-        console.log(searchForArtist)
-        setArtistSearched(searchForArtist.artists)
-        console.log(searchForArtist.artists.items[0])
-        setSearch(true)
-
-    }
+    const { search, artistSearched, term, setTerm, searchArtist } = useContext(UserContext)
 
     return (
         <>

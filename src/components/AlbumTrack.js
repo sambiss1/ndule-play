@@ -6,15 +6,20 @@ import { FiPlay, FiHeart } from 'react-icons/fi';
 import { UserContext } from '../UserContext';
 
 export const AlbumTrack = ({ props }) => {
-    const { millisToMinutesAndSeconds } = useContext(UserContext)
+    const { millisToMinutesAndSeconds, trackUri, setTrackUri } = useContext(UserContext)
 
     let trackDurationInMinutes = millisToMinutesAndSeconds(props.duration_ms)
+
+    const getTrackId = (trackUri) => {
+        console.log(props.uri)
+        setTrackUri(props.uri)
+    }
 
     return (
         <div
             className="album__track--container"
         >
-            <h4>{props.track_number}</h4>
+            <h4 onClick={getTrackId}>{props.track_number}</h4>
             <div
                 className="album__track--details"
             >

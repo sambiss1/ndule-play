@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import LoadingData from '../components/LoadingData';
 import Sidebar from '../components/Sidebar';
@@ -15,6 +15,7 @@ import "../styles/singlealbum.css"
 
 export const SingleAlbum = () => {
     const { id } = useParams();
+    const { trackUri } = useContext(UserContext);
     const [album, setAlbum] = useState([]);
     const [albumTracks, setAlbumTracks] = useState([])
 
@@ -27,7 +28,6 @@ export const SingleAlbum = () => {
 
             setAlbum(getAlbum)
             setAlbumTracks(getAlbum.tracks.items)
-            console.log(albumTracks)
         }
         catch (error) {
             console.log(error)
@@ -39,6 +39,20 @@ export const SingleAlbum = () => {
             getAlbum()
         }, 300)
     }, [])
+
+    const playAlbum = async (albumUri) => {
+        albumUri = album.uri;
+        const play = await spotifyApi.play(albumUri)
+        console.log(play)
+    }
+
+    const playTrack = async (trackUri) => {
+        const playThisTrack = spotifyApi.play(trackUri)
+    }
+
+    const getTrackUri = () => {
+        console.log(trackUri)
+    }
 
 
     return (
@@ -81,7 +95,7 @@ export const SingleAlbum = () => {
                         >
                             <FiPlay
                                 className="album__actions--play"
-
+                                onClick={playAlbum}
                             />
                             <FiHeart
                                 className="album__actions--like"
@@ -95,8 +109,9 @@ export const SingleAlbum = () => {
                             <h3>Titres</h3>
                             {albumTracks.length <= 0 ? (<LoadingData />) : (albumTracks.map(albumTrack => albumTrack.artists + albumTrack.name + albumTrack.track_number &&
                                 <AlbumTrack
-                                key={albumTrack.id}
-                                props={albumTrack}
+                                    key={albumTrack.id}
+                                    props={albumTrack}
+                                    onClick={getTrackUri}
                                 />)
 
                             )

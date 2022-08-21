@@ -2,15 +2,24 @@ import React from 'react';
 
 import ActiveMusicImage from "../images/cover-LHDMA.jpg";
 
-import "../styles/player.css"
+import "../styles/player.css";
+import SpotifyPlayer from 'react-spotify-web-playback';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 
 export const Player = () => {
+    let spotifyApi = new SpotifyWebApi();
+    spotifyApi.setAccessToken(window.localStorage.getItem("token"));
+    let user_token = 0;
     return (
         <div
             className="music__player--container"
         >
-            <div
+            <SpotifyPlayer
+                token={window.localStorage.getItem('token')}
+
+            />
+            {/* <div
                 className="active__music__image--container"
             >
                 <img
@@ -37,7 +46,7 @@ export const Player = () => {
                 className="active__music__player--container"
             >
                 <audio />
-            </div>
+            </div> */}
 
 
 

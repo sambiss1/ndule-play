@@ -2,6 +2,7 @@ import { React, useEffect, useState, createContext } from "react";
 import axios from "axios";
 import Spotify from 'spotify-web-api-js';
 import SpotifyWebApi from "spotify-web-api-js";
+import SpotifyPlayer from 'react-spotify-web-playback';
 
 import { useNavigate } from "react-router-dom";
 
@@ -15,15 +16,15 @@ export const UserProvider = ({ children }) => {
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
-    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played";
+    const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played app-remote-control streaming";
 
-    // const navigate = useNavigate();
     const [user, setUser] = useState({ token: "", auth: false });
     const [username, setUsername] = useState("");
     const [userID, setUserID] = useState("");
-    const [artistSearched, setArtistSearched] = useState([])
-    const [term, setTerm] = useState("")
-    const [search, setSearch] = useState(false)
+    const [artistSearched, setArtistSearched] = useState([]);
+    const [term, setTerm] = useState("");
+    const [search, setSearch] = useState(false);
+    const [trackUri, setTrackUri] = useState("")
 
     const createToken = () => {
         // Get and create user logged token from spotify 
@@ -186,15 +187,17 @@ export const UserProvider = ({ children }) => {
 
     const searchArtist = async (event) => {
         event.preventDefault()
-
         const searchForArtist = await spotifyApi.search(term, ["album", "artist", "playlist", "track"])
         console.log(searchForArtist)
-        setArtistSearched(searchForArtist.artists)
+        setArtistSearched(searchForArtist.artists.items)
         console.log(searchForArtist.artists.items[0])
         setSearch(true)
 
     }
 
+    const playAlbum = async () => {
+        const play = await spotifyApi.play()
+    }
     return (
 
         <UserContext.Provider value={{
@@ -209,7 +212,13 @@ export const UserProvider = ({ children }) => {
             getAllCategory,
             getNewRelease,
             millisToMinutesAndSeconds,
-            searchArtist
+            search,
+            artistSearched,
+            term,
+            setTerm,
+            searchArtist,
+            trackUri,
+            setTrackUri
         }} >
             {children}
         </UserContext.Provider>
