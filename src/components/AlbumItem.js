@@ -1,6 +1,7 @@
 import { React } from 'react';
 import { Link } from 'react-router-dom';
-
+import { AiOutlinePlayCircle } from "react-icons/ai";
+import { FiPlay } from "react-icons/fi"
 export const AlbumItem = ({ newalbum }) => {
 
     return (
@@ -17,6 +18,15 @@ export const AlbumItem = ({ newalbum }) => {
 
                 </div>
             </Link>
+            <div
+                className='play__icon--container'
+                onClick={() => console.log("play")}
+            >
+
+                <FiPlay className='play__icon' />
+            </div>
+
+
             <Link to={`/artist/${newalbum.artists[0].id}`}>
 
                 <h4
