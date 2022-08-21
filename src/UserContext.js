@@ -26,7 +26,7 @@ export const UserProvider = ({ children }) => {
     const [search, setSearch] = useState(false);
     const [trackUri, setTrackUri] = useState("");
     const [albumUri, setAlbumUri] = useState("");
-    const [anUri, setAnUri] = useState("")
+    const [anUri, setAnUri] = useState("");
 
     const createToken = () => {
         // Get and create user logged token from spotify 
@@ -222,7 +222,9 @@ export const UserProvider = ({ children }) => {
             setTerm,
             searchArtist,
             trackUri,
-            setTrackUri
+            setTrackUri,
+            anUri,
+            setAnUri
         }} >
             {children}
         </UserContext.Provider>

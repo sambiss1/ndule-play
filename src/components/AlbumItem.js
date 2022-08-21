@@ -1,9 +1,10 @@
-import { React } from 'react';
+import { React, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlinePlayCircle } from "react-icons/ai";
-import { FiPlay } from "react-icons/fi"
+import { FiPlay } from "react-icons/fi";
+import { UserContext } from '../UserContext';
 export const AlbumItem = ({ newalbum }) => {
-
+    const { anUri, setAnUri } = useContext(UserContext)
     return (
         <div
             className="card__item--container"
@@ -20,7 +21,11 @@ export const AlbumItem = ({ newalbum }) => {
             </Link>
             <div
                 className='play__icon--container'
-                onClick={() => console.log("play")}
+                onClick={() => {
+                    console.log("play")
+                    console.log(newalbum.uri)
+                    setAnUri(newalbum.uri)
+                }}
             >
 
                 <FiPlay className='play__icon' />

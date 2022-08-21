@@ -11,7 +11,7 @@ import { UserContext } from '../UserContext';
 export const Player = () => {
     let spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(window.localStorage.getItem("token"));
-    const { setAlbumUri, albumUri, trackUri } = useContext(UserContext)
+    const { setAlbumUri, albumUri, trackUri, anUri } = useContext(UserContext)
 
     console.log(albumUri)
     let user_token = 0;
@@ -21,7 +21,7 @@ export const Player = () => {
         >
             <SpotifyPlayer
                 token={window.localStorage.getItem('token')}
-                uris={[trackUri]}
+                uris={[anUri]}
                 styles={{
                     activeColor: '#fff',
                     bgColor: '#333',

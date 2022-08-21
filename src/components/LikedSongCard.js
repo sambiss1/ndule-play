@@ -14,7 +14,8 @@ export const LikedSongCard = ({ props }) => {
         allArtistsInSong = props.track.artists.map(name => name.name + "")
     }
 
-    const { trackUri, setTrackUri } = useContext(UserContext)
+    const { trackUri, setTrackUri, anUri, setAnUri } = useContext(UserContext)
+
 
 
 
@@ -35,6 +36,7 @@ export const LikedSongCard = ({ props }) => {
                 onClick={() => {
                     console.log("play", props.track.uri)
                     setTrackUri(props.track.uri)
+                    setAnUri(props.track.uri)
                 }}
             >
 

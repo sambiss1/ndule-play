@@ -9,6 +9,7 @@ import PlayList from './pages/PlayList';
 import RecentlyPlayed from './pages/RecentlyPlayed';
 import Liked from './pages/Liked';
 import Sidebar from './components/Sidebar';
+import Player from './components/Player';
 import SingleAlbum from './pages/SingleAlbum';
 import Artist from './pages/Artist';
 
@@ -34,6 +35,7 @@ const AuthUser = () => {
                 <Route path="/liked" element={<Liked />} ></Route>
                 <Route path="*" element={<NotFound />} />
                 <Route path="/" element={<HomePage />} />
+                <Player />
             </Routes>
         </UserProvider>
     )
