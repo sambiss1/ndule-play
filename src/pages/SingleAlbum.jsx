@@ -15,7 +15,7 @@ import "../styles/singlealbum.css"
 
 export const SingleAlbum = () => {
     const { id } = useParams();
-    const { trackUri } = useContext(UserContext);
+    const { trackUri, setAlbumUri, albumUri } = useContext(UserContext);
     const [album, setAlbum] = useState([]);
     const [albumTracks, setAlbumTracks] = useState([])
 
@@ -43,8 +43,12 @@ export const SingleAlbum = () => {
     const playAlbum = async (albumUri) => {
         albumUri = album.uri;
         const play = await spotifyApi.play(albumUri)
-        console.log(play)
+        setAlbumUri(albumUri)
+        console.log(album.uri)
     }
+    useEffect(() => {
+        playAlbum()
+    }, [])
 
     const playTrack = async (trackUri) => {
         const playThisTrack = spotifyApi.play(trackUri)
@@ -53,6 +57,8 @@ export const SingleAlbum = () => {
     const getTrackUri = () => {
         console.log(trackUri)
     }
+
+    console.log(album.uri)
 
 
     return (

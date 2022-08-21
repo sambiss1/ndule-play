@@ -13,7 +13,7 @@ export const UserContext = createContext({ token: "", auth: false, username: "",
 
 export const UserProvider = ({ children }) => {
     const CLIENT_ID = "5aa0312dd868402aa4f2f05f91de64e1";
-    const REDIRECT_URI = "http://localhost:3000";
+    const REDIRECT_URI = "http://localhost:3000/";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
     const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played app-remote-control streaming";
@@ -25,6 +25,7 @@ export const UserProvider = ({ children }) => {
     const [term, setTerm] = useState("");
     const [search, setSearch] = useState(false);
     const [trackUri, setTrackUri] = useState("")
+    const [albumUri, setAlbumUri] = useState("")
 
     const createToken = () => {
         // Get and create user logged token from spotify 
@@ -195,9 +196,11 @@ export const UserProvider = ({ children }) => {
 
     }
 
-    const playAlbum = async () => {
-        const play = await spotifyApi.play()
-    }
+    // const playAlbum = async () => {
+    //     // const play = await spotifyApi.play()
+    //     const play = await spotifyApi.play(album.uri)
+    //     setAlbumUri(albumUri)
+    // }
     return (
 
         <UserContext.Provider value={{
