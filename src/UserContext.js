@@ -13,7 +13,7 @@ export const UserContext = createContext({ token: "", auth: false, username: "",
 
 export const UserProvider = ({ children }) => {
     const CLIENT_ID = "5aa0312dd868402aa4f2f05f91de64e1";
-    const REDIRECT_URI = "https://nduleplay.vercel.app/";
+    const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
     const SCOPE = "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played app-remote-control streaming";
