@@ -2,8 +2,10 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import ThemeToggler from './ThemeToggler';
 import UserLogged from './UserLogged';
+import MobileHeader from './MobileHeader';
 
-import "../styles/header.css"
+import "../styles/header.css";
+
 
 
 export const Header = () => {
@@ -11,6 +13,7 @@ export const Header = () => {
         <div
             className="header--container"
         >
+           
             <SearchBar />
             {/* <ThemeToggler /> */}
             <UserLogged />

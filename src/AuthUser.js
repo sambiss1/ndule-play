@@ -24,6 +24,7 @@ const AuthUser = () => {
     return (
         <UserProvider>
             <Routes>
+                <Player />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/albums" element={<Albums />}></Route>
                 <Route path="/album/:id" element={<SingleAlbum />} />
@@ -35,7 +36,6 @@ const AuthUser = () => {
                 <Route path="/liked" element={<Liked />} ></Route>
                 <Route path="*" element={<NotFound />} />
                 <Route path="/" element={<HomePage />} />
-                <Player />
             </Routes>
         </UserProvider>
     )

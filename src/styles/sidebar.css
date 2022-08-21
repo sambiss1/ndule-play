@@ -1,6 +1,6 @@
 /* Light mode color */
 /* Dark mode color */
-@media (max-width: 1440px) {
+@media screen and (max-width: 1440px) {
   .sidebar--container {
     background-color: #323232;
     height: 100vh;
@@ -11,6 +11,16 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sidebar--container {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .sidebar--container {
+    display: none;
   }
 }
 

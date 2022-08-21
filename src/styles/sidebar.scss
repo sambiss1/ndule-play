@@ -4,7 +4,7 @@
 @import "__breakpoints";
 
 
-@media (max-width: map.get($breakpoints, "sl")) {
+@media screen and (max-width: map.get($breakpoints, "sl")) {
 
     .sidebar--container {
         background-color: $sidebar_dark_mode_background_color;
@@ -19,5 +19,17 @@
         // justify-content: space-around;
 
 
+    }
+}
+
+@media screen and (max-width: map.get($breakpoints, md)) {
+    .sidebar--container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: map.get($breakpoints, sm)) {
+    .sidebar--container {
+        display: none;
     }
 }

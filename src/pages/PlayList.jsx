@@ -67,12 +67,6 @@ export const PlayList = () => {
 
                     </div>
                     )}
-
-
-
-
-
-
                 <Player />
             </div>
         </>

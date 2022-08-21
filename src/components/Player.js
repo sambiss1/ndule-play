@@ -27,44 +27,13 @@ export const Player = () => {
                     bgColor: '#333',
                     color: '#fff',
                     loaderColor: '#fff',
-                    sliderColor: '#1cb954',
+                    sliderColor: '#DE5000',
                     trackArtistColor: '#ccc',
-                    trackNameColor: '#fff',
+                    trackNameColor: '#DE5000',
                 }}
 
             />
-            {/* <div
-                className="active__music__image--container"
-            >
-                <img
-                    src={ActiveMusicImage}
-                    alt="cover active music"
-                />
-            </div>
-            <div
-                className="active__music--artist"
-            >
-                <h3
-                    className="music__artist--author"
-                >
-                    Laylow
-                </h3>
-                <h3
-                    className="music__artist--title"
-                >
-                    Une histoire étrange
-                </h3>
-            </div>
-
-            <div
-                className="active__music__player--container"
-            >
-                <audio />
-            </div> */}
-
-
-
-
+           
         </div>
     )
 }

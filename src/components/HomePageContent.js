@@ -4,6 +4,7 @@ import Header from './Header';
 import Player from './Player';
 import HomePageSlider from './HomePageSlider';
 import AlbumsTabs from './AlbumsTabs';
+import MobileHeader from './MobileHeader';
 
 export const HomePageContent = () => {
     return (
@@ -15,8 +16,11 @@ export const HomePageContent = () => {
                 paddingBottom: "100px"
             }}
 
+            className="homepage__content"
+
         >
             <Header />
+            <MobileHeader />
             <HomePageSlider />
             <AlbumsTabs />
 

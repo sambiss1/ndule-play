@@ -6,5 +6,16 @@
     grid-template-columns: 25% 100%;
   }
 }
+@media (max-width: 576px) {
+  .homepage--container {
+    display: flex;
+    width: 100%;
+  }
+
+  .homepage__content {
+    left: 0 !important;
+    width: 100% !important;
+  }
+}
 
 /*# sourceMappingURL=homepage.css.map */

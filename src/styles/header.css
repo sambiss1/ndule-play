@@ -12,6 +12,26 @@
     width: 30%;
     border: 0.1em solid red;
   }
+
+  .mobile__header--container {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .header--container {
+    display: none;
+  }
+
+  .themetoggler {
+    width: 30%;
+    border: 0.1em solid red;
+  }
+
+  .mobile__header--container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 /*# sourceMappingURL=header.css.map */
