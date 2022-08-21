@@ -1,5 +1,5 @@
 import { React, useEffect, useState, createContext } from "react";
-import axios from "axios";
+
 import Spotify from 'spotify-web-api-js';
 import SpotifyWebApi from "spotify-web-api-js";
 import SpotifyPlayer from 'react-spotify-web-playback';
