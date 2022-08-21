@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiPlay } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 import "../styles/albumitem.css"
@@ -20,6 +21,13 @@ export const RecentlyPlayedCard = ({ props }) => {
 
                 </div>
             </Link>
+            <div
+                className='play__icon--container'
+                onClick={() => console.log("play")}
+            >
+
+                <FiPlay className='play__icon' />
+            </div>
             <Link to={`/artist/${props.track.artists[0].id}`}>
                 <h4
                     className="card__name"

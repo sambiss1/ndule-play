@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/albumitem.css";
 import { Link } from "react-router-dom";
+import { FiPlay } from 'react-icons/fi';
 
 export const LikedSongCard = ({ props }) => {
 
@@ -24,6 +25,13 @@ export const LikedSongCard = ({ props }) => {
                     <img src={props.track.album.images[0].url} alt="artits" />
                 </div>
             </Link>
+            <div
+                className='play__icon--container'
+                onClick={() => console.log("play")}
+            >
+
+                <FiPlay className='play__icon' />
+            </div>
 
             <Link to={`/artist/${props.track.artists[0].id}`}>
 
