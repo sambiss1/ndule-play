@@ -18,6 +18,7 @@ import Liked from "./pages/Liked";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
 
+
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
@@ -25,6 +26,7 @@ function App({ hideLoader }) {
 
   return (
     <BrowserRouter>
+
       <Routes>
         {!actualToken ? (
           <Route path="/" element={<UnAuthUser />} />
@@ -36,9 +38,7 @@ function App({ hideLoader }) {
             <Route path="/artist/:id" element={<Artist />} />
             <Route path="genres" element={<Genres />} />
             <Route path="/playlist" element={<PlayList />} />
-            <Route path="/recently-played" element={<RecentlyPlayed />}>
-              {" "}
-            </Route>
+            <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/liked" element={<Liked />} />
             <Route path="/login" element={<UnAuthUser />} />
             <Route path="*" element={<NotFound />} />

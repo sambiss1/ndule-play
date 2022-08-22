@@ -1,9 +1,7 @@
 /* Light mode color */
 /* Dark mode color */
 @media (max-width: 1440px) {
-  .link__hover--effect,
-  .logout__button:hover,
-  ul li:hover {
+  .link__hover--effect, .logout__button:hover, ul li:hover {
     transform: scale(1.1);
     color: #de5000;
     cursor: pointer;
@@ -19,15 +17,20 @@
   }
   ul li {
     color: #f8e5db;
-    font-size: 1.2em;
+    font-size: 1em;
     display: flex;
     align-items: center;
     align-self: flex-start;
     transition: 0.3s ease;
+    width: 100%;
+    border: 0.1em solid red;
   }
   ul li span {
+    display: block;
     margin: 0 5%;
-    font-size: 1.2em;
+    font-size: 1em;
+    width: 100%;
+    border: 0.1em solid white;
   }
   .active {
     color: #de5000;

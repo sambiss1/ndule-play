@@ -16,7 +16,7 @@ import "../styles/albumitem.css";
 
 export function RecentlyPlayed() {
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
-    const { search, artistSearched } = useContext(UserContext);
+    const { search, termSearched } = useContext(UserContext);
 
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(window.localStorage.getItem("token"));
@@ -48,7 +48,7 @@ export function RecentlyPlayed() {
                 <Header />
                 {search ? (
                     <div className="page__content">
-                        {artistSearched.length <= 0 ? <LoadingData /> : <SearchResult />}
+                        {termSearched.length <= 0 ? <LoadingData /> : <SearchResult />}
                     </div>
                 ) : (
                     <div className="page__content">

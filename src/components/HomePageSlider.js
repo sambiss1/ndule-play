@@ -1,9 +1,11 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/function-component-definition */
 import { React } from "react";
 
 import MusicEcaliserImage from "../images/musique-fond-egaliseur-haut-parleur_1017-32860.jpg";
 
 export const HomePageSlider = () => {
-   (
+  return (
     <div
       style={{
         width: "95%",

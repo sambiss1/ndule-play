@@ -18,13 +18,10 @@ export function AlbumItem({ newalbum }) {
             <div
                 className="play__icon--container"
                 onClick={() => {
-                    console.log("play");
-                    console.log(newalbum.uri);
                     setAnUri(newalbum.uri);
                     setPlay(true);
                 }}
-            >
-                <FiPlay className="play__icon" />
+            ><FiPlay className="play__icon" />
             </div>
 
             <Link to={`/artist/${newalbum.artists[0].id}`}>

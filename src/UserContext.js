@@ -31,18 +31,14 @@ export const UserProvider = ({ children }) => {
     const [trackUri, setTrackUri] = useState("");
     const [albumUri, setAlbumUri] = useState("");
     const [anUri, setAnUri] = useState("");
-    const [play, setPlay] = useState(false)
+    const [play, setPlay] = useState(false);
 
     const createToken = () => {
         // Get and create user logged token from spotify
         const { hash } = window.location;
         let token = window.localStorage.getItem("token");
         if (!token && hash) {
-            token = hash
-                .substring(1)
-                .split("&")
-                .find((elem) => elem.startsWith("access_token"))
-                .split("=")[1];
+            token = hash.substring(1).split("&").find((elem) => elem.startsWith("access_token")).split("=")[1];
 
             window.location.hash = "";
             window.localStorage.setItem("token", token);
@@ -52,9 +48,7 @@ export const UserProvider = ({ children }) => {
             });
 
             getMyAccount();
-
             getNewRelease();
-
             getUserPlaylist();
             getAllCategory();
         }
@@ -162,9 +156,6 @@ export const UserProvider = ({ children }) => {
             auth: false,
         });
 
-        // navigate("/login")
-        console.log(window.localStorage.getItem("token"));
-        console.log(user.auth);
     };
 
     // Convert seconds to minutes
@@ -184,18 +175,12 @@ export const UserProvider = ({ children }) => {
             "playlist",
             "track",
         ]);
-        console.log(searchForArtist);
+
         setTermSearched(searchForArtist);
         setArtistSearched(searchForArtist.artists.items);
-        console.log(searchForArtist.artists.items[0]);
         setSearch(true);
     };
 
-    // const playAlbum = async () => {
-    //     // const play = await spotifyApi.play()
-    //     const play = await spotifyApi.play(album.uri)
-    //     setAlbumUri(albumUri)
-    // }
     return (
         <UserContext.Provider
             value={{
