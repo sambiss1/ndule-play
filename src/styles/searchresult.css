@@ -1,0 +1,11 @@
+/* Light mode color */
+/* Dark mode color */
+@media screen and (max-width: 1440px) {
+  .searched__track--container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+/*# sourceMappingURL=searchresult.css.map */

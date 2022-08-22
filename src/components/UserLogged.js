@@ -1,3 +1,5 @@
+/* eslint-disable react/function-component-definition */
+/* eslint-disable arrow-body-style */
 import { React } from "react";
 
 import UserTest from "../images/user-test.png";
@@ -6,7 +8,7 @@ import UserTest from "../images/user-test.png";
 
 import "../styles/userlogged.css";
 
-export function UserLogged() {
+export const UserLogged = () => {
   return (
     <div className="userlooged--container">
       <div className="usertest__image--container">
@@ -18,10 +20,10 @@ export function UserLogged() {
       </div>
 
       <div>
-        <h2>{window.localStorage.getItem("logged__user")}</h2>
+        <h2>{window.localStorage.getItem("user__logged")}</h2>
       </div>
     </div>
   );
-}
+};
 
 export default UserLogged;

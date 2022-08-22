@@ -1,0 +1,14 @@
+@use "sass:map";
+@import "variables";
+@import "__breakpoints";
+
+
+@media screen and (max-width: map.get($breakpoints, "sl")) {
+    .search__result--container {}
+
+    .searched__track--container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 10px;
+    }
+}
