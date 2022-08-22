@@ -3,39 +3,36 @@
 @import "__breakpoints";
 
 @media screen and (max-width: map.get($breakpoints, "sl")) {
-    .header--container {
-        display: flex;
-        width: 95%;
-        justify-content: space-between;
-        padding: 2% 2%;
+  .header--container {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    padding: 2% 2%;
+  }
 
-    }
+  .themetoggler {
+    width: 30%;
+    border: 0.1em solid red;
+  }
 
-    .themetoggler {
-        width: 30%;
-        border: .1em solid red;
-    }
-
-    .mobile__header--container {
-        display: none;
-    }
+  .mobile__header--container {
+    display: none;
+  }
 }
 
 @media screen and (max-width: map.get($breakpoints, "sm")) {
-    .header--container {
-        display: none;
+  .header--container {
+    display: none;
+  }
 
-    }
+  .themetoggler {
+    width: 30%;
+    border: 0.1em solid red;
+  }
 
-    .themetoggler {
-        width: 30%;
-        border: .1em solid red;
-    }
-
-    .mobile__header--container {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-    }
-
+  .mobile__header--container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 }

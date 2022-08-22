@@ -2,48 +2,42 @@
 @import "variables";
 @import "__breakpoints";
 
-@media (max-width : map.get($breakpoints, "sl")) {
-    form {
+@media (max-width: map.get($breakpoints, "sl")) {
+  form {
+    font-size: 1.6em;
 
+    margin-right: 15%;
+    width: 20%;
+    height: 40px;
+  }
 
-        font-size: 1.6em;
+  .search__input--container {
+    display: flex;
+    position: relative;
 
-        margin-right: 15%;
-        width: 20%;
-        height: 40px;
+    .search__bar--icon {
+      position: absolute;
+      top: 25%;
+      left: 10%;
+      font-size: 0.8em;
     }
 
-    .search__input--container {
-        display: flex;
-        position: relative;
-
-        .search__bar--icon {
-            position: absolute;
-            top: 25%;
-            left: 10%;
-            font-size: .8em;
-        }
-
-        input[type="search"] {
-
-            background-color: $sidebar_dark_mode_background_color;
-            color: $secondary_color;
-            border-radius: 25px 0 0 25px;
-            padding: 1% 25%;
-            border-right: none;
-            outline-color: $primary_color;
-            border: .1em solid #fff;
-
-        }
+    input[type="search"] {
+      background-color: $sidebar_dark_mode_background_color;
+      color: $secondary_color;
+      border-radius: 25px 0 0 25px;
+      padding: 1% 25%;
+      border-right: none;
+      outline-color: $primary_color;
+      border: 0.1em solid #fff;
     }
+  }
 
-
-    input[type="submit"] {
-        background-color: $primary_color;
-        color: $white_color;
-        border: none;
-        padding: 5% 15%;
-        border-radius: 0 25px 25px 0;
-    }
-
+  input[type="submit"] {
+    background-color: $primary_color;
+    color: $white_color;
+    border: none;
+    padding: 5% 15%;
+    border-radius: 0 25px 25px 0;
+  }
 }

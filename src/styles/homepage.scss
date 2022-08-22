@@ -2,24 +2,21 @@
 @import "variables";
 @import "_breakpoints";
 
-
-@media(max-width: map.get($breakpoints, "sl")) {
-
-    .homepage--container {
-        display: grid;
-        grid-template-columns: 25% 100%;
-    }
+@media (max-width: map.get($breakpoints, "sl")) {
+  .homepage--container {
+    display: grid;
+    grid-template-columns: 25% 100%;
+  }
 }
 
-@media(max-width: map.get($breakpoints, "sm")) {
+@media (max-width: map.get($breakpoints, "sm")) {
+  .homepage--container {
+    display: flex;
+    width: 100%;
+  }
 
-    .homepage--container {
-        display: flex;
-        width: 100%;
-    }
-
-    .homepage__content {
-        left: 0 !important;
-        width: 100% !important;
-    }
+  .homepage__content {
+    left: 0 !important;
+    width: 100% !important;
+  }
 }

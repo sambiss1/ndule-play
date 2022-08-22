@@ -5,8 +5,8 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #0E1010;
-  color: #F8E5DB;
+  background-color: #0e1010;
+  color: #f8e5db;
   font-family: "Nunito";
 }
 
@@ -16,33 +16,40 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background-color: #DE5000;
-  color: #DE5000;
-  box-shadow: 9984px 0 0 0 #DE5000, 9999px 0 0 0 #DE5000, 10014px 0 0 0 #DE5000;
+  background-color: #de5000;
+  color: #de5000;
+  box-shadow: 9984px 0 0 0 #de5000, 9999px 0 0 0 #de5000, 10014px 0 0 0 #de5000;
   animation: dotTyping 1.5s infinite linear;
 }
 
 @keyframes dotTyping {
   0% {
-    box-shadow: 9984px 0 0 0 #DE5000, 9999px 0 0 0 #DE5000, 10014px 0 0 0 #DE5000;
+    box-shadow: 9984px 0 0 0 #de5000, 9999px 0 0 0 #de5000,
+      10014px 0 0 0 #de5000;
   }
   16.667% {
-    box-shadow: 9984px -10px 0 0 #DE5000, 9999px 0 0 0 #DE5000, 10014px 0 0 0 #DE5000;
+    box-shadow: 9984px -10px 0 0 #de5000, 9999px 0 0 0 #de5000,
+      10014px 0 0 0 #de5000;
   }
   33.333% {
-    box-shadow: 9984px 0 0 0 #DE5000, 9999px 0 0 0 #DE5000, 10014px 0 0 0 #DE5000;
+    box-shadow: 9984px 0 0 0 #de5000, 9999px 0 0 0 #de5000,
+      10014px 0 0 0 #de5000;
   }
   50% {
-    box-shadow: 9984px 0 0 0 #DE5000, 9999px -10px 0 0 #DE5000, 10014px 0 0 0 #DE5000;
+    box-shadow: 9984px 0 0 0 #de5000, 9999px -10px 0 0 #de5000,
+      10014px 0 0 0 #de5000;
   }
   66.667% {
-    box-shadow: 9984px 0 0 0 #DE5000, 9999px 0 0 0 #DE5000, 10014px 0 0 0 #DE5000;
+    box-shadow: 9984px 0 0 0 #de5000, 9999px 0 0 0 #de5000,
+      10014px 0 0 0 #de5000;
   }
   83.333% {
-    box-shadow: 9984px 0 0 0 #DE5000, 9999px 0 0 0 #DE5000, 10014px -10px 0 0 #DE5000;
+    box-shadow: 9984px 0 0 0 #de5000, 9999px 0 0 0 #de5000,
+      10014px -10px 0 0 #de5000;
   }
   100% {
-    box-shadow: 9984px 0 0 0 #DE5000, 9999px 0 0 0 #DE5000, 10014px 0 0 0 #DE5000;
+    box-shadow: 9984px 0 0 0 #de5000, 9999px 0 0 0 #de5000,
+      10014px 0 0 0 #de5000;
   }
 }
 .hide__loading__page {
@@ -86,7 +93,7 @@ body {
 }
 
 .page__title {
-  color: #DE5000;
+  color: #de5000;
 }
 
 .page__content {

@@ -1,119 +1,121 @@
 @use "sass:map";
 @import "variables";
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;1,500;1,600&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;1,500;1,600&display=swap");
 
 html,
 body {
-    width: 100vw;
-    height: 100vh;
-    background-color: $body_dark_mode_background_color;
-    color: $body_dark_mode_text_color;
-    font-family: "Nunito";
+  width: 100vw;
+  height: 100vh;
+  background-color: $body_dark_mode_background_color;
+  color: $body_dark_mode_text_color;
+  font-family: "Nunito";
 }
 
-
 .dot-typing {
-    position: relative;
-    left: -9999px;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    background-color: $primary_color;
-    color: $primary_color;
-    box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
-    animation: dotTyping 1.5s infinite linear;
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $primary_color;
+  color: $primary_color;
+  box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color,
+    10014px 0 0 0 $primary_color;
+  animation: dotTyping 1.5s infinite linear;
 }
 
 @keyframes dotTyping {
-    0% {
-        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
-    }
+  0% {
+    box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color,
+      10014px 0 0 0 $primary_color;
+  }
 
-    16.667% {
-        box-shadow: 9984px -10px 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
-    }
+  16.667% {
+    box-shadow: 9984px -10px 0 0 $primary_color, 9999px 0 0 0 $primary_color,
+      10014px 0 0 0 $primary_color;
+  }
 
-    33.333% {
-        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
-    }
+  33.333% {
+    box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color,
+      10014px 0 0 0 $primary_color;
+  }
 
-    50% {
-        box-shadow: 9984px 0 0 0 $primary_color, 9999px -10px 0 0 $primary_color, 10014px 0 0 0 $primary_color;
-    }
+  50% {
+    box-shadow: 9984px 0 0 0 $primary_color, 9999px -10px 0 0 $primary_color,
+      10014px 0 0 0 $primary_color;
+  }
 
-    66.667% {
-        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
-    }
+  66.667% {
+    box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color,
+      10014px 0 0 0 $primary_color;
+  }
 
-    83.333% {
-        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px -10px 0 0 $primary_color;
-    }
+  83.333% {
+    box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color,
+      10014px -10px 0 0 $primary_color;
+  }
 
-    100% {
-        box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color, 10014px 0 0 0 $primary_color;
-    }
+  100% {
+    box-shadow: 9984px 0 0 0 $primary_color, 9999px 0 0 0 $primary_color,
+      10014px 0 0 0 $primary_color;
+  }
 }
 
 .hide__loading__page {
-    display: none !important;
+  display: none !important;
 }
 
 .loading__page {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .loading__image--container {
-    width: 200px;
-    height: 100px;
+  width: 200px;
+  height: 100px;
 
-    img {
-        width: 100%;
-        height: 100%;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-
 .application__logo--container {
-    width: 80%;
-    height: 60px;
-    display: flex;
-    margin: 0 auto;
+  width: 80%;
+  height: 60px;
+  display: flex;
+  margin: 0 auto;
 
-    img {
-        width: 100%;
-        height: 100%;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .main__container {
-    position: absolute;
-    left: 25%;
-    width: 75%;
-    padding-bottom: 100px;
+  position: absolute;
+  left: 25%;
+  width: 75%;
+  padding-bottom: 100px;
 }
 
 .page__title {
-    color: $primary_color;
+  color: $primary_color;
 }
 
 .page__content {
-    width: 95%;
-    margin: auto;
-
-
+  width: 95%;
+  margin: auto;
 }
 
 .loading__data {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

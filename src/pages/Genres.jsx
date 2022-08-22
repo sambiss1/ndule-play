@@ -1,85 +1,68 @@
-import { React, useContext, useEffect, useState } from 'react';
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
-import Player from '../components/Player';
+/* eslint-disable react/function-component-definition */
+/* eslint-disable import/no-named-as-default */
+import { React, useEffect, useState } from "react";
+import SpotifyWebApi from "spotify-web-api-js";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import Player from "../components/Player";
 
-import LoadingData from '../components/LoadingData';
-import GenresCard from "../components/GenreCard"
-
-import { UserContext } from '../UserContext';
-import { useNavigate } from 'react-router-dom';
-import SpotifyWebApi from 'spotify-web-api-js';
+import LoadingData from "../components/LoadingData";
+import GenresCard from "../components/GenreCard";
 
 import "../styles/homepage.css";
 import "../styles/App.css";
 import "../styles/albumitem.css";
 
-export const Genres = ({ genre }) => {
-    const { logout, } = useContext(UserContext);
+export const Genres = () => {
+    const spotifyApi = new SpotifyWebApi();
+    spotifyApi.setAccessToken(window.localStorage.getItem("token"));
 
-    let spotifyApi = new SpotifyWebApi();
-    spotifyApi.setAccessToken(window.localStorage.getItem("token"))
-
-    const [category, setCategory] = useState([])
+    const [category, setCategory] = useState([]);
 
     const getAllCategory = async () => {
         try {
-            const getCategories = await spotifyApi.getCategories()
+            const getCategories = await spotifyApi.getCategories();
 
-            setCategory(getCategories.categories.items)
-            localStorage.setItem('categories', JSON.stringify(getCategories.categories.items))
+            setCategory(getCategories.categories.items);
+            localStorage.setItem(
+                "categories",
+                JSON.stringify(getCategories.categories.items)
+            );
+        } catch (error) {
+            console.log(error);
         }
-        catch (error) {
-            console.log(error)
-        }
-    }
-
-    const navigate = useNavigate();
+    };
 
     useEffect(() => {
         setTimeout(() => {
-            getAllCategory()
-        }, 500)
-    }, [])
-
+            getAllCategory();
+        }, 500);
+    }, []);
     return (
-        <div
-            className="homepage--container"
-        >
+        <div className="homepage--container">
             <Sidebar />
-            <div
-                className="main__container"
-            >
+            <div className="main__container">
                 <Header />
 
-                <div
-                    className="page__content"
-                >
-                    <h3
-                        className="page__title"
-                    >Genres Musicaux</h3>
-                    {category.length <= 0 ? (<LoadingData />) : (
-                        <div
-                            className="card__tabs--panel"
-                        >
-                            {category.map(genre => genre.name + genre.icons[0] &&
-                                <GenresCard
-                                    key={genre.id}
-                                    props={genre}
-                                />
-                            )
-
-                            }
+                <div className="page__content">
+                    <h3 className="page__title">Genres Musicaux</h3>
+                    {category.length <= 0 ? (
+                        <LoadingData />
+                    ) : (
+                        <div className="card__tabs--panel">
+                            {category.map(
+                                (genre) =>
+                                    genre.name + genre.icons[0] && (
+                                        <GenresCard key={genre.id} props={genre} />
+                                    )
+                            )}
                         </div>
                     )}
-
                 </div>
 
                 <Player />
             </div>
+        </div>);
+};
 
-        </div>
-    )
-}
-
-export default Genres
+export default Genres;

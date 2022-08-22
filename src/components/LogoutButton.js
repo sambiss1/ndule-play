@@ -1,31 +1,27 @@
-import { React, useContext } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { React, useContext } from "react";
 import { BiLogOut } from "react-icons/bi";
-import { UserContext } from '../UserContext';
+import { UserContext } from "../UserContext";
 
 import "../styles/navigationmenu.css";
-import { Navigate } from 'react-router-dom';
 
-export const LogoutButton = () => {
-    const { logout } = useContext(UserContext)
+export function LogoutButton() {
+  const { logout } = useContext(UserContext);
 
-
-    return (
-        <div
-            className="logout__button"
-            onClick={() => {
-                //<Navigate to="/login" replace={true} />;
-                window.location.replace("/")
-                logout();
-            }}
-        >
-            <BiLogOut
-                className="logout__button--icon"
-
-            />
-            <span>Déconnexion</span>
-
-        </div>
-    )
+  return (
+    <div
+      className="logout__button"
+      onClick={() => {
+        // <Navigate to="/login" replace={true} />;
+        window.location.replace("/");
+        logout();
+      }}
+    >
+      <BiLogOut className="logout__button--icon" />
+      <span>Déconnexion</span>
+    </div>
+  );
 }
 
-export default LogoutButton
+export default LogoutButton;

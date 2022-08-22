@@ -1,26 +1,17 @@
-import { React } from 'react';
+import { React } from "react";
 
-import Logo from "../images/ndule-play-logo-white.png"
+import Logo from "../images/ndule-play-logo-white.png";
 
+import "../styles/loginPage.css";
 
-
-import "../styles/loginPage.css"
-
-export const LoginLeftSection = () => {
-    return (
-        <>
-            <div
-                className="left__section--container"
-            >
-                <div
-                    className="left__section--image"
-                >
-                    <img src={Logo} alt="logo officiel" />
-                </div>
-
-            </div>
-        </>
-    )
+export function LoginLeftSection() {
+  return (
+    <div className="left__section--container">
+      <div className="left__section--image">
+        <img src={Logo} alt="logo officiel" />
+      </div>
+    </div>
+  );
 }
 
-export default LoginLeftSection
+export default LoginLeftSection;

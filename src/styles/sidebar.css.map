@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["variables.scss","sidebar.scss"],"names":[],"mappings":"AAMA;AASA;ACTA;EAEI;IACI,kBDU6B;ICT7B;IACA;IACA;IACA;IACA;IACA;IACA;IACA;;;AAOR;EACI;IACI;;;AAIR;EACI;IACI","file":"sidebar.css"}
+{"version":3,"sourceRoot":"","sources":["variables.scss","sidebar.scss"],"names":[],"mappings":"AAKA;AASA;ACTA;EACE;IACE,kBDWiC;ICVjC;IACA;IACA;IACA;IACA;IACA;IACA;IACA;;;AAKJ;EACE;IACE;;;AAIJ;EACE;IACE","file":"sidebar.css"}

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 export const Libraire = () => {
-    return (
-        <>
-            Libraire
-        </>
-    )
-}
+  return <>Libraire</>;
+};
 
-export default Libraire
+export default Libraire;

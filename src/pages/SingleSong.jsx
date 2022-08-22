@@ -1,15 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 export const SingleSong = () => {
+  const { id } = useParams();
 
-    const { id } = useParams()
+  console.log(id);
+  (<div>SingleSong</div>);
+};
 
-    console.log(id)
-    return (
-        <div>SingleSong</div>
-    )
-}
-
-export default SingleSong
+export default SingleSong;

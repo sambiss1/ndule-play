@@ -3,33 +3,29 @@
 @import "variables";
 @import "__breakpoints";
 
-
 @media screen and (max-width: map.get($breakpoints, "sl")) {
-
-    .sidebar--container {
-        background-color: $sidebar_dark_mode_background_color;
-        height: 100vh;
-        position: fixed;
-        left: 0;
-        width: 25%;
-        top: 0;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        // justify-content: space-around;
-
-
-    }
+  .sidebar--container {
+    background-color: $sidebar_dark_mode_background_color;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    width: 25%;
+    top: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+  }
 }
 
 @media screen and (max-width: map.get($breakpoints, md)) {
-    .sidebar--container {
-        display: none;
-    }
+  .sidebar--container {
+    display: none;
+  }
 }
 
 @media screen and (max-width: map.get($breakpoints, sm)) {
-    .sidebar--container {
-        display: none;
-    }
+  .sidebar--container {
+    display: none;
+  }
 }

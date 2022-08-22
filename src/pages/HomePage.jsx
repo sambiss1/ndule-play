@@ -1,34 +1,28 @@
-import { React, useContext, useEffect } from 'react'
-import { UserContext } from '../UserContext';
-import Sidebar from '../components/Sidebar';
+/* eslint-disable react/function-component-definition */
+/* eslint-disable import/no-named-as-default */
+import { React, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../UserContext";
+import Sidebar from "../components/Sidebar";
 import HomePageContent from "../components/HomePageContent";
-import Header from '../components/Header';
-import Player from '../components/Player';
-import AlbumsTabs from '../components/AlbumsTabs';
-import HomePageSlider from '../components/HomePageSlider';
-import { useNavigate } from 'react-router-dom';
+import "../styles/homepage.css";
 
-import "../styles/homepage.css"
 export const HomePage = () => {
-
-    const { user, username, getNewRelease } = useContext(UserContext);
+    const { getNewRelease } = useContext(UserContext);
 
     useEffect(() => {
-        getNewRelease()
-    }, [])
+        getNewRelease();
+    }, []);
     const navigate = useNavigate();
-    return (
-        <div
-            className="homepage--container"
-        >
-            <Sidebar logout={() => {
-                navigate("/", { replace: true })
-                window.localStorage.removeItem("token")
-            }} />
-            <HomePageContent />
+    return (<div className="homepage--container">
+        <Sidebar
+            logout={() => {
+                navigate("/", { replace: true });
+                window.localStorage.removeItem("token");
+            }}
+        />
+        <HomePageContent />
+    </div>);
+};
 
-        </div>
-    )
-}
-
-export default HomePage
+export default HomePage;

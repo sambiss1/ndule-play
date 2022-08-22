@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import "../styles/App.css"
+import "../styles/App.css";
 
 export const LoadingData = () => {
-    return (
-        <div className="loading__data">
-            <div className='dot-typing'>
-            </div>
-        </div>
-    )
-}
+   (
+    <div className="loading__data">
+      <div className="dot-typing" />
+    </div>
+  );
+};
 
-export default LoadingData
+export default LoadingData;

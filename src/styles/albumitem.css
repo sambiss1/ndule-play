@@ -33,7 +33,7 @@
   }
   .card__item--container .play__icon--container {
     position: absolute;
-    background-color: #DE5000;
+    background-color: #de5000;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -44,14 +44,14 @@
     bottom: 40%;
   }
   .card__item--container .card__name {
-    color: #DE5000;
+    color: #de5000;
     margin: 0;
   }
   .card__item--container .album__name {
     margin: 0;
   }
   .card__item--container .track__link {
-    color: #F8E5DB;
+    color: #f8e5db;
   }
 }
 @media screen and (max-width: 576px) {
@@ -87,7 +87,7 @@
   }
   .card__item--container .play__icon--container {
     position: absolute;
-    background-color: #DE5000;
+    background-color: #de5000;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -98,14 +98,14 @@
     bottom: 40%;
   }
   .card__item--container .card__name {
-    color: #DE5000;
+    color: #de5000;
     margin: 0;
   }
   .card__item--container .album__name {
     margin: 0;
   }
   .card__item--container .track__link {
-    color: #F8E5DB;
+    color: #f8e5db;
   }
 }
 

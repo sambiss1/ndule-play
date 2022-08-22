@@ -1,23 +1,18 @@
-import React from 'react';
+/* eslint-disable import/no-named-as-default */
+import React from "react";
 import "../styles/sidebar.css";
-import LogoContainer from './LogoContainer';
-import NavigationMenu from './NavigationMenu';
-import LogoutButton from './LogoutButton';
+import LogoContainer from "./LogoContainer";
+import NavigationMenu from "./NavigationMenu";
+import LogoutButton from "./LogoutButton";
 
-
-export const Sidebar = () => {
-    return (
-        <>
-            <div
-                className="sidebar--container"
-            >
-                <LogoContainer />
-                <NavigationMenu />
-                <LogoutButton />
-            </div>
-
-        </>
-    )
+export function Sidebar() {
+  return (
+    <div className="sidebar--container">
+      <LogoContainer />
+      <NavigationMenu />
+      <LogoutButton />
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
