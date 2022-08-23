@@ -16,6 +16,10 @@
     left: 0 !important;
     width: 100% !important;
   }
+
+  .homepage__cover--container {
+    height: 200px !important;
+  }
 }
 
 /*# sourceMappingURL=homepage.css.map */

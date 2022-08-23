@@ -15,12 +15,13 @@ export function MobileHeader() {
   return (
     <div className="mobile__header--container">
       <LogoContainer />
-      <NavLink
-        to="/recently-played"
-        className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
-      >
-        <MdHistory className="sidebar__menu--icon" />
-      </NavLink>
+      <div>
+        <NavLink
+          to="/recently-played"
+          className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
+        >
+          <MdHistory className="sidebar__menu--icon" />
+        </NavLink></div>
     </div>
   );
 }

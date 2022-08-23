@@ -127,4 +127,16 @@ body {
     width: 100%;
     padding-bottom: 100px;
   }
+
+  .application__logo--container {
+    width: 60%;
+    height: 60px;
+    display: flex;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
