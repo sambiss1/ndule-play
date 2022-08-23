@@ -18,7 +18,7 @@
     left: 10%;
     font-size: 0.8em;
   }
-  .search__input--container input[type="search"] {
+  .search__input--container input[type=search] {
     background-color: #323232;
     color: #f8e5db;
     border-radius: 25px 0 0 25px;
@@ -28,7 +28,7 @@
     border: 0.1em solid #fff;
   }
 
-  input[type="submit"] {
+  input[type=submit] {
     background-color: #de5000;
     color: #ffffff;
     border: none;
