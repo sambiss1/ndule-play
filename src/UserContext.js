@@ -1,9 +1,12 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-console */
+/* eslint-disable object-shorthand */
 /* eslint-disable no-use-before-define */
-/* eslint-disable prefer-destructuring */
+
 /* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-no-constructed-context-values */
+
 /* eslint-disable react/function-component-definition */
-import { React, useEffect, useState, createContext } from "react";
+import { React, useEffect, useState, createContext, useMemo } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 
 export const UserContext = createContext({
@@ -38,17 +41,15 @@ export const UserProvider = ({ children }) => {
         const { hash } = window.location;
         let token = window.localStorage.getItem("token");
         if (!token && hash) {
+            // eslint-disable-next-line prefer-destructuring
             token = hash.substring(1).split("&").find((elem) => elem.startsWith("access_token")).split("=")[1];
 
             window.location.hash = "";
             window.localStorage.setItem("token", token);
             setUser({
-                token,
+                token: token,
                 auth: true,
             });
-
-            console.log(user.token);
-
             getMyAccount();
             getNewRelease();
             getUserPlaylist();
@@ -77,13 +78,14 @@ export const UserProvider = ({ children }) => {
             window.localStorage.setItem("logged__user__id", getMyUserName.id);
             setUsername(getMyUserName.display_name);
             setUserID(getMyUserName.id);
+
+
         } catch (error) {
             console.log(error);
         }
     };
 
     // Get data from spotify
-
     const getNewRelease = async () => {
         try {
             const getNewAlbumRelease = await spotifyApi.getNewReleases();
@@ -181,40 +183,69 @@ export const UserProvider = ({ children }) => {
         setTermSearched(searchForArtist);
         setArtistSearched(searchForArtist.artists.items);
         setSearch(true);
+        // window.location.pathname === "/search" ? searchArtist() : window.location.replace("/search");
 
     };
 
+    const ProvideValue = useMemo(() => ({
+        createToken,
+        getMyAccount,
+        user,
+        username,
+        logout,
+        handleLogin,
+        userID,
+        getUserLikedSongs,
+        getRecentlyPlayed,
+        getAllCategory,
+        getNewRelease,
+        millisToMinutesAndSeconds,
+        search,
+        artistSearched,
+        term,
+        setTerm,
+        termSearched,
+        setTermSearched,
+        searchArtist,
+        trackUri,
+        setTrackUri,
+        anUri,
+        setAnUri,
+        albumUri,
+        setAlbumUri,
+        play,
+        setPlay
+    }), ([createToken,
+        user,
+        username,
+        getMyAccount,
+        logout,
+        handleLogin,
+        userID,
+        getUserLikedSongs,
+        getRecentlyPlayed,
+        getAllCategory,
+        getNewRelease,
+        millisToMinutesAndSeconds,
+        search,
+        artistSearched,
+        term,
+        setTerm,
+        termSearched,
+        setTermSearched,
+        searchArtist,
+        trackUri,
+        setTrackUri,
+        anUri,
+        setAnUri,
+        albumUri,
+        setAlbumUri,
+        play,
+        setPlay]));
+
     return (
         <UserContext.Provider
-            value={{
-                createToken,
-                user,
-                username,
-                logout,
-                handleLogin,
-                userID,
-                getUserLikedSongs,
-                getRecentlyPlayed,
-                getAllCategory,
-                getNewRelease,
-                millisToMinutesAndSeconds,
-                search,
-                artistSearched,
-                term,
-                setTerm,
-                termSearched,
-                setTermSearched,
-                searchArtist,
-                trackUri,
-                setTrackUri,
-                anUri,
-                setAnUri,
-                albumUri,
-                setAlbumUri,
-                play,
-                setPlay
-            }}
-        >
+            value={ProvideValue}>
             {children}
         </UserContext.Provider>
     );

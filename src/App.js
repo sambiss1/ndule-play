@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-named-as-default */
-import { React, useEffect } from "react";
+import { React, useContext, useEffect } from "react";
 import "./styles/App.css";
 
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
@@ -24,12 +24,18 @@ import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import MobileNavigation from "./components/MobileNavigation";
 import MobileHeader from "./components/MobileHeader";
+import { UserContext } from "./UserContext";
+
 
 
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
+  const { getMyAccount, createToken } = useContext(UserContext);
+  createToken();
+  getMyAccount();
   const actualToken = window.localStorage.getItem("token");
+  console.log(actualToken);
 
   return (
     <BrowserRouter>
