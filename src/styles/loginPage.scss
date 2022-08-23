@@ -3,6 +3,11 @@
 @import "variables";
 @import "__breakpoints";
 
+* {
+  
+  box-sizing: border-box;
+}
+
 @media (max-width: map.get($breakpoints, "sl")) {
   .login__page--container {
     display: grid;
@@ -71,6 +76,13 @@
       padding: 5%;
       color: $white_color;
       font-size: 1.4em;
+
+      &:hover {
+        border: .1em solid $primary_color;
+        color: $primary_color;
+        background-color: $white_color;
+        cursor: pointer;
+      }
 
       .spotify__icon {
         font-size: 2.6em;
