@@ -15,6 +15,7 @@
     align-items: center;
   }
 
+  // Left section 
   .left__section--container {
     background-color: $primary_color;
 
@@ -30,6 +31,47 @@
         width: 100%;
         height: 100%;
       }
+    }
+  }
+
+
+  // Right section 
+  .right__section--container {
+    @extend .centerItems;
+    flex-direction: column;
+
+    .earphone__image--container {
+
+      width: 200px;
+      height: 200px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .section__content {
+      @extend .centerItems;
+      flex-direction: column;
+    }
+
+    h3 {
+      align-self: center;
+    }
+
+    .handle__login--button {
+      @extend .centerItems;
+      background-color: $primary_color;
+      border: none;
+      padding: 5%;
+      color: $white_color;
+      font-size: 1.4em;
+
+      .spotify__icon {
+        font-size: 2.6em;
+      }
+
     }
   }
 }

@@ -3,19 +3,33 @@ import { React, useContext } from "react";
 
 import { FaSpotify } from "react-icons/fa";
 import { UserContext } from "../UserContext";
+import EarPhone from "../images/ear-phone.png";
 
 export function LoginRightSection() {
-  const { handleLogin, logout } = useContext(UserContext);
+  const { handleLogin } = useContext(UserContext);
   return (
-    <div>
-      <div>
-        <div>
-          <button onClick={handleLogin}>
-            <FaSpotify />
-            Continuez avec Spotify
-          </button>
-          <button onClick={logout}>Logout</button>
+    <div className="right__section--container">
+      <div
+        className="section__content"
+      >
+        <div
+          className="earphone__image--container"
+        >
+          <img src={EarPhone} alt="ear phone cover" />
         </div>
+        <h3>
+          Streaming Music Application
+
+        </h3>
+        <h3>Made in Congo</h3>
+        <button
+          className="handle__login--button"
+          onClick={handleLogin}>
+          <FaSpotify className="spotify__icon"/>
+          <span>Continuez avec Spotify</span>
+        </button>
+
+        <h4>By Sam Bisselele</h4>
       </div>
     </div>
   );
