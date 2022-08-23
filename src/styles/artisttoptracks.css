@@ -2,7 +2,7 @@
 /* Dark mode color */
 @media screen and (max-width: 1440px) {
   .top__track--container {
-    background-color: #323232;
+    background-color: rgba(50, 50, 50, 0.5);
     height: 100px;
     display: flex;
     margin: 2% 0;
@@ -45,6 +45,33 @@
     width: 10%;
     justify-content: space-between;
     display: flex;
+  }
+}
+@media screen and (max-width: 576px) {
+  .top__track--container {
+    width: 100%;
+    margin: 5% 0;
+  }
+  .top__track--container:hover {
+    background-color: #000000;
+  }
+
+  .top__track_title_image--container {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 20px;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .top__track--title {
+    font-size: 0.8em;
+  }
+
+  .top__tarck--popularity,
+.top__track--actions {
+    display: none;
   }
 }
 

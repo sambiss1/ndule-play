@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["variables.scss","artistpage.scss"],"names":[],"mappings":"AAMA;AASA;ACTA;EAEI;IACI,kBDU6B;ICT7B;IACA;;;EAGJ;IACI;IACA;;EAEA;IACI;IACA;IACA","file":"artistpage.css"}
+{"version":3,"sourceRoot":"","sources":["variables.scss","artistpage.scss"],"names":[],"mappings":"AAKA;AASA;ACVA;EACE;IACE,kBDYiC;ICXjC;IACA;;;EAGF;IACE;IACA;;EAEA;IACE;IACA;IACA;;;AAKN;EACE;IACE;IACA;IACA;IACA","file":"artistpage.css"}
