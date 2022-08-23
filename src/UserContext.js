@@ -42,12 +42,7 @@ export const UserProvider = ({ children }) => {
         let token = window.localStorage.getItem("token");
         if (!token && hash) {
             // eslint-disable-next-line prefer-destructuring
-            token = hash
-                .substring(1)
-                .split("&")
-                .find((elem) => elem.startsWith("access_token"))
-                .split("=")[1];
-
+            token = hash.substring(1).split("&").find((elem) => elem.startsWith("access_token")).split("=")[1];
             window.location.hash = "";
             window.localStorage.setItem("token", token);
             setUser({
