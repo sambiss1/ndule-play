@@ -22,7 +22,8 @@ export function SearchBar() {
 
 
     return (
-        <form onSubmit={searchArtist}>
+
+        <form onSubmit={searchArtist} className="desktop__search--form">
             <div className="search__input--container">
                 <IoSearchOutline className="search__bar--icon" />
                 <input
@@ -42,7 +43,11 @@ export function SearchBar() {
                     className="search__bar--button"
                 />
             </div>
+
+
         </form>
+
+
     );
 }
 

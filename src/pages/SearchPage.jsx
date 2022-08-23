@@ -12,7 +12,6 @@ const SearchPage = () => {
     const { search, termSearched } = useContext(UserContext);
     return (
         <div>
-            SearchPage
             <div
                 className="main__container"
             >

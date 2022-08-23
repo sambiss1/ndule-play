@@ -8,6 +8,10 @@
     height: 40px;
   }
 
+  .desktop__search--form {
+    display: flex;
+  }
+
   .search__input--container {
     display: flex;
     position: relative;
@@ -18,8 +22,8 @@
     left: 10%;
     font-size: 0.8em;
   }
-  .search__input--container input[type="search"] {
-    background-color: #323232;
+  .search__input--container input[type=search] {
+    background-color: rgba(50, 50, 50, 0.5);
     color: #f8e5db;
     border-radius: 25px 0 0 25px;
     padding: 1% 25%;
@@ -28,12 +32,54 @@
     border: 0.1em solid #fff;
   }
 
-  input[type="submit"] {
+  input[type=submit] {
     background-color: #de5000;
     color: #ffffff;
     border: none;
     padding: 5% 15%;
     border-radius: 0 25px 25px 0;
+  }
+
+  .mobile__search--form {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .mobile__search--form {
+    display: flex;
+  }
+
+  form {
+    font-size: 1em;
+    margin-right: 15%;
+    width: 20%;
+    height: 30px;
+    padding: 0 5%;
+  }
+
+  .search__input--container .search__bar--icon {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    font-size: 1em;
+  }
+  .search__input--container input[type=search] {
+    background-color: rgba(50, 50, 50, 0.5);
+    color: #f8e5db;
+    border-radius: 25px 0 0 25px;
+    padding: 0 15%;
+    border-right: none;
+    outline-color: #de5000;
+    border: 0.1em solid #fff;
+  }
+
+  input[type=submit] {
+    background-color: #de5000;
+    color: #ffffff;
+    border: none;
+    padding: 0% 0%;
+    border-radius: 0 25px 25px 0;
+    display: none;
   }
 }
 

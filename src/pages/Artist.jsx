@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-named-as-default */
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -59,7 +60,7 @@ const Artist = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  <div className="homepage--container">
+  return (<div className="homepage--container">
 
     <div className="main__container">
 
@@ -101,7 +102,7 @@ const Artist = () => {
 
 
     </div>
-  </div>;
+  </div>);
 };
 
 export default Artist;
