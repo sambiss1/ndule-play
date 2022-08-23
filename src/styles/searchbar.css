@@ -47,6 +47,8 @@
 @media screen and (max-width: 576px) {
   .mobile__search--form {
     display: flex;
+    width: 95%;
+    margin: auto;
   }
 
   form {
@@ -54,9 +56,14 @@
     margin-right: 15%;
     width: 20%;
     height: 30px;
-    padding: 0 5%;
+    width: 100%;
+    display: flex;
+    margin: auto;
   }
 
+  .search__input--container {
+    width: 100%;
+  }
   .search__input--container .search__bar--icon {
     position: absolute;
     top: 25%;
@@ -64,21 +71,15 @@
     font-size: 1em;
   }
   .search__input--container input[type=search] {
-    background-color: rgba(50, 50, 50, 0.5);
-    color: #f8e5db;
-    border-radius: 25px 0 0 25px;
-    padding: 0 15%;
+    border-radius: 25px;
     border-right: none;
-    outline-color: #de5000;
-    border: 0.1em solid #fff;
+    width: 100%;
+  }
+  .search__input--container input[type=search]:focus {
+    border: none;
   }
 
   input[type=submit] {
-    background-color: #de5000;
-    color: #ffffff;
-    border: none;
-    padding: 0% 0%;
-    border-radius: 0 25px 25px 0;
     display: none;
   }
 }
