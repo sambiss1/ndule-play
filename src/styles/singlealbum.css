@@ -161,6 +161,7 @@
 
   .album__track--container:hover {
     background-color: #000000;
+    cursor: pointer;
   }
   .album__track--container:hover .album__track--details {
     width: 50%;
