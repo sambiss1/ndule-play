@@ -111,6 +111,7 @@ body {
 .page__content {
   width: 95%;
   margin: auto;
+  padding-top: 10%;
 }
 
 .loading__data {
@@ -125,7 +126,7 @@ body {
   .main__container {
     left: 0;
     width: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
   }
 
   .application__logo--container {
@@ -138,5 +139,9 @@ body {
       width: 100%;
       height: 100%;
     }
+  }
+
+  .page__content {
+   padding-top: 30%;
   }
 }

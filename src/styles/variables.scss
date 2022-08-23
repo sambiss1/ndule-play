@@ -16,7 +16,7 @@ $active_link_light_mode_color: $primary_color;
 $body_dark_mode_text_color: $secondary_color;
 $body_dark_mode_background_color: #0e1010;
 $sidebar_dark_mode_text_color: $secondary_color;
-$sidebar_dark_mode_background_color: #323232;
+$sidebar_dark_mode_background_color: rgba(50 50 50 / 50%);
 $player_dark_mode_background: $sidebar_dark_mode_background_color;
 $player_darkmode_text_color: $white_color;
 $button_light_mode_background: $button_light_mode_background;

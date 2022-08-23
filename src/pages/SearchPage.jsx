@@ -12,8 +12,9 @@ const SearchPage = () => {
   const { search, termSearched } = useContext(UserContext);
   return (
     <div>
-      SearchPage
-      <div className="main__container">
+      <div
+        className="main__container"
+      >
         {search ? (
           <div className="page__content">
             <h4>Search result</h4>
@@ -21,10 +22,14 @@ const SearchPage = () => {
           </div>
         ) : (
           <div className="page__content">
+
             <h4>Search result</h4>
           </div>
         )}
+
+
       </div>
+
     </div>
   );
 };

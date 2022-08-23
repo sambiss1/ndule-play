@@ -4,7 +4,7 @@
   .album__main--container {
     width: 90%;
     margin: 0 auto;
-    background-color: #323232;
+    background-color: rgba(50, 50, 50, 0.5);
     display: flex;
     padding: 5%;
     justify-content: space-evenly;
@@ -49,13 +49,18 @@
     align-items: flex-end;
     justify-content: flex-end;
   }
-  .album__actions--play, .album__actions--like {
-    color: #de5000;
-    font-size: 2em;
-    margin: 0.5em;
+  .album__actions .album__other__detail--container {
+    display: flex;
+    align-items: flex-end;
   }
-  .album__actions--play:hover, .album__actions--like:hover {
-    cursor: pointer;
+  .album__actions .album__other__detail--container h3 {
+    font-size: 1em;
+    padding: 0 0.5em;
+  }
+  .album__actions .album__other__detail--container h4 {
+    border-left: 0.1em solid #ffffff;
+    font-size: 0.8em;
+    padding: 0 0.5em;
   }
 
   .album__track--container {
@@ -66,7 +71,7 @@
     align-items: center;
     margin: 2% auto;
     padding: 0 5%;
-    background-color: #323232;
+    background-color: rgba(50, 50, 50, 0.5);
   }
 
   .album__track--details {
@@ -75,9 +80,18 @@
     flex-direction: column;
     margin: 0 5%;
   }
-  .album__track--title {
-    color: #de5000;
-    margin: 0;
+  .album__track .album__track--container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-self: space-evenly;
+    align-items: center;
+    margin: 2% auto;
+    padding: 0 5%;
+    background-color: rgba(50, 50, 50, 0.5);
+  }
+  .album__track .album__track--container:hover {
+    background-color: #000000;
   }
   .album__track--artists {
     color: #f8e5db;
@@ -90,18 +104,92 @@
     align-items: flex-end;
     justify-content: space-between;
   }
-  .album__track__actions--play, .album__track__actions--like {
-    color: #de5000;
-    font-size: 1em;
-    margin: 0.5em;
-  }
-
-  .album__track__duration--container {
+  .album__track__actions .album__track__duration--container {
     width: 20%;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     align-self: flex-end;
+  }
+}
+@media screen and (max-width: 1440px) and (max-width: 576px) {
+  .album__main--container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .album__cover--container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .album__details--container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .album__details--container h3 {
+    font-size: 1em;
+  }
+
+  .single__album--name {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  .album__other__detail--container {
+    display: flex;
+    align-items: flex-end;
+  }
+  .album__other__detail--container h3 {
+    font-size: 1em;
+    padding: 0 0.5em;
+  }
+  .album__other__detail--container h4 {
+    border-left: 0.1em solid #ffffff;
+    padding: 0 0.5em;
+  }
+
+  .album__actions--play, .album__actions--like {
+    color: #de5000;
+    font-size: 1em;
+    margin: 0.5em;
+  }
+  .album__actions--play:hover, .album__actions--like:hover {
+    cursor: pointer;
+  }
+
+  .album__track--container:hover {
+    background-color: #000000;
+  }
+  .album__track--container:hover .album__track--details {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 5%;
+  }
+  .album__track--container:hover .album__track--title {
+    color: #de5000;
+    margin: 0;
+  }
+  .album__track--container:hover .album__track--artists {
+    color: #f8e5db;
+    margin: 0;
+  }
+
+  .album__track__actions--container {
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border: 0.1em solid red;
+    display: none;
+  }
+  .album__track__actions--play, .album__track__actions--like {
+    color: #de5000;
+    font-size: 1.4rem;
+    margin: 0 0.5em;
+    display: none;
   }
 }
 
