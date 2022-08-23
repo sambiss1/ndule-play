@@ -183,8 +183,6 @@ export const UserProvider = ({ children }) => {
         setTermSearched(searchForArtist);
         setArtistSearched(searchForArtist.artists.items);
         setSearch(true);
-        // window.location.pathname === "/search" ? searchArtist() : window.location.replace("/search");
-
     };
 
     const ProvideValue = useMemo(() => ({
