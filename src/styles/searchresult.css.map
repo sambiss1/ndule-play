@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["variables.scss","searchresult.scss"],"names":[],"mappings":"AAKA;AASA;ACVA;EAIE;IACE;IACA;IACA","file":"searchresult.css"}
+{"version":3,"sourceRoot":"","sources":["variables.scss","searchresult.scss"],"names":[],"mappings":"AAKA;AASA;ACVA;EAEE;IACE;IACA;IACA;;;AAIJ;EACE;IACE;IACA;IACA","file":"searchresult.css"}
