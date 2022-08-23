@@ -1,11 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import { React, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SpotifyWebApi from "spotify-web-api-js";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import Player from "../components/Player";
-
 import ArtistTopTracksCard from "../components/ArtistTopTracksCard";
 import LoadingData from "../components/LoadingData";
 
@@ -17,7 +13,7 @@ const Artist = () => {
   const { id } = useParams();
 
   console.log(id);
-  const navigate = useNavigate();
+
 
   const spotifyArtist = new SpotifyWebApi();
 
@@ -64,14 +60,9 @@ const Artist = () => {
   };
 
   <div className="homepage--container">
-    <Sidebar
-      logout={() => {
-        navigate("/login", { replace: true });
-        window.localStorage.removeItem("token");
-      }}
-    />
+
     <div className="main__container">
-      <Header />
+
       {artist.length <= 0 ? (
         <LoadingData />
       ) : (
@@ -97,9 +88,9 @@ const Artist = () => {
               artistTopTrack.map(
                 (topTrack) =>
                   topTrack.name +
-                    topTrack.album.images[0].url +
-                    topTrack.popuality +
-                    millisToMinutesAndSeconds(topTrack.duration_ms) && (
+                  topTrack.album.images[0].url +
+                  topTrack.popuality +
+                  millisToMinutesAndSeconds(topTrack.duration_ms) && (
                     <ArtistTopTracksCard key={topTrack.id} props={topTrack} />
                   )
               )
@@ -108,7 +99,7 @@ const Artist = () => {
         </div>
       )}
 
-      <Player />
+
     </div>
   </div>;
 };

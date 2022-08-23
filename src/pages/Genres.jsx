@@ -2,9 +2,7 @@
 /* eslint-disable import/no-named-as-default */
 import { React, useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import Player from "../components/Player";
+
 
 import LoadingData from "../components/LoadingData";
 import GenresCard from "../components/GenreCard";
@@ -40,9 +38,8 @@ export const Genres = () => {
     }, []);
     return (
         <div className="homepage--container">
-            <Sidebar />
+
             <div className="main__container">
-                <Header />
 
                 <div className="page__content">
                     <h3 className="page__title">Genres Musicaux</h3>
@@ -60,7 +57,7 @@ export const Genres = () => {
                     )}
                 </div>
 
-                <Player />
+
             </div>
         </div>);
 };

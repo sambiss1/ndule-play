@@ -1,22 +1,19 @@
 /* eslint-disable import/no-named-as-default */
-import { React, useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { React, useEffect, useState } from "react";
+
 import SpotifyWebApi from "spotify-web-api-js";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import Player from "../components/Player";
-import { UserContext } from "../UserContext";
+
 import RecentlyPlayedCard from "../components/RecentlyPlayedCard";
 
 import LoadingData from "../components/LoadingData";
-import SearchResult from "../components/SearchResult";
+// import SearchResult from "../components/SearchResult";
 
 import "../styles/App.css";
 import "../styles/albumitem.css";
 
 export function RecentlyPlayed() {
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
-    const { search, termSearched } = useContext(UserContext);
+
 
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(window.localStorage.getItem("token"));
@@ -33,7 +30,7 @@ export function RecentlyPlayed() {
         }
     };
 
-    const navigate = useNavigate();
+
 
     useEffect(() => {
         setTimeout(() => {
@@ -43,34 +40,27 @@ export function RecentlyPlayed() {
 
     return (
         <div className="homepage--container">
-            <Sidebar logout={() => navigate("/login")} />
-            <div className="main__container">
-                <Header />
-                {search ? (
-                    <div className="page__content">
-                        {termSearched.length <= 0 ? <LoadingData /> : <SearchResult />}
-                    </div>
-                ) : (
-                    <div className="page__content">
-                        <h3 className="page__title">Joués récemments</h3>
-                        {recentlyPlayed.length <= 0 ? (
-                            <LoadingData />
-                        ) : (
-                            <div className="card__tabs--panel">
-                                {recentlyPlayed.map(
-                                    (song) =>
-                                        song.track.name +
-                                        song.track.artist +
-                                        song.track.album.images[0].url && (
-                                            <RecentlyPlayedCard key={song.track.id} props={song} />
-                                        )
-                                )}
-                            </div>
-                        )}
-                    </div>
-                )}
 
-                <Player />
+            <div className="main__container">
+
+                <div className="page__content">
+                    <h3 className="page__title">Joués récemments</h3>
+                    {recentlyPlayed.length <= 0 ? (
+                        <LoadingData />
+                    ) : (
+                        <div className="card__tabs--panel">
+                            {recentlyPlayed.map(
+                                (song) =>
+                                    song.track.name +
+                                    song.track.artist +
+                                    song.track.album.images[0].url && (
+                                        <RecentlyPlayedCard key={song.track.id} props={song} />
+                                    )
+                            )}
+                        </div>
+                    )}
+                </div>
+
             </div>
         </div>
     );

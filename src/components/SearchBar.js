@@ -2,6 +2,7 @@
 /* eslint-disable no-const-assign */
 import { React, useContext } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 import "../styles/searchbar.css";
 import SpotifyWebApi from "spotify-web-api-js";
@@ -12,10 +13,13 @@ export const BestResult = () => {
 };
 
 export function SearchBar() {
+
+    const navigate = useNavigate();
     const spotify = new SpotifyWebApi();
     spotify.setAccessToken(window.localStorage.getItem("token"));
 
-    const { setTerm, searchArtist, setSearch } = useContext(UserContext);
+    const { term, setTerm, searchArtist } = useContext(UserContext);
+
 
     return (
         <form onSubmit={searchArtist}>
@@ -25,8 +29,10 @@ export function SearchBar() {
                     type="search"
                     placeholder="Rechercher ici"
                     name="search__bar--input"
+                    value={term}
                     onChange={(event) => {
-                        event.target.value === "" ? setSearch(false) : setTerm(event.target.value);
+                        setTerm(event.target.value);
+                        window.location.pathname !== "/search" ? navigate("/search", { replace: true }) : window.location("/search");
                     }}
                 />
 

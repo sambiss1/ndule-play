@@ -47,6 +47,8 @@ export const UserProvider = ({ children }) => {
                 auth: true,
             });
 
+            console.log(user.token);
+
             getMyAccount();
             getNewRelease();
             getUserPlaylist();
@@ -179,6 +181,7 @@ export const UserProvider = ({ children }) => {
         setTermSearched(searchForArtist);
         setArtistSearched(searchForArtist.artists.items);
         setSearch(true);
+
     };
 
     return (

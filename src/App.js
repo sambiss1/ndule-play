@@ -17,6 +17,13 @@ import RecentlyPlayed from "./pages/RecentlyPlayed";
 import Liked from "./pages/Liked";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
+import SearchPage from "./pages/SearchPage";
+
+import Player from "./components/Player";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import MobileNavigation from "./components/MobileNavigation";
+import MobileHeader from "./components/MobileHeader";
 
 
 function App({ hideLoader }) {
@@ -26,8 +33,9 @@ function App({ hideLoader }) {
 
   return (
     <BrowserRouter>
-
+      {actualToken ? <Sidebar /> : null}
       <Routes>
+
         {!actualToken ? (
           <Route path="/" element={<UnAuthUser />} />
         ) : (
@@ -41,11 +49,19 @@ function App({ hideLoader }) {
             <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/liked" element={<Liked />} />
             <Route path="/login" element={<UnAuthUser />} />
+            <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/" index element={<HomePage />} />
           </>
         )}
       </Routes>
+      {actualToken ? (<div className="main__container">
+        <MobileHeader />
+        <Header />
+        <Player />
+        <MobileNavigation />
+      </div>
+      ) : null}
       <Outlet />
     </BrowserRouter>
   );

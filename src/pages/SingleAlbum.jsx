@@ -5,9 +5,6 @@ import { useParams } from "react-router-dom";
 import SpotifyWebApi from "spotify-web-api-js";
 import { FiPlay, FiHeart, FiPause } from "react-icons/fi";
 import LoadingData from "../components/LoadingData";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import Player from "../components/Player";
 import { UserContext } from "../UserContext";
 import AlbumTrack from "../components/AlbumTrack";
 
@@ -49,9 +46,8 @@ export const SingleAlbum = () => {
 
     return (
         <div>
-            <Sidebar />
+
             <div className="main__container">
-                <Header />
 
                 {album.length <= 0 ? (
                     <LoadingData />
@@ -111,7 +107,7 @@ export const SingleAlbum = () => {
                     </div>
                 )}
 
-                <Player />
+
             </div>
         </div>
     );

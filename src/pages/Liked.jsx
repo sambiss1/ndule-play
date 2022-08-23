@@ -1,13 +1,8 @@
 /* eslint-disable import/no-named-as-default */
 import { React, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import SpotifyWebApi from "spotify-web-api-js";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import Player from "../components/Player";
 import LikedSongCard from "../components/LikedSongCard";
 import LoadingData from "../components/LoadingData";
-
 import "../styles/App.css";
 import "../styles/albumitem.css";
 
@@ -36,12 +31,12 @@ export function Liked() {
     }, 500);
   }, []);
 
-  const navigate = useNavigate();
+
   return (
     <div className="homepage--container">
-      <Sidebar logout={() => navigate("/login")} />
+
       <div className="main__container">
-        <Header />
+
 
         <div className="page__content">
           <h3 className="page__title">Titres</h3>
@@ -53,15 +48,15 @@ export function Liked() {
               {userLikedSongs.map(
                 (song) =>
                   song.track.name +
-                    song.track.artist +
-                    song.track.album.images[0].url && (
+                  song.track.artist +
+                  song.track.album.images[0].url && (
                     <LikedSongCard key={song.track.id} props={song} />
                   )
               )}{" "}
             </div>
           )}
         </div>
-        <Player />
+
       </div>
     </div>
   );

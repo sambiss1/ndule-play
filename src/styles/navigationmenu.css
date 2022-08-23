@@ -7,6 +7,10 @@
     cursor: pointer;
   }
 
+  .mobile__naigation--container {
+    display: none;
+  }
+
   .navigation__menu--container {
     width: 100%;
   }
@@ -23,14 +27,12 @@
     align-self: flex-start;
     transition: 0.3s ease;
     width: 100%;
-    border: 0.1em solid red;
   }
   ul li span {
     display: block;
     margin: 0 5%;
     font-size: 1em;
     width: 100%;
-    border: 0.1em solid white;
   }
   .active {
     color: #de5000;
@@ -80,6 +82,37 @@
   .logout__button .logout__button--icon {
     font-size: 1.4em;
     margin-right: 5%;
+  }
+}
+@media (max-width: 576px) {
+  .mobile__naigation--container {
+    display: flex;
+    position: fixed;
+    bottom: 0%;
+    height: 10%;
+    width: 100%;
+    padding: 5% 0;
+    background-color: #000000;
+  }
+  .mobile__naigation--container ul {
+    display: flex;
+  }
+  .mobile__naigation--container ul li a {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile__naigation--container ul li a span {
+    margin: 0;
+  }
+  .mobile__naigation--container ul li:hover {
+    transform: none;
+    cursor: pointer;
+  }
+  .mobile__naigation--container ul .logout__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 

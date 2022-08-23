@@ -19,7 +19,6 @@ export function NavigationMenu() {
     <nav className="navigation__menu--container">
       <ul>
         <li
-        // className={isActive}
         >
           <NavLink
             to="/"

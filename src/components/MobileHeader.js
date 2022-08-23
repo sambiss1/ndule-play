@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { MdHistory } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
+import "../styles/header.css";
 import LogoContainer from "./LogoContainer";
 
 export function MobileHeader() {
