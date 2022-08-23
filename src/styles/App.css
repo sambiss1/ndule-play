@@ -114,7 +114,6 @@ body {
     height: 60px;
     display: flex;
     margin: 0;
-    border: 0.1em solid red;
   }
   .application__logo--container img {
     width: 100%;
