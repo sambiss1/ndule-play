@@ -31,9 +31,5 @@ export const Card = ({ props }) => {
       </div>
     </>
   );
-<<<<<<< HEAD
 };
-=======
-}
->>>>>>> feature/mobile-version
 export default Card;
