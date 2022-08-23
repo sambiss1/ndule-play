@@ -56,7 +56,6 @@ export const MobileNavigation = () => {
                     <div
                         className="logout__item"
                         onClick={() => {
-                            // <Navigate to="/login" replace={true} />;
                             window.location.replace("/");
                             logout();
                         }}
