@@ -1,15 +1,20 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable arrow-body-style */
-import React, { useState } from "react";
-import { BiHomeAlt, BiLogOut } from "react-icons/bi";
+import React, { useContext, useState } from "react";
+import { BiHomeAlt } from "react-icons/bi";
 import { FiHeart } from "react-icons/fi";
 import { TbPlaylist } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
+import { IoIosLogOut } from "react-icons/io";
 
 
 import "../styles/navigationmenu.css";
+import { UserContext } from "../UserContext";
 
 export const MobileNavigation = () => {
+    const { logout } = useContext(UserContext);
     // eslint-disable-next-line no-unused-vars
     const [activeLink, setIsActive] = useState("active");
 
@@ -49,8 +54,14 @@ export const MobileNavigation = () => {
                 </li>
                 <li>
                     <div
-                        className="logout__item">
-                        <BiLogOut className="sidebar__menu--icon" />
+                        className="logout__item"
+                        onClick={() => {
+                            // <Navigate to="/login" replace={true} />;
+                            window.location.replace("/");
+                            logout();
+                        }}
+                    >
+                        <IoIosLogOut className="sidebar__menu--icon" />
                         <span>Déconnexion</span>
                     </div>
 

@@ -123,9 +123,23 @@ body {
 
 @media screen and (max-width: map.get($breakpoints, "sm")) {
   .main__container {
-     
-      left: 0;
+
+    left: 0;
+    width: 100%;
+    padding-bottom: 100px;
+  }
+
+  .application__logo--container {
+    width: 60%;
+    height: 60px;
+    display: flex;
+    margin: 0;
+
+    border: .1em solid red;
+
+    img {
       width: 100%;
-      padding-bottom: 100px;
+      height: 100%;
     }
+  }
 }

@@ -12,6 +12,7 @@ export const HomePageSlider = () => {
         height: "400px",
         margin: "auto",
       }}
+      className="homepage__cover--container"
     >
       <img
         src={MusicEcaliserImage}
