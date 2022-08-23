@@ -30,13 +30,11 @@
       transition: 0.3s ease;
       width: 100%;
 
-
       span {
         display: block;
         margin: 0 5%;
         font-size: 1em;
         width: 100%;
-
       }
 
       &:hover {
@@ -127,10 +125,7 @@
         &:hover {
           transform: none;
           cursor: pointer;
-
-
         }
-
       }
 
       .logout__item {
@@ -139,13 +134,6 @@
         align-items: center;
         justify-content: center;
       }
-
-
     }
-
-
-
   }
-
-
 }

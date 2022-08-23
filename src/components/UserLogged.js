@@ -4,8 +4,6 @@ import { React } from "react";
 
 import UserTest from "../images/user-test.png";
 
-
-
 import "../styles/userlogged.css";
 
 export const UserLogged = () => {

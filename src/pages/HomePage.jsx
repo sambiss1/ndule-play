@@ -9,15 +9,17 @@ import "../styles/homepage.css";
 import "../styles/App.css";
 
 export const HomePage = () => {
-    const { getNewRelease } = useContext(UserContext);
+  const { getNewRelease } = useContext(UserContext);
 
-    useEffect(() => {
-        getNewRelease();
-    }, []);
+  useEffect(() => {
+    getNewRelease();
+  }, []);
 
-    return (<div className="homepage--container">
-        <HomePageContent />
-    </div>);
+  return (
+    <div className="homepage--container">
+      <HomePageContent />
+    </div>
+  );
 };
 
 export default HomePage;

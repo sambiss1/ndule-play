@@ -3,7 +3,6 @@ import { React, useEffect, useState, useContext } from "react";
 
 import SpotifyWebApi from "spotify-web-api-js";
 
-
 import PlayListCard from "../components/Card";
 import { UserContext } from "../UserContext";
 import LoadingData from "../components/LoadingData";
@@ -34,10 +33,7 @@ export function PlayList() {
     }, 500);
   }, []);
   return (
-
     <div className="main__container">
-
-
       {userPlayList.length <= 0 ? (
         <LoadingData />
       ) : (
@@ -54,9 +50,7 @@ export function PlayList() {
           </div>
         </div>
       )}
-
     </div>
-
   );
 }
 

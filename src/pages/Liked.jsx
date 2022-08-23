@@ -31,13 +31,9 @@ export function Liked() {
     }, 500);
   }, []);
 
-
   return (
     <div className="homepage--container">
-
       <div className="main__container">
-
-
         <div className="page__content">
           <h3 className="page__title">Titres</h3>
 
@@ -48,15 +44,14 @@ export function Liked() {
               {userLikedSongs.map(
                 (song) =>
                   song.track.name +
-                  song.track.artist +
-                  song.track.album.images[0].url && (
+                    song.track.artist +
+                    song.track.album.images[0].url && (
                     <LikedSongCard key={song.track.id} props={song} />
                   )
               )}{" "}
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

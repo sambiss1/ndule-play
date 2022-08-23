@@ -1,5 +1,7 @@
+/* eslint-disable react/function-component-definition */
+/* eslint-disable arrow-body-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
-import { BsMoon } from "react-icons/bs";
 import "../styles/themetoggle.css";
 
 export const ThemeToggler = () => {

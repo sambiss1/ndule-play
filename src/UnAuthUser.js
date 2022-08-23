@@ -7,10 +7,10 @@ import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 
 export const UnAuthUser = () => (
-    <Routes>
-        <Route path="/" index element={<LoginPage />} />
-        <Route path="/*" element={<NotFound />} />
-    </Routes>
+  <Routes>
+    <Route path="/" index element={<LoginPage />} />
+    <Route path="/*" element={<NotFound />} />
+  </Routes>
 );
 
 export default UnAuthUser;

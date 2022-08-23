@@ -8,13 +8,13 @@ import UserLogged from "./UserLogged";
 import "../styles/header.css";
 
 export const Header = () => {
-    return (
-        <div className="header--container">
-            <SearchBar />
+  return (
+    <div className="header--container">
+      <SearchBar />
 
-            <UserLogged />
-        </div>
-    );
-}
+      <UserLogged />
+    </div>
+  );
+};
 
 export default Header;

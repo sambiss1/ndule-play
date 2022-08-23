@@ -26,8 +26,6 @@ import MobileNavigation from "./components/MobileNavigation";
 import MobileHeader from "./components/MobileHeader";
 import { UserContext } from "./UserContext";
 
-
-
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
@@ -41,7 +39,6 @@ function App({ hideLoader }) {
     <BrowserRouter>
       {actualToken ? <Sidebar /> : null}
       <Routes>
-
         {!actualToken ? (
           <Route path="/" element={<UnAuthUser />} />
         ) : (
@@ -61,12 +58,13 @@ function App({ hideLoader }) {
           </>
         )}
       </Routes>
-      {actualToken ? (<div className="main__container">
-        <MobileHeader />
-        <Header />
-        <Player />
-        <MobileNavigation />
-      </div>
+      {actualToken ? (
+        <div className="main__container">
+          <MobileHeader />
+          <Header />
+          <Player />
+          <MobileNavigation />
+        </div>
       ) : null}
       <Outlet />
     </BrowserRouter>

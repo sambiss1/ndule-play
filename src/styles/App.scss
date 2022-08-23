@@ -123,9 +123,8 @@ body {
 
 @media screen and (max-width: map.get($breakpoints, "sm")) {
   .main__container {
-     
-      left: 0;
-      width: 100%;
-      padding-bottom: 100px;
-    }
+    left: 0;
+    width: 100%;
+    padding-bottom: 100px;
+  }
 }
