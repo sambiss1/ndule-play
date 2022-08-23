@@ -28,6 +28,9 @@
   .right__section--container {
     flex-direction: column;
   }
+  .right__section--container h1 {
+    display: none;
+  }
   .right__section--container .earphone__image--container {
     width: 200px;
     height: 200px;
@@ -51,6 +54,31 @@
   }
   .right__section--container .handle__login--button .spotify__icon {
     font-size: 2.6em;
+  }
+}
+@media screen and (max-width: 576px) {
+  .login__page--container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .left__section--container {
+    display: none;
+  }
+
+  .right__section--container {
+    margin: auto;
+  }
+  .right__section--container h1 {
+    display: flex;
+    color: #de5000;
+  }
+  .right__section--container .handle__login--button {
+    font-size: 1em;
+  }
+  .right__section--container .handle__login--button .spotify__icon {
+    font-size: 2em;
   }
 }
 

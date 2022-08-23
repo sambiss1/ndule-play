@@ -12,6 +12,7 @@ export function LoginRightSection() {
       <div
         className="section__content"
       >
+        <h1>NDULE PLAY</h1>
         <div
           className="earphone__image--container"
         >
@@ -25,7 +26,7 @@ export function LoginRightSection() {
         <button
           className="handle__login--button"
           onClick={handleLogin}>
-          <FaSpotify className="spotify__icon"/>
+          <FaSpotify className="spotify__icon" />
           <span>Continuez avec Spotify</span>
         </button>
 
