@@ -3,7 +3,7 @@ import { React, useContext } from "react";
 
 import { FaSpotify } from "react-icons/fa";
 import { UserContext } from "../UserContext";
-import EarPhone from "../images/ear-phone.png";
+import EarPhone from "../images/earphone.png";
 
 export function LoginRightSection() {
   const { handleLogin } = useContext(UserContext);
