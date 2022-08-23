@@ -29,9 +29,14 @@ import { UserContext } from "./UserContext";
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
-  const { getMyAccount, createToken } = useContext(UserContext);
-  createToken();
+  const { getMyAccount, createToken, getNewRelease } = useContext(UserContext);
+
+  useEffect(() => {
+    createToken();
+  }, []);
+
   getMyAccount();
+  getNewRelease();
   const actualToken = window.localStorage.getItem("token");
   console.log(actualToken);
 
