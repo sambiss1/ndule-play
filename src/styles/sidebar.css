@@ -2,7 +2,7 @@
 /* Dark mode color */
 @media screen and (max-width: 1440px) {
   .sidebar--container {
-    background-color: #323232;
+    background-color: rgba(50, 50, 50, 0.5);
     height: 100vh;
     position: fixed;
     left: 0;

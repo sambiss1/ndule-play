@@ -13,6 +13,7 @@ export const BestResult = () => {
 };
 
 export function SearchBar() {
+<<<<<<< HEAD
   const navigate = useNavigate();
   const spotify = new SpotifyWebApi();
   spotify.setAccessToken(window.localStorage.getItem("token"));
@@ -44,6 +45,44 @@ export function SearchBar() {
       </div>
     </form>
   );
+=======
+
+    const navigate = useNavigate();
+    const spotify = new SpotifyWebApi();
+    spotify.setAccessToken(window.localStorage.getItem("token"));
+
+    const { term, setTerm, searchArtist } = useContext(UserContext);
+
+
+    return (
+
+        <form onSubmit={searchArtist} className="desktop__search--form">
+            <div className="search__input--container">
+                <IoSearchOutline className="search__bar--icon" />
+                <input
+                    type="search"
+                    placeholder="Rechercher ici"
+                    name="search__bar--input"
+                    value={term}
+                    onChange={(event) => {
+                        setTerm(event.target.value);
+                        window.location.pathname !== "/search" ? navigate("/search", { replace: true }) : window.location("/search");
+                    }}
+                />
+
+                <input
+                    type="submit"
+                    value="Rechercher"
+                    className="search__bar--button"
+                />
+            </div>
+
+
+        </form>
+
+
+    );
+>>>>>>> feature/mobile-version
 }
 
 export default SearchBar;

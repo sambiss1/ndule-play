@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-named-as-default */
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -58,7 +59,8 @@ const Artist = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  <div className="homepage--container">
+  return (<div className="homepage--container">
+
     <div className="main__container">
       {artist.length <= 0 ? (
         <LoadingData />
@@ -85,9 +87,9 @@ const Artist = () => {
               artistTopTrack.map(
                 (topTrack) =>
                   topTrack.name +
-                    topTrack.album.images[0].url +
-                    topTrack.popuality +
-                    millisToMinutesAndSeconds(topTrack.duration_ms) && (
+                  topTrack.album.images[0].url +
+                  topTrack.popuality +
+                  millisToMinutesAndSeconds(topTrack.duration_ms) && (
                     <ArtistTopTracksCard key={topTrack.id} props={topTrack} />
                   )
               )
@@ -96,7 +98,7 @@ const Artist = () => {
         </div>
       )}
     </div>
-  </div>;
+  </div>);
 };
 
 export default Artist;

@@ -1,108 +1,17 @@
-/* Light mode color */
-/* Dark mode color */
-@media screen and (max-width: 1440px) {
-  .album__main--container {
-    width: 90%;
-    margin: 0 auto;
-    background-color: #323232;
-    display: flex;
-    padding: 5%;
-    justify-content: space-evenly;
-  }
+/* Error: expected "{".
+ *    ,
+ * 86 | >>>>>>> feature/mobile-version
+ *    |                               ^
+ *    '
+ *   singlealbum.scss 86:31  root stylesheet */
 
-  .album__cover--container {
-    width: 300px;
-    height: 300px;
-  }
-  .album__cover--container img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .album__details--container {
-    margin: 0 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .single__album--name {
-    font-size: 2em;
-    color: #de5000;
-  }
-
-  .album__other__detail--container {
-    display: flex;
-    align-items: flex-end;
-  }
-  .album__other__detail--container h3 {
-    font-size: 1em;
-  }
-  .album__other__detail--container h4 {
-    border-left: 0.1em solid #ffffff;
-    font-size: 0.8em;
-    padding-left: 0.5em;
-  }
-
-  .album__actions--container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-  .album__actions--play, .album__actions--like {
-    color: #de5000;
-    font-size: 2em;
-    margin: 0.5em;
-  }
-  .album__actions--play:hover, .album__actions--like:hover {
-    cursor: pointer;
-  }
-
-  .album__track--container {
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-self: space-evenly;
-    align-items: center;
-    margin: 2% auto;
-    padding: 0 5%;
-    background-color: #323232;
-  }
-
-  .album__track--details {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 5%;
-  }
-  .album__track--title {
-    color: #de5000;
-    margin: 0;
-  }
-  .album__track--artists {
-    color: #f8e5db;
-    margin: 0;
-  }
-
-  .album__track__actions--container {
-    width: 10%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  .album__track__actions--play, .album__track__actions--like {
-    color: #de5000;
-    font-size: 1em;
-    margin: 0.5em;
-  }
-
-  .album__track__duration--container {
-    width: 20%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    align-self: flex-end;
-  }
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a    \2577 \a 86 \2502  >>>>>>> feature/mobile-version\a    \2502                                ^\a    \2575 \a   singlealbum.scss 86:31  root stylesheet';
 }
-
-/*# sourceMappingURL=singlealbum.css.map */

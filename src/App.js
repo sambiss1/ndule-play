@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-named-as-default */
@@ -21,10 +22,12 @@ import SearchPage from "./pages/SearchPage";
 
 import Player from "./components/Player";
 import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
+
 import MobileNavigation from "./components/MobileNavigation";
 import MobileHeader from "./components/MobileHeader";
 import { UserContext } from "./UserContext";
+import SearchBar from "./components/SearchBar";
+import UserLogged from "./components/UserLogged";
 
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
@@ -58,13 +61,19 @@ function App({ hideLoader }) {
           </>
         )}
       </Routes>
-      {actualToken ? (
-        <div className="main__container">
-          <MobileHeader />
-          <Header />
-          <Player />
-          <MobileNavigation />
+      {actualToken ? (<div className="main__container">
+        <MobileHeader />
+        <div className="header--container">
+          <SearchBar />
+
+          <UserLogged />
         </div>
+        <div className="mobile__search--form">
+          <SearchBar />
+        </div>
+        <Player />
+        <MobileNavigation />
+      </div>
       ) : null}
       <Outlet />
     </BrowserRouter>

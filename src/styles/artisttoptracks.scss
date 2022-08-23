@@ -50,3 +50,32 @@
     display: flex;
   }
 }
+
+@media screen and (max-width: map.get($breakpoints, "sm")) {
+  .top__track--container {
+    width: 100%;
+    margin: 5% 0;
+
+    &:hover {
+      background-color: $black_color;
+    }
+  }
+
+  .top__track_title_image--container {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 20px;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .top__track--title {
+    font-size: .8em;
+  }
+
+  .top__tarck--popularity,
+  .top__track--actions {
+    display: none;
+  }
+}

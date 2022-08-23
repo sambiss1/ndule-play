@@ -1,11 +1,17 @@
-/* Light mode color */
-/* Dark mode color */
-@media screen and (max-width: 1440px) {
-  .searched__track--container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-  }
-}
+/* Error: unmatched "}".
+ *    ,
+ * 22 | }
+ *    | ^
+ *    '
+ *   searchresult.scss 22:1  root stylesheet */
 
-/*# sourceMappingURL=searchresult.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: unmatched "}".\a    \2577 \a 22 \2502  }\a    \2502  ^\a    \2575 \a   searchresult.scss 22:1  root stylesheet';
+}

@@ -9,6 +9,7 @@ import { UserContext } from "../UserContext";
 import LoadingData from "../components/LoadingData";
 
 const SearchPage = () => {
+<<<<<<< HEAD
   const { search, termSearched } = useContext(UserContext);
   return (
     <div>
@@ -27,6 +28,31 @@ const SearchPage = () => {
       </div>
     </div>
   );
+=======
+    const { search, termSearched } = useContext(UserContext);
+    return (
+        <div>
+            <div
+                className="main__container"
+            >
+                {search ? (
+                    <div className="page__content">
+                        <h4>Search result</h4>
+                        {termSearched.length <= 0 ? <LoadingData /> : <SearchResult />}
+                    </div>
+                ) : (
+                    <div className="page__content">
+
+                        <h4>Search result</h4>
+                    </div>
+                )}
+
+
+            </div>
+
+        </div>
+    );
+>>>>>>> feature/mobile-version
 };
 
 export default SearchPage;
