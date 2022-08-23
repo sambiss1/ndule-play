@@ -6,8 +6,7 @@
     grid-template-columns: repeat(2, 50%);
   }
 
-  .centerItems,
-  .left__section--container {
+  .centerItems, .left__section--container {
     display: flex;
     justify-content: center;
     align-items: center;
