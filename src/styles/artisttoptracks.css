@@ -54,6 +54,7 @@
   }
   .top__track--container:hover {
     background-color: #000000;
+    cursor: pointer;
   }
 
   .top__track_title_image--container {
