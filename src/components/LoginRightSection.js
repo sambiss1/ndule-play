@@ -14,7 +14,7 @@ export function LoginRightSection() {
       >
         <h1>NDULE PLAY</h1>
         <div
-          className="earphone__image--container"
+          className="earphone__image--container bounce"
         >
           <img src={EarPhone} alt="ear phone cover" />
         </div>
