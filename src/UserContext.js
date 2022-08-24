@@ -36,6 +36,7 @@ export const UserProvider = ({ children }) => {
     const [newReleaseAlbum, setNewReleaseAlbum] = useState([]);
     const [likedSong, setLikedSong] = useState([]);
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
+    const [userPlayList, setUserPlayList] = useState([]);
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -106,6 +107,7 @@ export const UserProvider = ({ children }) => {
                 "user__playlist",
                 JSON.stringify(getMyPlaylist.items)
             );
+            setUserPlayList(getMyPlaylist.items);
         } catch (error) {
             console.log(error);
         }
@@ -211,9 +213,11 @@ export const UserProvider = ({ children }) => {
         setLikedSong,
         recentlyPlayed,
         setRecentlyPlayed,
+        userPlayList,
+        setUserPlayList,
+        getUserPlaylist,
         anUri,
         setAnUri,
-
         play,
         setPlay,
         categoryId,
@@ -242,6 +246,9 @@ export const UserProvider = ({ children }) => {
         setLikedSong,
         recentlyPlayed,
         setRecentlyPlayed,
+        userPlayList,
+        setUserPlayList,
+        getUserPlaylist,
         anUri,
         setAnUri,
         play,
