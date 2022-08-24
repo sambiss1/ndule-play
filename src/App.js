@@ -59,7 +59,7 @@ function App({ hideLoader }) {
             <Route path="/playlist" element={<PlayList />} />
             <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/liked" element={<Liked />} />
-            <Route path="/login" element={<UnAuthUser />} />
+            {/* <Route path="/login" element={<UnAuthUser />} /> */}
             <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/" index element={<HomePage />} />
