@@ -35,6 +35,7 @@ export const UserProvider = ({ children }) => {
     const [categoryId, setCategoryId] = useState("");
     const [newReleaseAlbum, setNewReleaseAlbum] = useState([]);
     const [likedSong, setLikedSong] = useState([]);
+    const [recentlyPlayed, setRecentlyPlayed] = useState([]);
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -208,6 +209,8 @@ export const UserProvider = ({ children }) => {
         setNewReleaseAlbum,
         likedSong,
         setLikedSong,
+        recentlyPlayed,
+        setRecentlyPlayed,
         anUri,
         setAnUri,
 
@@ -237,6 +240,8 @@ export const UserProvider = ({ children }) => {
         setNewReleaseAlbum,
         likedSong,
         setLikedSong,
+        recentlyPlayed,
+        setRecentlyPlayed,
         anUri,
         setAnUri,
         play,

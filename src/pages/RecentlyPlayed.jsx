@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import { React, useEffect, useState } from "react";
+import { React, useContext, useEffect } from "react";
 
 import SpotifyWebApi from "spotify-web-api-js";
 
@@ -10,25 +10,16 @@ import LoadingData from "../components/LoadingData";
 
 import "../styles/App.css";
 import "../styles/albumitem.css";
+import { UserContext } from "../UserContext";
 
 export function RecentlyPlayed() {
-    const [recentlyPlayed, setRecentlyPlayed] = useState([]);
+
+    const { recentlyPlayed, getRecentlyPlayed } = useContext(UserContext);
 
 
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(window.localStorage.getItem("token"));
-    const getRecentlyPlayed = async () => {
-        try {
-            const recentPlayed = await spotifyApi.getMyRecentlyPlayedTracks();
-            localStorage.setItem(
-                "user__recently__played",
-                JSON.stringify(recentPlayed.items)
-            );
-            setRecentlyPlayed(recentPlayed.items);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+
 
 
 
