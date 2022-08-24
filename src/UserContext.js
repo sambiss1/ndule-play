@@ -27,7 +27,6 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({ token: "", auth: false });
     const [username, setUsername] = useState("");
     const [userID, setUserID] = useState("");
-    const [artistSearched, setArtistSearched] = useState([]);
     const [termSearched, setTermSearched] = useState([]);
     const [term, setTerm] = useState("");
     const [search, setSearch] = useState(false);
@@ -182,7 +181,6 @@ export const UserProvider = ({ children }) => {
         ]);
 
         setTermSearched(searchForArtist);
-        setArtistSearched(searchForArtist.artists.items);
         setSearch(true);
     };
 
@@ -200,7 +198,6 @@ export const UserProvider = ({ children }) => {
         getNewRelease,
         millisToMinutesAndSeconds,
         search,
-        artistSearched,
         term,
         setTerm,
         termSearched,
@@ -229,7 +226,6 @@ export const UserProvider = ({ children }) => {
         getNewRelease,
         millisToMinutesAndSeconds,
         search,
-        artistSearched,
         term,
         setTerm,
         termSearched,
