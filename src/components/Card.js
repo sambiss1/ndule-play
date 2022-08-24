@@ -6,6 +6,7 @@
 
 import React, { useContext } from "react";
 import { FiPlay } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 import "../styles/albumitem.css";
 import { UserContext } from "../UserContext";
@@ -14,21 +15,36 @@ export const Card = ({ props }) => {
   const { setPlay, setAnUri } = useContext(UserContext);
   return (
     <>
-      <div className="card__item--container" key={props.id}>
-        <div className="card__image--container">
-          <img src={props.images[0].url} alt="artits" />
-        </div>
+      <div
+        className="card__item--container"
+        key={props.id}
+        onClick={() => {
+          console.log(props.id);
+        }}
+      >
+        <Link
+          to={`/playlist/${props.id}`}>
+          <div className="card__image--container">
+            <img src={props.images[0].url} alt="artits" />
+          </div>
+        </Link>
         <div
           className="play__icon--container"
           // eslint-disable-next-line no-console
           onClick={() => {
             setAnUri(props.uri);
             setPlay(true);
+
           }}
         >
           <FiPlay className="play__icon" />
         </div>
-        <h4 className="card__name">{props.name}</h4>
+        <Link
+          to={`/playlist/${props.id}`}>
+          <h4 className="card__name">{props.name}</h4>
+        </Link>
+
+
       </div>
     </>
   );

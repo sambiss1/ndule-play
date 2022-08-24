@@ -27,7 +27,6 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({ token: "", auth: false });
     const [username, setUsername] = useState("");
     const [userID, setUserID] = useState("");
-    const [artistSearched, setArtistSearched] = useState([]);
     const [termSearched, setTermSearched] = useState([]);
     const [term, setTerm] = useState("");
     const [search, setSearch] = useState(false);
@@ -35,6 +34,8 @@ export const UserProvider = ({ children }) => {
     const [albumUri, setAlbumUri] = useState("");
     const [anUri, setAnUri] = useState("");
     const [play, setPlay] = useState(false);
+    const [categoryId, setCategoryId] = useState("");
+
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -177,70 +178,66 @@ export const UserProvider = ({ children }) => {
         ]);
 
         setTermSearched(searchForArtist);
-        setArtistSearched(searchForArtist.artists.items);
         setSearch(true);
     };
 
-    const ProvideValue = useMemo(
-        () => ({
-            createToken,
-            getMyAccount,
-            user,
-            username,
-            logout,
-            handleLogin,
-            userID,
-            getUserLikedSongs,
-            getRecentlyPlayed,
-            getAllCategory,
-            getNewRelease,
-            millisToMinutesAndSeconds,
-            search,
-            artistSearched,
-            term,
-            setTerm,
-            termSearched,
-            setTermSearched,
-            searchArtist,
-            trackUri,
-            setTrackUri,
-            anUri,
-            setAnUri,
-            albumUri,
-            setAlbumUri,
-            play,
-            setPlay,
-        }),
-        [
-            createToken,
-            user,
-            username,
-            getMyAccount,
-            logout,
-            handleLogin,
-            userID,
-            getUserLikedSongs,
-            getRecentlyPlayed,
-            getAllCategory,
-            getNewRelease,
-            millisToMinutesAndSeconds,
-            search,
-            artistSearched,
-            term,
-            setTerm,
-            termSearched,
-            setTermSearched,
-            searchArtist,
-            trackUri,
-            setTrackUri,
-            anUri,
-            setAnUri,
-            albumUri,
-            setAlbumUri,
-            play,
-            setPlay,
-        ]
-    );
+    const ProvideValue = useMemo(() => ({
+        createToken,
+        getMyAccount,
+        user,
+        username,
+        logout,
+        handleLogin,
+        userID,
+        getUserLikedSongs,
+        getRecentlyPlayed,
+        getAllCategory,
+        getNewRelease,
+        millisToMinutesAndSeconds,
+        search,
+        term,
+        setTerm,
+        termSearched,
+        setTermSearched,
+        searchArtist,
+        trackUri,
+        setTrackUri,
+        anUri,
+        setAnUri,
+        albumUri,
+        setAlbumUri,
+        play,
+        setPlay,
+        categoryId,
+        setCategoryId
+    }), ([createToken,
+        user,
+        username,
+        getMyAccount,
+        logout,
+        handleLogin,
+        userID,
+        getUserLikedSongs,
+        getRecentlyPlayed,
+        getAllCategory,
+        getNewRelease,
+        millisToMinutesAndSeconds,
+        search,
+        term,
+        setTerm,
+        termSearched,
+        setTermSearched,
+        searchArtist,
+        trackUri,
+        setTrackUri,
+        anUri,
+        setAnUri,
+        albumUri,
+        setAlbumUri,
+        play,
+        setPlay,
+        categoryId,
+        setCategoryId]));
 
     return (
         <UserContext.Provider value={ProvideValue}>{children}</UserContext.Provider>
