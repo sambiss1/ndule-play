@@ -30,11 +30,10 @@ export const UserProvider = ({ children }) => {
     const [termSearched, setTermSearched] = useState([]);
     const [term, setTerm] = useState("");
     const [search, setSearch] = useState(false);
-    const [trackUri, setTrackUri] = useState("");
-    const [albumUri, setAlbumUri] = useState("");
     const [anUri, setAnUri] = useState("");
     const [play, setPlay] = useState(false);
     const [categoryId, setCategoryId] = useState("");
+    const [newReleaseAlbum, setNewReleaseAlbum] = useState([]);
 
 
     const createToken = () => {
@@ -51,7 +50,6 @@ export const UserProvider = ({ children }) => {
                 auth: true,
             });
             getMyAccount();
-            getNewRelease();
             getUserPlaylist();
             getAllCategory();
         }
@@ -93,6 +91,7 @@ export const UserProvider = ({ children }) => {
                 "new-release-album",
                 JSON.stringify(getNewAlbumRelease.albums.items)
             );
+            setNewReleaseAlbum(getNewAlbumRelease.albums.items);
         } catch (error) {
             console.log(error);
         }
@@ -203,12 +202,11 @@ export const UserProvider = ({ children }) => {
         termSearched,
         setTermSearched,
         searchArtist,
-        trackUri,
-        setTrackUri,
+        newReleaseAlbum,
+        setNewReleaseAlbum,
         anUri,
         setAnUri,
-        albumUri,
-        setAlbumUri,
+
         play,
         setPlay,
         categoryId,
@@ -231,12 +229,10 @@ export const UserProvider = ({ children }) => {
         termSearched,
         setTermSearched,
         searchArtist,
-        trackUri,
-        setTrackUri,
+        newReleaseAlbum,
+        setNewReleaseAlbum,
         anUri,
         setAnUri,
-        albumUri,
-        setAlbumUri,
         play,
         setPlay,
         categoryId,
