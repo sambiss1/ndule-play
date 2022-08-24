@@ -1,5 +1,9 @@
 /* Light mode color */
 /* Dark mode color */
+* {
+  box-sizing: border-box;
+}
+
 @media (max-width: 1440px) {
   .login__page--container {
     display: grid;
@@ -51,6 +55,12 @@
     padding: 5%;
     color: #ffffff;
     font-size: 1.4em;
+  }
+  .right__section--container .handle__login--button:hover {
+    border: 0.1em solid #de5000;
+    color: #de5000;
+    background-color: #ffffff;
+    cursor: pointer;
   }
   .right__section--container .handle__login--button .spotify__icon {
     font-size: 2.6em;

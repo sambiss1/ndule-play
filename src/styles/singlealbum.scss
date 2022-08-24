@@ -195,35 +195,39 @@
   }
 
   // Album track container
-
   .album__track--container {
-
     &:hover {
       background-color: $black_color;
+      cursor: pointer;
 
-      .album__track {
-        &--details {
-          width: 50%;
-          display: flex;
-          flex-direction: column;
-          margin: 0 5%;
+      &:hover {
+        background-color: $black_color;
+
+        .album__track {
+          &--details {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 5%;
+          }
+
+          &--title {
+            color: $primary_color;
+            margin: 0;
+          }
+
+          &--artists {
+            color: $secondary_color;
+            margin: 0;
+          }
         }
 
-        &--title {
-          color: $primary_color;
-          margin: 0;
-        }
-
-        &--artists {
-          color: $secondary_color;
-          margin: 0;
-        }
       }
 
+
     }
-
-
   }
+
 
   .album__track__actions {
 

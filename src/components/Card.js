@@ -11,7 +11,7 @@ import "../styles/albumitem.css";
 import { UserContext } from "../UserContext";
 
 export const Card = ({ props }) => {
-  const { setPlay } = useContext(UserContext);
+  const { setPlay, setAnUri } = useContext(UserContext);
   return (
     <>
       <div className="card__item--container" key={props.id}>
@@ -22,6 +22,7 @@ export const Card = ({ props }) => {
           className="play__icon--container"
           // eslint-disable-next-line no-console
           onClick={() => {
+            setAnUri(props.uri);
             setPlay(true);
           }}
         >

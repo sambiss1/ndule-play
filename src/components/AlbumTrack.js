@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
@@ -9,18 +10,21 @@ import { FiPlay, FiHeart } from "react-icons/fi";
 import { UserContext } from "../UserContext";
 
 export function AlbumTrack({ props }) {
-  const { millisToMinutesAndSeconds, setTrackUri } = useContext(UserContext);
+  const { millisToMinutesAndSeconds, setAnUri, setPlay } = useContext(UserContext);
 
   const trackDurationInMinutes = millisToMinutesAndSeconds(props.duration_ms);
 
-  const getTrackId = () => {
-    console.log(props.uri);
-    setTrackUri(props.uri);
-  };
+
 
   return (
-    <div className="album__track--container">
-      <h4 onClick={getTrackId}>{props.track_number}</h4>
+    <div
+      className="album__track--container"
+      onClick={() => {
+        setAnUri(props.uri);
+        setPlay(true);
+      }}
+    >
+      <h4 >{props.track_number}</h4>
       <div className="album__track--details">
         <h4 className="album__track--title">{props.name}</h4>
 
