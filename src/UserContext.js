@@ -34,7 +34,7 @@ export const UserProvider = ({ children }) => {
     const [play, setPlay] = useState(false);
     const [categoryId, setCategoryId] = useState("");
     const [newReleaseAlbum, setNewReleaseAlbum] = useState([]);
-
+    const [likedSong, setLikedSong] = useState([]);
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -145,6 +145,7 @@ export const UserProvider = ({ children }) => {
                 "user__liked__songs",
                 JSON.stringify(likedSongs.items)
             );
+            setLikedSong(likedSongs.items);
         } catch (error) {
             console.log(error);
         }
@@ -154,6 +155,7 @@ export const UserProvider = ({ children }) => {
     const logout = () => {
         window.localStorage.removeItem("token");
         window.localStorage.removeItem("logged__user");
+        window.localStorage.clear();
         setUser({
             token: "",
             auth: false,
@@ -204,6 +206,8 @@ export const UserProvider = ({ children }) => {
         searchArtist,
         newReleaseAlbum,
         setNewReleaseAlbum,
+        likedSong,
+        setLikedSong,
         anUri,
         setAnUri,
 
@@ -231,6 +235,8 @@ export const UserProvider = ({ children }) => {
         searchArtist,
         newReleaseAlbum,
         setNewReleaseAlbum,
+        likedSong,
+        setLikedSong,
         anUri,
         setAnUri,
         play,
