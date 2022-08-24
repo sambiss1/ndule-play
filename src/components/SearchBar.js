@@ -18,7 +18,7 @@ export function SearchBar() {
   const spotify = new SpotifyWebApi();
   spotify.setAccessToken(window.localStorage.getItem("token"));
 
-  const { term, setTerm, searchArtist, setSearch } = useContext(UserContext);
+  const { term, setTerm, searchArtist } = useContext(UserContext);
 
 
   return (
@@ -33,9 +33,9 @@ export function SearchBar() {
           value={term}
           onChange={(event) => {
             setTerm(event.target.value);
-            setSearch(true);
+
             window.location.pathname !== "/search" ? navigate("/search", { replace: true }) : window.location("/search");
-            searchArtist();
+
           }}
         />
 
