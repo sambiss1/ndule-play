@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-named-as-default */
 import { React, useEffect, useState } from "react";
@@ -9,6 +10,7 @@ import GenresCard from "../components/GenreCard";
 import "../styles/homepage.css";
 import "../styles/App.css";
 import "../styles/albumitem.css";
+
 
 export const Genres = () => {
   const spotifyApi = new SpotifyWebApi();
