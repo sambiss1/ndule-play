@@ -37,7 +37,7 @@ function App({ hideLoader }) {
   createToken();
   getMyAccount();
   const actualToken = window.localStorage.getItem("token");
-  console.log(actualToken);
+
 
   return (
     <BrowserRouter>

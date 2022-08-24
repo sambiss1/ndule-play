@@ -35,6 +35,8 @@ export const UserProvider = ({ children }) => {
     const [albumUri, setAlbumUri] = useState("");
     const [anUri, setAnUri] = useState("");
     const [play, setPlay] = useState(false);
+    const [categoryId, setCategoryId] = useState("");
+
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -211,7 +213,9 @@ export const UserProvider = ({ children }) => {
         albumUri,
         setAlbumUri,
         play,
-        setPlay
+        setPlay,
+        categoryId,
+        setCategoryId
     }), ([createToken,
         user,
         username,
@@ -238,7 +242,9 @@ export const UserProvider = ({ children }) => {
         albumUri,
         setAlbumUri,
         play,
-        setPlay]));
+        setPlay,
+        categoryId,
+        setCategoryId]));
 
     return (
         <UserContext.Provider
