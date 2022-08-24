@@ -28,6 +28,7 @@ import MobileHeader from "./components/MobileHeader";
 import { UserContext } from "./UserContext";
 import SearchBar from "./components/SearchBar";
 import UserLogged from "./components/UserLogged";
+import PlayListDetailled from "./pages/PlayListDetailled";
 
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
@@ -36,7 +37,7 @@ function App({ hideLoader }) {
   createToken();
   getMyAccount();
   const actualToken = window.localStorage.getItem("token");
-  console.log(actualToken);
+
 
   return (
     <BrowserRouter>
@@ -52,6 +53,7 @@ function App({ hideLoader }) {
             <Route path="/artist/:id" element={<Artist />} />
             <Route path="genres" element={<Genres />} />
             <Route path="/playlist" element={<PlayList />} />
+            <Route path="/playlist/:id" element={<PlayListDetailled />} />
             <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/liked" element={<Liked />} />
             {/* <Route path="/login" element={<UnAuthUser />} /> */}

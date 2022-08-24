@@ -19,8 +19,10 @@ export function Player() {
           color: "#fff",
           loaderColor: "#fff",
           sliderColor: "#DE5000",
+          sliderHandleColor: "#DE5000",
           trackArtistColor: "#ccc",
           trackNameColor: "#DE5000",
+
         }}
         autoPlay
         callback={(state) => {

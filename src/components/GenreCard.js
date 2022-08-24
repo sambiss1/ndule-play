@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable arrow-body-style */

@@ -32,6 +32,8 @@ export function PlayList() {
       getUserPlaylist();
     }, 500);
   }, []);
+
+  console.log(userPlayList);
   return (
     <div className="main__container">
       {userPlayList.length <= 0 ? (
