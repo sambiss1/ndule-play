@@ -52,7 +52,6 @@ export const UserProvider = ({ children }) => {
                 auth: true,
             });
             getMyAccount();
-
             getAllCategory();
         }
     };
