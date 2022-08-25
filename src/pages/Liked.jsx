@@ -1,29 +1,20 @@
 /* eslint-disable import/no-named-as-default */
-import { React, useEffect, useState } from "react";
+import { React, useContext, useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import LikedSongCard from "../components/LikedSongCard";
 import LoadingData from "../components/LoadingData";
 import "../styles/App.css";
 import "../styles/albumitem.css";
+import { UserContext } from "../UserContext";
 
 export function Liked() {
-  const [userLikedSongs, setUserLikedSongs] = useState([]);
+
+  const { likedSong, getUserLikedSongs } = useContext(UserContext);
 
   const spotifyApi = new SpotifyWebApi();
   spotifyApi.setAccessToken(window.localStorage.getItem("token"));
 
-  const getUserLikedSongs = async () => {
-    try {
-      const likedSongs = await spotifyApi.getMySavedTracks();
-      setUserLikedSongs(likedSongs.items);
-      localStorage.setItem(
-        "user__liked__songs",
-        JSON.stringify(likedSongs.items)
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -37,11 +28,11 @@ export function Liked() {
         <div className="page__content">
           <h3 className="page__title">Titres</h3>
 
-          {userLikedSongs.length <= 0 ? (
+          {likedSong.length <= 0 ? (
             <LoadingData />
           ) : (
             <div className="card__tabs--panel">
-              {userLikedSongs.map(
+              {likedSong.map(
                 (song) =>
                   song.track.name +
                     song.track.artist +
