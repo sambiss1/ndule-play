@@ -51,8 +51,6 @@ export const UserProvider = ({ children }) => {
                 token: token,
                 auth: true,
             });
-            getMyAccount();
-            getAllCategory();
         }
     };
 
@@ -63,6 +61,8 @@ export const UserProvider = ({ children }) => {
 
     useEffect(() => {
         createToken();
+        getMyAccount();
+        getAllCategory();
     }, []);
 
     const spotifyApi = new SpotifyWebApi();

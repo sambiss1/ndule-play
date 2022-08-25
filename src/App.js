@@ -34,7 +34,9 @@ import { UserContext } from "./UserContext";
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
   const { createToken } = useContext(UserContext);
+
   createToken();
+
   const actualToken = window.localStorage.getItem("token");
 
   return (
