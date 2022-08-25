@@ -35,15 +35,15 @@ function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
   const { createToken } = useContext(UserContext);
-  createToken();
-  const actualToken = window.localStorage.getItem("token");
 
+  createToken();
+
+  const actualToken = window.localStorage.getItem("token");
 
   return (
     <BrowserRouter>
       {actualToken ? <Sidebar /> : null}
       <Routes>
-
         {!actualToken ? (
           <Route path="/" element={<UnAuthUser />} />
         ) : (
