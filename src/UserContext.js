@@ -17,8 +17,8 @@ export const UserContext = createContext({
 });
 
 export const UserProvider = ({ children }) => {
-    const CLIENT_ID = "5aa0312dd868402aa4f2f05f91de64e1";
-    const REDIRECT_URI = "http://localhost:3000/";
+    const CLIENT_ID = "c8777ac2c42a4929a927c7a99c43a1d8";
+    const REDIRECT_URI = "https://ndule-play-by-sam.vercel.app/";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
     const SCOPE =
