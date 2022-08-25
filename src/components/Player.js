@@ -12,7 +12,7 @@ export function Player() {
     <div className="music__player--container">
       <SpotifyPlayer
         token={window.localStorage.getItem("token")}
-        uris={[anUri]}
+        uris={anUri ? [anUri] : []}
         styles={{
           activeColor: "#fff",
           bgColor: "#333",

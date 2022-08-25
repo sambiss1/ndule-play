@@ -66,7 +66,7 @@ const PlayListDetailled = () => {
                         {thisPlalist.tracks.items.length <= 0 ? (<LoadingData />) :
                             (thisPlalist.tracks.items.map((playlistTrack) => playlistTrack &&
                                 <PlayListTrackCard
-                                    key={playlistTrack.id}
+                                    key={playlistTrack.track.id}
                                     props={playlistTrack}
                                 />
                             ))

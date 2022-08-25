@@ -52,7 +52,7 @@ export const UserProvider = ({ children }) => {
                 auth: true,
             });
             getMyAccount();
-            getUserPlaylist();
+
             getAllCategory();
         }
     };
@@ -132,6 +132,7 @@ export const UserProvider = ({ children }) => {
                 "user__recently__played",
                 JSON.stringify(recentPlayed.items)
             );
+            setRecentlyPlayed(recentPlayed.items);
         } catch (error) {
             console.log(error);
         }
