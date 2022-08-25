@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-named-as-default */
-import { React, useContext, useEffect } from "react";
+import { React, useEffect } from "react";
 import "./styles/App.css";
 
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
@@ -25,7 +25,7 @@ import Sidebar from "./components/Sidebar";
 
 import MobileNavigation from "./components/MobileNavigation";
 import MobileHeader from "./components/MobileHeader";
-import { UserContext } from "./UserContext";
+
 import SearchBar from "./components/SearchBar";
 import UserLogged from "./components/UserLogged";
 import PlayListDetailled from "./pages/PlayListDetailled";
@@ -33,16 +33,7 @@ import PlayListDetailled from "./pages/PlayListDetailled";
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
-  const { getMyAccount, createToken, getNewRelease } = useContext(UserContext);
-
-  useEffect(() => {
-    createToken();
-  }, []);
-
-  getMyAccount();
-  getNewRelease();
   const actualToken = window.localStorage.getItem("token");
-
 
   return (
     <BrowserRouter>
