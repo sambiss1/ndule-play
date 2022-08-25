@@ -18,7 +18,10 @@ export const UserContext = createContext({
 
 export const UserProvider = ({ children }) => {
     const CLIENT_ID = "c8777ac2c42a4929a927c7a99c43a1d8";
-    const REDIRECT_URI = "https://ndule-play-by-sam.vercel.app/";
+    // const REDIRECT_URI = "https://ndule-play-by-sam.vercel.app/";
+    const REDIRECT_URI_DEV_MODE = process.env.REACT_APP_PRO_MODE_REDIRECT_URI;
+
+
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
     const SCOPE =
@@ -38,6 +41,7 @@ export const UserProvider = ({ children }) => {
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
     const [userPlayList, setUserPlayList] = useState([]);
 
+    console.log(REDIRECT_URI_DEV_MODE);
     const createToken = () => {
         // Get and create user logged token from spotify
         const { hash } = window.location;
@@ -54,9 +58,12 @@ export const UserProvider = ({ children }) => {
         }
     };
 
+    console.log(process.env.NODE_ENV);
+
     // Login function
     const handleLogin = () => {
-        window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+        window.location = process.env.NODE_ENV !== "development" ? `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_PRO_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}` : `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_DEV_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+
     };
 
     useEffect(() => {

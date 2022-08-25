@@ -15,6 +15,15 @@ export const HomePage = () => {
         getNewRelease();
     }, []);
 
+    const REDIRECT_URI_DEV_MODE = process.env.REACT_APP_DEV_MODE_REDIRECT_URI;
+
+
+    const displayEnvVar = () => {
+        console.log(REDIRECT_URI_DEV_MODE);
+    };
+
+    displayEnvVar();
+
     return (<div className="homepage--container">
         <HomePageContent />
     </div>);

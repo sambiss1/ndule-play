@@ -36,6 +36,7 @@ function App({ hideLoader }) {
 
   const { createToken } = useContext(UserContext);
 
+
   createToken();
 
   const actualToken = window.localStorage.getItem("token");
