@@ -10,12 +10,10 @@ import LoadingData from "../components/LoadingData";
 import "../styles/App.css";
 
 export function PlayList() {
-
   const { userPlayList, getUserPlaylist } = useContext(UserContext);
 
   const spotifyApi = new SpotifyWebApi();
   spotifyApi.setAccessToken(window.localStorage.getItem("token"));
-
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,12 +21,8 @@ export function PlayList() {
     }, 500);
   }, []);
 
-
   return (
-
     <div className="main__container">
-
-
       {userPlayList.length <= 0 ? (
         <LoadingData />
       ) : (
@@ -47,7 +41,6 @@ export function PlayList() {
       )}
 
     </div>
-
   );
 }
 

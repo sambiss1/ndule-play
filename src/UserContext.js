@@ -78,8 +78,6 @@ export const UserProvider = ({ children }) => {
             window.localStorage.setItem("logged__user__id", getMyUserName.id);
             setUsername(getMyUserName.display_name);
             setUserID(getMyUserName.id);
-
-
         } catch (error) {
             console.log(error);
         }

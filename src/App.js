@@ -34,9 +34,8 @@ import PlayListDetailled from "./pages/PlayListDetailled";
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
-  const { getMyAccount, createToken } = useContext(UserContext);
+  const { createToken } = useContext(UserContext);
   createToken();
-  getMyAccount();
   const actualToken = window.localStorage.getItem("token");
 
 
