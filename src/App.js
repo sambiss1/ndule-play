@@ -33,11 +33,11 @@ import PlayListDetailled from "./pages/PlayListDetailled";
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
-  const { getMyAccount, createToken } = useContext(UserContext);
-  createToken();
-  getMyAccount();
-  const actualToken = window.localStorage.getItem("token");
+  const { createToken } = useContext(UserContext);
 
+  createToken();
+
+  const actualToken = window.localStorage.getItem("token");
 
   return (
     <BrowserRouter>

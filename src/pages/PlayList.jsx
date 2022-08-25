@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import { React, useEffect, useState, useContext } from "react";
+import { React, useEffect, useContext } from "react";
 
 import SpotifyWebApi from "spotify-web-api-js";
 
@@ -9,31 +9,17 @@ import LoadingData from "../components/LoadingData";
 import "../styles/App.css";
 
 export function PlayList() {
-  const { userID } = useContext(UserContext);
-  const [userPlayList, setUserPlayList] = useState([]);
+  const { userPlayList, getUserPlaylist } = useContext(UserContext);
 
   const spotifyApi = new SpotifyWebApi();
   spotifyApi.setAccessToken(window.localStorage.getItem("token"));
 
-  const getUserPlaylist = async () => {
-    try {
-      const getMyPlaylist = await spotifyApi.getUserPlaylists({ userID });
-      setUserPlayList(getMyPlaylist.items);
-      localStorage.setItem(
-        "user__playlist",
-        JSON.stringify(getMyPlaylist.items)
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
     setTimeout(() => {
       getUserPlaylist();
     }, 500);
   }, []);
 
-  console.log(userPlayList);
   return (
     <div className="main__container">
       {userPlayList.length <= 0 ? (
