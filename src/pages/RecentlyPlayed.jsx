@@ -16,11 +16,8 @@ export function RecentlyPlayed() {
 
     const { recentlyPlayed, getRecentlyPlayed } = useContext(UserContext);
 
-
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(window.localStorage.getItem("token"));
-
-
 
 
     useEffect(() => {
