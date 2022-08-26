@@ -10,11 +10,12 @@ import "../styles/searchresult.css";
 import "../styles/albumitem.css";
 
 export const SearchResult = () => {
-    const { termSearched, setPlay, setAnUri } = useContext(UserContext);
+    const { termSearched, setPlay, setAnUri, cursor } = useContext(UserContext);
 
     return (
         <div
             className="search__result--container"
+            style={{ cursor: `${cursor}` }}
         >
             {termSearched.tracks.items.length <= 0 ? (<LoadingData />) : (
                 <>

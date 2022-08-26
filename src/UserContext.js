@@ -38,6 +38,7 @@ export const UserProvider = ({ children }) => {
     const [likedSong, setLikedSong] = useState([]);
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
     const [userPlayList, setUserPlayList] = useState([]);
+    const [cursor, setCursor] = useState("auto");
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -188,76 +189,11 @@ export const UserProvider = ({ children }) => {
 
         setTermSearched(searchForArtist);
         setSearch(true);
+        // style = { cursor: "pointer" }
+        setCursor("wait");
     };
 
     getMyAccount();
-    // const ProvideValue = useMemo(() => ({
-    //     createToken,
-    //     getMyAccount,
-    //     user,
-    //     username,
-    //     logout,
-    //     handleLogin,
-    //     userID,
-    //     getUserLikedSongs,
-    //     getRecentlyPlayed,
-    //     getAllCategory,
-    //     getNewRelease,
-    //     millisToMinutesAndSeconds,
-    //     search,
-    //     term,
-    //     setTerm,
-    //     termSearched,
-    //     setTermSearched,
-    //     searchArtist,
-    //     newReleaseAlbum,
-    //     setNewReleaseAlbum,
-    //     likedSong,
-    //     setLikedSong,
-    //     recentlyPlayed,
-    //     setRecentlyPlayed,
-    //     userPlayList,
-    //     setUserPlayList,
-    //     getUserPlaylist,
-    //     anUri,
-    //     setAnUri,
-    //     play,
-    //     setPlay,
-    //     categoryId,
-    //     setCategoryId
-    // }), ([createToken,
-    //     user,
-    //     username,
-    //     getMyAccount,
-    //     logout,
-    //     handleLogin,
-    //     userID,
-    //     getUserLikedSongs,
-    //     getRecentlyPlayed,
-    //     getAllCategory,
-    //     getNewRelease,
-    //     millisToMinutesAndSeconds,
-    //     search,
-    //     term,
-    //     setTerm,
-    //     termSearched,
-    //     setTermSearched,
-    //     searchArtist,
-    //     newReleaseAlbum,
-    //     setNewReleaseAlbum,
-    //     likedSong,
-    //     setLikedSong,
-    //     recentlyPlayed,
-    //     setRecentlyPlayed,
-    //     userPlayList,
-    //     setUserPlayList,
-    //     getUserPlaylist,
-    //     anUri,
-    //     setAnUri,
-    //     play,
-    //     setPlay,
-    //     categoryId,
-    //     setCategoryId]));
 
     return (
         <UserContext.Provider
@@ -295,7 +231,9 @@ export const UserProvider = ({ children }) => {
                 play,
                 setPlay,
                 categoryId,
-                setCategoryId
+                setCategoryId,
+                cursor,
+                setCursor
             }}>
             {children}
         </UserContext.Provider>
