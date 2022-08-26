@@ -2,6 +2,20 @@
 @import "variables";
 @import "_breakpoints";
 
+
+.homepage--container {
+  display: grid;
+  grid-template-columns: 25% 100%;
+}
+
+.homepage__cover--container {
+  height: 600px !important;
+  width: 95%;
+  margin: auto;
+}
+
+
+
 @media (max-width: map.get($breakpoints, "sl")) {
   .homepage--container {
     display: grid;

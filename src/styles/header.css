@@ -1,5 +1,21 @@
 /* Light mode color */
 /* Dark mode color */
+.header--container {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  padding: 2% 2%;
+}
+
+.themetoggler {
+  width: 30%;
+  border: 0.1em solid red;
+}
+
+.mobile__header--container {
+  display: none;
+}
+
 @media screen and (max-width: 1440px) {
   .header--container {
     display: flex;
