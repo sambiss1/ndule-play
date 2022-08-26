@@ -4,7 +4,7 @@
 import { React, useContext, useEffect } from "react";
 import "./styles/App.css";
 
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import UnAuthUser from "./UnAuthUser";
 
 import Albums from "./pages/Albums";
@@ -28,7 +28,7 @@ import MobileHeader from "./components/MobileHeader";
 import SearchBar from "./components/SearchBar";
 import UserLogged from "./components/UserLogged";
 import PlayListDetailled from "./pages/PlayListDetailled";
-import LoginPage from "./pages/LoginPage";
+// import LoginPage from "./pages/LoginPage";
 import { UserContext } from "./UserContext";
 
 
@@ -48,9 +48,13 @@ function App({ hideLoader }) {
       {actualToken ? <Sidebar /> : null}
       <Routes>
         {!actualToken ? (
-          <Route path="/" index element={<LoginPage />} />
+          <>
+            <Route path="/" index element={<UnAuthUser />} />
+            <Route path="/*" element={actualToken ? <NotFound /> : <Navigate replace to="/" />} />
+          </>
         ) : (
           <>
+            <Route path="/" index element={<HomePage />} />
             <Route path="/albums" element={<Albums />} />
             <Route path="/album/:id" element={<SingleAlbum />} />
             <Route path="/track/:id" element={<SingleSong />} />
@@ -62,8 +66,7 @@ function App({ hideLoader }) {
             <Route path="/liked" element={<Liked />} />
             <Route path="/login" element={<UnAuthUser />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" index element={<HomePage />} />
+            <Route path="/*" element={<NotFound />} />
           </>
         )}
       </Routes>
