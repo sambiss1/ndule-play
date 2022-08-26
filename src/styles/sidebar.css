@@ -1,5 +1,17 @@
 /* Light mode color */
 /* Dark mode color */
+.sidebar--container {
+  background-color: rgba(50, 50, 50, 0.5);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  width: 25%;
+  top: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 1440px) {
   .sidebar--container {
     background-color: rgba(50, 50, 50, 0.5);

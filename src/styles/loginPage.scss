@@ -10,7 +10,7 @@
 
 .bounce {
   animation: bounce 3s ease infinite;
-  transition: bounce 3s ease; 
+  transition: bounce 3s ease;
 }
 
 @keyframes bounce {
@@ -43,6 +43,92 @@
   }
 }
 
+.login__page--container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+.centerItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Left section 
+.left__section--container {
+  background-color: $primary_color;
+
+  height: 100vh;
+
+  @extend .centerItems;
+
+  .left__section--image {
+    width: 300px;
+    height: 100px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+// Right section 
+.right__section--container {
+  @extend .centerItems;
+  flex-direction: column;
+
+  h1 {
+    display: none;
+  }
+
+  .earphone__image--container {
+
+    width: 200px;
+    height: 200px;
+    margin: 10% 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .section__content {
+    @extend .centerItems;
+    flex-direction: column;
+  }
+
+  h3 {
+    align-self: center;
+  }
+
+  .handle__login--button {
+    @extend .centerItems;
+    background-color: $primary_color;
+    border: none;
+    padding: 5%;
+    color: $white_color;
+    font-size: 1.4em;
+    border: .1em solid $primary_color;
+    transition: all .3s ease-out;
+
+    &:hover {
+      border: .1em solid $primary_color;
+      color: $primary_color;
+      background-color: $white_color;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+
+    .spotify__icon {
+      font-size: 2.6em;
+    }
+
+  }
+}
+
 @media (max-width: map.get($breakpoints, "sl")) {
   .login__page--container {
     display: grid;
@@ -65,7 +151,7 @@
 
     .left__section--image {
       width: 300px;
-      height: 80px;
+      height: 100px;
 
       img {
         width: 100%;
@@ -111,12 +197,15 @@
       padding: 5%;
       color: $white_color;
       font-size: 1.4em;
+      border: .1em solid $primary_color;
+      transition: all .3s ease-out;
 
       &:hover {
         border: .1em solid $primary_color;
         color: $primary_color;
         background-color: $white_color;
         cursor: pointer;
+        transform: scale(1.1);
       }
 
       .spotify__icon {
