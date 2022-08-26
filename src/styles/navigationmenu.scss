@@ -2,6 +2,106 @@
 @import "variables";
 @import "__breakpoints";
 
+.link__hover--effect {
+  color: $primary_color;
+  background-color: $primary_color;
+  cursor: pointer;
+}
+
+.mobile__naigation--container {
+  display: none;
+}
+
+.navigation__menu--container {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+
+  li {
+    color: $secondary_color;
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    transition: 0.3s ease;
+    width: 100%;
+
+
+    span {
+      display: block;
+      margin: 0 5%;
+      font-size: 1em;
+      width: 100%;
+
+    }
+
+    &:hover {
+      @extend .link__hover--effect;
+    }
+  }
+}
+
+.active {
+  color: $primary_color;
+  &:hover {
+    color: $white_color;
+  }
+}
+
+.no__active {
+  color: $secondary_color;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.sidebar__menu--icon {
+  font-size: 2em;
+}
+
+h2 {
+  margin-left: 10%;
+}
+
+hr {
+  width: 20%;
+  margin-left: 10%;
+  height: 2px;
+  color: $primary_color;
+  background-color: $primary_color;
+}
+
+.logout__button {
+  background: none;
+  border: none;
+  color: $secondary_color;
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 100%;
+  justify-self: flex-end;
+  transition: 0.3s ease;
+
+  .logout__button--icon {
+    font-size: 1.4em;
+    margin-right: 5%;
+  }
+
+  &:hover {
+    @extend .link__hover--effect;
+  }
+}
+
 @media (max-width: map.get($breakpoints, "sl")) {
   .link__hover--effect {
     transform: scale(1.1);
@@ -108,7 +208,7 @@
     bottom: 0%;
     height: 15%;
     width: 100%;
-    padding:  0;
+    padding: 0;
     background-color: $black_color;
 
     ul {

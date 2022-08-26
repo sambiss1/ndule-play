@@ -1,5 +1,16 @@
 /* Light mode color */
 /* Dark mode color */
+.homepage--container {
+  display: grid;
+  grid-template-columns: 25% 100%;
+}
+
+.homepage__cover--container {
+  height: 600px !important;
+  width: 95%;
+  margin: auto;
+}
+
 @media (max-width: 1440px) {
   .homepage--container {
     display: grid;

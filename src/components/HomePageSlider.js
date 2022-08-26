@@ -7,11 +7,6 @@ import MusicEcaliserImage from "../images/musique-fond-egaliseur-haut-parleur_10
 export const HomePageSlider = () => {
   return (
     <div
-      style={{
-        width: "95%",
-        height: "400px",
-        margin: "auto",
-      }}
       className="homepage__cover--container"
     >
       <img
