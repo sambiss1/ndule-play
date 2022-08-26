@@ -48,7 +48,7 @@ export const Genres = () => {
     }, []);
 
     return (
-        <div className="homepage--container">
+        <div className="homepage__content">
 
             <div className="main__container">
 

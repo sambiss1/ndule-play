@@ -9,7 +9,8 @@ import { UserContext } from "../UserContext";
 import AlbumTrack from "../components/AlbumTrack";
 
 import "../styles/App.css";
-import "../styles/singlealbum.css";
+import "../styles/singlealbum.css"
+import "../styles/homepage.css";
 
 export const SingleAlbum = () => {
     const { id } = useParams();
@@ -45,7 +46,7 @@ export const SingleAlbum = () => {
     }, []);
 
     return (
-        <div>
+        <div className="homepage__content">
 
             <div className="main__container">
 

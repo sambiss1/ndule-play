@@ -1,1 +1,11 @@
-{"version":3,"sourceRoot":"","sources":["variables.scss","userlogged.scss"],"names":[],"mappings":"AAKA;AASA;ACVA;EACE,kBDamC;ECZnC;EACA;EACA;EACA;EACA;EAEA;;;AAGF;EACE;EACA;EACA;EACA;;AAGA;EACE;EACA;EACA;;;AAIJ;EACE;EACA;;;AAIF;EACE;IACE,kBDnBiC;ICoBjC;IACA;IACA;IACA;IACA;IAEA;;;EAGF;IACE;IACA;IACA;IACA;;EAGA;IACE;IACA;IACA;;;EAIJ;IACE;IACA","file":"userlogged.css"}
+{
+    "version": 3,
+    "sourceRoot": "",
+    "sources": [
+        "variables.scss",
+        "userlogged.scss"
+    ],
+    "names": [],
+    "mappings": "AAKA;AASA;ACVA;EACE,kBDamC;ECZnC;EACA;EACA;EACA;EACA;EAEA;;;AAGF;EACE;EACA;EACA;EACA;;AAGA;EACE;EACA;EACA;;;AAIJ;EACE;EACA;;;AAIF;EACE;IACE,kBDnBiC;ICoBjC;IACA;IACA;IACA;IACA;IAEA;;;EAGF;IACE;IACA;IACA;IACA;;EAGA;IACE;IACA;IACA;;;EAIJ;IACE;IACA",
+    "file": "userlogged.css"
+}

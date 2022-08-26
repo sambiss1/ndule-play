@@ -16,6 +16,10 @@
     display: grid;
     grid-template-columns: 25% 100%;
   }
+
+  .homepage__cover--container {
+    height: 400px !important;
+  }
 }
 @media (max-width: 576px) {
   .homepage--container {

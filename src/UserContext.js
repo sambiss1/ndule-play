@@ -19,16 +19,13 @@ export const UserContext = createContext({
 
 export const UserProvider = ({ children }) => {
     const CLIENT_ID = "c8777ac2c42a4929a927c7a99c43a1d8";
-    // const REDIRECT_URI = "https://ndule-play-by-sam.vercel.app/";
-    const REDIRECT_URI_DEV_MODE = process.env.REACT_APP_PRO_MODE_REDIRECT_URI;
-
-
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
     const SCOPE =
         "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played app-remote-control streaming";
 
     const [user, setUser] = useState({ token: "", auth: false });
+    const [userToken, setUserToken] = useState("");
     const [username, setUsername] = useState("");
     const [userID, setUserID] = useState("");
     const [termSearched, setTermSearched] = useState([]);
@@ -42,7 +39,6 @@ export const UserProvider = ({ children }) => {
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
     const [userPlayList, setUserPlayList] = useState([]);
 
-    console.log(REDIRECT_URI_DEV_MODE);
     const createToken = () => {
         // Get and create user logged token from spotify
         const { hash } = window.location;
@@ -52,6 +48,7 @@ export const UserProvider = ({ children }) => {
             token = hash.substring(1).split("&").find((elem) => elem.startsWith("access_token")).split("=")[1];
             window.location.hash = "";
             window.localStorage.setItem("token", token);
+            setUserToken(token);
             setUser({
                 token: token,
                 auth: true,
@@ -59,19 +56,18 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-    console.log(process.env.NODE_ENV);
+    useEffect(() => {
+        createToken();
+        getAllCategory();
+
+    }, []);
+
 
     // Login function
     const handleLogin = () => {
         window.location = process.env.NODE_ENV === "production" ? `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_PRO_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}` : `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_DEV_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
 
     };
-
-    useEffect(() => {
-        createToken();
-        getMyAccount();
-        getAllCategory();
-    }, []);
 
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
@@ -194,6 +190,7 @@ export const UserProvider = ({ children }) => {
         setSearch(true);
     };
 
+    getMyAccount();
     // const ProvideValue = useMemo(() => ({
     //     createToken,
     //     getMyAccount,
@@ -266,6 +263,7 @@ export const UserProvider = ({ children }) => {
         <UserContext.Provider
             value={{
                 createToken,
+                userToken,
                 getMyAccount,
                 user,
                 username,

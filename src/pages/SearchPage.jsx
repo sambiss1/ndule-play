@@ -18,14 +18,13 @@ const SearchPage = () => {
                 {search ? (
                     <div className="page__content">
                         <h4>Search result</h4>
-                        {termSearched.length <= 0 ? <LoadingData /> : <SearchResult />}
+                        {termSearched.length === "" ? <LoadingData /> : <SearchResult />}
                     </div>
                 ) : (
-                    <div className="page__content">
+                    <LoadingData />
 
-                        <h4>Search result</h4>
-                    </div>
                 )}
+                {/* {term === "" ? (<LoadingData />) : (<SearchResult />)} */}
 
 
             </div>

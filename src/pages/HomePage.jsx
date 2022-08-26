@@ -24,9 +24,10 @@ export const HomePage = () => {
 
     displayEnvVar();
 
-    return (<div className="homepage--container">
-        <HomePageContent />
-    </div>);
+    return (
+        <div className="homepage--container">
+            <HomePageContent />
+        </div>);
 };
 
 export default HomePage;

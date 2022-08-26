@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-named-as-default */
-import { React, useEffect } from "react";
+import { React, useContext, useEffect } from "react";
 import "./styles/App.css";
 
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
@@ -28,23 +28,27 @@ import MobileHeader from "./components/MobileHeader";
 import SearchBar from "./components/SearchBar";
 import UserLogged from "./components/UserLogged";
 import PlayListDetailled from "./pages/PlayListDetailled";
+import LoginPage from "./pages/LoginPage";
+import { UserContext } from "./UserContext";
 
 
 
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
-  // const { createToken } = useContext(UserContext);
-  // createToken();
-
+  const { userToken, getMyAccount } = useContext(UserContext);
   const actualToken = window.localStorage.getItem("token");
 
+  useEffect(() => {
+    getMyAccount();
+  }, []);
+  console.log(userToken);
   return (
     <BrowserRouter>
       {actualToken ? <Sidebar /> : null}
       <Routes>
         {!actualToken ? (
-          <Route path="/" element={<UnAuthUser />} />
+          <Route path="/" index element={<LoginPage />} />
         ) : (
           <>
             <Route path="/albums" element={<Albums />} />
@@ -63,7 +67,7 @@ function App({ hideLoader }) {
           </>
         )}
       </Routes>
-      {actualToken ? (<div className="main__container">
+      {actualToken ? (<div className="main__container homepage__content">
         <MobileHeader />
         <div className="header--container">
           <SearchBar />

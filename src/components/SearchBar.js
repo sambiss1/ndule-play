@@ -20,7 +20,6 @@ export function SearchBar() {
 
   const { term, setTerm, searchArtist } = useContext(UserContext);
 
-
   return (
 
     <form onSubmit={searchArtist} className="desktop__search--form">
@@ -33,7 +32,6 @@ export function SearchBar() {
           value={term}
           onChange={(event) => {
             setTerm(event.target.value);
-
             window.location.pathname !== "/search" ? navigate("/search", { replace: true }) : window.location("/search");
 
           }}

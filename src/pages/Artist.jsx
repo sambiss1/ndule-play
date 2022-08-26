@@ -60,7 +60,9 @@ const Artist = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  return (<div className="homepage--container">
+  return (
+    
+    <div className ="homepage__content">
 
     <div className="main__container">
 

@@ -46,6 +46,7 @@ ul {
 
 .active {
   color: $primary_color;
+
   &:hover {
     color: $white_color;
   }
@@ -104,8 +105,8 @@ hr {
 
 @media (max-width: map.get($breakpoints, "sl")) {
   .link__hover--effect {
-    transform: scale(1.1);
     color: $primary_color;
+    background-color: $primary_color;
     cursor: pointer;
   }
 
@@ -128,14 +129,15 @@ hr {
       align-items: center;
       align-self: flex-start;
       transition: 0.3s ease;
-      width: 100%;
+      width: 300px;
 
 
       span {
         display: block;
         margin: 0 5%;
         font-size: 1em;
-        width: 100%;
+        width: 100px;
+        word-wrap: normal;
 
       }
 
@@ -197,6 +199,7 @@ hr {
 
     &:hover {
       @extend .link__hover--effect;
+      color: $white_color;
     }
   }
 }
