@@ -8,9 +8,9 @@ import { FiPlay } from "react-icons/fi";
 import { UserContext } from "../UserContext";
 
 export function AlbumItem({ newalbum }) {
-    const { setAnUri, setPlay, play, anUri } = useContext(UserContext);
+    const { setAnUri, setPlay, anUri } = useContext(UserContext);
 
-    console.log(play);
+
     return (
         <div className="card__item--container" key={newalbum.id}>
             <Link to={`/album/${newalbum.id}`} className="track__link">
@@ -23,7 +23,7 @@ export function AlbumItem({ newalbum }) {
                 onClick={() => {
                     setAnUri(newalbum.uri);
                     setPlay(true);
-                    console.log(play);
+
                 }}
             >
                 {anUri === newalbum.uri ?
