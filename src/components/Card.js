@@ -10,9 +10,12 @@ import { Link } from "react-router-dom";
 
 import "../styles/albumitem.css";
 import { UserContext } from "../UserContext";
+import NoPlayListImage from "../images/ndule-play-icon.png";
 
 export const Card = ({ props }) => {
   const { setPlay, setAnUri, anUri } = useContext(UserContext);
+
+  console.log(props);
   return (
     <>
       <div
@@ -22,7 +25,7 @@ export const Card = ({ props }) => {
         <Link
           to={`/playlist/${props.id}`}>
           <div className="card__image--container">
-            <img src={props.images.length !== 0 ? props.images[0].url : null} alt="artits" />
+            <img src={props.images.length !== 0 ? props.images[0].url : NoPlayListImage} alt="artits" />
           </div>
         </Link>
         <div

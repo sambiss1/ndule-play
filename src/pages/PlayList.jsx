@@ -32,7 +32,7 @@ export function PlayList() {
           <div className="card__tabs--panel">
             {userPlayList.map(
               (playlist) =>
-                playlist.name + playlist.image && (
+                playlist.name + playlist.images && (
                   <PlayListCard key={playlist.id} props={playlist} />
                 )
             )}
