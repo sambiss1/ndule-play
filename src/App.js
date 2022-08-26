@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-named-as-default */
-import { React, useContext, useEffect } from "react";
+import { React, useEffect } from "react";
 import "./styles/App.css";
 
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
@@ -24,7 +24,7 @@ import Sidebar from "./components/Sidebar";
 
 import MobileNavigation from "./components/MobileNavigation";
 import MobileHeader from "./components/MobileHeader";
-import { UserContext } from "./UserContext";
+// import { UserContext } from "./UserContext";
 import SearchBar from "./components/SearchBar";
 import UserLogged from "./components/UserLogged";
 import PlayListDetailled from "./pages/PlayListDetailled";
@@ -34,10 +34,8 @@ import PlayListDetailled from "./pages/PlayListDetailled";
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
-  const { createToken } = useContext(UserContext);
-
-
-  createToken();
+  // const { createToken } = useContext(UserContext);
+  // createToken();
 
   const actualToken = window.localStorage.getItem("token");
 
@@ -58,7 +56,7 @@ function App({ hideLoader }) {
             <Route path="/playlist/:id" element={<PlayListDetailled />} />
             <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/liked" element={<Liked />} />
-            {/* <Route path="/login" element={<UnAuthUser />} /> */}
+            <Route path="/login" element={<UnAuthUser />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/" index element={<HomePage />} />
