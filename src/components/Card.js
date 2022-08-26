@@ -22,7 +22,7 @@ export const Card = ({ props }) => {
         <Link
           to={`/playlist/${props.id}`}>
           <div className="card__image--container">
-            <img src={props.images[0].url} alt="artits" />
+            <img src={props.images.length !== 0 ? props.images[0].url : null} alt="artits" />
           </div>
         </Link>
         <div
