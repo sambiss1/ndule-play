@@ -69,7 +69,7 @@ body {
 
 .application__logo--container {
   width: 80%;
-  height: 60px;
+  height: 100px;
   display: flex;
   margin: 0 auto;
 }

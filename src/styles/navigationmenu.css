@@ -86,6 +86,10 @@ hr {
   font-size: 1.4em;
   margin-right: 5%;
 }
+.logout__button:hover {
+  color: #ffffff;
+}
+
 @media (max-width: 1440px) {
   .link__hover--effect, ul li:hover, .logout__button:hover {
     color: #de5000;

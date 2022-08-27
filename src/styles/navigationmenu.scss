@@ -101,6 +101,7 @@ hr {
 
   &:hover {
     @extend .link__hover--effect;
+    color: $white_color;
   }
 }
 
