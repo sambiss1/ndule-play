@@ -7,6 +7,16 @@
   margin: auto;
 }
 
+.tab__navigation--container .tab__navigation--button {
+  background-color: #f8e5db;
+  color: #000000;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  margin: 3% 3% 3% 0;
+}
+
 .card__tabs--panel {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

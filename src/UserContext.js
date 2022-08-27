@@ -39,6 +39,8 @@ export const UserProvider = ({ children }) => {
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
     const [userPlayList, setUserPlayList] = useState([]);
     const [cursor, setCursor] = useState("auto");
+    const [ambianceTracks, setAmbianceTracks] = useState([]);
+    const [activeTab, setActiveTab] = useState([]);
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -100,6 +102,7 @@ export const UserProvider = ({ children }) => {
                 JSON.stringify(getNewAlbumRelease.albums.items)
             );
             setNewReleaseAlbum(getNewAlbumRelease.albums.items);
+            // setActiveTab(getNewAlbumRelease.albums.items);
         } catch (error) {
             console.log(error);
         }
@@ -161,6 +164,17 @@ export const UserProvider = ({ children }) => {
         }
     };
 
+    // get Ambiance songs recommandations 
+    const getAmbianceSongs = async () => {
+        try {
+            const getAmbianceSongsRecommended = await spotifyApi.getRecommendations({ "seed_artists": "0is7KJiz3t87LiJWUO1tNI,7xNYY1Zkb1vks5m9ATlJok", "seed_genres": "ambiance", "seed_tracks": "" });  
+            setAmbianceTracks(getAmbianceSongsRecommended.tracks);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    };
+
     // Logout function
     const logout = () => {
         window.localStorage.removeItem("token");
@@ -180,7 +194,6 @@ export const UserProvider = ({ children }) => {
     };
 
     // search item
-
     const searchArtist = async (event) => {
         event.preventDefault();
         const searchForArtist = await spotifyApi.search(term, [
@@ -237,6 +250,11 @@ export const UserProvider = ({ children }) => {
                 setCategoryId,
                 cursor,
                 setCursor,
+                activeTab,
+                setActiveTab,
+                ambianceTracks,
+                setAmbianceTracks,
+                getAmbianceSongs
             }}
         >
             {children}

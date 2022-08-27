@@ -9,6 +9,19 @@
   margin: auto;
 }
 
+.tab__navigation--container {
+
+  .tab__navigation--button {
+    background-color: $secondary_color;
+    color: $black_color;
+    border: none;
+    border-radius: 25px;
+    padding: 0.5em 1em; 
+    font-size: 1em;
+    margin: 3% 3% 3% 0;
+  }
+}
+
 .card__tabs--panel {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -56,7 +69,7 @@
       align-items: center;
     }
 
-    .spinner > div {
+    .spinner>div {
       background: $white_color;
       height: 100%;
       width: 2px;
@@ -102,6 +115,7 @@
 }
 
 @keyframes stretch {
+
   0%,
   20%,
   49% {
