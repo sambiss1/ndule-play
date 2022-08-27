@@ -31,7 +31,7 @@ export const MobileNavigation = () => {
                         className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
                     >
                         <BiHomeAlt className="sidebar__menu--icon" />
-                        <br /><span>Accueil</span>
+                       
                     </NavLink>
                 </li>
                 <li>
@@ -40,7 +40,7 @@ export const MobileNavigation = () => {
                         className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
                     >
                         <TbPlaylist className="sidebar__menu--icon" />
-                        <span>Playlists</span>
+                        
                     </NavLink>
                 </li>
                 <li>
@@ -49,7 +49,7 @@ export const MobileNavigation = () => {
                         className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
                     >
                         <FiHeart className="sidebar__menu--icon" />
-                        <span>Favoris</span>
+                       
                     </NavLink>
                 </li>
                 <li>
@@ -61,7 +61,7 @@ export const MobileNavigation = () => {
                         }}
                     >
                         <IoIosLogOut className="sidebar__menu--icon" />
-                        <span>Déconnexion</span>
+                       
                     </div>
 
                 </li>

@@ -226,12 +226,24 @@ hr {
           span {
             margin: 0;
           }
+
+          &:hover {
+
+            color: $primary_color;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 0 !important;
+          }
         }
 
         &:hover {
-          transform: none;
+
+          color: $primary_color;
+          background-color: transparent;
           cursor: pointer;
+          padding: 0 !important;
         }
+
 
       }
 

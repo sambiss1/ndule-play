@@ -194,9 +194,17 @@ hr {
   .mobile__naigation--container ul li a span {
     margin: 0;
   }
-  .mobile__naigation--container ul li:hover {
-    transform: none;
+  .mobile__naigation--container ul li a:hover {
+    color: #de5000;
+    background-color: transparent;
     cursor: pointer;
+    padding: 0 !important;
+  }
+  .mobile__naigation--container ul li:hover {
+    color: #de5000;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 !important;
   }
   .mobile__naigation--container ul .logout__item {
     display: flex;

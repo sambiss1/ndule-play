@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["variables.scss","searchresult.scss"],"names":[],"mappings":"AAKA;AASA;ACTA;EAGI;IACI;IACA;IACA;;;AAGR;EAGI;IACI;IACA;IACA","file":"searchresult.css"}
+{"version":3,"sourceRoot":"","sources":["variables.scss","searchresult.scss"],"names":[],"mappings":"AAKA;AASA;ACVA;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EAGI;IACI;IACA;IACA;IACA;IACA;;;AAIR;EAGI;IACI;IACA;IAEA;IACA;IACA","file":"searchresult.css"}

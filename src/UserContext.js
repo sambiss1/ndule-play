@@ -90,7 +90,7 @@ export const UserProvider = ({ children }) => {
     // Get data from spotify
     const getNewRelease = async () => {
         try {
-            const getNewAlbumRelease = await spotifyApi.getNewReleases();
+            const getNewAlbumRelease = await spotifyApi.getNewReleases(10);
             localStorage.setItem(
                 "new-release-album",
                 JSON.stringify(getNewAlbumRelease.albums.items)
