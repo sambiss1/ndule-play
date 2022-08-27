@@ -7,6 +7,19 @@
   margin: auto;
 }
 
+.tab__navigation--button {
+  border: none;
+  background-color: #f8e5db;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 25px;
+  margin: 3% 3% 3% 0;
+}
+.tab__navigation--active {
+  background-color: #de5000;
+  color: #ffffff;
+}
+
 .card__tabs--panel {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -41,6 +54,11 @@
   align-items: center;
   right: 5%;
   bottom: 20%;
+  transition: background 0.3s ease-in;
+}
+.card__item--container .play__icon--container:hover {
+  background-color: #ffffff;
+  color: #de5000;
 }
 .card__item--container .play__icon--container .spinner {
   margin: auto;

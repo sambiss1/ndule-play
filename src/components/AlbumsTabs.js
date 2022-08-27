@@ -24,8 +24,8 @@ export const AlbumsTabs = () => {
         <div className="album__tabs--container">
             <div className="tab__navigation--container">
 
-                <button>Nouveautés</button>
-                <button>Ambiance</button>
+                <button className="tab__navigation--button tab__navigation--active">Nouveautés</button>
+                <button className="tab__navigation--button">Ambiance</button>
             </div>
             {newReleaseAlbum.length <= 0 ? (
                 <LoadingData />
