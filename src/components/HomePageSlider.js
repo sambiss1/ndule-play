@@ -7,9 +7,7 @@ import MusicBackground from "../images/music-background.jpg";
 
 export const HomePageSlider = () => {
   return (
-    <div
-      className="homepage__cover--container"
-    >
+    <div className="homepage__cover--container">
       <img
         src={MusicBackground}
         alt="music egaliseur "

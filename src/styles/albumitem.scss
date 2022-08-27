@@ -56,14 +56,14 @@
       align-items: center;
     }
 
-    .spinner>div {
+    .spinner > div {
       background: $white_color;
       height: 100%;
       width: 2px;
       float: left;
       margin: 0 1px;
       animation: stretch 2s infinite;
-      animation-timing-function: cubic-bezier(.62, .28, .23, .99);
+      animation-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
     }
 
     .spinner .r1 {
@@ -71,19 +71,19 @@
     }
 
     .spinner .r2 {
-      animation-delay: -.9s;
+      animation-delay: -0.9s;
     }
 
     .spinner .r3 {
-      animation-delay: -.8s;
+      animation-delay: -0.8s;
     }
 
     .spinner .r4 {
-      animation-delay: -.7s;
+      animation-delay: -0.7s;
     }
 
     .spinner .r5 {
-      animation-delay: -.6s;
+      animation-delay: -0.6s;
     }
   }
 
@@ -101,9 +101,7 @@
   }
 }
 
-
 @keyframes stretch {
-
   0%,
   20%,
   49% {
@@ -112,7 +110,7 @@
   }
 
   10% {
-    transform: scaleY(1.0);
+    transform: scaleY(1);
   }
 
   50%,
@@ -123,11 +121,10 @@
   }
 
   60% {
-    transform: scaleY(1.0);
+    transform: scaleY(1);
     background-color: $white_color;
   }
 }
-
 
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .album__tabs--container {

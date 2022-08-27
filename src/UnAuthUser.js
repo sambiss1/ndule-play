@@ -8,14 +8,16 @@ import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 
 export const UnAuthUser = () => {
-    const token = localStorage.getItem("token");
-    return (
-
-        <Routes>
-            <Route path="/" index element={<LoginPage />} />
-            <Route path="/*" element={token ? <NotFound /> : <Navigate replace to="/" />} />
-        </Routes>
-    );
+  const token = localStorage.getItem("token");
+  return (
+    <Routes>
+      <Route path="/" index element={<LoginPage />} />
+      <Route
+        path="/*"
+        element={token ? <NotFound /> : <Navigate replace to="/" />}
+      />
+    </Routes>
+  );
 };
 
 export default UnAuthUser;

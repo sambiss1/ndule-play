@@ -30,13 +30,11 @@ ul {
     transition: 0.3s ease;
     width: 100%;
 
-
     span {
       display: block;
       margin: 0 5%;
       font-size: 1em;
       width: 100%;
-
     }
 
     &:hover {
@@ -133,14 +131,12 @@ hr {
       transition: 0.3s ease;
       width: 300px;
 
-
       span {
         display: block;
         margin: 0 5%;
         font-size: 1em;
         width: 100px;
         word-wrap: normal;
-
       }
 
       &:hover {
@@ -229,7 +225,6 @@ hr {
           }
 
           &:hover {
-
             color: $primary_color;
             background-color: transparent;
             cursor: pointer;
@@ -238,14 +233,11 @@ hr {
         }
 
         &:hover {
-
           color: $primary_color;
           background-color: transparent;
           cursor: pointer;
           padding: 0 !important;
         }
-
-
       }
 
       .logout__item {

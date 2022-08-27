@@ -18,14 +18,17 @@ export const Card = ({ props }) => {
   console.log(props);
   return (
     <>
-      <div
-        className="card__item--container"
-        key={props.id}
-      >
-        <Link
-          to={`/playlist/${props.id}`}>
+      <div className="card__item--container" key={props.id}>
+        <Link to={`/playlist/${props.id}`}>
           <div className="card__image--container">
-            <img src={props.images.length !== 0 ? props.images[0].url : NoPlayListImage} alt="artits" />
+            <img
+              src={
+                props.images.length !== 0
+                  ? props.images[0].url
+                  : NoPlayListImage
+              }
+              alt="artits"
+            />
           </div>
         </Link>
         <div
@@ -34,23 +37,21 @@ export const Card = ({ props }) => {
           onClick={() => {
             setAnUri(props.uri);
             setPlay(true);
-
           }}
         >
-
-          {anUri === props.uri ?
-            (<div className="spinner">
+          {anUri === props.uri ? (
+            <div className="spinner">
               <div className="r1" />
               <div className="r2" />
               <div className="r3" />
               <div className="r4" />
               <div className="r5" />
-            </div>)
-            :
-            (<FiPlay className="play__icon" />)}
+            </div>
+          ) : (
+            <FiPlay className="play__icon" />
+          )}
         </div>
-        <Link
-          to={`/playlist/${props.id}`}>
+        <Link to={`/playlist/${props.id}`}>
           <h4 className="card__name">{props.name}</h4>
         </Link>
       </div>

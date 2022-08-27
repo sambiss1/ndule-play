@@ -21,7 +21,8 @@ export function MobileHeader() {
           className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
         >
           <MdHistory className="sidebar__menu--icon" />
-        </NavLink></div>
+        </NavLink>
+      </div>
     </div>
   );
 }

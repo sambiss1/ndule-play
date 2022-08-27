@@ -18,8 +18,7 @@ export function NavigationMenu() {
   return (
     <nav className="navigation__menu--container">
       <ul>
-        <li
-        >
+        <li>
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? activeLink : noActiveLink)}

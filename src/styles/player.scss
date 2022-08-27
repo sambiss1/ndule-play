@@ -2,7 +2,6 @@
 @import "variables";
 @import "__breakpoints";
 
-
 .music__player--container {
   background-color: $sidebar_dark_mode_background_color;
   position: fixed;
@@ -52,6 +51,5 @@
     width: 100%;
     bottom: 15%;
     // position: absolute;
-
   }
 }

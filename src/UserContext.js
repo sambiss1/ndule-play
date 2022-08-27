@@ -46,7 +46,11 @@ export const UserProvider = ({ children }) => {
         let token = window.localStorage.getItem("token");
         if (!token && hash) {
             // eslint-disable-next-line prefer-destructuring
-            token = hash.substring(1).split("&").find((elem) => elem.startsWith("access_token")).split("=")[1];
+            token = hash
+                .substring(1)
+                .split("&")
+                .find((elem) => elem.startsWith("access_token"))
+                .split("=")[1];
             window.location.hash = "";
             window.localStorage.setItem("token", token);
             setUserToken(token);
@@ -60,14 +64,14 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         createToken();
         getAllCategory();
-
     }, []);
-
 
     // Login function
     const handleLogin = () => {
-        window.location = process.env.NODE_ENV === "production" ? `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_PRO_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}` : `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_DEV_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
-
+        window.location =
+            process.env.NODE_ENV === "production"
+                ? `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_PRO_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`
+                : `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_DEV_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
     };
 
     const spotifyApi = new SpotifyWebApi();
@@ -166,7 +170,6 @@ export const UserProvider = ({ children }) => {
             token: "",
             auth: false,
         });
-
     };
 
     // Convert seconds to minutes
@@ -233,8 +236,9 @@ export const UserProvider = ({ children }) => {
                 categoryId,
                 setCategoryId,
                 cursor,
-                setCursor
-            }}>
+                setCursor,
+            }}
+        >
             {children}
         </UserContext.Provider>
     );

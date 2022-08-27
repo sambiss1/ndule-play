@@ -9,67 +9,57 @@ import { TbPlaylist } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
 
-
 import "../styles/navigationmenu.css";
 import { UserContext } from "../UserContext";
 
 export const MobileNavigation = () => {
-    const { logout } = useContext(UserContext);
-    // eslint-disable-next-line no-unused-vars
-    const [activeLink, setIsActive] = useState("active");
+  const { logout } = useContext(UserContext);
+  // eslint-disable-next-line no-unused-vars
+  const [activeLink, setIsActive] = useState("active");
 
-    // eslint-disable-next-line no-unused-vars
-    const [noActiveLink, setNotActiveLink] = useState("no__active");
-    return (
-        <nav
-            className="mobile__naigation--container"
-        >
-            <ul>
-                <li>
-                    <NavLink
-                        to="/"
-                        className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
-                    >
-                        <BiHomeAlt className="sidebar__menu--icon" />
-                       
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to="/playlist"
-                        className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
-                    >
-                        <TbPlaylist className="sidebar__menu--icon" />
-                        
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to="/liked"
-                        className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
-                    >
-                        <FiHeart className="sidebar__menu--icon" />
-                       
-                    </NavLink>
-                </li>
-                <li>
-                    <div
-                        className="logout__item"
-                        onClick={() => {
-                            window.location.replace("/");
-                            logout();
-                        }}
-                    >
-                        <IoIosLogOut className="sidebar__menu--icon" />
-                       
-                    </div>
-
-                </li>
-
-            </ul>
-
-        </nav>
-    );
+  // eslint-disable-next-line no-unused-vars
+  const [noActiveLink, setNotActiveLink] = useState("no__active");
+  return (
+    <nav className="mobile__naigation--container">
+      <ul>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
+          >
+            <BiHomeAlt className="sidebar__menu--icon" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/playlist"
+            className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
+          >
+            <TbPlaylist className="sidebar__menu--icon" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/liked"
+            className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
+          >
+            <FiHeart className="sidebar__menu--icon" />
+          </NavLink>
+        </li>
+        <li>
+          <div
+            className="logout__item"
+            onClick={() => {
+              window.location.replace("/");
+              logout();
+            }}
+          >
+            <IoIosLogOut className="sidebar__menu--icon" />
+          </div>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default MobileNavigation;

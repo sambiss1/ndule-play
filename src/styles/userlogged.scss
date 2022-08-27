@@ -32,7 +32,6 @@ h2 {
   width: 100%;
 }
 
-
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .userlooged--container {
     background-color: $sidebar_dark_mode_background_color;
@@ -63,6 +62,4 @@ h2 {
     font-size: 1em;
     width: 100%;
   }
-
-
 }

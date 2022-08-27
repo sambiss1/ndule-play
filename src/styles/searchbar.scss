@@ -43,7 +43,7 @@ input[type="submit"] {
   border: none;
   padding: 5% 15%;
   border-radius: 0 25px 25px 0;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
   &:hover {
     cursor: pointer;
@@ -55,8 +55,6 @@ input[type="submit"] {
 .mobile__search--form {
   display: none;
 }
-
-
 
 @media (max-width: map.get($breakpoints, "sl")) {
   form {
@@ -111,7 +109,6 @@ input[type="submit"] {
     display: flex;
     width: 95%;
     margin: auto;
-
   }
 
   form {
@@ -136,8 +133,6 @@ input[type="submit"] {
       font-size: 1em;
     }
 
-
-
     input[type="search"] {
       border-radius: 25px;
       border-right: none;
@@ -152,5 +147,4 @@ input[type="submit"] {
   input[type="submit"] {
     display: none;
   }
-
 }

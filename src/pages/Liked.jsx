@@ -8,13 +8,10 @@ import "../styles/albumitem.css";
 import { UserContext } from "../UserContext";
 
 export function Liked() {
-
   const { likedSong, getUserLikedSongs } = useContext(UserContext);
 
   const spotifyApi = new SpotifyWebApi();
   spotifyApi.setAccessToken(window.localStorage.getItem("token"));
-
-
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,13 +19,9 @@ export function Liked() {
     }, 500);
   }, []);
 
-
   return (
     <div className="homepage--container">
-
       <div className="main__container">
-
-
         <div className="page__content">
           <h3 className="page__title">Titres</h3>
 
@@ -39,15 +32,14 @@ export function Liked() {
               {likedSong.map(
                 (song) =>
                   song.track.name +
-                  song.track.artist +
-                  song.track.album.images[0].url && (
+                    song.track.artist +
+                    song.track.album.images[0].url && (
                     <LikedSongCard key={song.track.id} props={song} />
                   )
               )}{" "}
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

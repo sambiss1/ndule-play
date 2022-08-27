@@ -3,7 +3,6 @@ import { React, useEffect, useContext } from "react";
 
 import SpotifyWebApi from "spotify-web-api-js";
 
-
 import PlayListCard from "../components/Card";
 import { UserContext } from "../UserContext";
 import LoadingData from "../components/LoadingData";
@@ -39,7 +38,6 @@ export function PlayList() {
           </div>
         </div>
       )}
-
     </div>
   );
 }

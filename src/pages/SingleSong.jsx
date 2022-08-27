@@ -6,7 +6,7 @@ export const SingleSong = () => {
   const { id } = useParams();
 
   console.log(id);
-  (<div>SingleSong</div>);
+  <div>SingleSong</div>;
 };
 
 export default SingleSong;

@@ -4,7 +4,13 @@
 import { React, useContext, useEffect } from "react";
 import "./styles/App.css";
 
-import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import UnAuthUser from "./UnAuthUser";
 
 import Albums from "./pages/Albums";
@@ -31,8 +37,6 @@ import PlayListDetailled from "./pages/PlayListDetailled";
 // import LoginPage from "./pages/LoginPage";
 import { UserContext } from "./UserContext";
 
-
-
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
@@ -50,7 +54,10 @@ function App({ hideLoader }) {
         {!actualToken ? (
           <>
             <Route path="/" index element={<UnAuthUser />} />
-            <Route path="/*" element={actualToken ? <NotFound /> : <Navigate replace to="/" />} />
+            <Route
+              path="/*"
+              element={actualToken ? <NotFound /> : <Navigate replace to="/" />}
+            />
           </>
         ) : (
           <>
@@ -70,19 +77,20 @@ function App({ hideLoader }) {
           </>
         )}
       </Routes>
-      {actualToken ? (<div className="main__container homepage__content">
-        <MobileHeader />
-        <div className="header--container">
-          <SearchBar />
+      {actualToken ? (
+        <div className="main__container homepage__content">
+          <MobileHeader />
+          <div className="header--container">
+            <SearchBar />
 
-          <UserLogged />
+            <UserLogged />
+          </div>
+          <div className="mobile__search--form">
+            <SearchBar />
+          </div>
+          <Player />
+          <MobileNavigation />
         </div>
-        <div className="mobile__search--form">
-          <SearchBar />
-        </div>
-        <Player />
-        <MobileNavigation />
-      </div>
       ) : null}
       <Outlet />
     </BrowserRouter>

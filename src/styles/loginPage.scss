@@ -4,7 +4,6 @@
 @import "__breakpoints";
 
 * {
-
   box-sizing: border-box;
 }
 
@@ -54,7 +53,7 @@
   align-items: center;
 }
 
-// Left section 
+// Left section
 .left__section--container {
   background-color: $primary_color;
 
@@ -73,8 +72,7 @@
   }
 }
 
-
-// Right section 
+// Right section
 .right__section--container {
   @extend .centerItems;
   flex-direction: column;
@@ -84,7 +82,6 @@
   }
 
   .earphone__image--container {
-
     width: 200px;
     height: 200px;
     margin: 10% 0;
@@ -111,11 +108,11 @@
     padding: 5%;
     color: $white_color;
     font-size: 1.4em;
-    border: .1em solid $primary_color;
-    transition: all .3s ease-out;
+    border: 0.1em solid $primary_color;
+    transition: all 0.3s ease-out;
 
     &:hover {
-      border: .1em solid $primary_color;
+      border: 0.1em solid $primary_color;
       color: $primary_color;
       background-color: $white_color;
       cursor: pointer;
@@ -125,7 +122,6 @@
     .spotify__icon {
       font-size: 2.6em;
     }
-
   }
 }
 
@@ -141,7 +137,7 @@
     align-items: center;
   }
 
-  // Left section 
+  // Left section
   .left__section--container {
     background-color: $primary_color;
 
@@ -160,8 +156,7 @@
     }
   }
 
-
-  // Right section 
+  // Right section
   .right__section--container {
     @extend .centerItems;
     flex-direction: column;
@@ -171,7 +166,6 @@
     }
 
     .earphone__image--container {
-
       width: 200px;
       height: 200px;
 
@@ -197,11 +191,11 @@
       padding: 5%;
       color: $white_color;
       font-size: 1.4em;
-      border: .1em solid $primary_color;
-      transition: all .3s ease-out;
+      border: 0.1em solid $primary_color;
+      transition: all 0.3s ease-out;
 
       &:hover {
-        border: .1em solid $primary_color;
+        border: 0.1em solid $primary_color;
         color: $primary_color;
         background-color: $white_color;
         cursor: pointer;
@@ -211,13 +205,11 @@
       .spotify__icon {
         font-size: 2.6em;
       }
-
     }
   }
 }
 
 @media screen and (max-width: map.get($breakpoints, "sm")) {
-
   .login__page--container {
     display: flex;
     width: 100%;
@@ -238,13 +230,11 @@
     }
 
     .handle__login--button {
-
       font-size: 1em;
 
       .spotify__icon {
         font-size: 2em;
       }
-
     }
   }
 }
