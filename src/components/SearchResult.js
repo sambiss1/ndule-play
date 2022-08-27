@@ -13,8 +13,12 @@ import "../styles/albumitem.css";
 export const SearchResult = () => {
   const { termSearched, setPlay, setAnUri, cursor, anUri } = useContext(UserContext);
 
+  console.log(termSearched.artists);
+
   return (
     <div className="search__result--container" style={{ cursor: `${cursor}` }}>
+
+      {/* Track result */}
       {termSearched.tracks.items.length <= 0 ? (
         <LoadingData />
       ) : (
@@ -55,6 +59,8 @@ export const SearchResult = () => {
           </div>
         </>
       )}
+
+      {/* Albums result */}
       {termSearched.albums.items.length <= 0 ? (
         <LoadingData />
       ) : (
@@ -102,6 +108,56 @@ export const SearchResult = () => {
           </div>
         </>
       )}
+
+      {/* Artist result */}
+      {termSearched.albums.items.length <= 0 ? (
+        <LoadingData />
+      ) : (
+        <>
+          <h3 className="search__result--title">Artiste</h3>
+          <div className="searched__track--container">
+            {termSearched.artists.items.map(
+              (artist) =>
+                artist.name + artist.images + artist.artists && (
+                  <div className="card__item--container" key={artist.id}>
+                    <div className="card__image--container">
+                      {artist.images.length ? (
+                        <img src={artist.images[0].url} alt="track cover" />
+                      ) : (
+                        <h5>No image</h5>
+                      )}
+                    </div>
+
+                    <h4 className="card__name" style={{ color: "#de5000" }}>
+                      {artist.name}
+                    </h4>
+
+                    <div
+                      className="play__icon--container"
+                      onClick={() => {
+                        setAnUri(artist.uri);
+                        setPlay(true);
+                      }}
+                    >
+                      {anUri === artist.uri ? (
+                        <div className="spinner">
+                          <div className="r1"></div>
+                          <div className="r2"></div>
+                          <div className="r3"></div>
+                          <div className="r4"></div>
+                          <div className="r5"></div>
+                        </div>
+                      ) : (
+                        <FiPlay className="play__icon" />
+                      )}
+                    </div>
+                  </div>
+                )
+            )}
+          </div>
+        </>
+      )}
+
     </div>
   );
 };
