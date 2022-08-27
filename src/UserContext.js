@@ -11,10 +11,10 @@ import { React, useEffect, useState, createContext } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 
 export const UserContext = createContext({
-  token: "",
-  auth: false,
-  username: "",
-  userID: "",
+    token: "",
+    auth: false,
+    username: "",
+    userID: "",
 });
 
 export const UserProvider = ({ children }) => {
@@ -136,10 +136,6 @@ export const UserProvider = ({ children }) => {
     const getRecentlyPlayed = async () => {
         try {
             const recentPlayed = await spotifyApi.getMyRecentlyPlayedTracks();
-            localStorage.setItem(
-                "user__recently__played",
-                JSON.stringify(recentPlayed.items)
-            );
             setRecentlyPlayed(recentPlayed.items);
         } catch (error) {
             console.log(error);

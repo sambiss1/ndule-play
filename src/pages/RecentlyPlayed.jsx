@@ -2,7 +2,6 @@
 /* eslint-disable import/no-named-as-default */
 import { React, useContext, useEffect } from "react";
 
-import SpotifyWebApi from "spotify-web-api-js";
 
 import RecentlyPlayedCard from "../components/RecentlyPlayedCard";
 
@@ -16,14 +15,14 @@ import { UserContext } from "../UserContext";
 export function RecentlyPlayed() {
   const { recentlyPlayed, getRecentlyPlayed } = useContext(UserContext);
 
-  const spotifyApi = new SpotifyWebApi();
-  spotifyApi.setAccessToken(window.localStorage.getItem("token"));
 
   useEffect(() => {
     setTimeout(() => {
       getRecentlyPlayed();
     }, 500);
   }, []);
+
+
 
   return (
     <div className="homepage--container">
@@ -37,8 +36,8 @@ export function RecentlyPlayed() {
               {recentlyPlayed.map(
                 (song) =>
                   song.track.name +
-                    song.track.artist +
-                    song.track.album.images[0].url && (
+                  song.track.artist +
+                  song.track.album.images[0].url && (
                     <RecentlyPlayedCard key={song.track.id} props={song} />
                   )
               )}
