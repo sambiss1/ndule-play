@@ -8,11 +8,23 @@
   grid-gap: 20px;
   overflow-x: auto;
   scrollbar-width: none;
+
+}
+
+.search__result--title {
+  border: none;
+  background-color: $primary_color;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 25px;
+  margin: 3% 3% 3% 0;
+  width: 15%;
+  text-align: center;
+  color: $secondary_color !important;
 }
 
 @media screen and (max-width: map.get($breakpoints, "sl")) {
-  .search__result--container {
-  }
+  .search__result--container {}
 
   .searched__track--container {
     display: grid;
@@ -24,8 +36,7 @@
 }
 
 @media screen and (max-width: map.get($breakpoints, "sm")) {
-  .search__result--container {
-  }
+  .search__result--container {}
 
   .searched__track--container {
     display: grid;

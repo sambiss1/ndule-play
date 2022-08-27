@@ -18,7 +18,7 @@ export const SearchResult = () => {
         <LoadingData />
       ) : (
         <>
-          <h3 style={{ color: "#de5000" }}>Musiques</h3>
+          <h3 className="search__result--title">Musiques</h3>
           <div className="searched__track--container">
             {termSearched.tracks.items.map(
               (track) =>
@@ -58,7 +58,7 @@ export const SearchResult = () => {
         <LoadingData />
       ) : (
         <>
-          <h3 style={{ color: "#de5000" }}>Album</h3>
+            <h3 className="search__result--title">Album</h3>
           <div className="searched__track--container">
             {termSearched.albums.items.map(
               (album) =>
