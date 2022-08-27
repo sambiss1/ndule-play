@@ -2,6 +2,60 @@
 @import "variables";
 @import "__breakpoints";
 
+form {
+  font-size: 1.6em;
+
+  margin-right: 15%;
+  width: 20%;
+  height: 40px;
+}
+
+.desktop__search--form {
+  display: flex;
+}
+
+.search__input--container {
+  display: flex;
+  position: relative;
+
+  .search__bar--icon {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    font-size: 0.8em;
+  }
+
+  input[type="search"] {
+    background-color: $sidebar_dark_mode_background_color;
+    color: $secondary_color;
+    border-radius: 25px 0 0 25px;
+    padding: 1% 25%;
+    border-right: none;
+    outline: none;
+    outline-color: none;
+    border: 0.1em solid #fff;
+  }
+}
+
+input[type="submit"] {
+  background-color: $primary_color;
+  color: $white_color;
+  border: none;
+  padding: 5% 15%;
+  border-radius: 0 25px 25px 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    color: $primary_color;
+    background-color: $white_color;
+  }
+}
+
+.mobile__search--form {
+  display: none;
+}
+
 @media (max-width: map.get($breakpoints, "sl")) {
   form {
     font-size: 1.6em;
@@ -32,7 +86,7 @@
       border-radius: 25px 0 0 25px;
       padding: 1% 25%;
       border-right: none;
-      outline-color: $primary_color;
+      outline: none;
       border: 0.1em solid #fff;
     }
   }
@@ -55,7 +109,6 @@
     display: flex;
     width: 95%;
     margin: auto;
-   
   }
 
   form {
@@ -66,7 +119,7 @@
     height: 30px;
     width: 100%;
     display: flex;
-   
+
     margin: auto;
   }
 
@@ -80,12 +133,11 @@
       font-size: 1em;
     }
 
-   
-
     input[type="search"] {
       border-radius: 25px;
       border-right: none;
       width: 100%;
+
       &:focus {
         border: none;
       }
@@ -95,5 +147,4 @@
   input[type="submit"] {
     display: none;
   }
-
 }

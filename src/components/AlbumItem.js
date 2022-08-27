@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
@@ -7,7 +8,8 @@ import { FiPlay } from "react-icons/fi";
 import { UserContext } from "../UserContext";
 
 export function AlbumItem({ newalbum }) {
-  const { setAnUri, setPlay } = useContext(UserContext);
+  const { setAnUri, setPlay, anUri } = useContext(UserContext);
+
   return (
     <div className="card__item--container" key={newalbum.id}>
       <Link to={`/album/${newalbum.id}`} className="track__link">
@@ -22,7 +24,17 @@ export function AlbumItem({ newalbum }) {
           setPlay(true);
         }}
       >
-        <FiPlay className="play__icon" />
+        {anUri === newalbum.uri ? (
+          <div className="spinner">
+            <div className="r1"></div>
+            <div className="r2"></div>
+            <div className="r3"></div>
+            <div className="r4"></div>
+            <div className="r5"></div>
+          </div>
+        ) : (
+          <FiPlay className="play__icon" />
+        )}
       </div>
 
       <Link to={`/artist/${newalbum.artists[0].id}`}>

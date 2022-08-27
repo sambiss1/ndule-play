@@ -71,7 +71,7 @@
   }
 
   .top__tarck--popularity,
-.top__track--actions {
+  .top__track--actions {
     display: none;
   }
 }

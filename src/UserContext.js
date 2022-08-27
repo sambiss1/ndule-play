@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-console */
 /* eslint-disable object-shorthand */
@@ -6,7 +7,7 @@
 /* eslint-disable react/prop-types */
 
 /* eslint-disable react/function-component-definition */
-import { React, useEffect, useState, createContext, useMemo } from "react";
+import { React, useEffect, useState, createContext } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 
 export const UserContext = createContext({
@@ -17,14 +18,14 @@ export const UserContext = createContext({
 });
 
 export const UserProvider = ({ children }) => {
-    const CLIENT_ID = "5aa0312dd868402aa4f2f05f91de64e1";
-    const REDIRECT_URI = "http://localhost:3000/";
+    const CLIENT_ID = "c8777ac2c42a4929a927c7a99c43a1d8";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
     const SCOPE =
         "playlist-read-private user-read-private user-read-email user-read-playback-state user-top-read user-library-modify user-library-read user-read-currently-playing playlist-read-private user-read-recently-played app-remote-control streaming";
 
     const [user, setUser] = useState({ token: "", auth: false });
+    const [userToken, setUserToken] = useState("");
     const [username, setUsername] = useState("");
     const [userID, setUserID] = useState("");
     const [termSearched, setTermSearched] = useState([]);
@@ -37,6 +38,7 @@ export const UserProvider = ({ children }) => {
     const [likedSong, setLikedSong] = useState([]);
     const [recentlyPlayed, setRecentlyPlayed] = useState([]);
     const [userPlayList, setUserPlayList] = useState([]);
+    const [cursor, setCursor] = useState("auto");
 
     const createToken = () => {
         // Get and create user logged token from spotify
@@ -44,9 +46,14 @@ export const UserProvider = ({ children }) => {
         let token = window.localStorage.getItem("token");
         if (!token && hash) {
             // eslint-disable-next-line prefer-destructuring
-            token = hash.substring(1).split("&").find((elem) => elem.startsWith("access_token")).split("=")[1];
+            token = hash
+                .substring(1)
+                .split("&")
+                .find((elem) => elem.startsWith("access_token"))
+                .split("=")[1];
             window.location.hash = "";
             window.localStorage.setItem("token", token);
+            setUserToken(token);
             setUser({
                 token: token,
                 auth: true,
@@ -54,16 +61,18 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-    // Login function
-    const handleLogin = () => {
-        window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
-    };
-
     useEffect(() => {
         createToken();
-        getMyAccount();
         getAllCategory();
     }, []);
+
+    // Login function
+    const handleLogin = () => {
+        window.location =
+            process.env.NODE_ENV === "production"
+                ? `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_PRO_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`
+                : `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_DEV_MODE_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+    };
 
     const spotifyApi = new SpotifyWebApi();
     spotifyApi.setAccessToken(localStorage.getItem("token"));
@@ -85,7 +94,7 @@ export const UserProvider = ({ children }) => {
     // Get data from spotify
     const getNewRelease = async () => {
         try {
-            const getNewAlbumRelease = await spotifyApi.getNewReleases();
+            const getNewAlbumRelease = await spotifyApi.getNewReleases(10);
             localStorage.setItem(
                 "new-release-album",
                 JSON.stringify(getNewAlbumRelease.albums.items)
@@ -161,7 +170,6 @@ export const UserProvider = ({ children }) => {
             token: "",
             auth: false,
         });
-
     };
 
     // Convert seconds to minutes
@@ -184,79 +192,53 @@ export const UserProvider = ({ children }) => {
 
         setTermSearched(searchForArtist);
         setSearch(true);
+        // style = { cursor: "pointer" }
+        setCursor("wait");
     };
 
-    const ProvideValue = useMemo(() => ({
-        createToken,
-        getMyAccount,
-        user,
-        username,
-        logout,
-        handleLogin,
-        userID,
-        getUserLikedSongs,
-        getRecentlyPlayed,
-        getAllCategory,
-        getNewRelease,
-        millisToMinutesAndSeconds,
-        search,
-        term,
-        setTerm,
-        termSearched,
-        setTermSearched,
-        searchArtist,
-        newReleaseAlbum,
-        setNewReleaseAlbum,
-        likedSong,
-        setLikedSong,
-        recentlyPlayed,
-        setRecentlyPlayed,
-        userPlayList,
-        setUserPlayList,
-        getUserPlaylist,
-        anUri,
-        setAnUri,
-        play,
-        setPlay,
-        categoryId,
-        setCategoryId
-    }), ([createToken,
-        user,
-        username,
-        getMyAccount,
-        logout,
-        handleLogin,
-        userID,
-        getUserLikedSongs,
-        getRecentlyPlayed,
-        getAllCategory,
-        getNewRelease,
-        millisToMinutesAndSeconds,
-        search,
-        term,
-        setTerm,
-        termSearched,
-        setTermSearched,
-        searchArtist,
-        newReleaseAlbum,
-        setNewReleaseAlbum,
-        likedSong,
-        setLikedSong,
-        recentlyPlayed,
-        setRecentlyPlayed,
-        userPlayList,
-        setUserPlayList,
-        getUserPlaylist,
-        anUri,
-        setAnUri,
-        play,
-        setPlay,
-        categoryId,
-        setCategoryId]));
+    getMyAccount();
 
     return (
         <UserContext.Provider
-            value={ProvideValue}>
+            value={{
+                createToken,
+                userToken,
+                getMyAccount,
+                user,
+                username,
+                logout,
+                handleLogin,
+                userID,
+                getUserLikedSongs,
+                getRecentlyPlayed,
+                getAllCategory,
+                getNewRelease,
+                millisToMinutesAndSeconds,
+                search,
+                term,
+                setTerm,
+                termSearched,
+                setTermSearched,
+                searchArtist,
+                newReleaseAlbum,
+                setNewReleaseAlbum,
+                likedSong,
+                setLikedSong,
+                recentlyPlayed,
+                setRecentlyPlayed,
+                userPlayList,
+                setUserPlayList,
+                getUserPlaylist,
+                anUri,
+                setAnUri,
+                play,
+                setPlay,
+                categoryId,
+                setCategoryId,
+                cursor,
+                setCursor,
+            }}
+        >
             {children}
         </UserContext.Provider>
     );

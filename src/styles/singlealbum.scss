@@ -40,12 +40,17 @@
 
     h3 {
       font-size: 1em;
+<<<<<<< HEAD
       padding: 0 .5em;
+=======
+      padding: 0 0.5em;
+>>>>>>> main-vercel
     }
 
     h4 {
       border-left: 0.1em solid $white_color;
       font-size: 0.8em;
+<<<<<<< HEAD
 
       padding: 0 0.5em;
     }
@@ -56,8 +61,14 @@
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
-    }
+=======
 
+      padding: 0 0.5em;
+>>>>>>> main-vercel
+    }
+  }
+
+<<<<<<< HEAD
     &--play,
     &--like {
       color: $primary_color;
@@ -67,9 +78,17 @@
       &:hover {
         cursor: pointer;
       }
+=======
+  .album__actions {
+    &--container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+>>>>>>> main-vercel
     }
   }
 
+<<<<<<< HEAD
   .album__track--container {
     width: 90%;
     display: flex;
@@ -92,8 +111,21 @@
       display: flex;
       flex-direction: column;
       margin: 0 5%;
-    }
+=======
+    &--play,
+    &--like {
+      color: $primary_color;
+      font-size: 2em;
+      margin: 0.5em;
 
+      &:hover {
+        cursor: pointer;
+      }
+>>>>>>> main-vercel
+    }
+  }
+
+<<<<<<< HEAD
     &--title {
       color: $primary_color;
       margin: 0;
@@ -154,16 +186,85 @@
 
     h3 {
       font-size: 1em;
+=======
+  .album__track--container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-self: space-evenly;
+    align-items: center;
+    margin: 2% auto;
+    padding: 0 5%;
+    background-color: $sidebar_dark_mode_background_color;
+    // opacity: .5;
+
+    &:hover {
+      background-color: $black_color;
     }
   }
 
+  .album__track {
+    &--details {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      margin: 0 5%;
+    }
+
+    &--title {
+      color: $primary_color;
+      margin: 0;
+    }
+
+    &--artists {
+      color: $secondary_color;
+      margin: 0;
+    }
+  }
+
+  .album__track__actions {
+    &--container {
+      width: 10%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+>>>>>>> main-vercel
+    }
+  }
+
+<<<<<<< HEAD
   .single__album--name {
     font-size: 1.2em;
     margin: 0;
+=======
+    &--play,
+    &--like {
+      color: $primary_color;
+      font-size: 1em;
+      margin: 0.5em;
+    }
+>>>>>>> main-vercel
   }
 
+  .album__track__duration {
+    &--container {
+      width: 20%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      align-self: flex-end;
+    }
+  }
+}
 
+@media screen and (max-width: map.get($breakpoints, "sm")) {
+  // ALbum main container
+  .album__main--container {
+    flex-direction: column;
+    align-items: center;
+  }
 
+<<<<<<< HEAD
   .album__other__detail--container {
     display: flex;
     align-items: flex-end;
@@ -176,10 +277,31 @@
     h4 {
       border-left: 0.1em solid $white_color;
       padding: 0 0.5em;
+=======
+  // Album cover container
+  .album__cover--container {
+    width: 200px;
+    height: 200px;
+  }
+
+  // Album details
+  .album__details--container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    h3 {
+      font-size: 1em;
+>>>>>>> main-vercel
     }
   }
 
+  .single__album--name {
+    font-size: 1.2em;
+    margin: 0;
+  }
 
+<<<<<<< HEAD
   .album__actions {
 
     &--play,
@@ -191,9 +313,19 @@
       &:hover {
         cursor: pointer;
       }
+=======
+  .album__other__detail--container {
+    display: flex;
+    align-items: flex-end;
+
+    h3 {
+      font-size: 1em;
+      padding: 0 0.5em;
+>>>>>>> main-vercel
     }
   }
 
+<<<<<<< HEAD
   // Album track container
   .album__track--container {
     &:hover {
@@ -252,3 +384,71 @@
     }
   }
 }
+=======
+    h4 {
+      border-left: 0.1em solid $white_color;
+      padding: 0 0.5em;
+    }
+  }
+
+  .album__actions {
+    &--play,
+    &--like {
+      color: $primary_color;
+      font-size: 1em;
+      margin: 0.5em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  // Album track container
+
+  .album__track--container {
+    &:hover {
+      background-color: $black_color;
+      cursor: pointer;
+
+      .album__track {
+        &--details {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          margin: 0 5%;
+        }
+
+        &--title {
+          color: $primary_color;
+          margin: 0;
+        }
+
+        &--artists {
+          color: $secondary_color;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .album__track__actions {
+    &--container {
+      margin: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border: 0.1em solid red;
+      display: none;
+    }
+
+    &--play,
+    &--like {
+      color: $primary_color;
+      font-size: 1.4rem;
+      margin: 0 0.5em;
+      display: none;
+    }
+  }
+}
+>>>>>>> main-vercel

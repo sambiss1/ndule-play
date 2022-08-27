@@ -11,7 +11,6 @@ import "../styles/homepage.css";
 import "../styles/App.css";
 import "../styles/albumitem.css";
 
-
 export const Genres = () => {
   const spotifyApi = new SpotifyWebApi();
   spotifyApi.setAccessToken(window.localStorage.getItem("token"));
@@ -37,8 +36,9 @@ export const Genres = () => {
       getAllCategory();
     }, 500);
   }, []);
+
   return (
-    <div className="homepage--container">
+    <div className="homepage__content">
       <div className="main__container">
         <div className="page__content">
           <h3 className="page__title">Genres Musicaux</h3>

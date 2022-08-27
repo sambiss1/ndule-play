@@ -2,22 +2,37 @@
 @import "variables";
 @import "__breakpoints";
 
+.searched__track--container {
+  display: grid;
+  grid-template-columns: repeat(20, 300px);
+  grid-gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .search__result--container {
   }
 
-    .searched__track--container {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-gap: 10px;
-    }
+  .searched__track--container {
+    display: grid;
+    grid-template-columns: repeat(20, 200px);
+    grid-gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
 }
-@media screen and (max-width: map.get($breakpoints, "sm")) {
-    .search__result--container {}
 
-    .searched__track--container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
-    }
+@media screen and (max-width: map.get($breakpoints, "sm")) {
+  .search__result--container {
+  }
+
+  .searched__track--container {
+    display: grid;
+    grid-template-columns: repeat(20, 200px);
+
+    grid-gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
 }

@@ -2,20 +2,14 @@
 /* eslint-disable react/function-component-definition */
 import { React } from "react";
 
-import MusicEcaliserImage from "../images/musique-fond-egaliseur-haut-parleur_1017-32860.jpg";
+// import MusicEcaliserImage from "../images/musique-fond-egaliseur-haut-parleur_1017-32860.jpg";
+import MusicBackground from "../images/music-background.jpg";
 
 export const HomePageSlider = () => {
   return (
-    <div
-      style={{
-        width: "95%",
-        height: "400px",
-        margin: "auto",
-      }}
-      className="homepage__cover--container"
-    >
+    <div className="homepage__cover--container">
       <img
-        src={MusicEcaliserImage}
+        src={MusicBackground}
         alt="music egaliseur "
         style={{
           width: "100%",

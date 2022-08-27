@@ -1,9 +1,99 @@
 /* Light mode color */
 /* Dark mode color */
+.link__hover--effect, .logout__button:hover, ul li:hover {
+  color: #de5000;
+  background-color: #de5000;
+  cursor: pointer;
+  padding: 2% 1%;
+}
+
+.mobile__naigation--container {
+  display: none;
+}
+
+.navigation__menu--container {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+}
+ul li {
+  color: #f8e5db;
+  font-size: 1.6em;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  transition: 0.3s ease;
+  width: 100%;
+}
+ul li span {
+  display: block;
+  margin: 0 5%;
+  font-size: 1em;
+  width: 100%;
+}
+.active {
+  color: #de5000;
+}
+.active:hover {
+  color: #ffffff;
+}
+
+.no__active {
+  color: #f8e5db;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.sidebar__menu--icon {
+  font-size: 2em;
+}
+
+h2 {
+  margin-left: 10%;
+}
+
+hr {
+  width: 20%;
+  margin-left: 10%;
+  height: 2px;
+  color: #de5000;
+  background-color: #de5000;
+}
+
+.logout__button {
+  background: none;
+  border: none;
+  color: #f8e5db;
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 100%;
+  justify-self: flex-end;
+  transition: 0.3s ease;
+}
+.logout__button .logout__button--icon {
+  font-size: 1.4em;
+  margin-right: 5%;
+}
+.logout__button:hover {
+  color: #ffffff;
+}
+
 @media (max-width: 1440px) {
-  .link__hover--effect, .logout__button:hover, ul li:hover {
-    transform: scale(1.1);
+  .link__hover--effect, ul li:hover, .logout__button:hover {
     color: #de5000;
+    background-color: #de5000;
     cursor: pointer;
   }
 
@@ -26,13 +116,14 @@
     align-items: center;
     align-self: flex-start;
     transition: 0.3s ease;
-    width: 100%;
+    width: 300px;
   }
   ul li span {
     display: block;
     margin: 0 5%;
     font-size: 1em;
-    width: 100%;
+    width: 100px;
+    word-wrap: normal;
   }
   .active {
     color: #de5000;
@@ -83,6 +174,9 @@
     font-size: 1.4em;
     margin-right: 5%;
   }
+  .logout__button:hover {
+    color: #ffffff;
+  }
 }
 @media (max-width: 576px) {
   .mobile__naigation--container {
@@ -104,9 +198,17 @@
   .mobile__naigation--container ul li a span {
     margin: 0;
   }
-  .mobile__naigation--container ul li:hover {
-    transform: none;
+  .mobile__naigation--container ul li a:hover {
+    color: #de5000;
+    background-color: transparent;
     cursor: pointer;
+    padding: 0 !important;
+  }
+  .mobile__naigation--container ul li:hover {
+    color: #de5000;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 !important;
   }
   .mobile__naigation--container ul .logout__item {
     display: flex;

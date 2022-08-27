@@ -11,7 +11,7 @@ import "../styles/albumitem.css";
 import { UserContext } from "../UserContext";
 
 export const RecentlyPlayedCard = ({ props }) => {
-  const { setPlay, setAnUri } = useContext(UserContext);
+  const { setPlay, setAnUri, anUri } = useContext(UserContext);
   return (
     <div className="card__item--container" key={props.track.id}>
       <Link to={`/album/${props.track.album.id}`} className="track__link">
@@ -26,7 +26,17 @@ export const RecentlyPlayedCard = ({ props }) => {
           setPlay(true);
         }}
       >
-        <FiPlay className="play__icon" />
+        {anUri === props.track.uri ? (
+          <div className="spinner">
+            <div className="r1" />
+            <div className="r2" />
+            <div className="r3" />
+            <div className="r4" />
+            <div className="r5" />
+          </div>
+        ) : (
+          <FiPlay className="play__icon" />
+        )}
       </div>
       <Link to={`/artist/${props.track.artists[0].id}`}>
         <h4 className="card__name">{props.track.artists[0].name}</h4>
