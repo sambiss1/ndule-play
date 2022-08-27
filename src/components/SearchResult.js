@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -10,7 +11,7 @@ import "../styles/searchresult.css";
 import "../styles/albumitem.css";
 
 export const SearchResult = () => {
-  const { termSearched, setPlay, setAnUri, cursor } = useContext(UserContext);
+  const { termSearched, setPlay, setAnUri, cursor, anUri } = useContext(UserContext);
 
   return (
     <div className="search__result--container" style={{ cursor: `${cursor}` }}>
@@ -46,7 +47,17 @@ export const SearchResult = () => {
                         setPlay(true);
                       }}
                     >
-                      <FiPlay className="play__icon" />
+                      {anUri === track.uri ? (
+                        <div className="spinner">
+                          <div className="r1"></div>
+                          <div className="r2"></div>
+                          <div className="r3"></div>
+                          <div className="r4"></div>
+                          <div className="r5"></div>
+                        </div>
+                      ) : (
+                        <FiPlay className="play__icon" />
+                      )}
                     </div>
                   </div>
                 )
