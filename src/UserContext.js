@@ -136,10 +136,6 @@ export const UserProvider = ({ children }) => {
     const getRecentlyPlayed = async () => {
         try {
             const recentPlayed = await spotifyApi.getMyRecentlyPlayedTracks();
-            localStorage.setItem(
-                "user__recently__played",
-                JSON.stringify(recentPlayed.items)
-            );
             setRecentlyPlayed(recentPlayed.items);
         } catch (error) {
             console.log(error);

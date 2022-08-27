@@ -22,7 +22,6 @@ export const Genres = () => {
       const getCategories = await spotifyApi.getCategories();
 
       setCategory(getCategories.categories.items);
-
       localStorage.setItem(
         "categories",
         JSON.stringify(getCategories.categories.items)

@@ -19,7 +19,7 @@ export const SearchResult = () => {
         <LoadingData />
       ) : (
         <>
-          <h3 style={{ color: "#de5000" }}>Musiques</h3>
+          <h3 className="search__result--title">Musiques</h3>
           <div className="searched__track--container">
             {termSearched.tracks.items.map(
               (track) =>
@@ -69,7 +69,7 @@ export const SearchResult = () => {
         <LoadingData />
       ) : (
         <>
-          <h3 style={{ color: "#de5000" }}>Album</h3>
+          <h3 className="search__result--title">Album</h3>
           <div className="searched__track--container">
             {termSearched.albums.items.map(
               (album) =>
@@ -94,7 +94,17 @@ export const SearchResult = () => {
                         setPlay(true);
                       }}
                     >
-                      <FiPlay className="play__icon" />
+                      {anUri === album.uri ? (
+                        <div className="spinner">
+                          <div className="r1"></div>
+                          <div className="r2"></div>
+                          <div className="r3"></div>
+                          <div className="r4"></div>
+                          <div className="r5"></div>
+                        </div>
+                      ) : (
+                        <FiPlay className="play__icon" />
+                      )}
                     </div>
                   </div>
                 )

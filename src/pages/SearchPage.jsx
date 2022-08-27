@@ -15,7 +15,7 @@ const SearchPage = () => {
       <div className="main__container" style={{ cursor: `${cursor}` }}>
         {search ? (
           <div className="page__content">
-            <h4>Search result</h4>
+            <h4>Recherche récente</h4>
             {termSearched.length === "" ? <LoadingData /> : <SearchResult />}
           </div>
         ) : (

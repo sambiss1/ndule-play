@@ -8,6 +8,18 @@
   scrollbar-width: none;
 }
 
+.search__result--title {
+  border: none;
+  background-color: #de5000;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 25px;
+  margin: 3% 3% 3% 0;
+  width: 15%;
+  text-align: center;
+  color: #f8e5db !important;
+}
+
 @media screen and (max-width: 1440px) {
   .searched__track--container {
     display: grid;

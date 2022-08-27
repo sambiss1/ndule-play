@@ -121,6 +121,8 @@
     }
   }
 
+
+
   .album__track__duration {
     &--container {
       width: 20%;
@@ -132,7 +134,10 @@
   }
 }
 
+
+
 @media screen and (max-width: map.get($breakpoints, "sm")) {
+
   // ALbum main container
   .album__main--container {
     flex-direction: column;
@@ -169,70 +174,71 @@
       font-size: 1em;
       padding: 0 0.5em;
     }
-
-    h4 {
-      border-left: 0.1em solid $white_color;
-      padding: 0 0.5em;
-    }
   }
 
-  .album__actions {
-    &--play,
-    &--like {
-      color: $primary_color;
-      font-size: 1em;
-      margin: 0.5em;
+  h4 {
+    border-left: 0.1em solid $white_color;
+    padding: 0 0.5em;
 
+    .album__actions {
+
+      &--play,
+      &--like {
+        color: $primary_color;
+        font-size: 1em;
+        margin: 0.5em;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    // Album track container
+
+    .album__track--container {
       &:hover {
+        background-color: $black_color;
         cursor: pointer;
-      }
-    }
-  }
 
-  // Album track container
+        .album__track {
+          &--details {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 5%;
+          }
 
-  .album__track--container {
-    &:hover {
-      background-color: $black_color;
-      cursor: pointer;
+          &--title {
+            color: $primary_color;
+            margin: 0;
+          }
 
-      .album__track {
-        &--details {
-          width: 50%;
-          display: flex;
-          flex-direction: column;
-          margin: 0 5%;
-        }
-
-        &--title {
-          color: $primary_color;
-          margin: 0;
-        }
-
-        &--artists {
-          color: $secondary_color;
-          margin: 0;
+          &--artists {
+            color: $secondary_color;
+            margin: 0;
+          }
         }
       }
     }
-  }
 
-  .album__track__actions {
-    &--container {
-      margin: 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      border: 0.1em solid red;
-      display: none;
-    }
+    .album__track__actions {
+      &--container {
+        margin: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border: 0.1em solid red;
+        display: none;
+      }
 
-    &--play,
-    &--like {
-      color: $primary_color;
-      font-size: 1.4rem;
-      margin: 0 0.5em;
-      display: none;
+      &--play,
+      &--like {
+        color: $primary_color;
+        font-size: 1.4rem;
+        margin: 0 0.5em;
+        display: none;
+      }
     }
   }
 }
