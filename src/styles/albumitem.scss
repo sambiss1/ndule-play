@@ -9,25 +9,45 @@
   margin: auto;
 }
 
-.tab__navigation {
-
-  &--container {}
-
-  &--button {
-    border: none;
+.tab__navigation--container {
+  .tab__navigation--button {
     background-color: $secondary_color;
-    font-size: 1em;
-    padding: 0.5em 1em;
+    color: $black_color;
+    border: none;
     border-radius: 25px;
+    padding: 0.5em 1em;
+    font-size: 1em;
     margin: 3% 3% 3% 0;
-  }
-  &--active {
-    background-color: $primary_color;
-    color: $white_color;
+
+    &:hover {
+      background-color: $primary_color;
+      color: $secondary_color;
+    }
+
+    &:focus {
+      background-color: $primary_color;
+      color: $secondary_color;
+    }
   }
 
+  .tab1,
+  .tab2 {
+    display: flex;
+  }
 }
 
+.active__tab--button {
+  background-color: $primary_color;
+  color: $secondary_color;
+}
+
+.active__tab {
+  display: flex;
+}
+
+.no__active--tab {
+  display: none;
+}
 
 .card__tabs--panel {
   display: grid;

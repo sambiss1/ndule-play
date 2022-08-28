@@ -7,17 +7,39 @@
   margin: auto;
 }
 
-.tab__navigation--button {
-  border: none;
+.tab__navigation--container .tab__navigation--button {
   background-color: #f8e5db;
-  font-size: 1em;
-  padding: 0.5em 1em;
+  color: #000000;
+  border: none;
   border-radius: 25px;
+  padding: 0.5em 1em;
+  font-size: 1em;
   margin: 3% 3% 3% 0;
 }
-.tab__navigation--active {
+.tab__navigation--container .tab__navigation--button:hover {
   background-color: #de5000;
-  color: #ffffff;
+  color: #f8e5db;
+}
+.tab__navigation--container .tab__navigation--button:focus {
+  background-color: #de5000;
+  color: #f8e5db;
+}
+.tab__navigation--container .tab1,
+.tab__navigation--container .tab2 {
+  display: flex;
+}
+
+.active__tab--button {
+  background-color: #de5000;
+  color: #f8e5db;
+}
+
+.active__tab {
+  display: flex;
+}
+
+.no__active--tab {
+  display: none;
 }
 
 .card__tabs--panel {

@@ -37,7 +37,11 @@
   grid-template-columns: repeat(2, 50%);
 }
 
-.centerItems, .right__section--container .handle__login--button, .right__section--container .section__content, .right__section--container, .left__section--container {
+.centerItems,
+.right__section--container .handle__login--button,
+.right__section--container .section__content,
+.right__section--container,
+.left__section--container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +107,11 @@
     grid-template-columns: repeat(2, 50%);
   }
 
-  .centerItems, .left__section--container, .right__section--container, .right__section--container .section__content, .right__section--container .handle__login--button {
+  .centerItems,
+  .left__section--container,
+  .right__section--container,
+  .right__section--container .section__content,
+  .right__section--container .handle__login--button {
     display: flex;
     justify-content: center;
     align-items: center;
