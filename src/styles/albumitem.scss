@@ -100,20 +100,36 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+
     }
 
-    .spinner>div {
-      background: $white_color;
-      height: 100%;
-      width: 2px;
-      float: left;
-      margin: 0 1px;
-      animation: stretch 2s infinite;
-      animation-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
+    .spinner {
+      div {
+        background: $white_color;
+        height: 100%;
+        width: 2px;
+        float: left;
+        margin: 0 1px;
+        animation: stretch 2s infinite;
+        animation-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
+
+
+        &:hover {
+          background: $primary_color;
+          color:$primary_color;
+        }
+      }
     }
+
+
 
     .spinner .r1 {
       animation-delay: -1s;
+
+      &:hover {
+        background: $primary_color;
+      }
     }
 
     .spinner .r2 {

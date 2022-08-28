@@ -90,7 +90,7 @@
   justify-content: center;
   align-items: center;
 }
-.card__item--container .play__icon--container .spinner > div {
+.card__item--container .play__icon--container .spinner div {
   background: #ffffff;
   height: 100%;
   width: 2px;
@@ -99,8 +99,15 @@
   animation: stretch 2s infinite;
   animation-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
 }
+.card__item--container .play__icon--container .spinner div:hover {
+  background: #de5000;
+  color: #de5000;
+}
 .card__item--container .play__icon--container .spinner .r1 {
   animation-delay: -1s;
+}
+.card__item--container .play__icon--container .spinner .r1:hover {
+  background: #de5000;
 }
 .card__item--container .play__icon--container .spinner .r2 {
   animation-delay: -0.9s;
