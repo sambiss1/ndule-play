@@ -10,16 +10,43 @@
 }
 
 .tab__navigation--container {
-
   .tab__navigation--button {
     background-color: $secondary_color;
     color: $black_color;
     border: none;
     border-radius: 25px;
-    padding: 0.5em 1em; 
+    padding: 0.5em 1em;
     font-size: 1em;
     margin: 3% 3% 3% 0;
+
+    &:hover {
+      background-color: $primary_color;
+      color: $secondary_color;
+    }
+
+    &:focus {
+      background-color: $primary_color;
+      color: $secondary_color;
+    }
   }
+
+  .tab1,
+  .tab2 {
+    display: flex;
+  }
+}
+
+.active__tab--button {
+  background-color: $primary_color;
+  color: $secondary_color;
+}
+
+.active__tab {
+  display: flex;
+}
+
+.no__active--tab {
+  display: none;
 }
 
 .card__tabs--panel {
@@ -69,7 +96,7 @@
       align-items: center;
     }
 
-    .spinner>div {
+    .spinner > div {
       background: $white_color;
       height: 100%;
       width: 2px;
@@ -115,7 +142,6 @@
 }
 
 @keyframes stretch {
-
   0%,
   20%,
   49% {

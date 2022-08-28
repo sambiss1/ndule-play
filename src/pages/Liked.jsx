@@ -32,8 +32,8 @@ export function Liked() {
               {likedSong.map(
                 (song) =>
                   song.track.name +
-                  song.track.artist +
-                  song.track.album.images[0].url && (
+                    song.track.artist +
+                    song.track.album.images[0].url && (
                     <LikedSongCard key={song.track.id} props={song} />
                   )
               )}{" "}

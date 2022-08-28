@@ -4,83 +4,135 @@
 /* eslint-disable react/function-component-definition */
 
 /* eslint-disable import/no-named-as-default */
-import { React, useContext, useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import spotifyApi from "../utils";
 
 import AlbumItem from "./AlbumItem";
 import AmbianceSongItem from "./AmbianceSongItem";
-
+import TabNavItem from "./TabNavItem";
+// import TabContainer from "./TabContainer";
 
 import "../styles/albumitem.css";
-import { UserContext } from "../UserContext";
+// import { UserContext } from "../UserContext";
 import LoadingData from "./LoadingData";
 
-export const AlbumsTabs = () => {
-    const { ambianceTracks, activeTab, setActiveTab } =
-        useContext(UserContext);
+export const AlbumsTabs = ({ id }) => {
+  const [newRelease, setNewRelease] = useState([]);
+  const [isActiveTab, setIsActiveTab] = useState("tab1");
+  const [ambianceTracks, setAmbianceTracks] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [activeTabButton, setActiveTabButton] = useState("active__tab--button");
 
-    const [newRelease, setNewRelease] = useState([]);
+  useEffect(() => {
+    const getNewReleaseFUnction = async () => {
+      try {
+        const newReleaseAlbum = await spotifyApi.getNewReleases();
+        setNewRelease(newReleaseAlbum.albums.items);
+      } catch (error) {
+        setNewRelease([]);
+        console.log(error);
+      }
+    };
 
+    getNewReleaseFUnction();
 
+    // get Ambiance songs recommandations
+    const getAmbianceSongs = async () => {
+      try {
+        const getAmbianceSongsRecommended = await spotifyApi.getRecommendations(
+          {
+            seed_artists: "0is7KJiz3t87LiJWUO1tNI,7xNYY1Zkb1vks5m9ATlJok",
+            seed_genres: "ambiance",
+            seed_tracks: "",
+          }
+        );
+        setAmbianceTracks(getAmbianceSongsRecommended.tracks);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getAmbianceSongs();
+  }, []);
 
-    useEffect(() => {
+  // eslint-disable-next-line no-unused-vars
+  const handleActiveTab = () => {
+    setIsActiveTab(id);
+  };
 
-        const getNewReleaseFUnction = async () => {
-            try {
-                const newReleaseAlbum = await spotifyApi.getNewReleases();
-                setNewRelease(newReleaseAlbum.items);
-            } catch (error) {
-                setNewRelease([]);
-                console.log(error);
-            }
+  return (
+    <div className="album__tabs--container">
+      <div className="tab__navigation--container">
+        <button
+          className="tab__navigation--button"
+          onClick={() => {
+            setIsActiveTab("tab1");
+            console.log("Active Tab 1 :  ", isActiveTab);
+            // handleActiveTab();
+          }}
+        >
+          Nouveautés
+        </button>
 
-        };
+        <button
+          className="tab__navigation--button"
+          onClick={() => {
+            setIsActiveTab("tab2");
+            console.log("Active Tab 2 : ", isActiveTab);
+            // handleActiveTab();
+          }}
+        >
+          Ambiance
+        </button>
 
-        getNewReleaseFUnction();
-
-    }, []);
-
-    console.log(ambianceTracks);
-    console.log(activeTab.map((ambianceSong) => `${ambianceSong.album.name}  ${ambianceSong.name} ${ambianceSong.artists[0].name}`));
-
-    return (
-        <div className="album__tabs--container">
-            <div className="tab__navigation--container">
-                <button className="tab__navigation--button">Nouveautés</button>
-                <button className="tab__navigation--button"
-                    onClick={() => {
-                        setActiveTab(ambianceTracks);
-                    }}
-                >Ambiance</button>
-
+        {/* 
                 <button className="tab__navigation--button">Afro</button>
-                <button className="tab__navigation--button">Gaming</button>
+                <button className="tab__navigation--button">Gaming</button> */}
+      </div>
+      {isActiveTab === "tab1" ? (
+        <TabNavItem
+          className={isActiveTab === "tab1" ? "active__tab" : "no__active--tab"}
+        >
+          {newRelease.length <= 0 ? (
+            <LoadingData />
+          ) : (
+            <div className="card__tabs--panel">
+              {newRelease.map(
+                (newalbum) =>
+                  newalbum.name +
+                    newalbum.artists[0].name +
+                    newalbum.images[0].url && (
+                    <AlbumItem key={newalbum.id} newalbum={newalbum} />
+                  )
+              )}
             </div>
-            {newRelease.length <= 0 ? (
-                <LoadingData />
-            ) : (
-                <div className="card__tabs--panel">
-                    {newRelease.map(
-                        (newalbum) =>
-                            newalbum.name +
-                            newalbum.artists[0].name +
-                            newalbum.images[0].url && (
-                                <AlbumItem key={newalbum.id} newalbum={newalbum} />
-                            )
-                    )}
-                </div>
-            )}
-
-            {activeTab.length <= 0 ? (<LoadingData />) : (
-                <div className="card__tabs--panel">
-                    {activeTab.map((ambianceSong) =>
-                        ambianceSong.album.name + ambianceSong.name + ambianceSong.artists[0].name + ambianceSong.album.images[0] &&
-                        <AmbianceSongItem key={ambianceSong.id} props={ambianceSong} />
-                    )}
-                </div>
-            )}
-        </div>
-    );
+          )}
+        </TabNavItem>
+      ) : (
+        <TabNavItem
+          className={isActiveTab === "tab2" ? "active__tab" : "no__active--tab"}
+        >
+          {ambianceTracks.length <= 0 ? (
+            <LoadingData />
+          ) : (
+            <div className="card__tabs--panel">
+              {ambianceTracks.map(
+                (ambianceSong) =>
+                  ambianceSong.album.name +
+                    ambianceSong.name +
+                    ambianceSong.artists[0].name +
+                    ambianceSong.album.images[0] && (
+                    <AmbianceSongItem
+                      key={ambianceSong.id}
+                      props={ambianceSong}
+                    />
+                  )
+              )}
+            </div>
+          )}
+        </TabNavItem>
+      )}
+    </div>
+  );
 };
 
 export default AlbumsTabs;

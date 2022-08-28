@@ -11,47 +11,44 @@ import { Link } from "react-router-dom";
 import "../styles/albumitem.css";
 import { UserContext } from "../UserContext";
 
+const AmbianceSongItem = ({ props }) => {
+  const { setAnUri, setPlay, anUri } = useContext(UserContext);
 
-const AmbianceSongItem = (props) => {
-    const { setAnUri, setPlay, anUri } = useContext(UserContext);
-
-    // console.log(props.album.id);
-
-    return (
-        <div className="card__item--container" key={props.id}>
-            {/* <Link to={`/album/${props.album.id}`} className="track__link">
-                <div className="card__image--container">
-                    <img src={props.album.images[0].url} alt="artits" />
-                </div>
-            </Link> */}
-            <div
-                className="play__icon--container"
-                onClick={() => {
-                    setAnUri(props.uri);
-                    setPlay(true);
-                }}
-            >
-                {anUri === props.uri ? (
-                    <div className="spinner">
-                        <div className="r1"></div>
-                        <div className="r2"></div>
-                        <div className="r3"></div>
-                        <div className="r4"></div>
-                        <div className="r5"></div>
-                    </div>
-                ) : (
-                    <FiPlay className="play__icon" />
-                )}
-            </div>
-
-            {/* <Link to={`/artist/${props.artists[0].id}`}>
-                <h4 className="card__name">{props.artists[0].name}</h4>
-            </Link> */}
-            <Link to={`/album/${props.id}`} className="track__link">
-                <h4 className="album__name">{props.name}</h4>
-            </Link>
+  return (
+    <div className="card__item--container" key={props.id}>
+      <Link to={`/album/${props.album.id}`} className="track__link">
+        <div className="card__image--container">
+          <img src={props.album.images[0].url} alt="artits" />
         </div>
-    );
-}
+      </Link>
+      <div
+        className="play__icon--container"
+        onClick={() => {
+          setAnUri(props.uri);
+          setPlay(true);
+        }}
+      >
+        {anUri === props.uri ? (
+          <div className="spinner">
+            <div className="r1"></div>
+            <div className="r2"></div>
+            <div className="r3"></div>
+            <div className="r4"></div>
+            <div className="r5"></div>
+          </div>
+        ) : (
+          <FiPlay className="play__icon" />
+        )}
+      </div>
 
-export default AmbianceSongItem
+      <Link to={`/artist/${props.artists[0].id}`}>
+        <h4 className="card__name">{props.artists[0].name}</h4>
+      </Link>
+      <Link to={`/album/${props.id}`} className="track__link">
+        <h4 className="album__name">{props.name}</h4>
+      </Link>
+    </div>
+  );
+};
+
+export default AmbianceSongItem;

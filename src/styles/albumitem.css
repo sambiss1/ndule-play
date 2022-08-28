@@ -16,6 +16,31 @@
   font-size: 1em;
   margin: 3% 3% 3% 0;
 }
+.tab__navigation--container .tab__navigation--button:hover {
+  background-color: #de5000;
+  color: #f8e5db;
+}
+.tab__navigation--container .tab__navigation--button:focus {
+  background-color: #de5000;
+  color: #f8e5db;
+}
+.tab__navigation--container .tab1,
+.tab__navigation--container .tab2 {
+  display: flex;
+}
+
+.active__tab--button {
+  background-color: #de5000;
+  color: #f8e5db;
+}
+
+.active__tab {
+  display: flex;
+}
+
+.no__active--tab {
+  display: none;
+}
 
 .card__tabs--panel {
   display: grid;

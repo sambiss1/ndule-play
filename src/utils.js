@@ -4,5 +4,4 @@ const spotifyApi = new SpotifyWebApi();
 
 spotifyApi.setAccessToken(localStorage.getItem("token"));
 
-
 export default spotifyApi;
