@@ -2,9 +2,12 @@
 /* Dark mode color */
 .header--container {
   display: flex;
-  width: 95%;
+  width: 75%;
   justify-content: space-between;
   padding: 2% 2%;
+  position: fixed;
+  background-color: rgba(50, 50, 50, 0.5);
+  opacity: 1;
 }
 
 .themetoggler {
@@ -19,7 +22,6 @@
 @media screen and (max-width: 1440px) {
   .header--container {
     display: flex;
-    width: 95%;
     justify-content: space-between;
     padding: 2% 2%;
   }

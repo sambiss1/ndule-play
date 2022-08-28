@@ -14,7 +14,7 @@ export const HomePageContent = () => {
         position: "absolute",
         width: "75%",
         paddingBottom: "100px",
-        paddingTop: "100px",
+        paddingTop: "120px",
       }}
       className="homepage__content"
     >

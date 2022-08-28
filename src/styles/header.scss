@@ -4,9 +4,12 @@
 
 .header--container {
   display: flex;
-  width: 95%;
+  width: 75%;
   justify-content: space-between;
   padding: 2% 2%;
+  position: fixed;
+  background-color: $sidebar_dark_mode_background_color;
+  opacity: 1;
 }
 
 .themetoggler {
@@ -21,7 +24,6 @@
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .header--container {
     display: flex;
-    width: 95%;
     justify-content: space-between;
     padding: 2% 2%;
   }
