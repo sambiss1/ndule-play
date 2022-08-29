@@ -7,8 +7,12 @@
   grid-template-columns: repeat(20, 300px);
   grid-gap: 20px;
   overflow-x: auto;
+  -ms-overflow-style: none;
   scrollbar-width: none;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .search__result--title {
@@ -20,7 +24,7 @@
   margin: 3% 3% 3% 0;
   width: 15%;
   text-align: center;
-  color: $secondary_color !important;
+  color: $secondary_color  !important;
 }
 
 @media screen and (max-width: map.get($breakpoints, "sl")) {

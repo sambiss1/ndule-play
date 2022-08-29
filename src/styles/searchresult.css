@@ -5,7 +5,11 @@
   grid-template-columns: repeat(20, 300px);
   grid-gap: 20px;
   overflow-x: auto;
+  -ms-overflow-style: none;
   scrollbar-width: none;
+}
+.searched__track--container::-webkit-scrollbar {
+  display: none;
 }
 
 .search__result--title {

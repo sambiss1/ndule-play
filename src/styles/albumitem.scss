@@ -28,6 +28,11 @@
       background-color: $primary_color;
       color: $secondary_color;
     }
+
+    &:first-of-type:focus-visible {
+      background-color: $primary_color;
+      color: $secondary_color;
+    }
   }
 
   .tab1,
@@ -117,7 +122,7 @@
 
         &:hover {
           background: $primary_color;
-          color:$primary_color;
+          color: $primary_color;
         }
       }
     }
