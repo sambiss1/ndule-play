@@ -17,10 +17,10 @@ export function SearchBar() {
   const spotify = new SpotifyWebApi();
   spotify.setAccessToken(window.localStorage.getItem("token"));
 
-  const { term, setTerm, searchArtist, setCursor } = useContext(UserContext);
+  const { term, setTerm, setCursor, searchItem } = useContext(UserContext);
 
   return (
-    <form onSubmit={searchArtist} className="desktop__search--form">
+    <form onSubmit={searchItem} className="desktop__search--form">
       <div className="search__input--container">
         <IoSearchOutline className="search__bar--icon" />
         <input

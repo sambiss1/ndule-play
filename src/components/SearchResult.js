@@ -13,7 +13,6 @@ import "../styles/albumitem.css";
 export const SearchResult = () => {
   const { termSearched, setPlay, setAnUri, cursor, anUri } = useContext(UserContext);
 
-  console.log(termSearched.artists);
 
   return (
     <div className="search__result--container" style={{ cursor: `${cursor}` }}>
