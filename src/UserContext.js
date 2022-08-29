@@ -31,6 +31,7 @@ export const UserProvider = ({ children }) => {
     const [termSearched, setTermSearched] = useState([]);
     const [term, setTerm] = useState("");
     const [search, setSearch] = useState(false);
+    const [isSearching, setIsSearching] = useState(false);
     const [anUri, setAnUri] = useState("");
     const [play, setPlay] = useState(false);
     const [categoryId, setCategoryId] = useState("");
@@ -197,14 +198,9 @@ export const UserProvider = ({ children }) => {
     };
 
     // search item
-    const searchItem = (event) => {
+    const searchArtist = async (event) => {
         event.preventDefault();
-        setTimeout(() => {
-            searchArtist();
-        }, 300);
-    };
 
-    const searchArtist = async () => {
         const searchForArtist = await spotifyApi.search(term, [
             "album",
             "artist",
@@ -239,8 +235,11 @@ export const UserProvider = ({ children }) => {
                 search,
                 term,
                 setTerm,
+                isSearching,
+                setIsSearching,
                 termSearched,
                 setTermSearched,
+
                 searchArtist,
                 newReleaseAlbum,
                 setNewReleaseAlbum,
@@ -264,7 +263,6 @@ export const UserProvider = ({ children }) => {
                 ambianceTracks,
                 setAmbianceTracks,
                 getAmbianceSongs,
-                searchItem
             }}
         >
             {children}

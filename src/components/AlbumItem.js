@@ -8,7 +8,7 @@ import { FiPlay } from "react-icons/fi";
 import { UserContext } from "../UserContext";
 
 export function AlbumItem({ newalbum }) {
-  const { setAnUri, setPlay, anUri } = useContext(UserContext);
+  const { setAnUri, setPlay, anUri, play } = useContext(UserContext);
 
   return (
     <div className="card__item--container" key={newalbum.id}>
@@ -24,7 +24,7 @@ export function AlbumItem({ newalbum }) {
           setPlay(true);
         }}
       >
-        {anUri === newalbum.uri ? (
+        {anUri === newalbum.uri && play ? (
           <div className="spinner">
             <div className="r1"></div>
             <div className="r2"></div>

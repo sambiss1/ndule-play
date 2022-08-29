@@ -5,8 +5,8 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 import "../styles/searchbar.css";
-import SpotifyWebApi from "spotify-web-api-js";
 import { UserContext } from "../UserContext";
+import spotifyApi from "../utils";
 
 export const BestResult = () => {
   <h1>Best Result</h1>;
@@ -14,26 +14,37 @@ export const BestResult = () => {
 
 export function SearchBar() {
   const navigate = useNavigate();
-  const spotify = new SpotifyWebApi();
-  spotify.setAccessToken(window.localStorage.getItem("token"));
 
-  const { term, setTerm, setCursor, searchItem } = useContext(UserContext);
+  const { term, setTerm, setTermSearched, setIsSearching } = useContext(UserContext);
+  const searchitem = (event) => {
+    event.preventDefault();
+    setIsSearching(false);
 
+    setTimeout(() => {
+      const searchResult = spotifyApi.search(term, ["track", "artist", "album", "playlist"]);
+      searchResult
+        .then((result) => setTermSearched(result))
+        .then(() => setIsSearching(true));
+    }, 200);
+
+  };
+
+  
   return (
-    <form onSubmit={searchItem} className="desktop__search--form">
+    <form onSubmit={searchitem} className="desktop__search--form">
       <div className="search__input--container">
         <IoSearchOutline className="search__bar--icon" />
         <input
           type="search"
           placeholder="Rechercher ici"
           name="search__bar--input"
-          value={term}
+          // value={term}
           onChange={(event) => {
             setTerm(event.target.value);
-            setCursor("wait");
             window.location.pathname !== "/search"
               ? navigate("/search", { replace: true })
               : window.location("/search");
+            // searchitem();
           }}
         />
 

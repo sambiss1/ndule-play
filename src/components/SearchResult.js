@@ -9,14 +9,14 @@ import { UserContext } from "../UserContext";
 import LoadingData from "./LoadingData";
 import "../styles/searchresult.css";
 import "../styles/albumitem.css";
+import NoPlayListImage from "../images/ndule-play-icon.png";
 
 export const SearchResult = () => {
-  const { termSearched, setPlay, setAnUri, cursor, anUri } = useContext(UserContext);
+  const { termSearched, setAnUri, anUri, setPlay, play } = useContext(UserContext);
 
 
   return (
-    <div className="search__result--container" style={{ cursor: `${cursor}` }}>
-
+    <div className="search__result--container" >
       {/* Track result */}
       {termSearched.tracks.items.length <= 0 ? (
         <LoadingData />
@@ -35,7 +35,10 @@ export const SearchResult = () => {
                           alt="track cover"
                         />
                       ) : (
-                        <h5>No image</h5>
+                        <img
+                          src={NoPlayListImage}
+                          alt="track cover"
+                        />
                       )}
                     </div>
 
@@ -50,7 +53,7 @@ export const SearchResult = () => {
                         setPlay(true);
                       }}
                     >
-                      {anUri === track.uri ? (
+                      {anUri === track.uri && play ? (
                         <div className="spinner">
                           <div className="r1"></div>
                           <div className="r2"></div>
@@ -84,7 +87,10 @@ export const SearchResult = () => {
                       {album.images.length ? (
                         <img src={album.images[0].url} alt="track cover" />
                       ) : (
-                        <h5>No image</h5>
+                        <img
+                          src={NoPlayListImage}
+                          alt="track cover"
+                        />
                       )}
                     </div>
 
@@ -99,7 +105,7 @@ export const SearchResult = () => {
                         setPlay(true);
                       }}
                     >
-                      {anUri === album.uri ? (
+                      {anUri === album.uri && play ? (
                         <div className="spinner">
                           <div className="r1"></div>
                           <div className="r2"></div>
@@ -133,7 +139,10 @@ export const SearchResult = () => {
                       {artist.images.length ? (
                         <img src={artist.images[0].url} alt="track cover" />
                       ) : (
-                        <h5>No image</h5>
+                        <img
+                          src={NoPlayListImage}
+                          alt="track cover"
+                        />
                       )}
                     </div>
 
@@ -148,7 +157,7 @@ export const SearchResult = () => {
                         setPlay(true);
                       }}
                     >
-                      {anUri === artist.uri ? (
+                      {anUri === artist.uri && play ? (
                         <div className="spinner">
                           <div className="r1"></div>
                           <div className="r2"></div>
