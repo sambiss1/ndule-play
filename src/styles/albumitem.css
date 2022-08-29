@@ -24,6 +24,10 @@
   background-color: #de5000;
   color: #f8e5db;
 }
+.tab__navigation--container .tab__navigation--button:first-of-type:focus-visible {
+  background-color: #de5000;
+  color: #f8e5db;
+}
 .tab__navigation--container .tab1,
 .tab__navigation--container .tab2 {
   display: flex;

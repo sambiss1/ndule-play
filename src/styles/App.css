@@ -8,6 +8,12 @@ body {
   background-color: #0e1010;
   color: #f8e5db;
   font-family: "Nunito";
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .dot-typing {

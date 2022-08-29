@@ -9,18 +9,19 @@ import { UserContext } from "../UserContext";
 import LoadingData from "../components/LoadingData";
 
 const SearchPage = () => {
-  const { search, termSearched, cursor } = useContext(UserContext);
+  const { isSearching } = useContext(UserContext);
   return (
     <div>
-      <div className="main__container" style={{ cursor: `${cursor}` }}>
-        {search ? (
-          <div className="page__content">
-            <h4>Recherche récente</h4>
-            {termSearched.length === "" ? <LoadingData /> : <SearchResult />}
-          </div>
-        ) : (
-          <LoadingData />
-        )}
+      <div className="main__container" >
+
+        <div className="page__content">
+
+          {!isSearching ? (<div><LoadingData /></div>) : (<>
+            <h3>Recherches récentes</h3>
+            <SearchResult />
+          </>
+          )}
+        </div>
       </div>
     </div>
   );
