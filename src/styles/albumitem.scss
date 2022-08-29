@@ -258,22 +258,23 @@
   .album__tabs--container {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 90%;
     margin: auto;
   }
 
   .card__tabs--panel {
     display: grid;
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
     width: 100%;
   }
 
   .card__item--container {
     border-radius: 25px;
-    height: 300px;
-    margin: 5% 0;
+    height: 250px;
+    margin: 2% 0 !important;
     position: relative;
+    width: 100%;
 
     .card__image--container {
       width: 100%;
@@ -297,7 +298,7 @@
       justify-content: center;
       align-items: center;
       right: 5%;
-      bottom: 40%;
+      bottom: 30%;
     }
 
     .card__name {
