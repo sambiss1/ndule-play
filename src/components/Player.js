@@ -27,6 +27,7 @@ export function Player() {
         autoPlay={play}
         callback={(state) => {
           if (!state.isPlaying) setPlay(false);
+          if (state.isPlaying) setPlay(true);
         }}
         play={play}
         showSaveIcon
