@@ -35,6 +35,20 @@
     display: none;
   }
 }
+@media screen and (max-width: 768px) {
+  .header--container {
+    display: none;
+  }
+
+  .mobile__header--container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    padding: 0 5%;
+  }
+}
 @media screen and (max-width: 576px) {
   .header--container {
     display: none;

@@ -21,6 +21,8 @@
   display: none;
 }
 
+
+
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .header--container {
     display: flex;
@@ -35,6 +37,21 @@
 
   .mobile__header--container {
     display: none;
+  }
+}
+
+@media screen and (max-width: map.get($breakpoints, "md")) {
+  .header--container {
+    display: none;
+  }
+
+  .mobile__header--container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    padding: 0 5%;
   }
 }
 
