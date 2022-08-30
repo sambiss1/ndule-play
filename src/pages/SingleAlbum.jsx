@@ -100,11 +100,11 @@ export const SingleAlbum = () => {
                 <LoadingData />
               ) : (
                 albumTracks.map(
-                  (albumTrack) =>
+                  (albumTrack, index) =>
                     albumTrack.artists +
-                      albumTrack.name +
-                      albumTrack.track_number && (
-                      <AlbumTrack key={albumTrack.id} props={albumTrack} />
+                    albumTrack.name +
+                    albumTrack.track_number && (
+                      <AlbumTrack key={albumTrack.id} index={index} props={albumTrack} />
                     )
                 )
               )}

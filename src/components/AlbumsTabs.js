@@ -73,8 +73,6 @@ export const AlbumsTabs = ({ id }) => {
         getUSerTopArtist();
     }, []);
 
-   
-
     // eslint-disable-next-line no-unused-vars
     const handleActiveTab = () => {
         setIsActiveTab(id);
