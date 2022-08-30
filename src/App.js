@@ -41,13 +41,13 @@ import { UserContext } from "./UserContext";
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
 
-  const { userToken, getMyAccount } = useContext(UserContext);
+  const { getMyAccount } = useContext(UserContext);
   const actualToken = window.localStorage.getItem("token");
 
   useEffect(() => {
     getMyAccount();
   }, []);
-  console.log(userToken);
+  
   return (
     <BrowserRouter>
       {actualToken ? <Sidebar /> : null}

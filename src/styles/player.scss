@@ -29,7 +29,6 @@
     position: fixed;
     bottom: 0;
     width: 75%;
-
     color: $white_color;
     display: flex;
     justify-content: space-evenly;
@@ -50,6 +49,5 @@
   .music__player--container {
     width: 100%;
     bottom: 15%;
-    // position: absolute;
   }
 }

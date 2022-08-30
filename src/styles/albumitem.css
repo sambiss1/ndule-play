@@ -50,7 +50,7 @@
 
 .card__tabs--panel {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   width: 100%;
 }
@@ -141,11 +141,11 @@
   animation-delay: -0.6s;
 }
 .card__item--container .card__name {
-  color: #de5000;
   margin: 0;
 }
 .card__item--container .album__name {
   margin: 0;
+  color: #de5000;
 }
 .card__item--container .track__link {
   color: #f8e5db;
@@ -178,7 +178,7 @@
 
   .card__tabs--panel {
     display: grid;
-    grid-template-columns: repeat(5, 200px);
+    grid-template-columns: repeat(4, 200px);
     grid-gap: 20px;
     width: 100%;
   }
@@ -215,7 +215,7 @@
     cursor: pointer;
   }
   .card__item--container .card__name {
-    color: #de5000;
+    color: #f8e5db;
     margin: 0;
   }
   .card__item--container .album__name {

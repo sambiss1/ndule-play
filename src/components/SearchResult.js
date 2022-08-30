@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable import/no-named-as-default */
 import { React, useContext } from "react";
+import { Link } from "react-router-dom";
 import { FiPlay } from "react-icons/fi";
 import { UserContext } from "../UserContext";
 import LoadingData from "./LoadingData";
@@ -135,20 +136,23 @@ export const SearchResult = () => {
               (artist) =>
                 artist.name + artist.images + artist.artists && (
                   <div className="card__item--container" key={artist.id}>
-                    <div className="card__image--container">
-                      {artist.images.length ? (
-                        <img src={artist.images[0].url} alt="track cover" />
-                      ) : (
-                        <img
-                          src={NoPlayListImage}
-                          alt="track cover"
-                        />
-                      )}
-                    </div>
-
-                    <h4 className="card__name" style={{ color: "#de5000" }}>
-                      {artist.name}
-                    </h4>
+                    <Link to={`/artist/${artist.id}`}>
+                      <div className="card__image--container">
+                        {artist.images.length ? (
+                          <img src={artist.images[0].url} alt="track cover" />
+                        ) : (
+                          <img
+                            src={NoPlayListImage}
+                            alt="track cover"
+                          />
+                        )}
+                      </div>
+                    </Link>
+                    <Link to={`/artist/${artist.id}`}>
+                      <h4 className="card__name" style={{ color: "#de5000" }}>
+                        {artist.name}
+                      </h4>
+                    </Link>
 
                     <div
                       className="play__icon--container"
@@ -174,9 +178,10 @@ export const SearchResult = () => {
             )}
           </div>
         </>
-      )}
+      )
+      }
 
-    </div>
+    </div >
   );
 };
 

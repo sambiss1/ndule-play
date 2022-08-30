@@ -38,12 +38,12 @@ export const RecentlyPlayedCard = ({ props }) => {
           <FiPlay className="play__icon" />
         )}
       </div>
+      <h4 className="album__name">{props.track.name}</h4>
       <Link to={`/artist/${props.track.artists[0].id}`}>
         <h4 className="card__name">{props.track.artists[0].name}</h4>
       </Link>
-      <Link to={`/track/${props.track.id}`} className="track__link">
-        <h4 className="album__name">{props.track.name}</h4>
-      </Link>
+
+
     </div>
   );
 };

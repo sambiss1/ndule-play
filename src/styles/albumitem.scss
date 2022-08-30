@@ -34,15 +34,16 @@
   .tab2 {
     display: flex;
   }
-    .active__tab--button {
-      background-color: $primary_color;
-      color: $secondary_color;
-      border: none;
-      border-radius: 25px;
-      padding: 0.5em 1em;
-      font-size: 1em;
-      margin: 3% 3% 3% 0;
-    }
+
+  .active__tab--button {
+    background-color: $primary_color;
+    color: $secondary_color;
+    border: none;
+    border-radius: 25px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    margin: 3% 3% 3% 0;
+  }
 }
 
 
@@ -59,7 +60,7 @@
 
 .card__tabs--panel {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   width: 100%;
 }
@@ -173,12 +174,13 @@
   }
 
   .card__name {
-    color: $primary_color;
+
     margin: 0;
   }
 
   .album__name {
     margin: 0;
+    color: $primary_color;
   }
 
   .track__link {
@@ -222,7 +224,7 @@
 
   .card__tabs--panel {
     display: grid;
-    grid-template-columns: repeat(5, 200px);
+    grid-template-columns: repeat(4, 200px);
     grid-gap: 20px;
     width: 100%;
   }
@@ -263,7 +265,7 @@
     }
 
     .card__name {
-      color: $primary_color;
+      color:$secondary_color;
       margin: 0;
     }
 
