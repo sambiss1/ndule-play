@@ -84,21 +84,27 @@ export const SearchResult = () => {
               (album) =>
                 album.name + album.images + album.artists && (
                   <div className="card__item--container" key={album.id}>
-                    <div className="card__image--container">
-                      {album.images.length ? (
-                        <img src={album.images[0].url} alt="track cover" />
-                      ) : (
-                        <img
-                          src={NoPlayListImage}
-                          alt="track cover"
-                        />
-                      )}
-                    </div>
+                    <Link to={`/album/${album.id}`}>
+                      <div className="card__image--container">
+                        {album.images.length ? (
+                          <img src={album.images[0].url} alt="track cover" />
+                        ) : (
+                          <img
+                            src={NoPlayListImage}
+                            alt="track cover"
+                          />
+                        )}
+                      </div>
+                    </Link>
+                    <Link to={`/album/${album.id}`}>
 
-                    <h4 className="card__name" style={{ color: "#de5000" }}>
-                      {album.name}
-                    </h4>
-                    <h4 className="album__name">{album.artists[0].name}</h4>
+                      <h4 className="card__name" style={{ color: "#de5000" }}>
+                        {album.name}
+                      </h4>
+                    </Link>
+                    <Link to={`/artist/${album.artists[0].id}`}>
+                      <h4 className="album__name">{album.artists[0].name}</h4>
+                    </Link>
                     <div
                       className="play__icon--container"
                       onClick={() => {
@@ -123,62 +129,64 @@ export const SearchResult = () => {
             )}
           </div>
         </>
-      )}
+      )
+      }
 
       {/* Artist result */}
-      {termSearched.albums.items.length <= 0 ? (
-        <LoadingData />
-      ) : (
-        <>
-          <h3 className="search__result--title">Artiste</h3>
-          <div className="searched__track--container">
-            {termSearched.artists.items.map(
-              (artist) =>
-                artist.name + artist.images + artist.artists && (
-                  <div className="card__item--container" key={artist.id}>
-                    <Link to={`/artist/${artist.id}`}>
-                      <div className="card__image--container">
-                        {artist.images.length ? (
-                          <img src={artist.images[0].url} alt="track cover" />
+      {
+        termSearched.albums.items.length <= 0 ? (
+          <LoadingData />
+        ) : (
+          <>
+            <h3 className="search__result--title">Artiste</h3>
+            <div className="searched__track--container">
+              {termSearched.artists.items.map(
+                (artist) =>
+                  artist.name + artist.images + artist.artists && (
+                    <div className="card__item--container" key={artist.id}>
+                      <Link to={`/artist/${artist.id}`}>
+                        <div className="card__image--container">
+                          {artist.images.length ? (
+                            <img src={artist.images[0].url} alt="track cover" />
+                          ) : (
+                            <img
+                              src={NoPlayListImage}
+                              alt="track cover"
+                            />
+                          )}
+                        </div>
+                      </Link>
+                      <Link to={`/artist/${artist.id}`}>
+                        <h4 className="card__name" style={{ color: "#de5000" }}>
+                          {artist.name}
+                        </h4>
+                      </Link>
+
+                      <div
+                        className="play__icon--container"
+                        onClick={() => {
+                          setAnUri(artist.uri);
+                          setPlay(true);
+                        }}
+                      >
+                        {anUri === artist.uri && play ? (
+                          <div className="spinner">
+                            <div className="r1"></div>
+                            <div className="r2"></div>
+                            <div className="r3"></div>
+                            <div className="r4"></div>
+                            <div className="r5"></div>
+                          </div>
                         ) : (
-                          <img
-                            src={NoPlayListImage}
-                            alt="track cover"
-                          />
+                          <FiPlay className="play__icon" />
                         )}
                       </div>
-                    </Link>
-                    <Link to={`/artist/${artist.id}`}>
-                      <h4 className="card__name" style={{ color: "#de5000" }}>
-                        {artist.name}
-                      </h4>
-                    </Link>
-
-                    <div
-                      className="play__icon--container"
-                      onClick={() => {
-                        setAnUri(artist.uri);
-                        setPlay(true);
-                      }}
-                    >
-                      {anUri === artist.uri && play ? (
-                        <div className="spinner">
-                          <div className="r1"></div>
-                          <div className="r2"></div>
-                          <div className="r3"></div>
-                          <div className="r4"></div>
-                          <div className="r5"></div>
-                        </div>
-                      ) : (
-                        <FiPlay className="play__icon" />
-                      )}
                     </div>
-                  </div>
-                )
-            )}
-          </div>
-        </>
-      )
+                  )
+              )}
+            </div>
+          </>
+        )
       }
 
     </div >
