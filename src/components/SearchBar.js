@@ -15,7 +15,7 @@ export const BestResult = () => {
 export function SearchBar() {
   const navigate = useNavigate();
 
-  const { term, setTerm, setTermSearched, setIsSearching, termSearched } = useContext(UserContext);
+  const { term, setTerm, setTermSearched, setIsSearching } = useContext(UserContext);
   const searchitem = (event) => {
     event.preventDefault();
     setIsSearching(false);
@@ -29,7 +29,6 @@ export function SearchBar() {
 
   };
 
-  console.log(termSearched);
   return (
     <form onSubmit={searchitem} className="desktop__search--form">
       <div className="search__input--container">
@@ -44,7 +43,7 @@ export function SearchBar() {
             window.location.pathname !== "/search"
               ? navigate("/search", { replace: true })
               : window.location("/search");
-            // searchitem();
+            searchitem();
           }}
         />
 

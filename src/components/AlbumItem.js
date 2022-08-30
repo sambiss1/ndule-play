@@ -11,7 +11,7 @@ export function AlbumItem({ newalbum }) {
   const { setAnUri, setPlay, anUri, play } = useContext(UserContext);
 
   return (
-    <div className="card__item--container" key={newalbum.id}>
+    <div className="card__item--container " key={newalbum.id}>
       <Link to={`/album/${newalbum.id}`} className="track__link">
         <div className="card__image--container">
           <img src={newalbum.images[0].url} alt="artits" />
