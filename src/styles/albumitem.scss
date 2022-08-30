@@ -174,9 +174,10 @@
   }
 
   .card__name {
-
+    color: $secondary_color;
     margin: 0;
   }
+
   .album__name {
     margin: 0;
     color: $primary_color;
@@ -264,13 +265,13 @@
     }
 
     .card__name {
-      
+      color: $secondary_color;
       margin: 0;
     }
 
     .album__name {
       margin: 0;
-      color: $secondary_color;
+      color: $primary_color;
     }
 
     .track__link {

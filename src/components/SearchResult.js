@@ -43,10 +43,10 @@ export const SearchResult = () => {
                       )}
                     </div>
 
-                    <h4 className="card__name" style={{ color: "#de5000" }}>
+                    <h4 className="album__name">
                       {track.name}
                     </h4>
-                    <h4 className="album__name">{track.artists[0].name}</h4>
+                    <h4 className="card__name">{track.artists[0].name}</h4>
                     <div
                       className="play__icon--container"
                       onClick={() => {
@@ -98,12 +98,12 @@ export const SearchResult = () => {
                     </Link>
                     <Link to={`/album/${album.id}`}>
 
-                      <h4 className="card__name" style={{ color: "#de5000" }}>
+                      <h4 className="album__name">
                         {album.name}
                       </h4>
                     </Link>
                     <Link to={`/artist/${album.artists[0].id}`}>
-                      <h4 className="album__name">{album.artists[0].name}</h4>
+                      <h4 className="card__name">{album.artists[0].name}</h4>
                     </Link>
                     <div
                       className="play__icon--container"

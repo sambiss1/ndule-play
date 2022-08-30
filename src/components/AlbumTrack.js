@@ -9,7 +9,7 @@ import "../styles/singlealbum.css";
 import { FiPlay, FiHeart } from "react-icons/fi";
 import { UserContext } from "../UserContext";
 
-export function AlbumTrack({ props }) {
+export function AlbumTrack({ props, index }) {
   const { millisToMinutesAndSeconds, setAnUri, setPlay } =
     useContext(UserContext);
 
@@ -23,7 +23,7 @@ export function AlbumTrack({ props }) {
         setPlay(true);
       }}
     >
-      <h4>{props.track_number}</h4>
+      <h4>{index + 1}</h4>
       <div className="album__track--details">
         <h4 className="album__track--title">{props.name}</h4>
 

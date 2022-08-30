@@ -141,6 +141,7 @@
   animation-delay: -0.6s;
 }
 .card__item--container .card__name {
+  color: #f8e5db;
   margin: 0;
 }
 .card__item--container .album__name {
@@ -215,11 +216,12 @@
     cursor: pointer;
   }
   .card__item--container .card__name {
+    color: #f8e5db;
     margin: 0;
   }
   .card__item--container .album__name {
     margin: 0;
-    color: #f8e5db;
+    color: #de5000;
   }
   .card__item--container .track__link {
     color: #f8e5db;

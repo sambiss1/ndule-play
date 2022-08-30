@@ -6,9 +6,9 @@ import { UserContext } from "../UserContext";
 import spotifyApi from "../utils";
 
 export const HomePageSlider = () => {
-  const { userID } = useContext(UserContext);
+  const { userID, setAnUri, setPlay } = useContext(UserContext);
 
-  const [propotionalPlaylist, setPropotentialPlaylist, setAnUri, setPlay] = useState([]);
+  const [propotionalPlaylist, setPropotentialPlaylist] = useState([]);
 
 
   useEffect(() => {
@@ -34,9 +34,8 @@ export const HomePageSlider = () => {
       {propotionalPlaylist.map((playlist) => playlist.uri
         &&
         (<button className="play__recent__playlist" onClick={() => {
-        setAnUri(playlist.uri);
-        setPlay(true);
-          console.log(playlist.uri);
+          setAnUri(playlist.uri);
+          setPlay(true);
 
         }}>Jouez une playlist</button>)
 
