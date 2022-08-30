@@ -46,7 +46,14 @@
     justify-content: space-between;
     align-items: center;
     top: 0;
-    padding: 0 5%;
+  }
+  .mobile__header--container .logo__mobile {
+    left: 0 !important;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile__header--container div:last-child {
+    border: 0.1 dashed yellow;
   }
 }
 @media screen and (max-width: 576px) {
@@ -65,6 +72,10 @@
     align-items: center;
     top: 0;
     padding: 0 5%;
+  }
+  .mobile__header--container:first-child {
+    left: 0 !important;
+    border: 0.1em solid red;
   }
 }
 

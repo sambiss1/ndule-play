@@ -131,10 +131,24 @@ body {
 
 @media screen and (max-width: map.get($breakpoints, "md")) {
   .main__container {
-      left: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 150px;
+  }
+
+  .application__logo--container {
+    width: 70%;
+    height: 80px;
+    display: flex;
+    margin: 0;
+
+    margin-left: 5% !important;
+
+    img {
       width: 100%;
-      padding-bottom: 150px;
+      height: 100%;
     }
+  }
 }
 
 
