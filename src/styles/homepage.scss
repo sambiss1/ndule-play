@@ -11,6 +11,10 @@
   height: 600px !important;
   width: 95%;
   margin: auto;
+  background: url("/public/cover-home.png") no-repeat;
+  background-color: $primary_color;
+  background-position: center right;
+  background-size: contain;
 }
 
 @media (max-width: map.get($breakpoints, "sl")) {
@@ -18,6 +22,7 @@
     display: grid;
     grid-template-columns: 25% 100%;
   }
+
   .homepage__cover--container {
     height: 400px !important;
   }

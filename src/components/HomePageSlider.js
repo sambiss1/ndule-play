@@ -3,12 +3,12 @@
 import { React } from "react";
 
 // import MusicEcaliserImage from "../images/musique-fond-egaliseur-haut-parleur_1017-32860.jpg";
-import MusicBackground from "../images/music-background.jpg";
+// import MusicBackground from "../images/music-background.jpg";
 
 export const HomePageSlider = () => {
   return (
     <div className="homepage__cover--container">
-      <img
+      {/* <img
         src={MusicBackground}
         alt="music egaliseur "
         style={{
@@ -16,7 +16,7 @@ export const HomePageSlider = () => {
           height: "100%",
           borderRadius: "25px",
         }}
-      />
+      /> */}
     </div>
   );
 };

@@ -97,7 +97,7 @@ input[type=submit]:hover {
 @media screen and (max-width: 576px) {
   .mobile__search--form {
     display: flex;
-    width: 95%;
+    width: 90%;
     margin: auto;
   }
 
@@ -122,8 +122,10 @@ input[type=submit]:hover {
   }
   .search__input--container input[type=search] {
     border-radius: 25px;
-    border-right: none;
     width: 100%;
+    padding-left: 15%;
+    outline: none;
+    border: none;
   }
   .search__input--container input[type=search]:focus {
     border: none;

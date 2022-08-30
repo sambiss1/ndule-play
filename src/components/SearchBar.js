@@ -29,7 +29,10 @@ export function SearchBar() {
 
   };
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> feature/search
   return (
     <form onSubmit={searchitem} className="desktop__search--form">
       <div className="search__input--container">
@@ -44,7 +47,7 @@ export function SearchBar() {
             window.location.pathname !== "/search"
               ? navigate("/search", { replace: true })
               : window.location("/search");
-            // searchitem();
+            searchitem();
           }}
         />
 

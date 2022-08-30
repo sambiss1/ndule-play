@@ -74,10 +74,11 @@ body::-webkit-scrollbar {
 }
 
 .application__logo--container {
-  width: 80%;
-  height: 100px;
+  width: 70%;
+  height: 80px;
   display: flex;
   margin: 0 auto;
+  margin-left: 10% !important;
 }
 .application__logo--container img {
   width: 100%;
@@ -129,6 +130,7 @@ body::-webkit-scrollbar {
 
   .page__content {
     padding-top: 30%;
+    width: 90%;
   }
 }
 

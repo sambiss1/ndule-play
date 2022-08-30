@@ -92,10 +92,11 @@ body {
 }
 
 .application__logo--container {
-  width: 80%;
-  height: 100px;
+  width: 70%;
+  height: 80px;
   display: flex;
   margin: 0 auto;
+  margin-left: 10% !important;
 
   img {
     width: 100%;
@@ -149,5 +150,6 @@ body {
 
   .page__content {
     padding-top: 30%;
+    width: 90%;
   }
 }

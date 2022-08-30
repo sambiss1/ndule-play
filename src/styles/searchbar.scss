@@ -107,7 +107,7 @@ input[type="submit"] {
 @media screen and (max-width: map.get($breakpoints, "sm")) {
   .mobile__search--form {
     display: flex;
-    width: 95%;
+    width: 90%;
     margin: auto;
   }
 
@@ -135,8 +135,10 @@ input[type="submit"] {
 
     input[type="search"] {
       border-radius: 25px;
-      border-right: none;
       width: 100%;
+      padding-left: 15%;
+      outline: none;
+      border: none;
 
       &:focus {
         border: none;

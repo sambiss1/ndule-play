@@ -9,6 +9,10 @@
   height: 600px !important;
   width: 95%;
   margin: auto;
+  background: url("/public/cover-home.png") no-repeat;
+  background-color: #de5000;
+  background-position: center right;
+  background-size: contain;
 }
 
 @media (max-width: 1440px) {

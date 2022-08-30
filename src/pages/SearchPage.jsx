@@ -16,11 +16,13 @@ const SearchPage = () => {
 
         <div className="page__content">
 
-          {!isSearching ? (<div><LoadingData /></div>) : (<>
-            <h3>Recherches récentes</h3>
-            <SearchResult />
-          </>
-          )}
+          {!isSearching ?
+            (<div><LoadingData /></div>) :
+            (<>
+              <h3>Recherches récentes</h3>
+              <SearchResult />
+            </>)
+          }
         </div>
       </div>
     </div>
