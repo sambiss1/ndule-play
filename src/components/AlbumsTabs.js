@@ -11,16 +11,19 @@ import spotifyApi from "../utils";
 import AlbumItem from "./AlbumItem";
 import AmbianceSongItem from "./AmbianceSongItem";
 import TabNavItem from "./TabNavItem";
-// import TabContainer from "./TabContainer";
+import TopArtistCard from "./TopArtistCard";
+
 
 import "../styles/albumitem.css";
-// import { UserContext } from "../UserContext";
 import LoadingData from "./LoadingData";
 
 export const AlbumsTabs = ({ id }) => {
     const [newRelease, setNewRelease] = useState([]);
     const [isActiveTab, setIsActiveTab] = useState("tab1");
     const [ambianceTracks, setAmbianceTracks] = useState([]);
+    const [topArtists, setTopArtists] = useState([]);
+    // eslint-disable-next-line no-unused-vars
+    const [anError, setAnError] = useState("");
     // eslint-disable-next-line no-unused-vars
     const [activeTabButton, setActiveTabButton] = useState("active__tab--button");
 
@@ -31,7 +34,7 @@ export const AlbumsTabs = ({ id }) => {
                 setNewRelease(newReleaseAlbum.albums.items);
             } catch (error) {
                 setNewRelease([]);
-                console.log(error);
+                setAnError(error);
             }
         };
 
@@ -49,11 +52,28 @@ export const AlbumsTabs = ({ id }) => {
                 );
                 setAmbianceTracks(getAmbianceSongsRecommended.tracks);
             } catch (err) {
-                console.log(err);
+                setAnError(err);
             }
         };
         getAmbianceSongs();
+
+        // Get user top artist 
+        const getUSerTopArtist = async () => {
+            try {
+
+                const myTopArtist = await spotifyApi.getMyTopArtists({ limit: 10 });
+                setTopArtists(myTopArtist.items);
+            }
+
+            catch (error) {
+                setAnError(error);
+            }
+        };
+
+        getUSerTopArtist();
     }, []);
+
+   
 
     // eslint-disable-next-line no-unused-vars
     const handleActiveTab = () => {
@@ -64,31 +84,22 @@ export const AlbumsTabs = ({ id }) => {
         <div className="album__tabs--container">
             <div className="tab__navigation--container">
                 <button
-                    className="tab__navigation--button"
+                    className={isActiveTab === "tab1" ? "active__tab--button" : "tab__navigation--button"}
                     onClick={() => {
                         setIsActiveTab("tab1");
-                        console.log("Active Tab 1 :  ", isActiveTab);
-                        // handleActiveTab();
                     }}
-                    autoFocus
                 >
                     Nouveautés
                 </button>
-
                 <button
-                    className="tab__navigation--button"
+                    className={isActiveTab === "tab2" ? "active__tab--button" : "tab__navigation--button"}
                     onClick={() => {
                         setIsActiveTab("tab2");
-                        console.log("Active Tab 2 : ", isActiveTab);
-                        // handleActiveTab();
                     }}
                 >
                     Ambiance
                 </button>
 
-                {/* 
-                <button className="tab__navigation--button">Afro</button>
-                <button className="tab__navigation--button">Gaming</button> */}
             </div>
             {isActiveTab === "tab1" ? (
                 <TabNavItem
@@ -97,7 +108,7 @@ export const AlbumsTabs = ({ id }) => {
                     {newRelease.length <= 0 ? (
                         <LoadingData />
                     ) : (
-                        <div className="card__tabs--panel">
+                        <div className="homepage__card--container">
                             {newRelease.map(
                                 (newalbum) =>
                                     newalbum.name +
@@ -108,6 +119,25 @@ export const AlbumsTabs = ({ id }) => {
                             )}
                         </div>
                     )}
+                    <div className="tab__navigation--container">
+                        <button
+                            className="tab__navigation--button active__tab--button"
+                        >
+                            Vos artistes preferés
+                        </button>
+                        {topArtists.length <= 0 ? (<LoadingData />) :
+                            (<div className="homepage__card--container top__artist--container">
+                                {topArtists.map((artist) => artist.name + artist.images + artist.id &&
+                                    <TopArtistCard
+                                        props={artist}
+                                        key={artist.id}
+
+                                    />
+                                )
+                                }
+                            </div>)
+                        }
+                    </div>
                 </TabNavItem>
             ) : (
                 <TabNavItem
@@ -116,7 +146,7 @@ export const AlbumsTabs = ({ id }) => {
                     {ambianceTracks.length <= 0 ? (
                         <LoadingData />
                     ) : (
-                        <div className="card__tabs--panel">
+                        <div className="card__tabs--panel ">
                             {ambianceTracks.map(
                                 (ambianceSong) =>
                                     ambianceSong.album.name +

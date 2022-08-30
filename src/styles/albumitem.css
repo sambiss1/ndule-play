@@ -32,18 +32,24 @@
 .tab__navigation--container .tab2 {
   display: flex;
 }
-
-.active__tab--button {
+.tab__navigation--container .active__tab--button {
   background-color: #de5000;
   color: #f8e5db;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  margin: 3% 3% 3% 0;
 }
 
 .active__tab {
   display: flex;
+  flex-direction: column;
 }
 
 .no__active--tab {
   display: none;
+  flex-direction: column;
 }
 
 .card__tabs--panel {
@@ -51,6 +57,19 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
   width: 100%;
+}
+
+.homepage__card--container {
+  display: grid;
+  grid-template-columns: repeat(20, 200px);
+  grid-gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.top__artist--container {
+  grid-template-columns: repeat(10, 200px) !important;
 }
 
 .card__item--container {
@@ -163,7 +182,7 @@
 
   .card__tabs--panel {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 200px);
     grid-gap: 20px;
     width: 100%;
   }
@@ -214,22 +233,30 @@
   .album__tabs--container {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 90%;
     margin: auto;
   }
 
   .card__tabs--panel {
     display: grid;
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(2, 200px);
     grid-gap: 20px;
     width: 100%;
   }
 
+  .homepage__card--container {
+    grid-template-columns: repeat(20, 200px);
+    grid-gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
   .card__item--container {
     border-radius: 25px;
-    height: 300px;
-    margin: 5% 0;
+    height: 250px;
+    margin: 2% 0 !important;
     position: relative;
+    width: 100%;
   }
   .card__item--container .card__image--container {
     width: 100%;
@@ -251,7 +278,7 @@
     justify-content: center;
     align-items: center;
     right: 5%;
-    bottom: 40%;
+    bottom: 30%;
   }
   .card__item--container .card__name {
     color: #de5000;
