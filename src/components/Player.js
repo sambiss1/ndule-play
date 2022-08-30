@@ -16,7 +16,7 @@ export function Player() {
         uris={anUri ? [anUri] : []}
         styles={{
           activeColor: "#fff",
-          bgColor: "#333",
+          bgColor: "rgba(50 50 50 / 50%)",
           color: "#fff",
           loaderColor: "#fff",
           sliderColor: "#DE5000",
