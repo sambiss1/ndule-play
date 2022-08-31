@@ -15,7 +15,6 @@ import NoPlayListImage from "../images/ndule-play-icon.png";
 export const Card = ({ props }) => {
   const { setPlay, setAnUri, anUri } = useContext(UserContext);
 
-  console.log(props);
   return (
     <>
       <div className="card__item--container" key={props.id}>

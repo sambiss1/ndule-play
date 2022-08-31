@@ -46,7 +46,7 @@ export const SingleAlbum = () => {
   }, []);
 
   return (
-    <div className="homepage__content">
+    // <div className="homepage__content">
       <div className="main__container">
         {album.length <= 0 ? (
           <LoadingData />
@@ -112,7 +112,7 @@ export const SingleAlbum = () => {
           </div>
         )}
       </div>
-    </div>
+    // </div>
   );
 };
 
