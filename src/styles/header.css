@@ -67,15 +67,12 @@
 
   .mobile__header--container {
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     top: 0;
     padding: 0 5%;
-  }
-  .mobile__header--container:first-child {
-    left: 0 !important;
-    border: 0.1em solid red;
+    padding-left: 0 !important;
   }
 }
 
