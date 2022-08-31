@@ -105,6 +105,26 @@
   .homepage__cover--container {
     height: 200px !important;
   }
+  .homepage__cover--container h3 {
+    font-size: 1em !important;
+  }
+  .homepage__cover--container span {
+    font-size: 0.8em;
+  }
+  .homepage__cover--container .play__recent__playlist {
+    width: 35%;
+    background-color: #f8e5db;
+    color: #000000;
+    border: 0.1em solid #f8e5db;
+    border-radius: 25px;
+    padding: 0.5em;
+    font-size: 0.8em;
+    margin: 2% 2% 2% 0;
+  }
+  .homepage__cover--container .play__recent__playlist:hover {
+    background-color: #de5000;
+    color: #f8e5db;
+  }
 }
 
 /*# sourceMappingURL=homepage.css.map */
