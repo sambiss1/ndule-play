@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-const-assign */
 import { React, useContext } from "react";
@@ -16,8 +17,13 @@ export function SearchBar() {
   const navigate = useNavigate();
 
   const { term, setTerm, setTermSearched, setIsSearching } = useContext(UserContext);
+
+
   const searchitem = (event) => {
     event.preventDefault();
+    window.location.pathname !== "/search"
+      ? navigate("/search", { replace: true })
+      : term === "";
     setIsSearching(false);
 
     setTimeout(() => {
@@ -38,11 +44,13 @@ export function SearchBar() {
           placeholder="Rechercher ici"
           name="search__bar--input"
           // value={term}
+          // onClick={() => {
+          //   window.location.pathname !== "/search"
+          //     ? navigate("/search", { replace: true })
+          //     : window.location("/search");
+          // }}
           onChange={(event) => {
             setTerm(event.target.value);
-            window.location.pathname !== "/search"
-              ? navigate("/search", { replace: true })
-              : window.location("/search");
             searchitem();
           }}
         />

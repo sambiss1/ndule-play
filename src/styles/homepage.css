@@ -54,6 +54,43 @@
     height: 400px !important;
   }
 }
+@media (max-width: 768px) {
+  .homepage--container {
+    display: flex;
+    width: 100%;
+  }
+
+  .homepage__content {
+    left: 0 !important;
+    width: 100% !important;
+    padding-bottom: 200px !important;
+  }
+
+  .homepage__cover--container {
+    height: 300px !important;
+  }
+  .homepage__cover--container h3 {
+    font-size: 1.4em !important;
+  }
+  .homepage__cover--container span {
+    font-size: 1em;
+  }
+  .homepage__cover--container .play__recent__playlist {
+    width: 30%;
+    background-color: #f8e5db;
+    color: #000000;
+    border: 0.1em solid #f8e5db;
+    border-radius: 25px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    margin: 3% 3% 3% 0;
+    transition: all 0.3s ease, color 0.3s ease;
+  }
+  .homepage__cover--container .play__recent__playlist:hover {
+    background-color: #de5000;
+    color: #f8e5db;
+  }
+}
 @media (max-width: 576px) {
   .homepage--container {
     display: flex;

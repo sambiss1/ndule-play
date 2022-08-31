@@ -164,9 +164,7 @@ hr {
     font-size: 2em;
   }
 
-  h2 {
-    margin-left: 10%;
-  }
+
 
   hr {
     width: 20%;
@@ -198,6 +196,67 @@ hr {
     &:hover {
       @extend .link__hover--effect;
       color: $white_color;
+    }
+  }
+}
+
+@media (max-width: map.get($breakpoints, "md")) {
+  .mobile__naigation--container {
+    display: flex;
+    position: fixed;
+    bottom: 0%;
+    height: 15%;
+    width: 100%;
+    padding: 0;
+    background-color: $black_color;
+    align-items: center;
+ 
+
+    ul {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        a {
+
+          width: 100%;
+
+          span {
+            margin: 0;
+          }
+
+          .sidebar__menu--icon {
+            margin: auto;
+          }
+
+          &:hover {
+            color: $primary_color;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 0 !important;
+          }
+        }
+
+        &:hover {
+          color: $primary_color;
+          background-color: transparent;
+          cursor: pointer;
+          padding: 0 !important;
+        }
+      }
+
+      .logout__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

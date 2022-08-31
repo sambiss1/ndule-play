@@ -219,6 +219,7 @@
   }
 }
 
+// Laptop screen size
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .album__tabs--container {
     display: flex;
@@ -285,6 +286,81 @@
   }
 }
 
+
+// Tablet screen size
+@media screen and (max-width: map.get($breakpoints, "md")) {
+  .album__tabs--container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+  }
+
+  .card__tabs--panel {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-gap: 30px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .homepage__card--container {
+    grid-template-columns: repeat(20, 200px);
+    grid-gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .card__item--container {
+    border-radius: 25px;
+    height: 250px;
+    margin: 0 0 10% !important;
+    position: relative;
+    width: 100%;
+    margin: 0;
+
+    .card__image--container {
+      width: 100%;
+      height: 200px;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+      }
+    }
+
+    .play__icon--container {
+      position: absolute;
+      background-color: $primary_color;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 5%;
+      bottom: 30%;
+    }
+
+    .card__name {
+      color: $secondary_color;
+      margin: 0;
+    }
+
+    .album__name {
+      margin: 0;
+
+    }
+
+    .track__link {
+      color: $secondary_color;
+    }
+  }
+}
+
+// Mobile phone screen size
 @media screen and (max-width: map.get($breakpoints, "sm")) {
   .album__tabs--container {
     display: flex;

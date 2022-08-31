@@ -94,6 +94,47 @@ input[type=submit]:hover {
     display: none;
   }
 }
+@media screen and (max-width: 768px) {
+  .mobile__search--form {
+    display: flex;
+    width: 95%;
+    margin: auto;
+  }
+
+  form {
+    font-size: 1em;
+    margin-right: 15%;
+    width: 20%;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+  }
+
+  .search__input--container {
+    width: 100%;
+  }
+  .search__input--container .search__bar--icon {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    font-size: 1em;
+  }
+  .search__input--container input[type=search] {
+    border-radius: 25px;
+    width: 100%;
+    padding-left: 15%;
+    outline: none;
+    border: none;
+  }
+  .search__input--container input[type=search]:focus {
+    border: none;
+  }
+
+  input[type=submit] {
+    display: none;
+  }
+}
 @media screen and (max-width: 576px) {
   .mobile__search--form {
     display: flex;

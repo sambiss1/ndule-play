@@ -44,6 +44,12 @@
     }
   }
 }
+@media screen and (max-width: map.get($breakpoints, "md")) {
+  .music__player--container {
+    width: 100%;
+    bottom: 15%;
+  }
+}
 
 @media screen and (max-width: map.get($breakpoints, "sm")) {
   .music__player--container {
