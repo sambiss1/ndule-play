@@ -124,5 +124,32 @@
 
   .homepage__cover--container {
     height: 200px !important;
+
+    h3 {
+      font-size: 1em !important;
+    }
+
+    span {
+      font-size: .8em;
+    }
+
+    .play__recent__playlist {
+      width: 35%;
+      background-color: $secondary_color;
+      color: $black_color;
+      border: .1em solid $secondary_color;
+      border-radius: 25px;
+      padding: 0.5em;
+      font-size: .8em;
+      margin: 2% 2% 2% 0;
+     
+
+      &:hover {
+        background-color: $primary_color;
+        color: $secondary_color;
+
+      }
+
+    }
   }
 }
