@@ -1,8 +1,6 @@
 /* Light mode color */
 /* Dark mode color */
-.link__hover--effect,
-.logout__button:hover,
-ul li:hover {
+.link__hover--effect, .logout__button:hover, ul li:hover {
   color: #de5000;
   background-color: #de5000;
   cursor: pointer;
@@ -93,9 +91,7 @@ hr {
 }
 
 @media (max-width: 1440px) {
-  .link__hover--effect,
-  ul li:hover,
-  .logout__button:hover {
+  .link__hover--effect, ul li:hover, .logout__button:hover {
     color: #de5000;
     background-color: #de5000;
     cursor: pointer;
