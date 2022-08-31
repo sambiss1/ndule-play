@@ -50,14 +50,12 @@
     align-items: flex-end;
     justify-content: flex-end;
   }
-  .album__actions--play,
-  .album__actions--like {
+  .album__actions--play, .album__actions--like {
     color: #de5000;
     font-size: 2em;
     margin: 0.5em;
   }
-  .album__actions--play:hover,
-  .album__actions--like:hover {
+  .album__actions--play:hover, .album__actions--like:hover {
     cursor: pointer;
   }
 
@@ -96,8 +94,7 @@
     align-items: flex-end;
     justify-content: space-between;
   }
-  .album__track__actions--play,
-  .album__track__actions--like {
+  .album__track__actions--play, .album__track__actions--like {
     color: #de5000;
     font-size: 1em;
     margin: 0.5em;
@@ -144,45 +141,38 @@
     font-size: 1em;
     padding: 0 0.5em;
   }
-  .album__other__detail--container h4 {
+
+  h4 {
     border-left: 0.1em solid #ffffff;
     padding: 0 0.5em;
   }
-
-  .album__actions--play,
-  .album__actions--like {
+  h4 .album__actions--play, h4 .album__actions--like {
     color: #de5000;
     font-size: 1em;
     margin: 0.5em;
   }
-  .album__actions--play:hover,
-  .album__actions--like:hover {
+  h4 .album__actions--play:hover, h4 .album__actions--like:hover {
     cursor: pointer;
   }
-
-  .album__track--container:hover {
+  h4 .album__track--container:hover {
     background-color: #000000;
     cursor: pointer;
   }
-  .album__track--container:hover:hover {
-    background-color: #000000;
-  }
-  .album__track--container:hover:hover .album__track--details {
+  h4 .album__track--container:hover .album__track--details {
     width: 50%;
     display: flex;
     flex-direction: column;
     margin: 0 5%;
   }
-  .album__track--container:hover:hover .album__track--title {
+  h4 .album__track--container:hover .album__track--title {
     color: #de5000;
     margin: 0;
   }
-  .album__track--container:hover:hover .album__track--artists {
+  h4 .album__track--container:hover .album__track--artists {
     color: #f8e5db;
     margin: 0;
   }
-
-  .album__track__actions--container {
+  h4 .album__track__actions--container {
     margin: 0;
     display: flex;
     align-items: flex-end;
@@ -190,8 +180,7 @@
     border: 0.1em solid red;
     display: none;
   }
-  .album__track__actions--play,
-  .album__track__actions--like {
+  h4 .album__track__actions--play, h4 .album__track__actions--like {
     color: #de5000;
     font-size: 1.4rem;
     margin: 0 0.5em;
