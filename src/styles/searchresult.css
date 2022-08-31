@@ -27,7 +27,7 @@
 @media screen and (max-width: 1440px) {
   .searched__track--container {
     display: grid;
-    grid-template-columns: repeat(20, 200px);
+    grid-template-columns: repeat(20, 250px);
     grid-gap: 20px;
     overflow-x: auto;
     scrollbar-width: none;

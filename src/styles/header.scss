@@ -21,6 +21,8 @@
   display: none;
 }
 
+
+
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .header--container {
     display: flex;
@@ -35,6 +37,32 @@
 
   .mobile__header--container {
     display: none;
+  }
+}
+
+@media screen and (max-width: map.get($breakpoints, "md")) {
+  .header--container {
+    display: none;
+  }
+
+  .mobile__header--container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+
+    // padding: 0 5%;
+    .logo__mobile {
+      left: 0 !important;
+      padding: 0;
+      margin: 0;
+
+    }
+
+    div:last-child {
+      border: .1 dashed yellow;
+    }
   }
 }
 
@@ -54,5 +82,10 @@
     align-items: center;
     top: 0;
     padding: 0 5%;
+
+    &:first-child {
+      left: 0 !important;
+      border: .1em solid red;
+    }
   }
 }

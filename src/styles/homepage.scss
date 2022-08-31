@@ -66,6 +66,51 @@
   }
 }
 
+@media (max-width: map.get($breakpoints, "md")) {
+  .homepage--container {
+    display: flex;
+    width: 100%;
+
+  }
+
+  .homepage__content {
+    left: 0 !important;
+    width: 100% !important;
+    padding-bottom: 200px !important;
+  }
+
+  .homepage__cover--container {
+    height: 300px !important;
+
+    h3 {
+      font-size: 1.4em !important;
+    }
+
+    span {
+      font-size: 1em;
+    }
+
+    .play__recent__playlist {
+      width: 30%;
+      background-color: $secondary_color;
+      color: $black_color;
+      border: .1em solid $secondary_color;
+      border-radius: 25px;
+      padding: 0.5em 1em;
+      font-size: 1em;
+      margin: 3% 3% 3% 0;
+      transition: all .3s ease, color .3s ease;
+
+      &:hover {
+        background-color: $primary_color;
+        color: $secondary_color;
+
+      }
+
+    }
+  }
+}
+
 @media (max-width: map.get($breakpoints, "sm")) {
   .homepage--container {
     display: flex;

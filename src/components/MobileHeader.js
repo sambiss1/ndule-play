@@ -14,8 +14,11 @@ export function MobileHeader() {
   const [noActiveLink, setNotActiveLink] = useState("no__active");
   return (
     <div className="mobile__header--container">
-      <LogoContainer />
-      <div>
+      <div className="logo__mobile">
+
+        <LogoContainer />
+      </div>
+      <div className="recently__played--mobile">
         <NavLink
           to="/recently-played"
           className={({ isActive }) => (isActive ? activeLink : noActiveLink)}
