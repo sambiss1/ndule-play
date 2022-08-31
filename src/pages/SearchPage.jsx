@@ -18,10 +18,11 @@ const SearchPage = () => {
 
           {!isSearching ?
             (<div><LoadingData /></div>) :
-            (<>
-              <h3>Recherches récentes</h3>
-              <SearchResult />
-            </>)
+            (
+              <>
+                <h3>Recherches récentes</h3>
+                <SearchResult />
+              </>)
           }
         </div>
       </div>

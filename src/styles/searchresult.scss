@@ -9,6 +9,7 @@
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  // height: auto;
 
   &::-webkit-scrollbar {
     display: none;
@@ -32,7 +33,7 @@
 
   .searched__track--container {
     display: grid;
-    grid-template-columns: repeat(20, 200px);
+    grid-template-columns: repeat(20, 250px);
     grid-gap: 20px;
     overflow-x: auto;
     scrollbar-width: none;

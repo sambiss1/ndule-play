@@ -41,11 +41,11 @@ const AmbianceSongItem = ({ props }) => {
                 )}
             </div>
 
-            <Link to={`/artist/${props.artists[0].id}`}>
-                <h4 className="card__name">{props.artists[0].name}</h4>
-            </Link>
             <Link to={`/album/${props.id}`} className="track__link">
                 <h4 className="album__name">{props.name}</h4>
+            </Link>
+            <Link to={`/artist/${props.artists[0].id}`}>
+                <h4 className="card__name">{props.artists[0].name}</h4>
             </Link>
         </div>
     );
