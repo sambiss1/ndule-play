@@ -1,5 +1,55 @@
 /* Light mode color */
 /* Dark mode color */
+.top__track--container {
+  background-color: rgba(50, 50, 50, 0.5);
+  height: 100px;
+  display: flex;
+  margin: 2% 0;
+  align-items: center;
+}
+.top__track--container:hover {
+  background-color: #000000;
+  cursor: pointer;
+}
+
+.top__track_title_image--container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 20px;
+  height: 100px;
+  width: 50%;
+  align-items: center;
+}
+
+.top__track--title {
+  display: flex;
+  color: #de5000;
+  justify-self: flex-start;
+}
+
+.track__cover--container {
+  width: 100px;
+  height: 100px;
+}
+.track__cover--container img {
+  width: 100%;
+  height: 100%;
+}
+
+.top__track--details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.top__track--actions {
+  color: #de5000;
+  width: 10%;
+  justify-content: space-between;
+  display: flex;
+}
+
 @media screen and (max-width: 1440px) {
   .top__track--container {
     background-color: rgba(50, 50, 50, 0.5);
@@ -14,7 +64,7 @@
     grid-template-columns: 100px 1fr;
     grid-gap: 20px;
     height: 100px;
-    width: 50%;
+    width: 100%;
     align-items: center;
   }
 
@@ -47,10 +97,52 @@
     display: flex;
   }
 }
+@media screen and (max-width: 768px) {
+  .top__track_title_image--container {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 20px;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .top__track--title {
+    display: flex;
+    color: #de5000;
+    justify-self: flex-start;
+    font-size: 1em;
+  }
+
+  .track__cover--container {
+    width: 100px;
+    height: 100px;
+  }
+  .track__cover--container img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .top__track--details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  .top__track--actions {
+    color: #de5000;
+    width: 5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
 @media screen and (max-width: 576px) {
   .top__track--container {
     width: 100%;
     margin: 5% 0;
+    padding: 0 5%;
   }
   .top__track--container:hover {
     background-color: #000000;
@@ -66,8 +158,16 @@
     align-items: center;
   }
 
-  .top__track--title {
-    font-size: 0.8em;
+  .track__cover--container {
+    display: none;
+  }
+  .track__cover--container img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .top__track--title, .top__track--duration {
+    font-size: 0.9em;
   }
 
   .top__tarck--popularity,

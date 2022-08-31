@@ -371,7 +371,7 @@
 
   .card__tabs--panel {
     display: grid;
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
     width: 100%;
   }
@@ -416,14 +416,14 @@
     }
 
     .card__name {
-      color: $primary_color;
       margin: 0;
     }
-
+    
     .album__name {
       margin: 0;
+      color: $primary_color;
     }
-
+    
     .track__link {
       color: $secondary_color;
     }
