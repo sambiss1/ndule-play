@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 import React, { useContext } from "react";
-import { FiHeart, FiPlay } from "react-icons/fi";
+import {  FiPlay } from "react-icons/fi";
 
 import "../styles/artisttoptracks.css";
 import { UserContext } from "../UserContext";
@@ -48,10 +48,10 @@ export function ArtistTopTracksCard({ props }) {
         </h4>
       </div>
       <div className="top__track--details">
-        <h4 className="top__tarck--popularity">{props.popularity}</h4>
+        
         <div className="top__track--actions">
-          <FiHeart />
           <FiPlay />
+          
         </div>
         <h4 className="top__track--duration">{inMinutes}</h4>
       </div>
