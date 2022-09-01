@@ -12,7 +12,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import UnAuthUser from "./UnAuthUser";
+// import UnAuthUser from "./UnAuthUser";
 
 import Albums from "./pages/Albums";
 import SingleAlbum from "./pages/SingleAlbum";
@@ -37,6 +37,7 @@ import UserLogged from "./components/UserLogged";
 import PlayListDetailled from "./pages/PlayListDetailled";
 // import LoginPage from "./pages/LoginPage";
 import { UserContext } from "./UserContext";
+import LoginPage from "./pages/LoginPage";
 
 function App({ hideLoader }) {
   useEffect(hideLoader, []);
@@ -47,14 +48,14 @@ function App({ hideLoader }) {
   useEffect(() => {
     getMyAccount();
   }, []);
-  
+
   return (
     <BrowserRouter>
       {actualToken ? <Sidebar /> : null}
       <Routes>
         {!actualToken ? (
           <>
-            <Route path="/" index element={<UnAuthUser />} />
+            <Route path="/" index element={<LoginPage />} />
             <Route
               path="/*"
               element={actualToken ? <NotFound /> : <Navigate replace to="/" />}
@@ -72,7 +73,7 @@ function App({ hideLoader }) {
             <Route path="/playlist/:id" element={<PlayListDetailled />} />
             <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/liked" element={<Liked />} />
-            <Route path="/login" element={<UnAuthUser />} />
+            {/* <Route path="/login" element={<UnAuthUser />} /> */}
             <Route path="/search" element={<SearchPage />} />
             <Route path="/*" element={<NotFound />} />
           </>

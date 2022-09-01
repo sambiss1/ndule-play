@@ -1,0 +1,52 @@
+@use "sass:map";
+@import "variables";
+@import "__breakpoints";
+
+.sidebar--container {
+    display: none;
+}
+
+
+.not__found {
+  
+
+    &--container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &--title {
+        font-size: 3rem;
+        color: $secondary_color;
+    }
+
+    &--zero {
+        color: $primary_color;
+        font-size: 2em;
+    }
+
+    &--message {
+        font-size: 2em;
+    }
+
+    &--button {
+        width: 25%;
+        background-color: $secondary_color;
+        color: $black_color;
+        border: .1em solid $secondary_color;
+        border-radius: 25px;
+        padding: 0.5em 1em;
+        font-size: 1em;
+        margin: 3% 3% 3% 0;
+        transition: background .3s ease, color .3s ease;
+
+        &:hover {
+            background-color: $primary_color;
+            color: $secondary_color;
+
+        }
+    }
+
+}

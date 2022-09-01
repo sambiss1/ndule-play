@@ -1,0 +1,40 @@
+/* Light mode color */
+/* Dark mode color */
+.sidebar--container {
+  display: none;
+}
+
+.not__found--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.not__found--title {
+  font-size: 3rem;
+  color: #f8e5db;
+}
+.not__found--zero {
+  color: #de5000;
+  font-size: 2em;
+}
+.not__found--message {
+  font-size: 2em;
+}
+.not__found--button {
+  width: 25%;
+  background-color: #f8e5db;
+  color: #000000;
+  border: 0.1em solid #f8e5db;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  margin: 3% 3% 3% 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.not__found--button:hover {
+  background-color: #de5000;
+  color: #f8e5db;
+}
+
+/*# sourceMappingURL=notfound.css.map */

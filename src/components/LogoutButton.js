@@ -14,7 +14,6 @@ export function LogoutButton() {
       className="logout__button"
       onClick={() => {
         logout();
-        window.location.replace("/");
       }}
     >
       <BiLogOut className="logout__button--icon" />
