@@ -7,6 +7,7 @@
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  height: auto;
 }
 .searched__track--container::-webkit-scrollbar {
   display: none;
@@ -27,7 +28,7 @@
 @media screen and (max-width: 1440px) {
   .searched__track--container {
     display: grid;
-    grid-template-columns: repeat(20, 250px);
+    grid-template-columns: repeat(20, 200px);
     grid-gap: 20px;
     overflow-x: auto;
     scrollbar-width: none;
