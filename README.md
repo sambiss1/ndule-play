@@ -17,7 +17,7 @@ Nous listons les fonctionnalités disponibles :
 - Affichage des chansons aimées ou favorites de l'utilisateur sur spotify ;
 - Détails de l'artiste sélectionné.
 
-Les fonctionnalités à venir sont :
+Les fonctionnalités disponibles  :
 
 - Recherche des chansons, des artistes et des albums ;
 - Écoute de la musique à l'aide de son compte premium spotify ;
