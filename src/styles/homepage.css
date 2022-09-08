@@ -1,9 +1,94 @@
 /* Light mode color */
 /* Dark mode color */
+.homepage--container {
+  display: grid;
+  grid-template-columns: 25% 100%;
+}
+
+.homepage__cover--container {
+  height: 600px !important;
+  width: 95%;
+  margin: auto;
+  background: url("/public/cover-home.png") no-repeat;
+  background-color: #de5000;
+  background-position: center right;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5%;
+}
+.homepage__cover--container h3 {
+  font-size: 2em;
+}
+.homepage__cover--container p {
+  margin-top: 0;
+}
+.homepage__cover--container span {
+  font-size: 1.6em;
+}
+.homepage__cover--container .play__recent__playlist {
+  width: 25%;
+  background-color: #f8e5db;
+  color: #000000;
+  border: 0.1em solid #f8e5db;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  margin: 3% 3% 3% 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.homepage__cover--container .play__recent__playlist:hover {
+  background-color: #de5000;
+  color: #f8e5db;
+}
+
 @media (max-width: 1440px) {
   .homepage--container {
     display: grid;
     grid-template-columns: 25% 100%;
+  }
+
+  .homepage__cover--container {
+    height: 400px !important;
+  }
+}
+@media (max-width: 768px) {
+  .homepage--container {
+    display: flex;
+    width: 100%;
+  }
+
+  .homepage__content {
+    left: 0 !important;
+    width: 100% !important;
+    padding-bottom: 200px !important;
+  }
+
+  .homepage__cover--container {
+    height: 300px !important;
+  }
+  .homepage__cover--container h3 {
+    font-size: 1.4em !important;
+  }
+  .homepage__cover--container span {
+    font-size: 1em;
+  }
+  .homepage__cover--container .play__recent__playlist {
+    width: 30%;
+    background-color: #f8e5db;
+    color: #000000;
+    border: 0.1em solid #f8e5db;
+    border-radius: 25px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    margin: 3% 3% 3% 0;
+    transition: all 0.3s ease, color 0.3s ease;
+  }
+  .homepage__cover--container .play__recent__playlist:hover {
+    background-color: #de5000;
+    color: #f8e5db;
   }
 }
 @media (max-width: 576px) {
@@ -19,6 +104,26 @@
 
   .homepage__cover--container {
     height: 200px !important;
+  }
+  .homepage__cover--container h3 {
+    font-size: 1em !important;
+  }
+  .homepage__cover--container span {
+    font-size: 0.8em;
+  }
+  .homepage__cover--container .play__recent__playlist {
+    width: 35%;
+    background-color: #f8e5db;
+    color: #000000;
+    border: 0.1em solid #f8e5db;
+    border-radius: 25px;
+    padding: 0.5em;
+    font-size: 0.8em;
+    margin: 2% 2% 2% 0;
+  }
+  .homepage__cover--container .play__recent__playlist:hover {
+    background-color: #de5000;
+    color: #f8e5db;
   }
 }
 

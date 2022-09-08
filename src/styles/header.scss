@@ -2,10 +2,30 @@
 @import "variables.scss";
 @import "__breakpoints";
 
+.header--container {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+  padding: 2% 2%;
+  position: fixed;
+  background-color: $sidebar_dark_mode_background_color;
+  opacity: 1;
+}
+
+.themetoggler {
+  width: 30%;
+  border: 0.1em solid red;
+}
+
+.mobile__header--container {
+  display: none;
+}
+
+
+
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .header--container {
     display: flex;
-    width: 95%;
     justify-content: space-between;
     padding: 2% 2%;
   }
@@ -20,6 +40,32 @@
   }
 }
 
+@media screen and (max-width: map.get($breakpoints, "md")) {
+  .header--container {
+    display: none;
+  }
+
+  .mobile__header--container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+
+    // padding: 0 5%;
+    .logo__mobile {
+      left: 0 !important;
+      padding: 0;
+      margin: 0;
+
+    }
+
+    div:last-child {
+      border: .1 dashed yellow;
+    }
+  }
+}
+
 @media screen and (max-width: map.get($breakpoints, "sm")) {
   .header--container {
     display: none;
@@ -31,10 +77,13 @@
 
   .mobile__header--container {
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     top: 0;
     padding: 0 5%;
+    padding-left: 0 !important;
+
+   
   }
 }

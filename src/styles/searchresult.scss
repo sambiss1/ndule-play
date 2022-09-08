@@ -2,6 +2,7 @@
 @import "variables";
 @import "__breakpoints";
 
+<<<<<<< HEAD
 @media screen and (max-width: map.get($breakpoints, "sl")) {
   .search__result--container {}
 
@@ -19,5 +20,59 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
+=======
+.searched__track--container {
+  display: grid;
+  grid-template-columns: repeat(20, 300px);
+  grid-gap: 20px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.search__result--title {
+  border: none;
+  background-color: $primary_color;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 25px;
+  margin: 3% 3% 3% 0;
+  width: 15%;
+  text-align: center;
+  color: $secondary_color  !important;
+}
+
+@media screen and (max-width: map.get($breakpoints, "sl")) {
+  .search__result--container {}
+
+  .searched__track--container {
+    display: grid;
+    grid-template-columns: repeat(20, 200px);
+    grid-gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}
+
+@media screen and (max-width: map.get($breakpoints, "sm")) {
+  .search__result--container {}
+
+  .searched__track--container {
+    display: grid;
+    grid-template-columns: repeat(20, 200px);
+
+    grid-gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .search__result--title {
+    width: 50%;
+>>>>>>> feature/albums
   }
 }

@@ -1,28 +1,47 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import { React } from "react";
-
-import MusicEcaliserImage from "../images/musique-fond-egaliseur-haut-parleur_1017-32860.jpg";
+import { React, useContext, useEffect, useState } from "react";
+import { UserContext } from "../UserContext";
+import spotifyApi from "../utils";
 
 export const HomePageSlider = () => {
+  const { userID, setAnUri, setPlay } = useContext(UserContext);
+
+  const [propotionalPlaylist, setPropotentialPlaylist] = useState([]);
+
+
+  useEffect(() => {
+    const getAPlaylist = async () => {
+      try {
+        const getOneUserPlaylist = await spotifyApi.getUserPlaylists({ userID, limit: 1 });
+        setPropotentialPlaylist(getOneUserPlaylist.items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAPlaylist();
+
+  }, []);
+
+
   return (
-    <div
-      style={{
-        width: "95%",
-        height: "400px",
-        margin: "auto",
-      }}
-      className="homepage__cover--container"
-    >
-      <img
-        src={MusicEcaliserImage}
-        alt="music egaliseur "
-        style={{
-          width: "100%",
-          height: "100%",
-          borderRadius: "25px",
-        }}
-      />
+    <div className="homepage__cover--container">
+      <h3>Streamez à fond pour</h3>
+      <p><span>Plus de <i>fun</i></span>, <span>plus de <i>vibes</i></span></p>
+
+      {propotionalPlaylist.map((playlist) => playlist.uri
+        &&
+        (<button className="play__recent__playlist" onClick={() => {
+          setAnUri(playlist.uri);
+          setPlay(true);
+
+        }}>Jouez une playlist</button>)
+
+      )
+
+      }
     </div>
   );
 };

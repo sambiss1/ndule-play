@@ -2,10 +2,112 @@
 @import "variables";
 @import "_breakpoints";
 
+.homepage--container {
+  display: grid;
+  grid-template-columns: 25% 100%;
+}
+
+.homepage__cover--container {
+  height: 600px !important;
+  width: 95%;
+  margin: auto;
+  background: url("/public/cover-home.png") no-repeat;
+  background-color: $primary_color;
+  background-position: center right;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5%;
+
+
+  h3 {
+    font-size: 2em;
+    // margin: 0;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  span {
+    font-size: 1.6em;
+  }
+
+  .play__recent__playlist {
+    width: 25%;
+    background-color: $secondary_color;
+    color: $black_color;
+    border: .1em solid $secondary_color;
+    border-radius: 25px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    margin: 3% 3% 3% 0;
+    transition: background .3s ease, color .3s ease;
+
+    &:hover {
+      background-color: $primary_color;
+      color: $secondary_color;
+
+    }
+
+  }
+}
+
 @media (max-width: map.get($breakpoints, "sl")) {
   .homepage--container {
     display: grid;
     grid-template-columns: 25% 100%;
+  }
+
+  .homepage__cover--container {
+    height: 400px !important;
+  }
+}
+
+@media (max-width: map.get($breakpoints, "md")) {
+  .homepage--container {
+    display: flex;
+    width: 100%;
+
+  }
+
+  .homepage__content {
+    left: 0 !important;
+    width: 100% !important;
+    padding-bottom: 200px !important;
+  }
+
+  .homepage__cover--container {
+    height: 300px !important;
+
+    h3 {
+      font-size: 1.4em !important;
+    }
+
+    span {
+      font-size: 1em;
+    }
+
+    .play__recent__playlist {
+      width: 30%;
+      background-color: $secondary_color;
+      color: $black_color;
+      border: .1em solid $secondary_color;
+      border-radius: 25px;
+      padding: 0.5em 1em;
+      font-size: 1em;
+      margin: 3% 3% 3% 0;
+      transition: all .3s ease, color .3s ease;
+
+      &:hover {
+        background-color: $primary_color;
+        color: $secondary_color;
+
+      }
+
+    }
   }
 }
 
@@ -22,5 +124,32 @@
 
   .homepage__cover--container {
     height: 200px !important;
+
+    h3 {
+      font-size: 1em !important;
+    }
+
+    span {
+      font-size: .8em;
+    }
+
+    .play__recent__playlist {
+      width: 35%;
+      background-color: $secondary_color;
+      color: $black_color;
+      border: .1em solid $secondary_color;
+      border-radius: 25px;
+      padding: 0.5em;
+      font-size: .8em;
+      margin: 2% 2% 2% 0;
+     
+
+      &:hover {
+        background-color: $primary_color;
+        color: $secondary_color;
+
+      }
+
+    }
   }
 }

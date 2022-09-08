@@ -8,13 +8,10 @@ import "../styles/albumitem.css";
 import { UserContext } from "../UserContext";
 
 export function Liked() {
-
   const { likedSong, getUserLikedSongs } = useContext(UserContext);
 
   const spotifyApi = new SpotifyWebApi();
   spotifyApi.setAccessToken(window.localStorage.getItem("token"));
-
-
 
   useEffect(() => {
     setTimeout(() => {

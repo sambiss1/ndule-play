@@ -2,9 +2,9 @@
 /* eslint-disable import/no-named-as-default */
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import SpotifyWebApi from "spotify-web-api-js";
 import ArtistTopTracksCard from "../components/ArtistTopTracksCard";
 import LoadingData from "../components/LoadingData";
+import spotifyApi from "../utils";
 
 import "../styles/App.css";
 import "../styles/homepage.css";
@@ -13,20 +13,15 @@ import "../styles/artistpage.css";
 const Artist = () => {
   const { id } = useParams();
 
-  console.log(id);
 
-  const spotifyArtist = new SpotifyWebApi();
 
-  console.log(localStorage.getItem("token"));
-
-  spotifyArtist.setAccessToken(localStorage.getItem("token"));
   const [artist, setArtist] = useState([]);
   const [artistTopTrack, setArtistTopTrack] = useState([]);
 
   // let artist = []
   const getArtistInfo = async () => {
     try {
-      const getSelectedArtist = await spotifyArtist.getArtist(id);
+      const getSelectedArtist = await spotifyApi.getArtist(id);
       localStorage.setItem("artist", JSON.stringify(getSelectedArtist));
 
       setArtist(getSelectedArtist);
@@ -42,7 +37,7 @@ const Artist = () => {
   }, []);
 
   const getTopTrack = async () => {
-    const getArtistTopTrack = await spotifyArtist.getArtistTopTracks(id, "CD");
+    const getArtistTopTrack = await spotifyApi.getArtistTopTracks(id, "CD");
     // console.log(getArtistTopTrack.tracks);
     setArtistTopTrack(getArtistTopTrack.tracks);
   };
@@ -59,7 +54,7 @@ const Artist = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  return (<div className="homepage--container">
+  return (
 
     <div className="main__container">
       {artist.length <= 0 ? (
@@ -98,7 +93,8 @@ const Artist = () => {
         </div>
       )}
     </div>
-  </div>);
+
+  );
 };
 
 export default Artist;

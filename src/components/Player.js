@@ -8,6 +8,7 @@ export function Player() {
   const spotifyApi = new SpotifyWebApi();
   spotifyApi.setAccessToken(window.localStorage.getItem("token"));
   const { anUri, play, setPlay } = useContext(UserContext);
+
   return (
     <div className="music__player--container">
       <SpotifyPlayer
@@ -15,7 +16,7 @@ export function Player() {
         uris={anUri ? [anUri] : []}
         styles={{
           activeColor: "#fff",
-          bgColor: "#333",
+          bgColor: "rgba(50 50 50 / 50%)",
           color: "#fff",
           loaderColor: "#fff",
           sliderColor: "#DE5000",
@@ -23,9 +24,10 @@ export function Player() {
           trackArtistColor: "#ccc",
           trackNameColor: "#DE5000",
         }}
-        autoPlay
+        autoPlay={play}
         callback={(state) => {
           if (!state.isPlaying) setPlay(false);
+          if (state.isPlaying) setPlay(true);
         }}
         play={play}
         showSaveIcon

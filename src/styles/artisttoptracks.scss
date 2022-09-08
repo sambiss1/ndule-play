@@ -2,6 +2,59 @@
 @import "variables";
 @import "__breakpoints";
 
+.top__track--container {
+  background-color: $sidebar_dark_mode_background_color;
+  height: 100px;
+  display: flex;
+  margin: 2% 0;
+  align-items: center;
+
+  &:hover {
+      background-color: $black_color;
+      cursor: pointer;
+    }
+}
+
+.top__track_title_image--container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 20px;
+  height: 100px;
+  width: 50%;
+  align-items: center;
+}
+
+.top__track--title {
+  display: flex;
+  color: $primary_color;
+  justify-self: flex-start;
+}
+
+.track__cover--container {
+  width: 100px;
+  height: 100px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.top__track--details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.top__track--actions {
+  color: $primary_color;
+  width: 10%;
+  justify-content: space-between;
+  display: flex;
+}
+
+
 @media screen and(max-width: map.get($breakpoints, "sl")) {
   .top__track--container {
     background-color: $sidebar_dark_mode_background_color;
@@ -16,7 +69,7 @@
     grid-template-columns: 100px 1fr;
     grid-gap: 20px;
     height: 100px;
-    width: 50%;
+    width: 100%;
     align-items: center;
   }
 
@@ -51,10 +104,57 @@
   }
 }
 
+
+@media screen and(max-width: map.get($breakpoints, "md")) {
+  
+
+  .top__track_title_image--container {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 20px;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .top__track--title {
+    display: flex;
+    color: $primary_color;
+    justify-self: flex-start;
+    font-size: 1em;
+  }
+
+  .track__cover--container {
+    width: 100px;
+    height: 100px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .top__track--details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  .top__track--actions {
+    color: $primary_color;
+    width: 5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
+
 @media screen and (max-width: map.get($breakpoints, "sm")) {
   .top__track--container {
     width: 100%;
     margin: 5% 0;
+    padding: 0 5%;
 
     &:hover {
       background-color: $black_color;
@@ -70,13 +170,22 @@
     width: 100%;
     align-items: center;
   }
+  .track__cover--container {
+   display: none;
+  
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 
-  .top__track--title {
-    font-size: .8em;
+  .top__track--title, .top__track--duration {
+    font-size: .9em;
   }
 
   .top__tarck--popularity,
   .top__track--actions {
     display: none;
   }
+
 }

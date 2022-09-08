@@ -1,9 +1,27 @@
 /* Light mode color */
 /* Dark mode color */
+.header--container {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+  padding: 2% 2%;
+  position: fixed;
+  background-color: rgba(50, 50, 50, 0.5);
+  opacity: 1;
+}
+
+.themetoggler {
+  width: 30%;
+  border: 0.1em solid red;
+}
+
+.mobile__header--container {
+  display: none;
+}
+
 @media screen and (max-width: 1440px) {
   .header--container {
     display: flex;
-    width: 95%;
     justify-content: space-between;
     padding: 2% 2%;
   }
@@ -17,6 +35,27 @@
     display: none;
   }
 }
+@media screen and (max-width: 768px) {
+  .header--container {
+    display: none;
+  }
+
+  .mobile__header--container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+  }
+  .mobile__header--container .logo__mobile {
+    left: 0 !important;
+    padding: 0;
+    margin: 0;
+  }
+  .mobile__header--container div:last-child {
+    border: 0.1 dashed yellow;
+  }
+}
 @media screen and (max-width: 576px) {
   .header--container {
     display: none;
@@ -28,11 +67,12 @@
 
   .mobile__header--container {
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     top: 0;
     padding: 0 5%;
+    padding-left: 0 !important;
   }
 }
 

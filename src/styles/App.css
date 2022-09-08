@@ -8,6 +8,12 @@ body {
   background-color: #0e1010;
   color: #f8e5db;
   font-family: "Nunito";
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .dot-typing {
@@ -68,10 +74,11 @@ body {
 }
 
 .application__logo--container {
-  width: 80%;
-  height: 60px;
+  width: 70%;
+  height: 80px;
   display: flex;
   margin: 0 auto;
+  margin-left: 10% !important;
 }
 .application__logo--container img {
   width: 100%;
@@ -103,6 +110,29 @@ body {
   align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+  .main__container {
+    left: 0;
+    width: 100%;
+    padding-bottom: 200px;
+  }
+
+  .page__content {
+    padding-top: 15%;
+  }
+
+  .application__logo--container {
+    width: 70%;
+    height: 80px;
+    display: flex;
+    margin: 0;
+    margin-left: 5% !important;
+  }
+  .application__logo--container img {
+    width: 100%;
+    height: 100%;
+  }
+}
 @media screen and (max-width: 576px) {
   .main__container {
     left: 0;
@@ -123,6 +153,7 @@ body {
 
   .page__content {
     padding-top: 30%;
+    width: 90%;
   }
 }
 

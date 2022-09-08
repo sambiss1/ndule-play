@@ -10,6 +10,7 @@ import AlbumTrack from "../components/AlbumTrack";
 
 import "../styles/App.css";
 import "../styles/singlealbum.css";
+import "../styles/homepage.css";
 
 export const SingleAlbum = () => {
   const { id } = useParams();
@@ -45,7 +46,7 @@ export const SingleAlbum = () => {
   }, []);
 
   return (
-    <div>
+    // <div className="homepage__content">
       <div className="main__container">
         {album.length <= 0 ? (
           <LoadingData />
@@ -99,11 +100,11 @@ export const SingleAlbum = () => {
                 <LoadingData />
               ) : (
                 albumTracks.map(
-                  (albumTrack) =>
+                  (albumTrack, index) =>
                     albumTrack.artists +
-                      albumTrack.name +
-                      albumTrack.track_number && (
-                      <AlbumTrack key={albumTrack.id} props={albumTrack} />
+                    albumTrack.name +
+                    albumTrack.track_number && (
+                      <AlbumTrack key={albumTrack.id} index={index} props={albumTrack} />
                     )
                 )
               )}
@@ -111,7 +112,7 @@ export const SingleAlbum = () => {
           </div>
         )}
       </div>
-    </div>
+    // </div>
   );
 };
 

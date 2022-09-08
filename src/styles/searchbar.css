@@ -1,5 +1,55 @@
 /* Light mode color */
 /* Dark mode color */
+form {
+  font-size: 1.6em;
+  margin-right: 15%;
+  width: 20%;
+  height: 40px;
+}
+
+.desktop__search--form {
+  display: flex;
+}
+
+.search__input--container {
+  display: flex;
+  position: relative;
+}
+.search__input--container .search__bar--icon {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  font-size: 0.8em;
+}
+.search__input--container input[type=search] {
+  background-color: rgba(50, 50, 50, 0.5);
+  color: #f8e5db;
+  border-radius: 25px 0 0 25px;
+  padding: 1% 25%;
+  border-right: none;
+  outline: none;
+  outline-color: none;
+  border: 0.1em solid #fff;
+}
+
+input[type=submit] {
+  background-color: #de5000;
+  color: #ffffff;
+  border: none;
+  padding: 5% 15%;
+  border-radius: 0 25px 25px 0;
+  transition: all 0.3s ease;
+}
+input[type=submit]:hover {
+  cursor: pointer;
+  color: #de5000;
+  background-color: #ffffff;
+}
+
+.mobile__search--form {
+  display: none;
+}
+
 @media (max-width: 1440px) {
   form {
     font-size: 1.6em;
@@ -28,7 +78,7 @@
     border-radius: 25px 0 0 25px;
     padding: 1% 25%;
     border-right: none;
-    outline-color: #de5000;
+    outline: none;
     border: 0.1em solid #fff;
   }
 
@@ -44,7 +94,7 @@
     display: none;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .mobile__search--form {
     display: flex;
     width: 95%;
@@ -72,8 +122,51 @@
   }
   .search__input--container input[type=search] {
     border-radius: 25px;
-    border-right: none;
     width: 100%;
+    padding-left: 15%;
+    outline: none;
+    border: none;
+  }
+  .search__input--container input[type=search]:focus {
+    border: none;
+  }
+
+  input[type=submit] {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .mobile__search--form {
+    display: flex;
+    width: 90%;
+    margin: auto;
+  }
+
+  form {
+    font-size: 1em;
+    margin-right: 15%;
+    width: 20%;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+  }
+
+  .search__input--container {
+    width: 100%;
+  }
+  .search__input--container .search__bar--icon {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    font-size: 1em;
+  }
+  .search__input--container input[type=search] {
+    border-radius: 25px;
+    width: 100%;
+    padding-left: 15%;
+    outline: none;
+    border: none;
   }
   .search__input--container input[type=search]:focus {
     border: none;
