@@ -14,11 +14,6 @@ export const BestResult = () => {
 };
 
 export function SearchBar() {
-<<<<<<< HEAD
-
-
-=======
->>>>>>> feature/albums
   const navigate = useNavigate();
 
   const { term, setTerm, setTermSearched, setIsSearching } = useContext(UserContext);
@@ -56,11 +51,7 @@ export function SearchBar() {
           // }}
           onChange={(event) => {
             setTerm(event.target.value);
-<<<<<<< HEAD
-            window.location.pathname !== "/search" ? navigate("/search", { replace: true }) : window.location("/search");
-=======
             searchitem();
->>>>>>> feature/albums
           }}
         />
 

@@ -2,25 +2,6 @@
 @import "variables";
 @import "__breakpoints";
 
-<<<<<<< HEAD
-@media screen and (max-width: map.get($breakpoints, "sl")) {
-  .search__result--container {}
-
-  .searched__track--container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-  }
-}
-
-@media screen and (max-width: map.get($breakpoints, "sm")) {
-  .search__result--container {}
-
-  .searched__track--container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-=======
 .searched__track--container {
   display: grid;
   grid-template-columns: repeat(20, 300px);
@@ -73,6 +54,5 @@
 
   .search__result--title {
     width: 50%;
->>>>>>> feature/albums
   }
 }
