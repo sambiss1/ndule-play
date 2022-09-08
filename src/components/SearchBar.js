@@ -63,6 +63,7 @@ export function SearchBar() {
       </div>
     </form>
   );
+
 }
 
 export default SearchBar;
