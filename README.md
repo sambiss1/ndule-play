@@ -28,7 +28,7 @@ Une fois finie, pour lancer l'application il faut taper la commande :
   
   
   
-## Version anglaise
+## English
 
 This is a draft of a music streaming application called "Ndule Play".
 
