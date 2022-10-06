@@ -113,7 +113,7 @@
   }
 
   .top__tarck--popularity,
-  .playlist__track--actions {
+.playlist__track--actions {
     display: none;
   }
 }
