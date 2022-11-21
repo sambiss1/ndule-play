@@ -22,9 +22,11 @@ Pour executer le projet il faut :
     Pour le mode production il faut : 
   - REACT_APP_PRO_MODE_REDIRECT_URI = https://ndule-play-by-sam.vercel.app/
 
+-  Installer toutes les dépendances : 
+   <code> npm install </code>
 
 Une fois finie, pour lancer l'application il faut taper la commande :
-  - npm start 
+  <code> npm start </code>
   
   
   
@@ -52,9 +54,10 @@ To run the project you need to :
     For the production mode you need : 
   - REACT_APP_PRO_MODE_REDIRECT_URI = https://ndule-play-by-sam.vercel.app/
 
+- Install packages dependancies : 
+  <code>npm install </code>
 
 Once finished, to launch the application you must type the command :
-  - npm start 
+  <code> npm start </code>
   
 
-Translated with www.DeepL.com/Translator (free version)
