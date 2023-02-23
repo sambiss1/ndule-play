@@ -8,7 +8,7 @@ import "./styles/App.css";
 import {
   BrowserRouter,
   Navigate,
-  Outlet,
+  Outlet, 
   Route,
   Routes,
 } from "react-router-dom";
@@ -48,7 +48,7 @@ function App({ hideLoader }) {
   useEffect(() => {
     getMyAccount();
   }, []);
-
+ 
   return (
     <BrowserRouter>
       {actualToken ? <Sidebar /> : null}
